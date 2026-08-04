@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://utiltools.com/</loc>
+    <loc>https://utiltools.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/word-counter</loc>
+    <loc>https://utiltools.org/tools/word-counter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/case-converter</loc>
+    <loc>https://utiltools.org/tools/case-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/json-formatter</loc>
+    <loc>https://utiltools.org/tools/json-formatter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/diff-checker</loc>
+    <loc>https://utiltools.org/tools/diff-checker</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/qr-generator</loc>
+    <loc>https://utiltools.org/tools/qr-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/password-generator</loc>
+    <loc>https://utiltools.org/tools/password-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/unit-converter</loc>
+    <loc>https://utiltools.org/tools/unit-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/tools/base64</loc>
+    <loc>https://utiltools.org/tools/base64</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/about</loc>
+    <loc>https://utiltools.org/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/privacy</loc>
+    <loc>https://utiltools.org/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://utiltools.com/suggest</loc>
+    <loc>https://utiltools.org/suggest</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
