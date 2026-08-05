@@ -267,6 +267,22 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 .sidebar-suggest-btn:hover { border-color: var(--accent); text-decoration: none; }
 
+.sidebar-github-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text) !important;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+.sidebar-github-btn:hover { border-color: var(--accent); text-decoration: none !important; }
+
 .sidebar-privacy {
   font-size: 0.75rem;
   color: var(--muted);
@@ -770,6 +786,27 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   opacity: 0.85;
   text-decoration: none !important;
   color: #fff !important;
+}
+
+/* ── GitHub button ── */
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--surface);
+  color: var(--text) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.15s, background 0.15s;
+}
+.github-btn:hover {
+  border-color: var(--accent);
+  text-decoration: none !important;
+  color: var(--text) !important;
 }
 
 /* ── Footer ── */

@@ -8,8 +8,9 @@ const CATEGORIES = ['Text', 'Developer', 'File', 'Image', 'Math / Numbers', 'Sec
 // Get your free access key at https://web3forms.com
 // Enter your email there → they send the key instantly.
 // Free tier: 250 submissions/month, no account needed.
+// Set VITE_WEB3FORMS_KEY in your .env file (copy .env.example).
 // ─────────────────────────────────────────────────────────────
-const WEB3FORMS_KEY = 'e3d8cbe1-4f8d-441b-9f4d-b7f00f7f5e03'
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'YOUR_ACCESS_KEY'
 
 export default function Suggest() {
   const [form, setForm] = useState({ tool: '', category: 'Text', description: '', email: '' })
