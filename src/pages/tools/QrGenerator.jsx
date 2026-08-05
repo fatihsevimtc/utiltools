@@ -21,10 +21,23 @@ export default function QrGenerator() {
   function download() {
     const canvas = canvasRef.current
     if (!canvas) return
-    const a = document.createElement('a')
-    a.href = canvas.toDataURL('image/png')
-    a.download = 'qrcode.png'
-    a.click()
+
+    // iOS Safari doesn't support the download attribute on anchor clicks.
+    // Use toBlob + createObjectURL which works across all browsers including iPhone.
+    canvas.toBlob(blob => {
+      if (!blob) return
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'qrcode.png'
+      // iOS fallback: if download attribute is ignored, open image in new tab
+      a.target = '_blank'
+      a.rel = 'noopener'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+    }, 'image/png')
   }
 
   return (
