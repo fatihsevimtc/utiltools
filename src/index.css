@@ -26,7 +26,21 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Style the scrollbar to match the dark theme */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-hover); text-decoration: underline; }
@@ -39,6 +53,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   position: sticky;
   top: 0;
   z-index: 100;
+  flex-shrink: 0;
 }
 
 .header-inner {
@@ -68,9 +83,10 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .main-content {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
-  min-height: calc(100vh - 120px);
+  flex: 1;
 }
 
 .site-footer {
@@ -80,6 +96,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
+  flex-shrink: 0;
 }
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--accent); }
