@@ -104,9 +104,11 @@ export default function Home() {
     const q = query.toLowerCase().trim()
     if (!q) return null
     return ALL_TOOLS.filter(t =>
-      t.name.toLowerCase().includes(q) ||
-      t.desc.toLowerCase().includes(q) ||
-      (t.category || '').toLowerCase().includes(q)
+      t.path && (
+        t.name.toLowerCase().includes(q) ||
+        (t.desc || '').toLowerCase().includes(q) ||
+        (t.category || '').toLowerCase().includes(q)
+      )
     )
   }, [query])
 
