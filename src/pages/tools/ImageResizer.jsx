@@ -8,11 +8,12 @@ export default function ImageResizer() {
   const [lockAspect, setLock]   = useState(true)
   const [format, setFormat]     = useState('image/png')
   const [quality, setQuality]   = useState(90)
+  const [dragging, setDragging] = useState(false)
   const canvasRef               = useRef(null)
+  const fileInputRef            = useRef(null)
 
-  function onFile(e) {
-    const file = e.target.files?.[0]
-    if (!file) return
+  function loadFile(file) {
+    if (!file || !file.type.startsWith('image/')) return
     const reader = new FileReader()
     reader.onload = ev => {
       const img = new Image()
@@ -24,6 +25,14 @@ export default function ImageResizer() {
       img.src = ev.target.result
     }
     reader.readAsDataURL(file)
+  }
+
+  function onFile(e) { loadFile(e.target.files?.[0]) }
+
+  function onDrop(e) {
+    e.preventDefault()
+    setDragging(false)
+    loadFile(e.dataTransfer.files?.[0])
   }
 
   function handleW(val) {
@@ -64,15 +73,36 @@ export default function ImageResizer() {
       <h1>Image Resizer</h1>
       <p className="tool-description">Resize images in your browser — no upload, no server, instant download.</p>
 
-      <label htmlFor="ir-file">Select image</label>
-      <input id="ir-file" type="file" accept="image/*" onChange={onFile}
-        style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '0.65rem', cursor: 'pointer', width: '100%', color: 'var(--text)' }} />
+      {/* Drop zone */}
+      <div
+        className={`file-drop-zone${dragging ? ' file-drop-zone--active' : ''}`}
+        onClick={() => fileInputRef.current?.click()}
+        onDragOver={e => { e.preventDefault(); setDragging(true) }}
+        onDragLeave={() => setDragging(false)}
+        onDrop={onDrop}
+        role="button"
+        tabIndex={0}
+        aria-label="Select or drop an image"
+        onKeyDown={e => e.key === 'Enter' && fileInputRef.current?.click()}
+      >
+        <span className="file-drop-icon">🖼️</span>
+        <p className="file-drop-label">
+          {original ? original.name : 'Drop an image here or click to browse'}
+        </p>
+        {original && (
+          <p className="file-drop-meta">{original.w} × {original.h} px</p>
+        )}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={onFile}
+          style={{ display: 'none' }}
+        />
+      </div>
 
       {original && (
         <>
-          <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginTop: '0.5rem' }}>
-            Original: {original.w} × {original.h} px
-          </p>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '1rem', alignItems: 'flex-end' }}>
             <div style={{ flex: '1 1 120px' }}>

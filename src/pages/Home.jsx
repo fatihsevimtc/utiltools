@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
 const FEATURED = [
@@ -163,38 +163,17 @@ const CATEGORIES = [
 ]
 
 const COMING_SOON = [
-  { name: 'CSS to Tailwind' },
-  { name: 'JS Formatter' },
-  { name: 'HTML Formatter' },
-  { name: 'TOML to JSON' },
-  { name: 'SQL Minifier' },
-  { name: 'GraphQL Formatter' },
-  { name: 'Regex to English' },
-  { name: 'Glob Tester' },
-  { name: 'Query String Parser' },
-  { name: 'MIME Type Lookup' },
-  { name: 'IP Address Info' },
-  { name: 'User Agent Parser' },
-  { name: 'Kebab to camelCase' },
-  { name: 'Vowel Counter' },
-  { name: 'Empty Line Remover' },
-  { name: 'RSA Key Generator' },
-  { name: 'Bcrypt Hash' },
-  { name: 'Bcrypt Verify' },
-  { name: 'ISBN Validator' },
-  { name: 'EAN Barcode Generator' },
-  { name: 'Image Cropper' },
-  { name: 'Image Compressor' },
-  { name: 'PNG to JPEG' },
-  { name: 'WebP Converter' },
-  { name: 'PDF Merge' },
-  { name: 'PDF to Text' },
-  { name: 'PDF Page Count' },
-  { name: 'Word Count (DOCX)' },
-  { name: 'Matrix Calculator' },
-  { name: 'Currency Converter' },
-  { name: 'Calendar Generator' },
-  { name: 'CSS Variables Inspector' },
+  { name: 'CSS to Tailwind' }, { name: 'JS Formatter' }, { name: 'HTML Formatter' },
+  { name: 'TOML to JSON' }, { name: 'SQL Minifier' }, { name: 'GraphQL Formatter' },
+  { name: 'Regex to English' }, { name: 'Glob Tester' }, { name: 'Query String Parser' },
+  { name: 'MIME Type Lookup' }, { name: 'IP Address Info' }, { name: 'User Agent Parser' },
+  { name: 'Kebab to camelCase' }, { name: 'Vowel Counter' }, { name: 'Empty Line Remover' },
+  { name: 'RSA Key Generator' }, { name: 'Bcrypt Hash' }, { name: 'Bcrypt Verify' },
+  { name: 'ISBN Validator' }, { name: 'EAN Barcode Generator' }, { name: 'Image Cropper' },
+  { name: 'Image Compressor' }, { name: 'PNG to JPEG' }, { name: 'WebP Converter' },
+  { name: 'PDF Merge' }, { name: 'PDF to Text' }, { name: 'PDF Page Count' },
+  { name: 'Word Count (DOCX)' }, { name: 'Matrix Calculator' }, { name: 'Currency Converter' },
+  { name: 'Calendar Generator' }, { name: 'CSS Variables Inspector' },
 ]
 
 const ALL_TOOLS = [
@@ -202,9 +181,61 @@ const ALL_TOOLS = [
   ...CATEGORIES.flatMap(c => c.tools.map(t => ({ ...t, category: c.label }))),
 ]
 
+// ── localStorage helpers ──────────────────────────────────────────────────────
+const LS_FAVS    = 'ut_favorites'
+const LS_RECENT  = 'ut_recent'
+const MAX_RECENT = 8
+
+function loadFavs() {
+  try { return JSON.parse(localStorage.getItem(LS_FAVS) || '[]') } catch { return [] }
+}
+function saveFavs(paths) {
+  localStorage.setItem(LS_FAVS, JSON.stringify(paths))
+}
+function loadRecent() {
+  try { return JSON.parse(localStorage.getItem(LS_RECENT) || '[]') } catch { return [] }
+}
+function addRecentPath(path) {
+  const prev = loadRecent().filter(p => p !== path)
+  localStorage.setItem(LS_RECENT, JSON.stringify([path, ...prev].slice(0, MAX_RECENT)))
+}
+
 export default function Home() {
   const [query, setQuery]         = useState('')
   const [activeCat, setActiveCat] = useState(null) // null = show featured
+  const [favPaths, setFavPaths]   = useState(loadFavs)
+  const [recentPaths, setRecentPaths] = useState(loadRecent)
+  const searchRef = useRef(null)
+
+  // Ctrl+K / Cmd+K → focus search
+  useEffect(() => {
+    function onKey(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault()
+        searchRef.current?.focus()
+        searchRef.current?.select()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  // Sync favs to localStorage whenever they change
+  useEffect(() => { saveFavs(favPaths) }, [favPaths])
+
+  const toggleFav = useCallback((path, e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setFavPaths(prev =>
+      prev.includes(path) ? prev.filter(p => p !== path) : [path, ...prev]
+    )
+  }, [])
+
+  // Track recently visited — called from card click
+  const handleToolClick = useCallback((path) => {
+    addRecentPath(path)
+    setRecentPaths(loadRecent())
+  }, [])
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim()
@@ -218,181 +249,298 @@ export default function Home() {
     )
   }, [query])
 
-  const isSoon = activeCat === 'soon'
+  const isSoon   = activeCat === 'soon'
+  const isFavs   = activeCat === 'favs'
+  const isRecent = activeCat === 'recent'
 
-  const centerTools = activeCat && !isSoon
-    ? CATEGORIES.find(c => c.id === activeCat)?.tools ?? []
-    : FEATURED
+  const centerTools = (isSoon || isFavs || isRecent || activeCat === null)
+    ? FEATURED
+    : CATEGORIES.find(c => c.id === activeCat)?.tools ?? []
 
-  const centerTitle = isSoon
-    ? '🚀 Coming Soon'
+  const centerTitle = isSoon   ? '🚀 Coming Soon'
+    : isFavs                   ? '❤️ Favourites'
+    : isRecent                 ? '🕒 Recently Used'
     : activeCat
       ? CATEGORIES.find(c => c.id === activeCat)?.label
       : '⭐ Popular tools'
 
   const totalTools = ALL_TOOLS.filter(t => t.path).length
 
+  // Resolve paths → full tool objects for favs/recent
+  const pathToTool = useMemo(() => {
+    const map = {}
+    ALL_TOOLS.forEach(t => { if (t.path) map[t.path] = t })
+    return map
+  }, [])
+
+  const favTools    = favPaths.map(p => pathToTool[p]).filter(Boolean)
+  const recentTools = recentPaths.map(p => pathToTool[p]).filter(Boolean)
+
   return (
-    <div className="home-layout">
-      {/* ── LEFT SIDEBAR ── */}
-      <aside className="home-sidebar home-sidebar-left">
-        <p className="sidebar-heading">Categories</p>
-
-        <button
-          className={`sidebar-cat-btn ${activeCat === null ? 'active' : ''}`}
-          onClick={() => { setActiveCat(null); setQuery('') }}
-        >
-          ⭐ Popular
-          <span className="sidebar-count">{FEATURED.length}</span>
-        </button>
-
-        {CATEGORIES.map(cat => (
-          <button
-            key={cat.id}
-            className={`sidebar-cat-btn ${activeCat === cat.id ? 'active' : ''}`}
-            onClick={() => { setActiveCat(cat.id); setQuery('') }}
-          >
-            {cat.label}
-            <span className="sidebar-count">{cat.tools.length}</span>
-          </button>
-        ))}
-
-        <button
-          className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
-          onClick={() => { setActiveCat('soon'); setQuery('') }}
-        >
-          🚀 Coming Soon
-          <span className="sidebar-count">{COMING_SOON.length}</span>
-        </button>
-      </aside>
-
-      {/* ── CENTER ── */}
-      <div className="home-center">
-        {/* Search bar */}
-        <div className="search-wrap" style={{ marginBottom: '1.25rem' }}>
+    <div>
+      {/* ── HERO ── */}
+      <div className="hero">
+        <h1>Free Browser Tools for <span>Developers</span>, Writers & Creators</h1>
+        <p>{totalTools} fast, privacy-first utilities that run entirely in your browser.</p>
+        <div className="search-wrap" style={{ maxWidth: 580 }}>
           <input
+            ref={searchRef}
             type="search"
             className="search-input"
-            placeholder={`Search all ${totalTools} tools…`}
+            placeholder={`Search all ${totalTools} tools… (Ctrl+K)`}
             value={query}
             onChange={e => { setQuery(e.target.value); setActiveCat(null) }}
             aria-label="Search tools"
           />
           {query && (
-            <button className="search-clear" onClick={() => setQuery('')} aria-label="Clear">✕</button>
+            <button className="search-clear" onClick={() => setQuery('')} aria-label="Clear search">✕</button>
           )}
         </div>
+      </div>
 
-        {/* Search results */}
-        {filtered !== null ? (
-          filtered.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--muted)' }}>
-              <p style={{ fontSize: '2rem' }}>🔍</p>
-              <p style={{ marginTop: '0.5rem' }}>No results for "{query}"</p>
-              <Link to="/suggest" style={{ fontSize: '0.875rem' }}>Suggest a tool →</Link>
-            </div>
-          ) : (
+      <div className="home-layout">
+        {/* ── LEFT SIDEBAR ── */}
+        <aside className="home-sidebar home-sidebar-left">
+          <p className="sidebar-heading">Categories</p>
+
+          <button
+            className={`sidebar-cat-btn ${activeCat === null ? 'active' : ''}`}
+            onClick={() => { setActiveCat(null); setQuery('') }}
+          >
+            ⭐ Popular
+            <span className="sidebar-count">{FEATURED.length}</span>
+          </button>
+
+          {favTools.length > 0 && (
+            <button
+              className={`sidebar-cat-btn ${isFavs ? 'active' : ''}`}
+              onClick={() => { setActiveCat('favs'); setQuery('') }}
+            >
+              ❤️ Favourites
+              <span className="sidebar-count">{favTools.length}</span>
+            </button>
+          )}
+
+          {recentTools.length > 0 && (
+            <button
+              className={`sidebar-cat-btn ${isRecent ? 'active' : ''}`}
+              onClick={() => { setActiveCat('recent'); setQuery('') }}
+            >
+              🕒 Recent
+              <span className="sidebar-count">{recentTools.length}</span>
+            </button>
+          )}
+
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat.id}
+              className={`sidebar-cat-btn ${activeCat === cat.id ? 'active' : ''}`}
+              onClick={() => { setActiveCat(cat.id); setQuery('') }}
+            >
+              {cat.label}
+              <span className="sidebar-count">{cat.tools.length}</span>
+            </button>
+          ))}
+
+          <button
+            className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
+            onClick={() => { setActiveCat('soon'); setQuery('') }}
+          >
+            🚀 Coming Soon
+            <span className="sidebar-count">{COMING_SOON.length}</span>
+          </button>
+
+
+        </aside>
+
+        {/* ── CENTER ── */}
+        <div className="home-center">
+
+          {/* Search results */}
+          {filtered !== null ? (
+            filtered.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--muted)' }}>
+                <p style={{ fontSize: '2rem' }}>🔍</p>
+                <p style={{ marginTop: '0.5rem' }}>No results for "{query}"</p>
+                <Link to="/suggest" style={{ fontSize: '0.875rem' }}>Suggest a tool →</Link>
+              </div>
+            ) : (
+              <>
+                <p style={{ color: 'var(--muted)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
+                  {filtered.length} result{filtered.length !== 1 ? 's' : ''}
+                </p>
+                <div className="tools-grid">
+                  {filtered.map(t => (
+                    <ToolCard key={t.path} tool={t} isFav={favPaths.includes(t.path)} onFav={toggleFav} onClick={handleToolClick} />
+                  ))}
+                </div>
+              </>
+            )
+          ) : isSoon ? (
             <>
-              <p style={{ color: 'var(--muted)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>
-                {filtered.length} result{filtered.length !== 1 ? 's' : ''}
+              <p className="center-title">🚀 Coming Soon</p>
+              <p style={{ color: 'var(--muted)', fontSize: '0.82rem', marginBottom: '1rem' }}>
+                These tools are in the pipeline. <Link to="/suggest">Suggest one</Link> to bump it up the list.
               </p>
               <div className="tools-grid">
-                {filtered.map(t => (
-                  <Link key={t.path} to={t.path} className="tool-card">
-                    <div className="tool-icon">{t.icon}</div>
+                {COMING_SOON.map(t => (
+                  <div key={t.name} className="tool-card tool-card--soon">
+                    <div className="tool-icon">🔜</div>
                     <h3>{t.name}</h3>
-                    <p>{t.desc}</p>
-                    {t.category && <span style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: 'auto' }}>{t.category}</span>}
-                  </Link>
+                    <p style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>Coming soon</p>
+                  </div>
                 ))}
               </div>
             </>
-          )
-        ) : isSoon ? (
-          <>
-            <p className="center-title">{centerTitle}</p>
-            <p style={{ color: 'var(--muted)', fontSize: '0.82rem', marginBottom: '1rem' }}>
-              These tools are in the pipeline. <Link to="/suggest">Suggest one</Link> to bump it up the list.
-            </p>
-            <div className="tools-grid">
-              {COMING_SOON.map(t => (
-                <div key={t.name} className="tool-card tool-card--soon">
-                  <div className="tool-icon">🔜</div>
-                  <h3>{t.name}</h3>
-                  <p style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>Coming soon</p>
+          ) : isFavs ? (
+            favTools.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--muted)' }}>
+                <p style={{ fontSize: '2rem' }}>❤️</p>
+                <p style={{ marginTop: '0.5rem' }}>No favourites yet. Click the ❤ on any tool card to save it.</p>
+              </div>
+            ) : (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
+                  <p className="center-title" style={{ margin: 0 }}>❤️ Favourites</p>
+                  <button
+                    className="btn-ghost btn-sm"
+                    onClick={() => { setFavPaths([]); localStorage.removeItem(LS_FAVS); setActiveCat(null) }}
+                    title="Clear all favourites"
+                  >
+                    Clear all
+                  </button>
                 </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <>
-            <p className="center-title">{centerTitle}</p>
-            <div className="tools-grid">
-              {centerTools.map(t => (
-                <Link key={t.path} to={t.path} className="tool-card">
-                  <div className="tool-icon">{t.icon}</div>
-                  <h3>{t.name}</h3>
-                  <p>{t.desc}</p>
-                </Link>
-              ))}
-            </div>
-          </>
-        )}
+                <div className="tools-grid">
+                  {favTools.map(t => (
+                    <ToolCard key={t.path} tool={t} isFav={true} onFav={toggleFav} onClick={handleToolClick} />
+                  ))}
+                </div>
+              </>
+            )
+          ) : isRecent ? (
+            recentTools.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--muted)' }}>
+                <p style={{ fontSize: '2rem' }}>🕒</p>
+                <p style={{ marginTop: '0.5rem' }}>No recently used tools yet.</p>
+              </div>
+            ) : (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
+                  <p className="center-title" style={{ margin: 0 }}>🕒 Recently Used</p>
+                  <button
+                    className="btn-ghost btn-sm"
+                    onClick={() => { setRecentPaths([]); localStorage.removeItem(LS_RECENT); setActiveCat(null) }}
+                    title="Clear recently used"
+                  >
+                    Clear all
+                  </button>
+                </div>
+                <div className="tools-grid">
+                  {recentTools.map(t => (
+                    <ToolCard key={t.path} tool={t} isFav={favPaths.includes(t.path)} onFav={toggleFav} onClick={handleToolClick} />
+                  ))}
+                </div>
+              </>
+            )
+          ) : (
+            <>
+              <p className="center-title">{centerTitle}</p>
+              <div className="tools-grid">
+                {centerTools.map(t => (
+                  <ToolCard key={t.path} tool={t} isFav={favPaths.includes(t.path)} onFav={toggleFav} onClick={handleToolClick} />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* ── RIGHT SIDEBAR ── */}
+        <aside className="home-sidebar home-sidebar-right">
+          {/* Privacy first — it's a trust signal */}
+          <div className="sidebar-stat-box" style={{ textAlign: 'left' }}>
+            <p style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Privacy</p>
+            <p className="sidebar-privacy" style={{ textAlign: 'left' }}>🔒 Runs locally</p>
+            <p className="sidebar-privacy">📤 No uploads</p>
+            <p className="sidebar-privacy">📊 No tracking</p>
+          </div>
+
+          <div className="sidebar-divider" />
+
+          <div className="sidebar-stat-box">
+            <div className="sidebar-stat-value">{totalTools}</div>
+            <div className="sidebar-stat-label">Free tools</div>
+          </div>
+
+          <div className="sidebar-stat-box">
+            <div className="sidebar-stat-value">{CATEGORIES.length}</div>
+            <div className="sidebar-stat-label">Categories</div>
+          </div>
+
+          <div className="sidebar-divider" />
+
+          <p className="sidebar-heading">Support</p>
+          <a
+            href="https://ko-fi.com/utiltools"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sidebar-donate-btn"
+          >
+            ♥ Donate
+          </a>
+
+          <Link to="/suggest" className="sidebar-suggest-btn">
+            💡 Suggest a tool
+          </Link>
+
+          <a
+            href="https://github.com/fatihsevimtc/utiltools"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sidebar-github-btn"
+          >
+            <svg height="14" width="14" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" style={{ flexShrink: 0 }}>
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+                .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+                -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+                .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
+                .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+                0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+            Contribute on GitHub
+          </a>
+        </aside>
       </div>
-
-      {/* ── RIGHT SIDEBAR ── */}
-      <aside className="home-sidebar home-sidebar-right">
-        <div className="sidebar-stat-box">
-          <div className="sidebar-stat-value">{totalTools}</div>
-          <div className="sidebar-stat-label">Free tools</div>
-        </div>
-
-        <div className="sidebar-stat-box">
-          <div className="sidebar-stat-value">{CATEGORIES.length}</div>
-          <div className="sidebar-stat-label">Categories</div>
-        </div>
-
-        <div className="sidebar-divider" />
-
-        <p className="sidebar-heading">Support</p>
-        <a
-          href="https://ko-fi.com/utiltools"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="sidebar-donate-btn"
-        >
-          ♥ Donate
-        </a>
-
-        <Link to="/suggest" className="sidebar-suggest-btn">
-          💡 Suggest a tool
-        </Link>
-
-        <a
-          href="https://github.com/fatihsevimtc/utiltools"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="sidebar-github-btn"
-        >
-          <svg height="14" width="14" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" style={{ flexShrink: 0 }}>
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-              -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
-              .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-              -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
-              .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
-              .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
-              0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-          </svg>
-          Contribute on GitHub
-        </a>
-
-        <div className="sidebar-divider" />
-
-        <p className="sidebar-privacy">
-          🔒 100% private — nothing leaves your browser
-        </p>
-      </aside>
     </div>
+  )
+}
+
+// ── ToolCard ─────────────────────────────────────────────────────────────────
+function ToolCard({ tool, isFav, onFav, onClick }) {
+  return (
+    <Link
+      to={tool.path}
+      className="tool-card"
+      onClick={() => onClick(tool.path)}
+      style={{ position: 'relative' }}
+    >
+      <button
+        className="tool-fav-btn"
+        onClick={e => onFav(tool.path, e)}
+        aria-label={isFav ? 'Remove from favourites' : 'Add to favourites'}
+        title={isFav ? 'Remove from favourites' : 'Add to favourites'}
+      >
+        {isFav ? '❤️' : '🤍'}
+      </button>
+      <div className="tool-icon">{tool.icon}</div>
+      <h3>{tool.name}</h3>
+      <p>{tool.desc}</p>
+      {tool.category && (
+        <span style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: 'auto' }}>
+          {tool.category}
+        </span>
+      )}
+    </Link>
   )
 }

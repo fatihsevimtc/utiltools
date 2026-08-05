@@ -3,12 +3,25 @@ import BackBar from '../../components/BackBar'
 
 function pad(n) { return String(n).padStart(2, '0') }
 
+// Build a datetime-local string from separate date + time strings
+function combine(date, time) {
+  if (!date) return ''
+  return `${date}T${time || '00:00'}`
+}
+
 export default function CountdownTimer() {
   const [targetDate, setTargetDate] = useState('')
-  const [label, setLabel] = useState('New Year 2027')
-  const [timeLeft, setTimeLeft] = useState(null)
-  const [finished, setFinished] = useState(false)
+  const [dateVal, setDateVal]       = useState('')
+  const [timeVal, setTimeVal]       = useState('00:00')
+  const [label, setLabel]           = useState('New Year 2027')
+  const [timeLeft, setTimeLeft]     = useState(null)
+  const [finished, setFinished]     = useState(false)
   const rafRef = useRef()
+
+  // Keep combined targetDate in sync
+  useEffect(() => {
+    setTargetDate(combine(dateVal, timeVal))
+  }, [dateVal, timeVal])
 
   useEffect(() => {
     if (!targetDate) { setTimeLeft(null); setFinished(false); return }
@@ -33,6 +46,12 @@ export default function CountdownTimer() {
     return () => clearTimeout(rafRef.current)
   }, [targetDate])
 
+  function applyPreset(dt) {
+    const [d, t] = dt.split('T')
+    setDateVal(d)
+    setTimeVal(t || '00:00')
+  }
+
   const presets = [
     { label: 'New Year 2027',    date: '2027-01-01T00:00' },
     { label: 'Christmas 2026',   date: '2026-12-25T00:00' },
@@ -47,11 +66,25 @@ export default function CountdownTimer() {
       <p className="tool-description">Count down to any date and time, right in your browser.</p>
 
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
-        <div style={{ flex: 2, minWidth: 200 }}>
-          <label htmlFor="cd-date">Target date & time</label>
-          <input id="cd-date" type="datetime-local" value={targetDate} onChange={e => setTargetDate(e.target.value)} />
+        <div style={{ flex: '1 1 160px' }}>
+          <label htmlFor="cd-date">Target date</label>
+          <input
+            id="cd-date"
+            type="date"
+            value={dateVal}
+            onChange={e => setDateVal(e.target.value)}
+          />
         </div>
-        <div style={{ flex: 1, minWidth: 160 }}>
+        <div style={{ flex: '1 1 130px' }}>
+          <label htmlFor="cd-time">Time</label>
+          <input
+            id="cd-time"
+            type="time"
+            value={timeVal}
+            onChange={e => setTimeVal(e.target.value)}
+          />
+        </div>
+        <div style={{ flex: '2 1 180px' }}>
           <label htmlFor="cd-label">Label (optional)</label>
           <input id="cd-label" type="text" value={label} onChange={e => setLabel(e.target.value)} placeholder="Event name" />
         </div>
@@ -59,7 +92,7 @@ export default function CountdownTimer() {
 
       <div className="chip-group" style={{ marginBottom: '1.5rem' }}>
         {presets.map(p => (
-          <button key={p.label} className="chip" onClick={() => { setTargetDate(p.date); setLabel(p.label) }}>{p.label}</button>
+          <button key={p.label} className="chip" onClick={() => { applyPreset(p.date); setLabel(p.label) }}>{p.label}</button>
         ))}
       </div>
 

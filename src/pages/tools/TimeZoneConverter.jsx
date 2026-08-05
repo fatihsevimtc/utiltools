@@ -37,39 +37,28 @@ function formatInZone(date, tz) {
   }).format(date)
 }
 
-function tzOffset(date, tz) {
-  const utc = date.getTime()
-  const local = new Date(date.toLocaleString('en-US', { timeZone: tz }))
-  const diff = Math.round((local - new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }))) / 60000)
-  return diff >= 0 ? `UTC+${diff / 60}` : `UTC${diff / 60}`
-}
-
 export default function TimeZoneConverter() {
-  const [input, setInput] = useState('')
+  const [dateVal, setDateVal]   = useState('')
+  const [timeVal, setTimeVal]   = useState('')
   const [sourceZone, setSourceZone] = useState('UTC')
-  const [targets, setTargets] = useState(['America/New_York', 'Europe/London', 'Asia/Tokyo'])
-  const [now, setNow] = useState(new Date())
+  const [targets, setTargets]   = useState(['America/New_York', 'Europe/London', 'Asia/Tokyo'])
+  const [now, setNow]           = useState(new Date())
 
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000)
     return () => clearInterval(id)
   }, [])
 
-  const dateToConvert = input ? new Date(input) : now
+  const inputStr = dateVal ? `${dateVal}T${timeVal || '00:00'}` : ''
+  const dateToConvert = inputStr ? new Date(inputStr) : now
   const validDate = !isNaN(dateToConvert.getTime())
 
   function addTarget() {
     const remaining = ZONES.filter(z => !targets.includes(z))
     if (remaining.length) setTargets(t => [...t, remaining[0]])
   }
-
-  function removeTarget(tz) {
-    setTargets(t => t.filter(x => x !== tz))
-  }
-
-  function updateTarget(i, tz) {
-    setTargets(t => t.map((x, idx) => idx === i ? tz : x))
-  }
+  function removeTarget(tz) { setTargets(t => t.filter(x => x !== tz)) }
+  function updateTarget(i, tz) { setTargets(t => t.map((x, idx) => idx === i ? tz : x)) }
 
   return (
     <div className="tool-page">
@@ -78,19 +67,34 @@ export default function TimeZoneConverter() {
       <p className="tool-description">Convert a date and time between multiple time zones at once.</p>
 
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'flex-end', marginBottom: '1rem' }}>
-        <div style={{ flex: 2, minWidth: 200 }}>
-          <label htmlFor="tz-input">Date & time (leave blank for now)</label>
-          <input id="tz-input" type="datetime-local" value={input} onChange={e => setInput(e.target.value)} />
+        <div style={{ flex: '1 1 150px' }}>
+          <label htmlFor="tz-date">Date (leave blank for now)</label>
+          <input
+            id="tz-date"
+            type="date"
+            value={dateVal}
+            onChange={e => setDateVal(e.target.value)}
+          />
         </div>
-        <div style={{ flex: 1, minWidth: 180 }}>
+        <div style={{ flex: '1 1 120px' }}>
+          <label htmlFor="tz-time">Time</label>
+          <input
+            id="tz-time"
+            type="time"
+            value={timeVal}
+            onChange={e => setTimeVal(e.target.value)}
+            disabled={!dateVal}
+          />
+        </div>
+        <div style={{ flex: '2 1 180px' }}>
           <label htmlFor="tz-source">Source time zone</label>
-          <select id="tz-source" value={sourceZone} onChange={e => setSourceZone(e.target.value)} style={{ width: '100%', padding: '0.55rem', borderRadius: 8, border: '1px solid var(--border)', background: 'var(--surface)', color: 'var(--text)' }}>
+          <select id="tz-source" value={sourceZone} onChange={e => setSourceZone(e.target.value)}>
             {ZONES.map(z => <option key={z} value={z}>{z}</option>)}
           </select>
         </div>
       </div>
 
-      {!input && (
+      {!dateVal && (
         <p style={{ fontSize: '0.82rem', color: 'var(--muted)', marginBottom: '0.75rem' }}>
           Showing current time — updates every second
         </p>
@@ -107,7 +111,7 @@ export default function TimeZoneConverter() {
           {/* Target rows */}
           {targets.map((tz, i) => (
             <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, padding: '0.5rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-              <select value={tz} onChange={e => updateTarget(i, e.target.value)} style={{ flex: 1, minWidth: 160, padding: '0.35rem 0.5rem', borderRadius: 6, border: '1px solid var(--border)', background: 'var(--bg)', color: 'var(--text)', fontSize: '0.85rem' }}>
+              <select value={tz} onChange={e => updateTarget(i, e.target.value)} style={{ flex: 1, minWidth: 160 }}>
                 {ZONES.map(z => <option key={z} value={z}>{z}</option>)}
               </select>
               <code style={{ flex: 2, minWidth: 180, fontSize: '0.85rem' }}>{formatInZone(dateToConvert, tz)}</code>
