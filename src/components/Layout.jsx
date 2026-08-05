@@ -1,36 +1,116 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import { useTheme } from '../useTheme'
+import Logo from './Logo'
 
 const TOOL_NAMES = {
-  '/tools/word-counter':       'Word Counter',
-  '/tools/case-converter':     'Case Converter',
-  '/tools/json-formatter':     'JSON Formatter',
-  '/tools/diff-checker':       'Diff Checker',
-  '/tools/qr-generator':       'QR Generator',
-  '/tools/password-generator': 'Password Generator',
-  '/tools/unit-converter':     'Unit Converter',
-  '/tools/base64':             'Base64 / URL Encode',
-  '/tools/lorem-ipsum':        'Lorem Ipsum',
-  '/tools/text-repeater':      'Text Repeater',
-  '/tools/string-reverse':     'String Reverse',
-  '/tools/duplicate-remover':  'Duplicate Remover',
-  '/tools/line-sort':          'Line Sorter',
-  '/tools/markdown-preview':   'Markdown Preview',
-  '/tools/html-entities':      'HTML Entities',
-  '/tools/jwt-decoder':        'JWT Decoder',
-  '/tools/regex-tester':       'Regex Tester',
-  '/tools/color-converter':    'Color Converter',
-  '/tools/timestamp':          'Timestamp Converter',
-  '/tools/uuid-generator':     'UUID Generator',
-  '/tools/hash-generator':     'Hash Generator',
-  '/tools/random-number':      'Random Number',
-  '/tools/percentage':         'Percentage Calc',
-  '/tools/number-base':        'Number Base',
-  '/tools/roman-numeral':      'Roman Numerals',
-  '/tools/age-calculator':     'Age Calculator',
-  '/tools/date-difference':    'Date Difference',
-  '/tools/image-resizer':      'Image Resizer',
-  '/tools/file-size':          'File Size Converter',
+  '/tools/word-counter':           'Word Counter',
+  '/tools/case-converter':         'Case Converter',
+  '/tools/json-formatter':         'JSON Formatter',
+  '/tools/diff-checker':           'Diff Checker',
+  '/tools/qr-generator':           'QR Generator',
+  '/tools/password-generator':     'Password Generator',
+  '/tools/unit-converter':         'Unit Converter',
+  '/tools/base64':                 'Base64 / URL Encode',
+  '/tools/lorem-ipsum':            'Lorem Ipsum',
+  '/tools/text-repeater':          'Text Repeater',
+  '/tools/string-reverse':         'String Reverse',
+  '/tools/duplicate-remover':      'Duplicate Remover',
+  '/tools/line-sort':              'Line Sorter',
+  '/tools/markdown-preview':       'Markdown Preview',
+  '/tools/slug-generator':         'Slug Generator',
+  '/tools/word-frequency':         'Word Frequency',
+  '/tools/text-to-binary':         'Text ↔ Binary',
+  '/tools/morse-code':             'Morse Code',
+  '/tools/palindrome':             'Palindrome Checker',
+  '/tools/anagram':                'Anagram Checker',
+  '/tools/whitespace-remover':     'Whitespace Remover',
+  '/tools/email-extractor':        'Email Extractor',
+  '/tools/url-extractor':          'URL Extractor',
+  '/tools/number-extractor':       'Number Extractor',
+  '/tools/line-break-remover':     'Line Break Remover',
+  '/tools/sentence-counter':       'Sentence Counter',
+  '/tools/text-to-hashtags':       'Text to Hashtags',
+  '/tools/title-case-apa':         'Title Case (APA)',
+  '/tools/pig-latin':              'Pig Latin',
+  '/tools/html-entities':          'HTML Entities',
+  '/tools/jwt-decoder':            'JWT Decoder',
+  '/tools/regex-tester':           'Regex Tester',
+  '/tools/color-converter':        'Color Converter',
+  '/tools/timestamp':              'Timestamp Converter',
+  '/tools/css-minifier':           'CSS Minifier',
+  '/tools/css-formatter':          'CSS Formatter',
+  '/tools/js-minifier':            'JS Minifier',
+  '/tools/html-minifier':          'HTML Minifier',
+  '/tools/html-to-markdown':       'HTML → Markdown',
+  '/tools/markdown-to-html':       'Markdown → HTML',
+  '/tools/xml-formatter':          'XML Formatter',
+  '/tools/xml-to-json':            'XML → JSON',
+  '/tools/json-to-xml':            'JSON → XML',
+  '/tools/json-to-csv':            'JSON → CSV',
+  '/tools/csv-to-json':            'CSV → JSON',
+  '/tools/yaml-to-json':           'YAML → JSON',
+  '/tools/json-to-yaml':           'JSON → YAML',
+  '/tools/sql-formatter':          'SQL Formatter',
+  '/tools/cron-parser':            'Cron Parser',
+  '/tools/url-parser':             'URL Parser',
+  '/tools/url-builder':            'URL Builder',
+  '/tools/http-status':            'HTTP Status Codes',
+  '/tools/json-path':              'JSON Path Tester',
+  '/tools/totp-generator':         'TOTP / OTP Generator',
+  '/tools/hex-calculator':         'Hex Calculator',
+  '/tools/iban-validator':         'IBAN Validator',
+  '/tools/credit-card-validator':  'Credit Card Validator',
+  '/tools/data-uri-encoder':       'Data URI Encoder',
+  '/tools/fake-data-generator':    'Fake Data Generator',
+  '/tools/uuid-generator':         'UUID Generator',
+  '/tools/hash-generator':         'Hash Generator',
+  '/tools/random-number':          'Random Number',
+  '/tools/avatar-generator':       'Avatar Generator',
+  '/tools/logo-maker':             'Logo Maker',
+  '/tools/linkedin-post-maker':    'LinkedIn Post Maker',
+  '/tools/percentage':             'Percentage Calc',
+  '/tools/number-base':            'Number Base',
+  '/tools/roman-numeral':          'Roman Numerals',
+  '/tools/binary-calculator':      'Binary Calculator',
+  '/tools/prime-checker':          'Prime Checker',
+  '/tools/gcd-lcm':                'GCD / LCM',
+  '/tools/fibonacci':              'Fibonacci Generator',
+  '/tools/bmi':                    'BMI Calculator',
+  '/tools/tip-calculator':         'Tip Calculator',
+  '/tools/loan-calculator':        'Loan Calculator',
+  '/tools/compound-interest':      'Compound Interest',
+  '/tools/vat-calculator':         'VAT Calculator',
+  '/tools/scientific-calculator':  'Scientific Calculator',
+  '/tools/factorial':              'Factorial / P / C',
+  '/tools/age-calculator':         'Age Calculator',
+  '/tools/date-difference':        'Date Difference',
+  '/tools/timezone':               'Time Zone Converter',
+  '/tools/countdown':              'Countdown Timer',
+  '/tools/stopwatch':              'Stopwatch',
+  '/tools/working-days':           'Working Days',
+  '/tools/week-number':            'Week Number',
+  '/tools/pomodoro':               'Pomodoro Timer',
+  '/tools/image-resizer':          'Image Resizer',
+  '/tools/file-size':              'File Size Converter',
+  '/tools/image-to-base64':        'Image to Base64',
+  '/tools/base64-to-image':        'Base64 to Image',
+  '/tools/image-color-picker':     'Image Color Picker',
+  '/tools/favicon-generator':      'Favicon Generator',
+  '/tools/exif-viewer':            'EXIF Viewer',
+  '/tools/gradient-generator':     'Gradient Generator',
+  '/tools/box-shadow':             'Box Shadow Generator',
+  '/tools/border-radius':          'Border Radius',
+  '/tools/palette-generator':      'Palette Generator',
+  '/tools/flexbox-playground':     'Flexbox Playground',
+  '/tools/grid-generator':         'Grid Generator',
+  '/tools/svg-optimizer':          'SVG Optimizer',
+  '/tools/html-color-names':       'HTML Color Names',
+  '/tools/ai-model-comparison':    'AI Model Comparison',
+  '/tools/token-counter':          'Token Counter',
+  '/tools/system-prompt-builder':  'System Prompt Builder',
+  '/tools/prompt-formatter':       'Prompt Formatter',
+  '/tools/prompt-improver':        'Prompt Improver',
 }
 
 export default function Layout() {
@@ -38,6 +118,21 @@ export default function Layout() {
   const isToolPage = location.pathname.startsWith('/tools/')
   const toolName = TOOL_NAMES[location.pathname]
   const [menuOpen, setMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
+
+  useEffect(() => {
+    if (toolName) {
+      document.title = `${toolName} — UtilTools`
+    } else if (location.pathname === '/about') {
+      document.title = 'About — UtilTools'
+    } else if (location.pathname === '/suggest') {
+      document.title = 'Suggest a Tool — UtilTools'
+    } else if (location.pathname === '/privacy') {
+      document.title = 'Privacy — UtilTools'
+    } else {
+      document.title = 'UtilTools — Free Browser Utilities'
+    }
+  }, [location.pathname, toolName])
 
   function closeMenu() { setMenuOpen(false) }
 
@@ -48,7 +143,7 @@ export default function Layout() {
           {/* Left: logo + breadcrumb */}
           <div className="header-left">
             <Link to="/" className="logo" onClick={closeMenu}>
-              util<span>tools</span>
+              <Logo height={32} />
             </Link>
             {isToolPage && toolName && (
               <div className="breadcrumb">
@@ -62,6 +157,14 @@ export default function Layout() {
           <nav className="nav nav-desktop">
             <Link to="/suggest">Suggest a tool</Link>
             <Link to="/about">About</Link>
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </button>
             <a
               href="https://ko-fi.com/utiltools"
               target="_blank"
@@ -73,8 +176,15 @@ export default function Layout() {
             </a>
           </nav>
 
-          {/* Mobile: donate button always visible + hamburger */}
+          {/* Mobile: theme toggle + donate + hamburger */}
           <div className="nav-mobile">
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? '☀️' : '🌙'}
+            </button>
             <a
               href="https://ko-fi.com/utiltools"
               target="_blank"
