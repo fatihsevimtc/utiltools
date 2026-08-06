@@ -52,8 +52,9 @@ export default function CurrencyConverter() {
   const [toRows, setToRows]             = useState([
     { id: 1, currency: 'EUR' },
     { id: 2, currency: 'GBP' },
+    { id: 3, currency: 'AUD' },
   ])
-  const [nextId, setNextId] = useState(3)
+  const [nextId, setNextId] = useState(4)
 
   // Fetch rates whenever fromCurrency changes (base = fromCurrency)
   // v2 API: https://api.frankfurter.dev/v2/rates?base=USD
