@@ -326,10 +326,17 @@ const COMING_SOON = [
   { name: 'Calendar Generator' }, { name: 'CSS Variables Inspector' },
 ]
 
-const ALL_TOOLS = [
+// Deduplicate by path — FEATURED + CATEGORIES can overlap
+const _allToolsRaw = [
   ...FEATURED,
   ...CATEGORIES.flatMap(c => c.tools.map(t => ({ ...t, category: c.label }))),
 ]
+const seen = new Set()
+const ALL_TOOLS = _allToolsRaw.filter(t => {
+  if (!t.path || seen.has(t.path)) return false
+  seen.add(t.path)
+  return true
+})
 
 // ── localStorage helpers ──────────────────────────────────────────────────────
 const LS_FAVS    = 'ut_favorites'
