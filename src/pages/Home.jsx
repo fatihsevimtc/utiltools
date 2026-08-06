@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 // Recently-added tools (shown with "New" badge)
 const NEW_TOOLS = new Set([
@@ -42,36 +42,36 @@ function getSpotlight() {
 
 // A curated short list for the hero marquee — readable at a slow scroll speed
 const MARQUEE_ITEMS = [
-  { icon: '📝', name: 'Word Counter' },
-  { icon: '🔒', name: 'Base64 Encode' },
-  { icon: '🗂️', name: 'JSON Formatter' },
-  { icon: '🎨', name: 'Gradient Generator' },
-  { icon: '🔑', name: 'JWT Decoder' },
-  { icon: '📷', name: 'QR Generator' },
-  { icon: '🔐', name: 'Password Generator' },
-  { icon: '⏱️', name: 'Pomodoro Timer' },
-  { icon: '🆔', name: 'UUID Generator' },
-  { icon: '🎨', name: 'Color Converter' },
-  { icon: '📐', name: 'Unit Converter' },
-  { icon: '🌍', name: 'Time Zone Converter' },
-  { icon: '🔍', name: 'Regex Tester' },
-  { icon: '📊', name: 'CSV → JSON' },
-  { icon: '🌈', name: 'Palette Generator' },
-  { icon: '⚖️', name: 'BMI Calculator' },
-  { icon: '🗄️', name: 'SQL Formatter' },
-  { icon: '📸', name: 'EXIF Viewer' },
-  { icon: '🤖', name: 'Prompt Improver' },
-  { icon: '🔀', name: 'Diff Checker' },
-  { icon: '🎂', name: 'Age Calculator' },
-  { icon: '📡', name: 'Morse Code' },
-  { icon: '#️⃣', name: 'Hash Generator' },
-  { icon: '🖼️', name: 'Image Resizer' },
-  { icon: '🪙', name: 'Token Counter' },
-  { icon: '🔢', name: 'Number Base' },
-  { icon: '📋', name: 'Markdown Preview' },
-  { icon: '🌑', name: 'Box Shadow' },
-  { icon: '🔗', name: 'URL Parser' },
-  { icon: '💰', name: 'VAT Calculator' },
+  { icon: '📝', name: 'Word Counter',        path: '/tools/word-counter' },
+  { icon: '🔒', name: 'Base64 Encode',       path: '/tools/base64' },
+  { icon: '🗂️', name: 'JSON Formatter',     path: '/tools/json-formatter' },
+  { icon: '🎨', name: 'Gradient Generator',  path: '/tools/gradient-generator' },
+  { icon: '🔑', name: 'JWT Decoder',         path: '/tools/jwt-decoder' },
+  { icon: '📷', name: 'QR Generator',        path: '/tools/qr-generator' },
+  { icon: '🔐', name: 'Password Generator',  path: '/tools/password-generator' },
+  { icon: '⏱️', name: 'Pomodoro Timer',     path: '/tools/pomodoro' },
+  { icon: '🆔', name: 'UUID Generator',      path: '/tools/uuid-generator' },
+  { icon: '🎨', name: 'Color Converter',     path: '/tools/color-converter' },
+  { icon: '📐', name: 'Unit Converter',      path: '/tools/unit-converter' },
+  { icon: '🌍', name: 'Time Zone Converter', path: '/tools/timezone' },
+  { icon: '🔍', name: 'Regex Tester',        path: '/tools/regex-tester' },
+  { icon: '📊', name: 'CSV → JSON',          path: '/tools/csv-to-json' },
+  { icon: '🌈', name: 'Palette Generator',   path: '/tools/palette-generator' },
+  { icon: '⚖️', name: 'BMI Calculator',     path: '/tools/bmi' },
+  { icon: '🗄️', name: 'SQL Formatter',      path: '/tools/sql-formatter' },
+  { icon: '📸', name: 'EXIF Viewer',         path: '/tools/exif-viewer' },
+  { icon: '🤖', name: 'Prompt Improver',     path: '/tools/prompt-improver' },
+  { icon: '🔀', name: 'Diff Checker',        path: '/tools/diff-checker' },
+  { icon: '🎂', name: 'Age Calculator',      path: '/tools/age-calculator' },
+  { icon: '📡', name: 'Morse Code',          path: '/tools/morse-code' },
+  { icon: '#️⃣', name: 'Hash Generator',    path: '/tools/hash-generator' },
+  { icon: '🖼️', name: 'Image Resizer',      path: '/tools/image-resizer' },
+  { icon: '🪙', name: 'Token Counter',       path: '/tools/token-counter' },
+  { icon: '🔢', name: 'Number Base',         path: '/tools/number-base' },
+  { icon: '📋', name: 'Markdown Preview',    path: '/tools/markdown-preview' },
+  { icon: '🌑', name: 'Box Shadow',          path: '/tools/box-shadow' },
+  { icon: '🔗', name: 'URL Parser',          path: '/tools/url-parser' },
+  { icon: '💰', name: 'VAT Calculator',      path: '/tools/vat-calculator' },
 ]
 
 const FEATURED = [
@@ -306,8 +306,9 @@ function addRecentPath(path) {
 }
 
 export default function Home() {
+  const [searchParams] = useSearchParams()
   const [query, setQuery]         = useState('')
-  const [activeCat, setActiveCat] = useState(null) // null = show featured
+  const [activeCat, setActiveCat] = useState(() => searchParams.get('cat') || null)
   const [favPaths, setFavPaths]   = useState(loadFavs)
   const [recentPaths, setRecentPaths] = useState(loadRecent)
   const [catsExpanded, setCatsExpanded] = useState(false)
@@ -416,12 +417,12 @@ export default function Home() {
 
       {/* ── MARQUEE STRIP ── */}
       {!query && (
-        <div className="hero-marquee" aria-hidden="true">
+        <div className="hero-marquee">
           <div className="hero-marquee-track">
             {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((t, i) => (
-              <span key={i} className="hero-marquee-item">
+              <Link key={i} to={t.path} className="hero-marquee-item">
                 <span>{t.icon}</span> {t.name}
-              </span>
+              </Link>
             ))}
           </div>
         </div>

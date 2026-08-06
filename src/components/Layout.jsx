@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link, Outlet, useLocation, NavLink } from 'react-router-dom'
 import { useTheme } from '../useTheme'
 import Logo from './Logo'
+import { TOOL_CATEGORY_MAP, CATEGORY_LABEL } from '../toolCategories'
 
 const TOOL_NAMES = {
   '/tools/word-counter':           'Word Counter',
@@ -278,7 +279,7 @@ export default function Layout() {
       </header>
 
       <main className="main-content">
-        <Outlet />
+        <Outlet context={{ category: TOOL_CATEGORY_MAP[location.pathname], categoryLabel: CATEGORY_LABEL[TOOL_CATEGORY_MAP[location.pathname]] }} />
       </main>
 
       <footer className="site-footer">
