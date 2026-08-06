@@ -203,8 +203,8 @@ export default function CurrencyConverter() {
               </div>
 
               {/* Result */}
-              <div style={{ flex: '2 1 140px', minWidth: 120, alignSelf: 'flex-end' }}>
-                <div style={{ padding: '0.55rem 0.85rem', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, minHeight: 42, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <div style={{ flex: '2 1 140px', minWidth: 120, alignSelf: 'flex-end', position: 'relative' }}>
+                <div style={{ padding: '0.55rem 0.85rem', paddingRight: toRows.length > 1 ? '2.2rem' : '0.85rem', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, minHeight: 42, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                   {loading ? (
                     <span style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>Loading…</span>
                   ) : !hasAmount ? (
@@ -218,17 +218,16 @@ export default function CurrencyConverter() {
                     </>
                   )}
                 </div>
+                {/* Remove button inside result box — always aligned, large touch target on mobile */}
+                {toRows.length > 1 && (
+                  <button
+                    onClick={() => removeRow(row.id)}
+                    title="Remove row"
+                    style={{ position: 'absolute', top: '50%', right: '0.3rem', transform: 'translateY(-50%)', padding: 0, width: 32, height: 32, background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '0.85rem', color: 'var(--muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 6 }}
+                    aria-label="Remove this currency row"
+                  >✕</button>
+                )}
               </div>
-
-              {/* Remove row (only if more than 1) */}
-              {toRows.length > 1 && (
-                <button
-                  onClick={() => removeRow(row.id)}
-                  title="Remove row"
-                  style={{ alignSelf: 'flex-end', padding: '0.55rem 0.65rem', background: 'transparent', border: '1px solid var(--border)', borderRadius: 8, cursor: 'pointer', fontSize: '0.9rem', color: 'var(--muted)', flexShrink: 0 }}
-                  aria-label="Remove this currency row"
-                >✕</button>
-              )}
             </div>
           )
         })}
