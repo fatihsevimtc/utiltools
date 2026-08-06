@@ -46,7 +46,6 @@ body {
   font-family: var(--font);
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -55,6 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: clip; /* contains page width without killing child overflow-x:auto */
 }
 
 /* Style the scrollbar to match the dark theme */
@@ -91,9 +91,10 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .logo {
   color: var(--text);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  line-height: 1;
 }
 .logo:hover { text-decoration: none; opacity: 0.85; }
 
@@ -150,6 +151,22 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+}
+
+/* Desktop: scroll wrappers are invisible pass-throughs */
+.cat-scroll-wrap { display: contents; }
+.cat-scroll-row  { display: contents; }
+
+/* Desktop: show all cats, hide the mobile expand toggle */
+.cat-extra       { display: contents; }
+.cat-expand-btn  { display: none; }
+
+/* Desktop left sidebar stays as a flex column */
+@media (min-width: 641px) {
+  .home-sidebar-left {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .sidebar-heading {
@@ -939,15 +956,37 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
   /* Home layout — stack on mobile */
   .home-layout { grid-template-columns: 1fr; gap: 0.75rem; }
+
+  /* Category chips — 2-column grid on mobile */
   .home-sidebar-left {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.4rem;
     position: static;
   }
   .home-sidebar-left .sidebar-heading { display: none; }
-  .sidebar-cat-btn { flex: 0 0 auto; width: auto; font-size: 0.8rem; }
+  .sidebar-cat-btn { width: 100%; font-size: 0.8rem; white-space: nowrap; }
   .home-sidebar-right { display: none; }
+
+  /* Extra cats hidden until expanded */
+  .cat-extra {
+    display: none;
+  }
+  .cat-extra--open {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  /* Expand button spans both columns */
+  .cat-expand-btn {
+    grid-column: 1 / -1;
+    color: var(--accent);
+    border-color: var(--accent) !important;
+    font-size: 0.78rem;
+    justify-content: center;
+  }
 
   /* Swap desktop nav for hamburger */
   .nav-desktop { display: none; }
@@ -965,11 +1004,6 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   .tools-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
   .tool-card { padding: 0.85rem; }
   .tool-card .tool-icon { font-size: 1.5rem; }
-
-/* Tablet — 2 cols for tools */
-@media (max-width: 900px) and (min-width: 641px) {
-  .tools-grid { grid-template-columns: repeat(2, 1fr); }
-}
 
   /* Diff checker side-by-side → stacked */
   .diff-grid { grid-template-columns: 1fr; }
@@ -997,8 +1031,9 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   .logo { font-size: 1.1rem; }
 }
 
-/* Tablet — hide right sidebar only */
+/* Tablet — 2 cols for tools, hide right sidebar */
 @media (max-width: 900px) and (min-width: 641px) {
   .home-layout { grid-template-columns: 210px 1fr; }
   .home-sidebar-right { display: none; }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
 }

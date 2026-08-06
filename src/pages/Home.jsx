@@ -205,6 +205,7 @@ export default function Home() {
   const [activeCat, setActiveCat] = useState(null) // null = show featured
   const [favPaths, setFavPaths]   = useState(loadFavs)
   const [recentPaths, setRecentPaths] = useState(loadRecent)
+  const [catsExpanded, setCatsExpanded] = useState(false)
   const searchRef = useRef(null)
 
   // Ctrl+K / Cmd+K → focus search
@@ -303,54 +304,63 @@ export default function Home() {
         <aside className="home-sidebar home-sidebar-left">
           <p className="sidebar-heading">Categories</p>
 
-          <button
-            className={`sidebar-cat-btn ${activeCat === null ? 'active' : ''}`}
-            onClick={() => { setActiveCat(null); setQuery('') }}
-          >
-            ⭐ Popular
-            <span className="sidebar-count">{FEATURED.length}</span>
-          </button>
+          {(() => {
+            const allBtns = [
+              <button key="popular"
+                className={`sidebar-cat-btn ${activeCat === null ? 'active' : ''}`}
+                onClick={() => { setActiveCat(null); setQuery('') }}
+              >⭐ Popular<span className="sidebar-count">{FEATURED.length}</span></button>,
 
-          {favTools.length > 0 && (
-            <button
-              className={`sidebar-cat-btn ${isFavs ? 'active' : ''}`}
-              onClick={() => { setActiveCat('favs'); setQuery('') }}
-            >
-              ❤️ Favourites
-              <span className="sidebar-count">{favTools.length}</span>
-            </button>
-          )}
+              ...(favTools.length > 0 ? [
+                <button key="favs"
+                  className={`sidebar-cat-btn ${isFavs ? 'active' : ''}`}
+                  onClick={() => { setActiveCat('favs'); setQuery('') }}
+                >❤️ Favourites<span className="sidebar-count">{favTools.length}</span></button>
+              ] : []),
 
-          {recentTools.length > 0 && (
-            <button
-              className={`sidebar-cat-btn ${isRecent ? 'active' : ''}`}
-              onClick={() => { setActiveCat('recent'); setQuery('') }}
-            >
-              🕒 Recent
-              <span className="sidebar-count">{recentTools.length}</span>
-            </button>
-          )}
+              ...(recentTools.length > 0 ? [
+                <button key="recent"
+                  className={`sidebar-cat-btn ${isRecent ? 'active' : ''}`}
+                  onClick={() => { setActiveCat('recent'); setQuery('') }}
+                >🕒 Recent<span className="sidebar-count">{recentTools.length}</span></button>
+              ] : []),
 
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat.id}
-              className={`sidebar-cat-btn ${activeCat === cat.id ? 'active' : ''}`}
-              onClick={() => { setActiveCat(cat.id); setQuery('') }}
-            >
-              {cat.label}
-              <span className="sidebar-count">{cat.tools.length}</span>
-            </button>
-          ))}
+              ...CATEGORIES.map(cat => (
+                <button key={cat.id}
+                  className={`sidebar-cat-btn ${activeCat === cat.id ? 'active' : ''}`}
+                  onClick={() => { setActiveCat(cat.id); setQuery('') }}
+                >{cat.label}<span className="sidebar-count">{cat.tools.length}</span></button>
+              )),
 
-          <button
-            className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
-            onClick={() => { setActiveCat('soon'); setQuery('') }}
-          >
-            🚀 Coming Soon
-            <span className="sidebar-count">{COMING_SOON.length}</span>
-          </button>
+              <button key="soon"
+                className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
+                onClick={() => { setActiveCat('soon'); setQuery('') }}
+              >🚀 Coming Soon<span className="sidebar-count">{COMING_SOON.length}</span></button>,
+            ]
 
+            const VISIBLE = 4
 
+            return (
+              <>
+                {/* First N always visible */}
+                {allBtns.slice(0, VISIBLE)}
+
+                {/* Rest — hidden on mobile until expanded */}
+                <span className={`cat-extra ${catsExpanded ? 'cat-extra--open' : ''}`}>
+                  {allBtns.slice(VISIBLE)}
+                </span>
+
+                {/* Expand toggle — only visible on mobile via CSS */}
+                <button
+                  className="sidebar-cat-btn cat-expand-btn"
+                  onClick={() => setCatsExpanded(e => !e)}
+                  aria-expanded={catsExpanded}
+                >
+                  {catsExpanded ? '▲ Less' : `▼ +${allBtns.length - VISIBLE} more`}
+                </button>
+              </>
+            )
+          })()}
         </aside>
 
         {/* ── CENTER ── */}
