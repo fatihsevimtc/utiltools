@@ -28,6 +28,7 @@ const TOOL_CATALOG = [
   { icon: '📖', name: 'Readability Score',   path: '/tools/readability-score',   category: 'text' },
   { icon: '📝', name: 'Resume Word Checker', path: '/tools/resume-word-checker', category: 'text' },
   { icon: '👤', name: 'Bio Generator',       path: '/tools/bio-generator',       category: 'text' },
+  { icon: '🔊', name: 'Text to Speech',      path: '/tools/text-to-speech',      category: 'text' },
   // Developer
   { icon: '🗂️', name: 'JSON Formatter',     path: '/tools/json-formatter',      category: 'developer' },
   { icon: '🔀', name: 'Diff Checker',        path: '/tools/diff-checker',        category: 'developer' },
@@ -58,6 +59,7 @@ const TOOL_CATALOG = [
   { icon: '🏦', name: 'Loan Calculator',     path: '/tools/loan-calculator',     category: 'math' },
   { icon: '📈', name: 'Compound Interest',   path: '/tools/compound-interest',   category: 'math' },
   { icon: '💰', name: 'VAT Calculator',      path: '/tools/vat-calculator',      category: 'math' },
+  { icon: '💱', name: 'Currency Converter',  path: '/tools/currency-converter',  category: 'math' },
   // Time
   { icon: '🎂', name: 'Age Calculator',      path: '/tools/age-calculator',      category: 'time' },
   { icon: '📆', name: 'Date Difference',     path: '/tools/date-difference',     category: 'time' },
@@ -66,6 +68,7 @@ const TOOL_CATALOG = [
   { icon: '🍅', name: 'Pomodoro Timer',      path: '/tools/pomodoro',            category: 'time' },
   // Files
   { icon: '🖼️', name: 'Image Resizer',      path: '/tools/image-resizer',       category: 'files' },
+  { icon: '🗜️', name: 'Image Compressor',  path: '/tools/image-compressor',    category: 'files' },
   { icon: '🔐', name: 'Image to Base64',     path: '/tools/image-to-base64',     category: 'files' },
   { icon: '🎨', name: 'Image Color Picker',  path: '/tools/image-color-picker',  category: 'files' },
   { icon: '📸', name: 'EXIF Viewer',         path: '/tools/exif-viewer',         category: 'files' },

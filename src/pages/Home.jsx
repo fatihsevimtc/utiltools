@@ -10,6 +10,7 @@ const NEW_TOOLS = new Set([
   '/tools/json-schema-validator', '/tools/ai-model-comparison', '/tools/token-counter',
   '/tools/system-prompt-builder', '/tools/prompt-formatter', '/tools/prompt-improver',
   '/tools/linkedin-post-maker', '/tools/digital-signature',
+  '/tools/image-compressor', '/tools/text-to-speech', '/tools/currency-converter',
 ])
 
 // High-traffic / popular tools (shown with "🔥" badge)
@@ -117,6 +118,9 @@ const MARQUEE_ITEMS = [
   { icon: '🌑', name: 'Box Shadow',          path: '/tools/box-shadow' },
   { icon: '🔗', name: 'URL Parser',          path: '/tools/url-parser' },
   { icon: '💰', name: 'VAT Calculator',      path: '/tools/vat-calculator' },
+  { icon: '🗜️', name: 'Image Compressor',   path: '/tools/image-compressor' },
+  { icon: '🔊', name: 'Text to Speech',      path: '/tools/text-to-speech' },
+  { icon: '💱', name: 'Currency Converter',  path: '/tools/currency-converter' },
 ]
 
 const FEATURED = [
@@ -162,6 +166,7 @@ const CATEGORIES = [
       { icon: '🐦', name: 'Tweet Thread Formatter', desc: 'Split long text into a Twitter/X thread under 280 chars.', path: '/tools/tweet-thread' },
       { icon: '📝', name: 'Resume Word Checker',  desc: 'Flag weak, vague, and clichéd language in your resume.', path: '/tools/resume-word-checker' },
       { icon: '👤', name: 'Bio Generator',        desc: 'Generate a polished professional bio in seconds.',        path: '/tools/bio-generator' },
+      { icon: '🔊', name: 'Text to Speech',       desc: 'Listen to any text using your browser\'s built-in speech engine.', path: '/tools/text-to-speech' },
     ],
   },
   {
@@ -244,6 +249,7 @@ const CATEGORIES = [
       { icon: '💰', name: 'VAT Calculator',       desc: 'Add or remove VAT from any price.',                      path: '/tools/vat-calculator' },
       { icon: '🔬', name: 'Scientific Calculator', desc: 'Browser-based calculator with trig and power functions.', path: '/tools/scientific-calculator' },
       { icon: '!',  name: 'Factorial / P / C',     desc: 'Factorials, permutations, and combinations.',            path: '/tools/factorial' },
+      { icon: '💱', name: 'Currency Converter',    desc: 'Convert between 170+ currencies with live exchange rates.', path: '/tools/currency-converter' },
     ],
   },
   {
@@ -272,6 +278,7 @@ const CATEGORIES = [
       { icon: '🎨', name: 'Image Color Picker',   desc: 'Click anywhere on an image to pick a color.',           path: '/tools/image-color-picker' },
       { icon: '⭐', name: 'Favicon Generator',    desc: 'Create emoji favicons and download at multiple sizes.',  path: '/tools/favicon-generator' },
       { icon: '📸', name: 'EXIF Viewer',          desc: 'Extract EXIF metadata from JPEG images in your browser.', path: '/tools/exif-viewer' },
+      { icon: '🗜️', name: 'Image Compressor',   desc: 'Compress JPEG, PNG, and WebP images entirely in your browser.', path: '/tools/image-compressor' },
     ],
   },
   {

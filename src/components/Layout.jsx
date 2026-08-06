@@ -131,6 +131,9 @@ const TOOL_NAMES = {
   '/tools/keyboard-shortcuts':     'Keyboard Shortcuts',
   '/tools/json-schema-validator':  'JSON Schema Validator',
   '/tools/digital-signature':      'Digital Signature',
+  '/tools/image-compressor':       'Image Compressor',
+  '/tools/text-to-speech':         'Text to Speech',
+  '/tools/currency-converter':     'Currency Converter',
 }
 
 export default function Layout() {

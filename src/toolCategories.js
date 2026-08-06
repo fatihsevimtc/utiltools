@@ -17,7 +17,7 @@ export const CATEGORIES = [
       '/tools/number-extractor', '/tools/line-break-remover', '/tools/sentence-counter',
       '/tools/text-to-hashtags', '/tools/title-case-apa', '/tools/pig-latin',
       '/tools/readability-score', '/tools/tweet-thread', '/tools/resume-word-checker',
-      '/tools/bio-generator',
+      '/tools/bio-generator', '/tools/text-to-speech',
     ],
   },
   {
@@ -57,7 +57,7 @@ export const CATEGORIES = [
       '/tools/binary-calculator', '/tools/prime-checker', '/tools/gcd-lcm',
       '/tools/fibonacci', '/tools/bmi', '/tools/tip-calculator',
       '/tools/loan-calculator', '/tools/compound-interest', '/tools/vat-calculator',
-      '/tools/scientific-calculator', '/tools/factorial',
+      '/tools/scientific-calculator', '/tools/factorial', '/tools/currency-converter',
     ],
   },
   {
@@ -76,7 +76,7 @@ export const CATEGORIES = [
       '/tools/digital-signature',
       '/tools/image-resizer', '/tools/file-size', '/tools/image-to-base64',
       '/tools/base64-to-image', '/tools/image-color-picker', '/tools/favicon-generator',
-      '/tools/exif-viewer',
+      '/tools/exif-viewer', '/tools/image-compressor',
     ],
   },
   {

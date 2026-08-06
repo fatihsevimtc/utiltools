@@ -128,6 +128,11 @@ import LogoMaker             from './pages/tools/LogoMaker'
 
 // Images & Files extras
 import ExifViewer            from './pages/tools/ExifViewer'
+import ImageCompressor       from './pages/tools/ImageCompressor'
+
+// Converters & Audio
+import TextToSpeech          from './pages/tools/TextToSpeech'
+import CurrencyConverter     from './pages/tools/CurrencyConverter'
 
 // Digital Signature
 import DigitalSignature      from './pages/tools/DigitalSignature'
@@ -298,6 +303,11 @@ export default function App() {
 
         {/* Images & Files extras */}
         <Route path="tools/exif-viewer"              element={<ExifViewer />} />
+        <Route path="tools/image-compressor"         element={<ImageCompressor />} />
+
+        {/* Converters & Audio */}
+        <Route path="tools/text-to-speech"           element={<TextToSpeech />} />
+        <Route path="tools/currency-converter"       element={<CurrencyConverter />} />
 
         {/* Digital Signature */}
         <Route path="tools/digital-signature"        element={<DigitalSignature />} />
