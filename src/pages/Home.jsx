@@ -21,18 +21,63 @@ const HOT_TOOLS = new Set([
 
 // Tool of the day — deterministic based on day-of-year so it rotates
 const SPOTLIGHT_POOL = [
-  { icon: '🔑', name: 'JWT Decoder',        desc: 'Decode JWT tokens entirely in your browser — nothing leaves your device.', path: '/tools/jwt-decoder' },
-  { icon: '🎨', name: 'Palette Generator',  desc: 'Generate beautiful color palettes from a single base color.',              path: '/tools/palette-generator' },
-  { icon: '⏱️', name: 'Pomodoro Timer',     desc: 'Stay focused with the Pomodoro technique — no account needed.',            path: '/tools/pomodoro' },
-  { icon: '🗺️', name: 'Unicode Char Map',  desc: 'Browse every Unicode character and click to copy instantly.',              path: '/tools/unicode-char-map' },
-  { icon: '🔀', name: 'JSON Diff',          desc: 'Compare two JSON objects and instantly see what changed.',                 path: '/tools/json-diff' },
-  { icon: '📸', name: 'EXIF Viewer',        desc: 'Extract camera metadata from any JPEG — shutter speed, GPS and more.',    path: '/tools/exif-viewer' },
-  { icon: '🌈', name: 'Gradient Generator', desc: 'Build CSS gradients visually and copy the code with one click.',          path: '/tools/gradient-generator' },
-  { icon: '🤖', name: 'Prompt Improver',    desc: 'Strengthen any AI prompt using best-practice rules automatically.',       path: '/tools/prompt-improver' },
-  { icon: '💳', name: 'Credit Card Validator', desc: 'Validate card numbers with the Luhn algorithm — offline and private.', path: '/tools/credit-card-validator' },
-  { icon: '📐', name: 'Flexbox Playground', desc: 'Experiment with CSS Flexbox properties visually with live output.',       path: '/tools/flexbox-playground' },
-  { icon: '🔒', name: 'SSL Certificate Decoder', desc: 'Paste a PEM cert and see its expiry, issuer and SAN fields.',       path: '/tools/ssl-decoder' },
-  { icon: '⌨️', name: 'Typing Speed Test', desc: 'Find out your real WPM with real-time accuracy feedback.',                path: '/tools/typing-speed' },
+  // Developer
+  { icon: '🔑', name: 'JWT Decoder',           desc: 'Decode JWT tokens entirely in your browser — nothing leaves your device.',     path: '/tools/jwt-decoder' },
+  { icon: '🔍', name: 'Regex Tester',           desc: 'Test regular expressions with live match highlighting and group capture.',      path: '/tools/regex-tester' },
+  { icon: '🗂️', name: 'JSON Formatter',        desc: 'Pretty-print and validate JSON with syntax highlighting and error detection.',  path: '/tools/json-formatter' },
+  { icon: '🔀', name: 'JSON Diff',              desc: 'Compare two JSON objects and instantly see what changed.',                      path: '/tools/json-diff' },
+  { icon: '🔒', name: 'SSL Certificate Decoder',desc: 'Paste a PEM cert and see its expiry, issuer and SAN fields.',                  path: '/tools/ssl-decoder' },
+  { icon: '🔐', name: 'TOTP / OTP Generator',   desc: 'Generate time-based one-time passwords from a Base32 secret — fully offline.', path: '/tools/totp-generator' },
+  { icon: '🏦', name: 'IBAN Validator',          desc: 'Validate any IBAN using the MOD-97 checksum algorithm — no server needed.',    path: '/tools/iban-validator' },
+  { icon: '🎯', name: 'JSON Path Tester',        desc: 'Query JSON documents with JSONPath expressions and see results instantly.',     path: '/tools/json-path' },
+  { icon: '⏰', name: 'Cron Parser',             desc: 'Paste any cron expression and get a plain-English explanation of the schedule.',path: '/tools/cron-parser' },
+  { icon: '🌐', name: 'DNS Lookup',              desc: 'Query A, MX, TXT, CNAME and more records for any domain in your browser.',     path: '/tools/dns-lookup' },
+  { icon: '🗺️', name: 'Unicode Char Map',       desc: 'Browse every Unicode character and click to copy instantly.',                  path: '/tools/unicode-char-map' },
+  { icon: '🔑', name: 'JWT Encoder',             desc: 'Build and sign JWT tokens with HS256 directly in your browser.',               path: '/tools/jwt-encoder' },
+  // Design & CSS
+  { icon: '🎨', name: 'Palette Generator',       desc: 'Generate beautiful color palettes from a single base color.',                  path: '/tools/palette-generator' },
+  { icon: '🌈', name: 'Gradient Generator',      desc: 'Build CSS gradients visually and copy the code with one click.',               path: '/tools/gradient-generator' },
+  { icon: '📐', name: 'Flexbox Playground',      desc: 'Experiment with CSS Flexbox properties visually with live output.',            path: '/tools/flexbox-playground' },
+  { icon: '🌑', name: 'Box Shadow Generator',    desc: 'Build layered CSS box-shadow values with a live preview.',                     path: '/tools/box-shadow' },
+  { icon: '⬛', name: 'Border Radius Generator', desc: 'Create any CSS border-radius shape with live preview and instant copy.',       path: '/tools/border-radius' },
+  { icon: '▦',  name: 'Grid Generator',          desc: 'Design CSS Grid layouts visually and copy the generated CSS.',                 path: '/tools/grid-generator' },
+  { icon: '🎨', name: 'HTML Color Names',         desc: 'Browse all 140 named HTML/CSS colors with HEX values and one-click copy.',    path: '/tools/html-color-names' },
+  { icon: '👁️', name: 'Color Blindness Simulator',desc: 'Preview images as people with different types of color blindness see them.', path: '/tools/color-blindness' },
+  // Text
+  { icon: '📖', name: 'Readability Score',        desc: 'Get Flesch Reading Ease and grade level scores for any piece of text.',       path: '/tools/readability-score' },
+  { icon: '🐦', name: 'Tweet Thread Formatter',   desc: 'Split long text into a numbered Twitter/X thread, each under 280 chars.',    path: '/tools/tweet-thread' },
+  { icon: '👤', name: 'Bio Generator',            desc: 'Fill in a few fields and get a polished professional bio in seconds.',        path: '/tools/bio-generator' },
+  { icon: '📝', name: 'Resume Word Checker',      desc: 'Flag weak, vague, and overused buzzwords in your CV before you apply.',       path: '/tools/resume-word-checker' },
+  { icon: '🐷', name: 'Pig Latin',                desc: 'Convert any English text to Pig Latin — great for kids and wordplay.',        path: '/tools/pig-latin' },
+  { icon: '📊', name: 'Word Frequency',           desc: 'See how often each word appears in any text, ranked by count.',               path: '/tools/word-frequency' },
+  // Math & Numbers
+  { icon: '📈', name: 'Compound Interest',        desc: 'See how your investment grows over time with annual compounding.',            path: '/tools/compound-interest' },
+  { icon: '🔬', name: 'Scientific Calculator',    desc: 'Trig, logarithms, powers, and constants — all in your browser.',             path: '/tools/scientific-calculator' },
+  { icon: '🌀', name: 'Fibonacci Generator',      desc: 'Generate Fibonacci sequences and check if any number is a Fibonacci member.', path: '/tools/fibonacci' },
+  { icon: '!',  name: 'Factorial / P / C',         desc: 'Calculate factorials, permutations, and combinations for any n and r.',      path: '/tools/factorial' },
+  { icon: 'Ⅻ',  name: 'Roman Numerals',           desc: 'Convert any number to Roman numerals and back — supports up to 3,999.',       path: '/tools/roman-numeral' },
+  // Time & Date
+  { icon: '⏱️', name: 'Pomodoro Timer',           desc: 'Stay focused with the Pomodoro technique — no account or install needed.',   path: '/tools/pomodoro' },
+  { icon: '🌍', name: 'Time Zone Converter',       desc: 'Compare times across multiple time zones side by side.',                     path: '/tools/timezone' },
+  { icon: '📅', name: 'Working Days Calculator',   desc: 'Count working days between dates, excluding weekends and public holidays.',  path: '/tools/working-days' },
+  { icon: '🗓️', name: 'Week Number',              desc: 'Find the ISO week number for any date — useful for project planning.',       path: '/tools/week-number' },
+  // Images & Files
+  { icon: '📸', name: 'EXIF Viewer',               desc: 'Extract camera metadata from any JPEG — shutter speed, GPS and more.',      path: '/tools/exif-viewer' },
+  { icon: '⭐', name: 'Favicon Generator',          desc: 'Turn any emoji into a favicon and download it at multiple sizes.',          path: '/tools/favicon-generator' },
+  { icon: '🎨', name: 'Image Color Picker',         desc: 'Click anywhere on an uploaded image to instantly pick its color value.',    path: '/tools/image-color-picker' },
+  // Generators
+  { icon: '🎭', name: 'Fake Data Generator',        desc: 'Generate realistic fake names, emails, addresses and phone numbers.',       path: '/tools/fake-data-generator' },
+  { icon: '👤', name: 'Avatar Generator',           desc: 'Create placeholder avatars from initials, geometric patterns, or pixel art.',path: '/tools/avatar-generator' },
+  { icon: '🎨', name: 'ASCII Art Generator',        desc: 'Convert any text into ASCII art using Unicode block character styles.',     path: '/tools/ascii-art' },
+  // AI Tools
+  { icon: '🤖', name: 'Prompt Improver',            desc: 'Strengthen any AI prompt using best-practice rules automatically.',        path: '/tools/prompt-improver' },
+  { icon: '🧱', name: 'System Prompt Builder',      desc: 'Build effective system prompts with persona, tone, and format controls.',  path: '/tools/system-prompt-builder' },
+  { icon: '🤖', name: 'AI Model Comparison',        desc: 'Compare leading LLMs by context window, cost, and best use cases.',        path: '/tools/ai-model-comparison' },
+  { icon: '🪙', name: 'Token Counter',              desc: 'Estimate token counts and API cost for GPT, Claude, and Gemini models.',   path: '/tools/token-counter' },
+  // Security / Misc
+  { icon: '💳', name: 'Credit Card Validator',      desc: 'Validate card numbers with the Luhn algorithm — offline and private.',     path: '/tools/credit-card-validator' },
+  { icon: '⌨️', name: 'Typing Speed Test',          desc: 'Find out your real WPM with real-time accuracy feedback.',                 path: '/tools/typing-speed' },
+  { icon: '⌨️', name: 'Keyboard Shortcuts',         desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac, and Vim — always handy.',  path: '/tools/keyboard-shortcuts' },
 ]
 
 function getSpotlight() {
