@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const SIZES = [16, 32, 48, 64, 128, 256]
 const BG_PRESETS = ['#6366f1','#10b981','#f59e0b','#ef4444','#3b82f6','#8b5cf6','transparent']
@@ -138,6 +139,7 @@ export default function FaviconGenerator() {
           </div>
         </div>
       </div>
+      <RelatedTools category="files" exclude="/tools/favicon-generator" />
     </div>
   )
 }

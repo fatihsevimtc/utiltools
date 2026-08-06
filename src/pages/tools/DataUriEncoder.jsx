@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const TEXT_TYPES = [
   { label: 'CSS', mime: 'text/css' },
@@ -110,6 +111,7 @@ export default function DataUriEncoder() {
           </div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/data-uri-encoder" />
     </div>
   )
 }

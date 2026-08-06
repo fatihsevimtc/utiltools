@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function toCamel(s) {
   return s
@@ -96,6 +97,7 @@ export default function CaseConverter() {
           <div className="code-block">{output}</div>
         </div>
       )}
+      <RelatedTools category="text" exclude="/tools/case-converter" />
     </div>
   )
 }

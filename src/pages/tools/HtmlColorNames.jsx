@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const COLORS = [
   // Reds
@@ -123,6 +124,7 @@ export default function HtmlColorNames() {
           )
         })}
       </div>
+      <RelatedTools category="design" exclude="/tools/html-color-names" />
     </div>
   )
 }

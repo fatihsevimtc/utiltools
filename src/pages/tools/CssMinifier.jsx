@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function minifyCSS(css) {
   return css
@@ -54,6 +55,7 @@ export default function CssMinifier() {
           <div className="code-block" style={{ wordBreak: 'break-all', whiteSpace: 'pre-wrap' }}>{output}</div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/css-minifier" />
     </div>
   )
 }

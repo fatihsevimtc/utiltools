@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function hexToRgb(hex) {
   const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16)
@@ -86,6 +87,7 @@ export default function ColorConverter() {
           <input type="number" min={0} max={100} value={hsl.l} onChange={e => fromHsl('l', e.target.value)} />
         </div>
       </div>
+      <RelatedTools category="design" exclude="/tools/color-converter" />
     </div>
   )
 }

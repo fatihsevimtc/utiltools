@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 /**
  * Minimal EXIF reader for JPEG files.
@@ -209,6 +210,7 @@ export default function ExifViewer() {
           )}
         </div>
       )}
+      <RelatedTools category="files" exclude="/tools/exif-viewer" />
     </div>
   )
 }

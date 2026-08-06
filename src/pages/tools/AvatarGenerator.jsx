@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const STYLES = ['initials', 'geometric', 'pixel']
 const BG_COLORS = ['#6366f1','#10b981','#f59e0b','#ef4444','#3b82f6','#8b5cf6','#ec4899','#14b8a6','#f97316','#84cc16']
@@ -130,6 +131,7 @@ export default function AvatarGenerator() {
           <button className="btn btn-sm" onClick={download}>⬇ Download PNG</button>
         </div>
       </div>
+      <RelatedTools category="generators" exclude="/tools/avatar-generator" />
     </div>
   )
 }

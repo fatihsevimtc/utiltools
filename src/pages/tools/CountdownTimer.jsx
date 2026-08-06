@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function pad(n) { return String(n).padStart(2, '0') }
 
@@ -113,6 +114,7 @@ export default function CountdownTimer() {
           )}
         </div>
       )}
+      <RelatedTools category="time" exclude="/tools/countdown" />
     </div>
   )
 }

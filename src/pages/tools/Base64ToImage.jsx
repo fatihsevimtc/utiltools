@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 export default function Base64ToImage() {
   const [input, setInput] = useState('')
@@ -77,6 +78,7 @@ export default function Base64ToImage() {
           <button className="btn" style={{ marginTop: '0.75rem' }} onClick={download}>⬇ Download image</button>
         </div>
       )}
+      <RelatedTools category="files" exclude="/tools/base64-to-image" />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 export default function BoxShadowGenerator() {
   const [shadows, setShadows] = useState([
@@ -87,6 +88,7 @@ export default function BoxShadowGenerator() {
         <button className="btn btn-sm" onClick={copy}>{copied ? '✓ Copied' : 'Copy'}</button>
       </div>
       <div className="code-block" style={{ wordBreak: 'break-all' }}>{cssRule}</div>
+      <RelatedTools category="design" exclude="/tools/box-shadow" />
     </div>
   )
 }

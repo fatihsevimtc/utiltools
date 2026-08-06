@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const COLORS = ['#6366f1','#10b981','#f59e0b','#ef4444','#3b82f6','#8b5cf6','#ec4899','#14b8a6','#f97316','#06b6d4','#84cc16','#a855f7']
 
@@ -101,6 +102,7 @@ export default function GridGenerator() {
         </div>
         <div className="code-block" style={{ whiteSpace: 'pre-wrap' }}>{css}</div>
       </div>
+      <RelatedTools category="design" exclude="/tools/grid-generator" />
     </div>
   )
 }

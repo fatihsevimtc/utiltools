@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 // Common Unicode blocks with representative ranges
 const BLOCKS = [
@@ -111,6 +112,8 @@ export default function UnicodeCharMap() {
           </button>
         </div>
       )}
+
+      <RelatedTools category="developer" exclude="/tools/unicode-char-map" />
     </div>
   )
 }

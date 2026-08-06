@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function gcd(a, b) {
   a = Math.abs(a); b = Math.abs(b)
@@ -81,6 +82,7 @@ export default function GcdLcm() {
           )}
         </>
       )}
+      <RelatedTools category="math" exclude="/tools/gcd-lcm" />
     </div>
   )
 }

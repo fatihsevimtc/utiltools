@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function factorial(n) {
   if (n < 0) return null
@@ -88,6 +89,7 @@ export default function FactorialCalculator() {
           )}
         </div>
       )}
+      <RelatedTools category="math" exclude="/tools/factorial" />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const CATEGORIES = [
   { max: 18.5, label: 'Underweight',      color: '#3b82f6' },
@@ -90,6 +91,7 @@ export default function BmiCalculator() {
       <p style={{ marginTop: '1.5rem', fontSize: '0.78rem', color: 'var(--muted)' }}>
         BMI is a screening tool, not a diagnostic measure. Consult a healthcare professional for medical advice.
       </p>
+      <RelatedTools category="math" exclude="/tools/bmi" />
     </div>
   )
 }

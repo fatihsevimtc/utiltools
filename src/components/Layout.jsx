@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { useState, useEffect, useCallback } from 'react'
+import { Link, Outlet, useLocation, NavLink } from 'react-router-dom'
 import { useTheme } from '../useTheme'
 import Logo from './Logo'
 
@@ -136,6 +136,7 @@ export default function Layout() {
   const isToolPage = location.pathname.startsWith('/tools/')
   const toolName = TOOL_NAMES[location.pathname]
   const [menuOpen, setMenuOpen] = useState(false)
+  const [showBackToTop, setShowBackToTop] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
@@ -152,7 +153,20 @@ export default function Layout() {
     }
   }, [location.pathname, toolName])
 
+  // Back to top visibility
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
   function closeMenu() { setMenuOpen(false) }
+
+  const navActiveClass = ({ isActive }) => isActive ? 'nav-active' : undefined
 
   return (
     <>
@@ -166,15 +180,17 @@ export default function Layout() {
             {isToolPage && toolName && (
               <div className="breadcrumb">
                 <span className="breadcrumb-sep">›</span>
+                <Link to="/" className="breadcrumb-home" title="All tools">All tools</Link>
+                <span className="breadcrumb-sep">›</span>
                 <span className="breadcrumb-current">{toolName}</span>
               </div>
             )}
           </div>
 
           {/* Desktop nav */}
-          <nav className="nav nav-desktop">
-            <Link to="/suggest">Suggest a tool</Link>
-            <Link to="/about">About</Link>
+          <nav className="nav nav-desktop" aria-label="Main navigation">
+            <NavLink to="/suggest" className={navActiveClass}>Suggest a tool</NavLink>
+            <NavLink to="/about" className={navActiveClass}>About</NavLink>
             <a
               href="https://github.com/fatihsevimtc/utiltools"
               target="_blank"
@@ -244,7 +260,7 @@ export default function Layout() {
 
         {/* Mobile dropdown */}
         {menuOpen && (
-          <nav className="mobile-menu">
+          <nav className="mobile-menu" aria-label="Mobile navigation">
             <Link to="/" onClick={closeMenu}>All tools</Link>
             <Link to="/suggest" onClick={closeMenu}>Suggest a tool</Link>
             <Link to="/about" onClick={closeMenu}>About</Link>
@@ -282,6 +298,16 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* Back to top */}
+      <button
+        className={`back-to-top${showBackToTop ? ' visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        title="Back to top"
+      >
+        ↑
+      </button>
     </>
   )
 }

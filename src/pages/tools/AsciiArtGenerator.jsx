@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 // Figlet-style ASCII art using pre-defined 5-row character maps
 // Using a simplified "banner" font
@@ -133,6 +134,7 @@ export default function AsciiArtGenerator() {
           </div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/ascii-art" />
     </div>
   )
 }

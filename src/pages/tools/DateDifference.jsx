@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 export default function DateDifference() {
   const today = new Date().toISOString().slice(0,10)
@@ -46,6 +47,7 @@ export default function DateDifference() {
           ))}
         </div>
       )}
+      <RelatedTools category="time" exclude="/tools/date-difference" />
     </div>
   )
 }

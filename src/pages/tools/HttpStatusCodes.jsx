@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const CODES = [
   // 1xx
@@ -93,6 +94,7 @@ export default function HttpStatusCodes() {
         ))}
         {filtered.length === 0 && <p style={{ color: 'var(--muted)' }}>No codes found for "{query}"</p>}
       </div>
+      <RelatedTools category="developer" exclude="/tools/http-status" />
     </div>
   )
 }

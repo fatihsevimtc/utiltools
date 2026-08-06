@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const TONES = ['Professional', 'Friendly', 'Witty', 'Minimal']
 const LENGTHS = ['Short (1 sentence)', 'Medium (2–3 sentences)', 'Long (4–5 sentences)']
@@ -136,6 +137,7 @@ export default function BioGenerator() {
           {bio}
         </div>
       </div>
+      <RelatedTools category="text" exclude="/tools/bio-generator" />
     </div>
   )
 }

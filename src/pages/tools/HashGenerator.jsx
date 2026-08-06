@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 async function hashText(text, algo) {
   const encoder = new TextEncoder()
@@ -53,6 +54,7 @@ export default function HashGenerator() {
           ))}
         </div>
       )}
+      <RelatedTools category="generators" exclude="/tools/hash-generator" />
     </div>
   )
 }

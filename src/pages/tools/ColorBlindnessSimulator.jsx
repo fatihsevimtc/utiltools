@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 // Color blindness simulation matrices
 const MATRICES = {
@@ -130,6 +131,7 @@ export default function ColorBlindnessSimulator() {
           </div>
         </>
       )}
+      <RelatedTools category="design" exclude="/tools/color-blindness" />
     </div>
   )
 }

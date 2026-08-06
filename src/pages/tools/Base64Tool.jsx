@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const MODES = ['Base64 Encode', 'Base64 Decode', 'URL Encode', 'URL Decode']
 
@@ -80,6 +81,7 @@ export default function Base64Tool() {
           <div className={`code-block ${isError ? 'error' : ''}`}>{output}</div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/base64" />
     </div>
   )
 }

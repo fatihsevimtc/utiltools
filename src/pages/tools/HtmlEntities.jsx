@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function encode(str) {
   return str.replace(/[\u00A0-\u9999<>&"']/g, c => `&#${c.charCodeAt(0)};`)
@@ -45,6 +46,7 @@ export default function HtmlEntities() {
           <div className="code-block">{output}</div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/html-entities" />
     </div>
   )
 }

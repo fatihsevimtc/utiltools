@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const UNITS = [
   { id: 'b',   label: 'Bytes (B)',       factor: 1 },
@@ -56,6 +57,7 @@ export default function FileSizeConverter() {
           ))}
         </div>
       )}
+      <RelatedTools category="files" exclude="/tools/file-size" />
     </div>
   )
 }

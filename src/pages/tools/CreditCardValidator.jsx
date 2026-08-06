@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function luhn(num) {
   const digits = num.replace(/\D/g, '').split('').reverse().map(Number)
@@ -93,6 +94,7 @@ export default function CreditCardValidator() {
       <p style={{ fontSize: '0.78rem', color: 'var(--danger)', marginTop: '0.5rem' }}>
         ⚠ Never enter real card numbers into any online tool.
       </p>
+      <RelatedTools category="developer" exclude="/tools/credit-card-validator" />
     </div>
   )
 }

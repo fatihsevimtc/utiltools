@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const EMAIL_RE = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/g
 
@@ -50,6 +51,7 @@ export default function EmailExtractor() {
       {input && results.length === 0 && (
         <p style={{ color: 'var(--muted)', marginTop: '1rem' }}>No email addresses found.</p>
       )}
+      <RelatedTools category="text" exclude="/tools/email-extractor" />
     </div>
   )
 }

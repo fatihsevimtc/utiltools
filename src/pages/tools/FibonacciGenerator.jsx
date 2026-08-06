@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function fibonacci(n) {
   const seq = [BigInt(0), BigInt(1)]
@@ -67,6 +68,7 @@ export default function FibonacciGenerator() {
           {seq.map((v, i) => `F(${i.toString().padStart(3, ' ')}) = ${v}`).join('\n')}
         </div>
       </div>
+      <RelatedTools category="math" exclude="/tools/fibonacci" />
     </div>
   )
 }

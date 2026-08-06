@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function htmlToMarkdown(html) {
   return html
@@ -65,6 +66,7 @@ export default function HtmlToMarkdown() {
           <div className="code-block" style={{ whiteSpace: 'pre-wrap' }}>{output}</div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/html-to-markdown" />
     </div>
   )
 }

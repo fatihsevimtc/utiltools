@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const FREQ_OPTIONS = [
   { label: 'Annually', n: 1 },
@@ -100,6 +101,7 @@ export default function CompoundInterest() {
           </div>
         </>
       )}
+      <RelatedTools category="math" exclude="/tools/compound-interest" />
     </div>
   )
 }

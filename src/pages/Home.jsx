@@ -1,6 +1,79 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
+// Recently-added tools (shown with "New" badge)
+const NEW_TOOLS = new Set([
+  '/tools/unicode-char-map', '/tools/json-diff', '/tools/jwt-encoder',
+  '/tools/ssl-decoder', '/tools/tweet-thread', '/tools/typing-speed',
+  '/tools/dns-lookup', '/tools/ascii-art', '/tools/color-blindness',
+  '/tools/resume-word-checker', '/tools/bio-generator', '/tools/keyboard-shortcuts',
+  '/tools/json-schema-validator', '/tools/ai-model-comparison', '/tools/token-counter',
+  '/tools/system-prompt-builder', '/tools/prompt-formatter', '/tools/prompt-improver',
+  '/tools/linkedin-post-maker',
+])
+
+// High-traffic / popular tools (shown with "🔥" badge)
+const HOT_TOOLS = new Set([
+  '/tools/password-generator', '/tools/json-formatter', '/tools/qr-generator',
+  '/tools/base64', '/tools/uuid-generator', '/tools/hash-generator',
+  '/tools/regex-tester', '/tools/jwt-decoder', '/tools/timestamp',
+])
+
+// Tool of the day — deterministic based on day-of-year so it rotates
+const SPOTLIGHT_POOL = [
+  { icon: '🔑', name: 'JWT Decoder',        desc: 'Decode JWT tokens entirely in your browser — nothing leaves your device.', path: '/tools/jwt-decoder' },
+  { icon: '🎨', name: 'Palette Generator',  desc: 'Generate beautiful color palettes from a single base color.',              path: '/tools/palette-generator' },
+  { icon: '⏱️', name: 'Pomodoro Timer',     desc: 'Stay focused with the Pomodoro technique — no account needed.',            path: '/tools/pomodoro' },
+  { icon: '🗺️', name: 'Unicode Char Map',  desc: 'Browse every Unicode character and click to copy instantly.',              path: '/tools/unicode-char-map' },
+  { icon: '🔀', name: 'JSON Diff',          desc: 'Compare two JSON objects and instantly see what changed.',                 path: '/tools/json-diff' },
+  { icon: '📸', name: 'EXIF Viewer',        desc: 'Extract camera metadata from any JPEG — shutter speed, GPS and more.',    path: '/tools/exif-viewer' },
+  { icon: '🌈', name: 'Gradient Generator', desc: 'Build CSS gradients visually and copy the code with one click.',          path: '/tools/gradient-generator' },
+  { icon: '🤖', name: 'Prompt Improver',    desc: 'Strengthen any AI prompt using best-practice rules automatically.',       path: '/tools/prompt-improver' },
+  { icon: '💳', name: 'Credit Card Validator', desc: 'Validate card numbers with the Luhn algorithm — offline and private.', path: '/tools/credit-card-validator' },
+  { icon: '📐', name: 'Flexbox Playground', desc: 'Experiment with CSS Flexbox properties visually with live output.',       path: '/tools/flexbox-playground' },
+  { icon: '🔒', name: 'SSL Certificate Decoder', desc: 'Paste a PEM cert and see its expiry, issuer and SAN fields.',       path: '/tools/ssl-decoder' },
+  { icon: '⌨️', name: 'Typing Speed Test', desc: 'Find out your real WPM with real-time accuracy feedback.',                path: '/tools/typing-speed' },
+]
+
+function getSpotlight() {
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000)
+  return SPOTLIGHT_POOL[dayOfYear % SPOTLIGHT_POOL.length]
+}
+
+// A curated short list for the hero marquee — readable at a slow scroll speed
+const MARQUEE_ITEMS = [
+  { icon: '📝', name: 'Word Counter' },
+  { icon: '🔒', name: 'Base64 Encode' },
+  { icon: '🗂️', name: 'JSON Formatter' },
+  { icon: '🎨', name: 'Gradient Generator' },
+  { icon: '🔑', name: 'JWT Decoder' },
+  { icon: '📷', name: 'QR Generator' },
+  { icon: '🔐', name: 'Password Generator' },
+  { icon: '⏱️', name: 'Pomodoro Timer' },
+  { icon: '🆔', name: 'UUID Generator' },
+  { icon: '🎨', name: 'Color Converter' },
+  { icon: '📐', name: 'Unit Converter' },
+  { icon: '🌍', name: 'Time Zone Converter' },
+  { icon: '🔍', name: 'Regex Tester' },
+  { icon: '📊', name: 'CSV → JSON' },
+  { icon: '🌈', name: 'Palette Generator' },
+  { icon: '⚖️', name: 'BMI Calculator' },
+  { icon: '🗄️', name: 'SQL Formatter' },
+  { icon: '📸', name: 'EXIF Viewer' },
+  { icon: '🤖', name: 'Prompt Improver' },
+  { icon: '🔀', name: 'Diff Checker' },
+  { icon: '🎂', name: 'Age Calculator' },
+  { icon: '📡', name: 'Morse Code' },
+  { icon: '#️⃣', name: 'Hash Generator' },
+  { icon: '🖼️', name: 'Image Resizer' },
+  { icon: '🪙', name: 'Token Counter' },
+  { icon: '🔢', name: 'Number Base' },
+  { icon: '📋', name: 'Markdown Preview' },
+  { icon: '🌑', name: 'Box Shadow' },
+  { icon: '🔗', name: 'URL Parser' },
+  { icon: '💰', name: 'VAT Calculator' },
+]
+
 const FEATURED = [
   { icon: '📝', name: 'Word Counter',       desc: 'Live word, character & reading-time counts.',             path: '/tools/word-counter' },
   { icon: '🔤', name: 'Case Converter',     desc: 'UPPER, lower, Title, camelCase, snake_case and more.',    path: '/tools/case-converter' },
@@ -317,6 +390,8 @@ export default function Home() {
   const favTools    = favPaths.map(p => pathToTool[p]).filter(Boolean)
   const recentTools = recentPaths.map(p => pathToTool[p]).filter(Boolean)
 
+  const spotlight = useMemo(() => getSpotlight(), [])
+
   return (
     <div>
       {/* ── HERO ── */}
@@ -338,6 +413,19 @@ export default function Home() {
           )}
         </div>
       </div>
+
+      {/* ── MARQUEE STRIP ── */}
+      {!query && (
+        <div className="hero-marquee" aria-hidden="true">
+          <div className="hero-marquee-track">
+            {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((t, i) => (
+              <span key={i} className="hero-marquee-item">
+                <span>{t.icon}</span> {t.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="home-layout">
         {/* ── LEFT SIDEBAR ── */}
@@ -507,24 +595,29 @@ export default function Home() {
 
         {/* ── RIGHT SIDEBAR ── */}
         <aside className="home-sidebar home-sidebar-right">
-          {/* Privacy first — it's a trust signal */}
-          <div className="sidebar-stat-box" style={{ textAlign: 'left' }}>
-            <p style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Privacy</p>
-            <p className="sidebar-privacy" style={{ textAlign: 'left' }}>🔒 Runs locally</p>
-            <p className="sidebar-privacy">📤 No uploads</p>
-            <p className="sidebar-privacy">📊 No tracking</p>
+          {/* Tool of the day spotlight */}
+          <div className="tool-spotlight">
+            <p className="tool-spotlight-label">✨ Tool of the day</p>
+            <div className="tool-spotlight-icon">{spotlight.icon}</div>
+            <p className="tool-spotlight-name">{spotlight.name}</p>
+            <p className="tool-spotlight-desc">{spotlight.desc}</p>
+            <Link to={spotlight.path} className="tool-spotlight-link">Try it →</Link>
           </div>
 
           <div className="sidebar-divider" />
 
+          {/* Stats */}
           <div className="sidebar-stat-box">
-            <div className="sidebar-stat-value">{totalTools}</div>
-            <div className="sidebar-stat-label">Free tools</div>
-          </div>
-
-          <div className="sidebar-stat-box">
-            <div className="sidebar-stat-value">{CATEGORIES.length}</div>
-            <div className="sidebar-stat-label">Categories</div>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div className="sidebar-stat-value">{totalTools}</div>
+                <div className="sidebar-stat-label">Tools</div>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div className="sidebar-stat-value">{CATEGORIES.length}</div>
+                <div className="sidebar-stat-label">Categories</div>
+              </div>
+            </div>
           </div>
 
           <div className="sidebar-divider" />
@@ -569,12 +662,21 @@ export default function Home() {
 
 // ── ToolCard ─────────────────────────────────────────────────────────────────
 function ToolCard({ tool, isFav, onFav, onClick }) {
+  const isNew = NEW_TOOLS.has(tool.path)
+  const isHot = HOT_TOOLS.has(tool.path)
+
+  // Extract category id from the category label (e.g. "📝 Text" → "text")
+  const catId = tool.category
+    ? tool.category.replace(/^[^\s]+\s/, '').toLowerCase()
+    : undefined
+
   return (
     <Link
       to={tool.path}
       className="tool-card"
       onClick={() => onClick(tool.path)}
       style={{ position: 'relative' }}
+      data-cat={catId}
     >
       <button
         className="tool-fav-btn"
@@ -587,7 +689,9 @@ function ToolCard({ tool, isFav, onFav, onClick }) {
       <div className="tool-icon">{tool.icon}</div>
       <h3>{tool.name}</h3>
       <p>{tool.desc}</p>
-      {tool.category && (
+      {isNew && <span className="tool-badge tool-badge--new">✦ New</span>}
+      {!isNew && isHot && <span className="tool-badge tool-badge--hot">🔥 Popular</span>}
+      {!isNew && !isHot && tool.category && (
         <span style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: 'auto' }}>
           {tool.category}
         </span>

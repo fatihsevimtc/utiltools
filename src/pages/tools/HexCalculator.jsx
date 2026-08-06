@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const OPS = ['+', '-', '×', '÷', 'AND', 'OR', 'XOR', 'NOT']
 
@@ -93,6 +94,7 @@ export default function HexCalculator() {
       <p style={{ marginTop: '1.25rem', fontSize: '0.8rem', color: 'var(--muted)' }}>
         You can enter hex with or without the <code>0x</code> prefix.
       </p>
+      <RelatedTools category="developer" exclude="/tools/hex-calculator" />
     </div>
   )
 }

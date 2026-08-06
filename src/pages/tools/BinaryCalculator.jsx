@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const OPS = ['+', '-', '×', '÷', 'AND', 'OR', 'XOR', 'NOT']
 
@@ -92,6 +93,7 @@ export default function BinaryCalculator() {
           ))}
         </div>
       )}
+      <RelatedTools category="math" exclude="/tools/binary-calculator" />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 export default function DuplicateRemover() {
   const [input, setInput]         = useState('')
@@ -55,6 +56,7 @@ export default function DuplicateRemover() {
           <div className="code-block">{output}</div>
         </div>
       )}
+      <RelatedTools category="text" exclude="/tools/duplicate-remover" />
     </div>
   )
 }

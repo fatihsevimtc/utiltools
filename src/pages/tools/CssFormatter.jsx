@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function formatCSS(css) {
   // Strip comments, then re-format
@@ -71,6 +72,7 @@ export default function CssFormatter() {
           <div className="code-block" style={{ whiteSpace: 'pre-wrap' }}>{output}</div>
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/css-formatter" />
     </div>
   )
 }

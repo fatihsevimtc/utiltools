@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 const TYPES = ['A', 'AAAA', 'CNAME', 'MX', 'TXT', 'NS', 'SOA']
 
@@ -81,6 +82,7 @@ export default function DnsLookup() {
           )}
         </div>
       )}
+      <RelatedTools category="developer" exclude="/tools/dns-lookup" />
     </div>
   )
 }

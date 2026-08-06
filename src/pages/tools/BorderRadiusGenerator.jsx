@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 export default function BorderRadiusGenerator() {
   const [linked, setLinked] = useState(true)
@@ -85,6 +86,7 @@ export default function BorderRadiusGenerator() {
         <button className="btn btn-sm" onClick={copy}>{copied ? '✓ Copied' : 'Copy'}</button>
       </div>
       <div className="code-block">{cssRule}</div>
+      <RelatedTools category="design" exclude="/tools/border-radius" />
     </div>
   )
 }

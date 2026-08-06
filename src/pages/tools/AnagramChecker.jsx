@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import RelatedTools from '../../components/RelatedTools'
 
 function normalize(s) {
   return s.toLowerCase().replace(/\s/g, '').split('').sort().join('')
@@ -78,6 +79,7 @@ export default function AnagramChecker() {
           </table>
         </div>
       )}
+      <RelatedTools category="text" exclude="/tools/anagram" />
     </div>
   )
 }
