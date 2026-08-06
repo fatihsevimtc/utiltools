@@ -38,6 +38,10 @@ const CATEGORIES = [
       { icon: '#️⃣', name: 'Text to Hashtags',    desc: 'Generate hashtags from any text for social media.',      path: '/tools/text-to-hashtags' },
       { icon: '🅰️', name: 'Title Case (APA)',     desc: 'Apply APA 7th edition title case rules.',                path: '/tools/title-case-apa' },
       { icon: '🐷', name: 'Pig Latin',             desc: 'Convert English text to Pig Latin.',                    path: '/tools/pig-latin' },
+      { icon: '📖', name: 'Readability Score',    desc: 'Flesch Reading Ease and grade level for any text.',      path: '/tools/readability-score' },
+      { icon: '🐦', name: 'Tweet Thread Formatter', desc: 'Split long text into a Twitter/X thread under 280 chars.', path: '/tools/tweet-thread' },
+      { icon: '📝', name: 'Resume Word Checker',  desc: 'Flag weak, vague, and clichéd language in your resume.', path: '/tools/resume-word-checker' },
+      { icon: '👤', name: 'Bio Generator',        desc: 'Generate a polished professional bio in seconds.',        path: '/tools/bio-generator' },
     ],
   },
   {
@@ -74,6 +78,12 @@ const CATEGORIES = [
       { icon: '💳', name: 'Credit Card Validator', desc: 'Validate card numbers with the Luhn algorithm.',         path: '/tools/credit-card-validator' },
       { icon: '📦', name: 'Data URI Encoder',      desc: 'Convert files or text into Base64 data URIs.',           path: '/tools/data-uri-encoder' },
       { icon: '🎭', name: 'Fake Data Generator',   desc: 'Generate realistic fake names, emails, and addresses.',  path: '/tools/fake-data-generator' },
+      { icon: '🔑', name: 'JWT Encoder',           desc: 'Build and sign JWT tokens with HS256 in your browser.',   path: '/tools/jwt-encoder' },
+      { icon: '🔍', name: 'JSON Schema Validator', desc: 'Validate JSON data against a JSON Schema.',               path: '/tools/json-schema-validator' },
+      { icon: '🔀', name: 'JSON Diff',             desc: 'Compare two JSON objects and see what changed.',           path: '/tools/json-diff' },
+      { icon: '🌐', name: 'DNS Lookup',            desc: 'Query A, MX, TXT, CNAME and more for any domain.',        path: '/tools/dns-lookup' },
+      { icon: '🔒', name: 'SSL Certificate Decoder', desc: 'Decode a PEM certificate to view expiry and fields.',   path: '/tools/ssl-decoder' },
+      { icon: '🗺️', name: 'Unicode Char Map',     desc: 'Browse Unicode blocks and click to copy any character.',  path: '/tools/unicode-char-map' },
     ],
   },
   {
@@ -86,6 +96,8 @@ const CATEGORIES = [
       { icon: '👤', name: 'Avatar Generator',     desc: 'Generate placeholder avatars from initials or patterns.', path: '/tools/avatar-generator' },
       { icon: '🎨', name: 'Logo Maker',            desc: 'Design a simple logo with shapes, gradients, and fonts.', path: '/tools/logo-maker' },
       { icon: '💼', name: 'LinkedIn Post Maker',   desc: 'Format LinkedIn posts with Unicode bold, emojis, and CTAs.', path: '/tools/linkedin-post-maker' },
+      { icon: '⌨️', name: 'Typing Speed Test',    desc: 'Test your WPM and accuracy with real-time feedback.',     path: '/tools/typing-speed' },
+      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
     ],
   },
   {
@@ -147,6 +159,26 @@ const CATEGORIES = [
       { icon: '▦',  name: 'Grid Generator',       desc: 'Build CSS Grid layouts visually and copy the CSS.',       path: '/tools/grid-generator' },
       { icon: '🗜️', name: 'SVG Optimizer',       desc: 'Remove comments and metadata to shrink SVG files.',       path: '/tools/svg-optimizer' },
       { icon: '🎨', name: 'HTML Color Names',      desc: 'Browse all 140 named HTML/CSS colors with HEX values.',  path: '/tools/html-color-names' },
+    ],
+  },
+  {
+    id: 'seo',
+    label: '🔍 SEO & Marketing',
+    tools: [
+      { icon: '🏷️', name: 'Meta Tag Generator',   desc: 'Generate SEO, Open Graph and Twitter Card meta tags.',   path: '/tools/meta-tag-generator' },
+      { icon: '👁️', name: 'OG Preview',           desc: 'Preview how your page looks when shared on social media.', path: '/tools/og-preview' },
+      { icon: '🤖', name: 'robots.txt Generator', desc: 'Build a robots.txt file to control bot crawling.',        path: '/tools/robots-txt' },
+      { icon: '🗺️', name: 'Sitemap Generator',    desc: 'Build an XML sitemap for search engine indexing.',        path: '/tools/sitemap-generator' },
+    ],
+  },
+  {
+    id: 'misc',
+    label: '🎯 Misc & Fun',
+    tools: [
+      { icon: '⌨️', name: 'Typing Speed Test',    desc: 'Test your WPM and accuracy with real-time feedback.',     path: '/tools/typing-speed' },
+      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
+      { icon: '⌨️', name: 'Keyboard Shortcuts',   desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac and Vim.',  path: '/tools/keyboard-shortcuts' },
+      { icon: '👁️', name: 'Color Blindness Sim',  desc: 'Preview images as people with color blindness see them.', path: '/tools/color-blindness' },
     ],
   },
   {

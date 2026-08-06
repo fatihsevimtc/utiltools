@@ -129,6 +129,26 @@ import LogoMaker             from './pages/tools/LogoMaker'
 // Images & Files extras
 import ExifViewer            from './pages/tools/ExifViewer'
 
+// New tools
+import MetaTagGenerator      from './pages/tools/MetaTagGenerator'
+import OgPreview             from './pages/tools/OgPreview'
+import RobotsTxtGenerator    from './pages/tools/RobotsTxtGenerator'
+import SitemapGenerator      from './pages/tools/SitemapGenerator'
+import ReadabilityScore      from './pages/tools/ReadabilityScore'
+import UnicodeCharMap        from './pages/tools/UnicodeCharMap'
+import JsonDiff              from './pages/tools/JsonDiff'
+import JwtEncoder            from './pages/tools/JwtEncoder'
+import SslDecoder            from './pages/tools/SslDecoder'
+import TweetThreadFormatter  from './pages/tools/TweetThreadFormatter'
+import TypingSpeedTest       from './pages/tools/TypingSpeedTest'
+import DnsLookup             from './pages/tools/DnsLookup'
+import AsciiArtGenerator     from './pages/tools/AsciiArtGenerator'
+import ColorBlindnessSimulator from './pages/tools/ColorBlindnessSimulator'
+import ResumeWordChecker     from './pages/tools/ResumeWordChecker'
+import BioGenerator          from './pages/tools/BioGenerator'
+import KeyboardShortcuts     from './pages/tools/KeyboardShortcuts'
+import JsonSchemaValidator   from './pages/tools/JsonSchemaValidator'
+
 // AI Tools
 import AiModelComparison     from './pages/tools/AiModelComparison'
 import TokenCounter          from './pages/tools/TokenCounter'
@@ -275,6 +295,26 @@ export default function App() {
 
         {/* Images & Files extras */}
         <Route path="tools/exif-viewer"              element={<ExifViewer />} />
+
+        {/* New tools */}
+        <Route path="tools/meta-tag-generator"       element={<MetaTagGenerator />} />
+        <Route path="tools/og-preview"               element={<OgPreview />} />
+        <Route path="tools/robots-txt"               element={<RobotsTxtGenerator />} />
+        <Route path="tools/sitemap-generator"        element={<SitemapGenerator />} />
+        <Route path="tools/readability-score"        element={<ReadabilityScore />} />
+        <Route path="tools/unicode-char-map"         element={<UnicodeCharMap />} />
+        <Route path="tools/json-diff"                element={<JsonDiff />} />
+        <Route path="tools/jwt-encoder"              element={<JwtEncoder />} />
+        <Route path="tools/ssl-decoder"              element={<SslDecoder />} />
+        <Route path="tools/tweet-thread"             element={<TweetThreadFormatter />} />
+        <Route path="tools/typing-speed"             element={<TypingSpeedTest />} />
+        <Route path="tools/dns-lookup"               element={<DnsLookup />} />
+        <Route path="tools/ascii-art"                element={<AsciiArtGenerator />} />
+        <Route path="tools/color-blindness"          element={<ColorBlindnessSimulator />} />
+        <Route path="tools/resume-word-checker"      element={<ResumeWordChecker />} />
+        <Route path="tools/bio-generator"            element={<BioGenerator />} />
+        <Route path="tools/keyboard-shortcuts"       element={<KeyboardShortcuts />} />
+        <Route path="tools/json-schema-validator"    element={<JsonSchemaValidator />} />
 
         {/* AI Tools */}
         <Route path="tools/ai-model-comparison"      element={<AiModelComparison />} />
