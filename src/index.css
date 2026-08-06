@@ -981,6 +981,7 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
   /* Expand button spans both columns */
   .cat-expand-btn {
+    display: flex;
     grid-column: 1 / -1;
     color: var(--accent);
     border-color: var(--accent) !important;

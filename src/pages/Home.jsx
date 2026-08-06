@@ -206,7 +206,15 @@ export default function Home() {
   const [favPaths, setFavPaths]   = useState(loadFavs)
   const [recentPaths, setRecentPaths] = useState(loadRecent)
   const [catsExpanded, setCatsExpanded] = useState(false)
+  const [isMobile, setIsMobile]   = useState(() => window.innerWidth <= 640)
   const searchRef = useRef(null)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)')
+    const handler = (e) => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   // Ctrl+K / Cmd+K → focus search
   useEffect(() => {
@@ -342,22 +350,23 @@ export default function Home() {
 
             return (
               <>
-                {/* First N always visible */}
-                {allBtns.slice(0, VISIBLE)}
+                {/* On mobile: show first 4, rest behind expand. On desktop: show all */}
+                {isMobile ? allBtns.slice(0, VISIBLE) : allBtns}
 
-                {/* Rest — hidden on mobile until expanded */}
-                <span className={`cat-extra ${catsExpanded ? 'cat-extra--open' : ''}`}>
-                  {allBtns.slice(VISIBLE)}
-                </span>
-
-                {/* Expand toggle — only visible on mobile via CSS */}
-                <button
-                  className="sidebar-cat-btn cat-expand-btn"
-                  onClick={() => setCatsExpanded(e => !e)}
-                  aria-expanded={catsExpanded}
-                >
-                  {catsExpanded ? '▲ Less' : `▼ +${allBtns.length - VISIBLE} more`}
-                </button>
+                {isMobile && (
+                  <>
+                    <span className={`cat-extra ${catsExpanded ? 'cat-extra--open' : ''}`}>
+                      {allBtns.slice(VISIBLE)}
+                    </span>
+                    <button
+                      className="sidebar-cat-btn cat-expand-btn"
+                      onClick={() => setCatsExpanded(e => !e)}
+                      aria-expanded={catsExpanded}
+                    >
+                      {catsExpanded ? '▲ Less' : `▼ +${allBtns.length - VISIBLE} more`}
+                    </button>
+                  </>
+                )}
               </>
             )
           })()}
