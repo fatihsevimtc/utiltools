@@ -184,89 +184,91 @@ export default function LogoMaker() {
     setBold(p.bold); setItalic(p.italic); setBgType('solid')
   }
 
-  function download(size) {
-    const offscreen = document.createElement('canvas')
-    offscreen.width = offscreen.height = size
-    // alpha:true is the default but being explicit ensures transparency is preserved
-    const ctx = offscreen.getContext('2d', { alpha: true })
+  const download = useCallback((exportPx) => {
+    // Build a fresh offscreen canvas at the target resolution
+    const off = document.createElement('canvas')
+    off.width = off.height = exportPx
+    const ctx = off.getContext('2d', { alpha: true })
 
-    // Always start fully transparent
-    ctx.clearRect(0, 0, size, size)
+    // Step 1: transparent base
+    ctx.clearRect(0, 0, exportPx, exportPx)
 
-    // Solid canvas background — only when NOT transparent mode
+    // Step 2: opaque canvas bg — only when not in transparent mode
     if (!transparent) {
       ctx.fillStyle = bgCanvas
-      ctx.fillRect(0, 0, size, size)
+      ctx.fillRect(0, 0, exportPx, exportPx)
     }
 
-    // Shape background fill
-    // When transparent + shape='none': skip fill, let canvas stay clear outside text
-    if (shape !== 'none' || !transparent) {
-      ctx.save()
-      drawShape(ctx, shape, size)
-      if (shape !== 'none') ctx.clip()
+    // Step 3: shape fill (clipped inside shape)
+    ctx.save()
+    drawShape(ctx, shape, exportPx)
+    if (shape !== 'none') ctx.clip()
 
-      if (bgType === 'gradient') {
-        const rad = (gradAngle * Math.PI) / 180
-        const cx = size / 2, cy = size / 2, r = size / 2
-        const x1 = cx - Math.cos(rad) * r, y1 = cy - Math.sin(rad) * r
-        const x2 = cx + Math.cos(rad) * r, y2 = cy + Math.sin(rad) * r
-        const grad = ctx.createLinearGradient(x1, y1, x2, y2)
-        grad.addColorStop(0, bgFrom)
-        grad.addColorStop(1, bgTo)
-        ctx.fillStyle = grad
-      } else {
-        ctx.fillStyle = bgColor
-      }
-      ctx.fillRect(0, 0, size, size)
-      ctx.restore()
+    if (bgType === 'gradient') {
+      const rad = (gradAngle * Math.PI) / 180
+      const half = exportPx / 2
+      const x1 = half - Math.cos(rad) * half, y1 = half - Math.sin(rad) * half
+      const x2 = half + Math.cos(rad) * half, y2 = half + Math.sin(rad) * half
+      const grad = ctx.createLinearGradient(x1, y1, x2, y2)
+      grad.addColorStop(0, bgFrom)
+      grad.addColorStop(1, bgTo)
+      ctx.fillStyle = grad
+    } else {
+      ctx.fillStyle = bgColor
     }
+    // Only fill shape bg when: not transparent, OR there is a shape to fill inside
+    if (!transparent || shape !== 'none') {
+      ctx.fillRect(0, 0, exportPx, exportPx)
+    }
+    ctx.restore()
 
-    // Text
+    // Step 4: text
     if (text) {
       const weight = bold ? 'bold ' : ''
       const style  = italic ? 'italic ' : ''
-      const scaledSize = size * (fontSize / 100)
-
-      ctx.textAlign = 'center'
+      ctx.textAlign    = 'center'
       ctx.textBaseline = 'middle'
-      ctx.fillStyle = fgColor
+      ctx.fillStyle    = fgColor
 
       if (shadow) {
-        ctx.shadowColor = 'rgba(0,0,0,0.4)'
-        ctx.shadowBlur = scaledSize * 0.15
-        ctx.shadowOffsetX = scaledSize * 0.04
-        ctx.shadowOffsetY = scaledSize * 0.04
+        const base = exportPx * (fontSize / 100)
+        ctx.shadowColor   = 'rgba(0,0,0,0.4)'
+        ctx.shadowBlur    = base * 0.15
+        ctx.shadowOffsetX = base * 0.04
+        ctx.shadowOffsetY = base * 0.04
       }
 
       if (shape !== 'none') {
         ctx.save()
-        drawShape(ctx, shape, size)
+        drawShape(ctx, shape, exportPx)
         ctx.clip()
       }
 
-      let fs = scaledSize
+      let fs = exportPx * (fontSize / 100)
       ctx.font = `${style}${weight}${fs}px ${FONTS[fontIdx]}`
-      while (ctx.measureText(text).width > size * 0.82 && fs > 8) {
-        fs -= 1
+      while (ctx.measureText(text).width > exportPx * 0.82 && fs > 8) {
+        fs--
         ctx.font = `${style}${weight}${fs}px ${FONTS[fontIdx]}`
       }
-
-      ctx.fillText(text, size / 2, size / 2)
+      ctx.fillText(text, exportPx / 2, exportPx / 2)
 
       if (shape !== 'none') ctx.restore()
       ctx.shadowColor = 'transparent'
     }
 
-    // Force PNG so alpha channel is preserved
-    offscreen.toBlob(blob => {
+    // Step 5: export as PNG (PNG always preserves alpha)
+    off.toBlob(blob => {
+      if (!blob) return
+      const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
-      a.href = URL.createObjectURL(blob)
-      a.download = `logo-${size}x${size}.png`
+      a.href = url
+      a.download = `logo-${exportPx}x${exportPx}${transparent ? '-transparent' : ''}.png`
+      document.body.appendChild(a)
       a.click()
-      URL.revokeObjectURL(a.href)
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
     }, 'image/png')
-  }
+  }, [text, shape, bgType, bgColor, bgFrom, bgTo, gradAngle, fgColor, fontIdx, fontSize, bold, italic, shadow, transparent, bgCanvas])
 
   return (
     <div className="tool-page">
@@ -386,6 +388,11 @@ export default function LogoMaker() {
               <input type="checkbox" checked={transparent} onChange={e => setTransparent(e.target.checked)} style={{ width: 'auto', accentColor: 'var(--accent)' }} />
               Transparent PNG
             </label>
+            {transparent && (
+              <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>
+                Open in Photoshop, Figma, or a browser tab to see transparency — Windows Photos shows white.
+              </span>
+            )}
             {!transparent && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <span style={{ fontSize: '0.82rem', color: 'var(--muted)' }}>Canvas bg:</span>
