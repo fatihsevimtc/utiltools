@@ -8,6 +8,7 @@ export const CATEGORIES = [
     id: 'text',
     label: '📝 Text',
     tools: [
+      '/tools/word-counter', '/tools/case-converter',
       '/tools/lorem-ipsum', '/tools/text-repeater', '/tools/string-reverse',
       '/tools/duplicate-remover', '/tools/line-sort', '/tools/markdown-preview',
       '/tools/slug-generator', '/tools/word-frequency', '/tools/text-to-binary',
@@ -23,6 +24,7 @@ export const CATEGORIES = [
     id: 'developer',
     label: '🛠️ Developer',
     tools: [
+      '/tools/json-formatter', '/tools/diff-checker', '/tools/base64',
       '/tools/html-entities', '/tools/jwt-decoder', '/tools/regex-tester',
       '/tools/color-converter', '/tools/timestamp', '/tools/css-minifier',
       '/tools/css-formatter', '/tools/js-minifier', '/tools/html-minifier',
@@ -41,6 +43,7 @@ export const CATEGORIES = [
     id: 'generators',
     label: '⚡ Generators',
     tools: [
+      '/tools/qr-generator', '/tools/password-generator',
       '/tools/uuid-generator', '/tools/hash-generator', '/tools/random-number',
       '/tools/avatar-generator', '/tools/logo-maker', '/tools/linkedin-post-maker',
       '/tools/typing-speed', '/tools/ascii-art',
@@ -50,7 +53,7 @@ export const CATEGORIES = [
     id: 'math',
     label: '🔢 Math & Numbers',
     tools: [
-      '/tools/percentage', '/tools/number-base', '/tools/roman-numeral',
+      '/tools/percentage', '/tools/unit-converter', '/tools/number-base', '/tools/roman-numeral',
       '/tools/binary-calculator', '/tools/prime-checker', '/tools/gcd-lcm',
       '/tools/fibonacci', '/tools/bmi', '/tools/tip-calculator',
       '/tools/loan-calculator', '/tools/compound-interest', '/tools/vat-calculator',
@@ -70,6 +73,7 @@ export const CATEGORIES = [
     id: 'files',
     label: '🖼️ Images & Files',
     tools: [
+      '/tools/digital-signature',
       '/tools/image-resizer', '/tools/file-size', '/tools/image-to-base64',
       '/tools/base64-to-image', '/tools/image-color-picker', '/tools/favicon-generator',
       '/tools/exif-viewer',

@@ -121,13 +121,13 @@ const MARQUEE_ITEMS = [
 
 const FEATURED = [
   { icon: '📝', name: 'Word Counter',       desc: 'Live word, character & reading-time counts.',             path: '/tools/word-counter' },
-  { icon: '🔤', name: 'Case Converter',     desc: 'UPPER, lower, Title, camelCase, snake_case and more.',    path: '/tools/case-converter' },
+  { icon: '🖼️', name: 'Image Resizer',     desc: 'Resize images instantly in your browser — no upload.',    path: '/tools/image-resizer' },
   { icon: '🗂️', name: 'JSON Formatter',    desc: 'Pretty-print and validate JSON with error highlighting.',  path: '/tools/json-formatter' },
   { icon: '🔀', name: 'Diff Checker',       desc: 'Paste two texts and see exactly what changed.',            path: '/tools/diff-checker' },
   { icon: '📷', name: 'QR Generator',       desc: 'Turn any URL or text into a downloadable QR code.',        path: '/tools/qr-generator' },
   { icon: '🔐', name: 'Password Generator', desc: 'Secure passwords and passphrases with a strength meter.',  path: '/tools/password-generator' },
   { icon: '✍️', name: 'Digital Signature',  desc: 'Draw and download your signature as PNG, JPG, or SVG.',   path: '/tools/digital-signature' },
-  { icon: '🔒', name: 'Base64 / URL Encode',desc: 'Encode and decode Base64 or URL-encoded strings.',         path: '/tools/base64' },
+  { icon: '📐', name: 'Unit Converter',     desc: 'Convert length, weight, temperature, speed and more.',    path: '/tools/unit-converter' },
 ]
 
 const CATEGORIES = [
@@ -136,6 +136,8 @@ const CATEGORIES = [
     label: '📝 Text',
     tools: [
       { icon: '📄', name: 'Lorem Ipsum',         desc: 'Generate placeholder text.',                            path: '/tools/lorem-ipsum' },
+      { icon: '📝', name: 'Word Counter',        desc: 'Live word, character & reading-time counts.',           path: '/tools/word-counter' },
+      { icon: '🔤', name: 'Case Converter',      desc: 'UPPER, lower, Title, camelCase, snake_case and more.',  path: '/tools/case-converter' },
       { icon: '🔁', name: 'Text Repeater',        desc: 'Repeat any string N times.',                            path: '/tools/text-repeater' },
       { icon: '↩️', name: 'String Reverse',       desc: 'Reverse by characters, words, or lines.',               path: '/tools/string-reverse' },
       { icon: '🧹', name: 'Duplicate Remover',    desc: 'Remove duplicate lines instantly.',                     path: '/tools/duplicate-remover' },
@@ -167,6 +169,9 @@ const CATEGORIES = [
     label: '🛠️ Developer',
     tools: [
       { icon: '🌐', name: 'HTML Entities',        desc: 'Encode/decode HTML special characters.',                path: '/tools/html-entities' },
+      { icon: '🔒', name: 'Base64 / URL Encode', desc: 'Encode and decode Base64 or URL-encoded strings.',       path: '/tools/base64' },
+      { icon: '🗂️', name: 'JSON Formatter',     desc: 'Pretty-print and validate JSON with error highlighting.',  path: '/tools/json-formatter' },
+      { icon: '🔀', name: 'Diff Checker',        desc: 'Paste two texts and see exactly what changed.',            path: '/tools/diff-checker' },
       { icon: '🔑', name: 'JWT Decoder',          desc: 'Decode JWT tokens in your browser.',                    path: '/tools/jwt-decoder' },
       { icon: '🔍', name: 'Regex Tester',         desc: 'Test regex with live match highlighting.',               path: '/tools/regex-tester' },
       { icon: '🎨', name: 'Color Converter',      desc: 'HEX ↔ RGB ↔ HSL.',                                     path: '/tools/color-converter' },
@@ -210,6 +215,8 @@ const CATEGORIES = [
     tools: [
       { icon: '🆔', name: 'UUID Generator',       desc: 'Random v4 UUIDs in bulk.',                              path: '/tools/uuid-generator' },
       { icon: '#️⃣', name: 'Hash Generator',      desc: 'SHA-1 / SHA-256 / SHA-512.',                           path: '/tools/hash-generator' },
+      { icon: '📷', name: 'QR Generator',        desc: 'Turn any URL or text into a downloadable QR code.',      path: '/tools/qr-generator' },
+      { icon: '🔐', name: 'Password Generator',  desc: 'Secure passwords and passphrases with a strength meter.',path: '/tools/password-generator' },
       { icon: '🎲', name: 'Random Number',        desc: 'Random numbers in a range.',                            path: '/tools/random-number' },
       { icon: '👤', name: 'Avatar Generator',     desc: 'Generate placeholder avatars from initials or patterns.', path: '/tools/avatar-generator' },
       { icon: '🎨', name: 'Logo Maker',            desc: 'Design a simple logo with shapes, gradients, and fonts.', path: '/tools/logo-maker' },
@@ -257,6 +264,7 @@ const CATEGORIES = [
     id: 'files',
     label: '🖼️ Images & Files',
     tools: [
+      { icon: '✍️', name: 'Digital Signature',    desc: 'Draw and download your signature as PNG, JPG, or SVG.',  path: '/tools/digital-signature' },
       { icon: '🖼️', name: 'Image Resizer',       desc: 'Resize images in-browser.',                             path: '/tools/image-resizer' },
       { icon: '💾', name: 'File Size Converter',  desc: 'Bytes, KB, MB, GB and more.',                           path: '/tools/file-size' },
       { icon: '🔐', name: 'Image to Base64',      desc: 'Convert any image to a Base64 data URI.',               path: '/tools/image-to-base64' },
@@ -298,7 +306,6 @@ const CATEGORIES = [
       { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
       { icon: '⌨️', name: 'Keyboard Shortcuts',   desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac and Vim.',  path: '/tools/keyboard-shortcuts' },
       { icon: '👁️', name: 'Color Blindness Sim',  desc: 'Preview images as people with color blindness see them.', path: '/tools/color-blindness' },
-      { icon: '✍️', name: 'Digital Signature',    desc: 'Draw and download your signature as PNG, JPG, or SVG.',   path: '/tools/digital-signature' },
     ],
   },
   {
