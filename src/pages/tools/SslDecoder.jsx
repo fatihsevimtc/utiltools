@@ -68,7 +68,7 @@ export default function SslDecoder() {
     setResult(r)
   }
 
-  const expiredOrSoon = result?.daysLeft !== null && result.daysLeft < 30
+  const expiredOrSoon = !!result && result.daysLeft !== null && result.daysLeft < 30
 
   return (
     <div className="tool-page">
