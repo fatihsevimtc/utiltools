@@ -3,7 +3,7 @@ import BackBar from '../components/BackBar'
 
 export default function About() {
   return (
-    <div style={{ maxWidth: 660 }}>
+    <div style={{ maxWidth: 660, margin: '0 auto' }}>
       <BackBar />
       <h1 style={{ marginBottom: '1rem' }}>About UtilTools</h1>
       <p style={{ color: 'var(--muted)', marginBottom: '1rem' }}>

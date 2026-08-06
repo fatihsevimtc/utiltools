@@ -53,7 +53,7 @@ export default function Suggest() {
 
   if (status === 'success') {
     return (
-      <div style={{ maxWidth: 520, textAlign: 'center', paddingTop: '3rem' }}>
+      <div style={{ maxWidth: 520, textAlign: 'center', paddingTop: '3rem', margin: '0 auto' }}>
         <p style={{ fontSize: '3rem' }}>🙌</p>
         <h1 style={{ margin: '1rem 0 0.5rem' }}>Thanks for the suggestion!</h1>
         <p style={{ color: 'var(--muted)', marginBottom: '1.5rem' }}>
@@ -76,7 +76,7 @@ export default function Suggest() {
   }
 
   return (
-    <div style={{ maxWidth: 520 }}>
+    <div style={{ maxWidth: 520, margin: '0 auto' }}>
       <BackBar />
       <h1>Suggest a tool</h1>
       <p style={{ color: 'var(--muted)', margin: '0.5rem 0 1.75rem' }}>
