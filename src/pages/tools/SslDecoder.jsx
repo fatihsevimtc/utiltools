@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 // Pure-JS PEM parser — extracts fields from X.509 DER via ASN.1
 // We use a simplified approach: parse what we can from the cert text

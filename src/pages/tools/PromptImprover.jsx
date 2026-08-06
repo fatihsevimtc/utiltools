@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 /**
  * Prompt Improver — applies best-practice prompt engineering rules

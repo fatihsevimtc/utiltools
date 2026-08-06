@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import QRCode from 'qrcode'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 export default function QrGenerator() {
   const [text, setText] = useState('')

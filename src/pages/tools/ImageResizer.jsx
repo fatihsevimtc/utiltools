@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 export default function ImageResizer() {
   const [original, setOriginal] = useState(null) // { w, h, src, name }

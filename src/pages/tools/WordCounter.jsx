@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 function countWords(text) {
   return text.trim() === '' ? 0 : text.trim().split(/\s+/).length

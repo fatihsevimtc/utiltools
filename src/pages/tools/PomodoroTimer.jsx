@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 const MODES = [
   { id: 'work',       label: 'Work',        default: 25, color: '#ef4444' },

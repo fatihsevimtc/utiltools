@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 export default function TimestampConverter() {
   const [unix, setUnix]     = useState(String(Math.floor(Date.now()/1000)))

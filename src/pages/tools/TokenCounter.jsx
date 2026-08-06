@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
+import ToolSeo from '../../components/ToolSeo'
 
 /**
  * BPE-style token estimator — closely matches GPT-4 / GPT-3.5-turbo tokenization.
