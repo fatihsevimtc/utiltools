@@ -188,45 +188,70 @@ export default function LogoMaker() {
     const offscreen = document.createElement('canvas')
     offscreen.width = offscreen.height = size
     const ctx = offscreen.getContext('2d')
-    const scale = size / canvasSize
 
+    // Canvas background
     if (!transparent) {
       ctx.fillStyle = bgCanvas
       ctx.fillRect(0, 0, size, size)
     }
 
+    // Shape fill — drawn natively at `size`, same logic as draw()
     ctx.save()
-    ctx.scale(scale, scale)
-    // Redraw at scale
-    drawShape(ctx, shape, canvasSize)
+    drawShape(ctx, shape, size)
     if (shape !== 'none') ctx.clip()
+
     if (bgType === 'gradient') {
       const rad = (gradAngle * Math.PI) / 180
-      const cx = canvasSize / 2, cy = canvasSize / 2, r = canvasSize / 2
+      const cx = size / 2, cy = size / 2, r = size / 2
       const x1 = cx - Math.cos(rad) * r, y1 = cy - Math.sin(rad) * r
       const x2 = cx + Math.cos(rad) * r, y2 = cy + Math.sin(rad) * r
       const grad = ctx.createLinearGradient(x1, y1, x2, y2)
-      grad.addColorStop(0, bgFrom); grad.addColorStop(1, bgTo)
+      grad.addColorStop(0, bgFrom)
+      grad.addColorStop(1, bgTo)
       ctx.fillStyle = grad
-    } else { ctx.fillStyle = bgColor }
-    ctx.fillRect(0, 0, canvasSize, canvasSize)
+    } else {
+      ctx.fillStyle = bgColor
+    }
+    ctx.fillRect(0, 0, size, size)
     ctx.restore()
 
+    // Text — same logic as draw() but using `size` instead of `canvasSize`
     if (text) {
       const weight = bold ? 'bold ' : ''
       const style  = italic ? 'italic ' : ''
-      const scaledSize = canvasSize * (fontSize / 100)
-      if (shadow) { ctx.shadowColor='rgba(0,0,0,0.4)'; ctx.shadowBlur=scaledSize*0.15*scale; ctx.shadowOffsetX=ctx.shadowOffsetY=scaledSize*0.04*scale }
-      ctx.save()
-      if (shape !== 'none') { drawShape(ctx, shape, canvasSize); ctx.scale(scale, scale); }
-      ctx.scale(scale, scale)
-      ctx.font = `${style}${weight}${scaledSize}px ${FONTS[fontIdx]}`
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+      const scaledSize = size * (fontSize / 100)
+
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
       ctx.fillStyle = fgColor
+
+      if (shadow) {
+        ctx.shadowColor = 'rgba(0,0,0,0.4)'
+        ctx.shadowBlur = scaledSize * 0.15
+        ctx.shadowOffsetX = scaledSize * 0.04
+        ctx.shadowOffsetY = scaledSize * 0.04
+      }
+
+      // Clip text to shape
+      if (shape !== 'none') {
+        ctx.save()
+        drawShape(ctx, shape, size)
+        ctx.clip()
+      }
+
+      // Auto-fit long text
       let fs = scaledSize
-      while (ctx.measureText(text).width > canvasSize * 0.82 && fs > 8) { fs--; ctx.font = `${style}${weight}${fs}px ${FONTS[fontIdx]}` }
-      ctx.fillText(text, canvasSize / 2, canvasSize / 2)
-      ctx.restore()
+      ctx.font = `${style}${weight}${fs}px ${FONTS[fontIdx]}`
+      while (ctx.measureText(text).width > size * 0.82 && fs > 8) {
+        fs -= 1
+        ctx.font = `${style}${weight}${fs}px ${FONTS[fontIdx]}`
+      }
+
+      ctx.fillText(text, size / 2, size / 2)
+
+      if (shape !== 'none') ctx.restore()
+
+      ctx.shadowColor = 'transparent'
     }
 
     offscreen.toBlob(blob => {
@@ -235,7 +260,7 @@ export default function LogoMaker() {
       a.download = `logo-${size}x${size}.png`
       a.click()
       URL.revokeObjectURL(a.href)
-    })
+    }, 'image/png')
   }
 
   return (
