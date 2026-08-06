@@ -383,6 +383,103 @@ export default function Home() {
   const [isMobile, setIsMobile]   = useState(() => window.innerWidth <= 640)
   const searchRef = useRef(null)
 
+  // ── Marquee drag-to-scroll (mouse + touch) ─────────────────────────────
+  const marqueeTrackRef = useRef(null)
+  const marqueeWrapRef  = useRef(null)
+
+  // Pause on hover (desktop), resume on leave
+  const onMarqueeEnter = useCallback(() => {
+    const track = marqueeTrackRef.current
+    if (track) track.style.animationPlayState = 'paused'
+  }, [])
+
+  const onMarqueeLeave = useCallback(() => {
+    const track = marqueeTrackRef.current
+    if (track && !marqueeWrapRef.current?.classList.contains('is-dragging')) {
+      track.style.animationPlayState = ''
+    }
+  }, [])
+
+  // Shared drag logic — works for both mouse and touch
+  const startDrag = useCallback((clientX) => {
+    const track = marqueeTrackRef.current
+    const wrap  = marqueeWrapRef.current
+    if (!track || !wrap) return
+
+    const matrix = new DOMMatrixReadOnly(window.getComputedStyle(track).transform)
+    const startTranslate = matrix.m41
+
+    track.style.animation = 'none'
+    track.style.transform = `translateX(${startTranslate}px)`
+
+    let moved = false
+
+    function resumeAnimation() {
+      const matrix2   = new DOMMatrixReadOnly(window.getComputedStyle(track).transform)
+      const endX      = matrix2.m41
+      const halfWidth = track.scrollWidth / 2
+      let offset = endX % halfWidth
+      if (offset > 0) offset -= halfWidth
+      const progress = Math.abs(offset) / halfWidth
+      const delay    = -(progress * 40)
+      track.style.transform = ''
+      track.style.animation = ''
+      track.style.animationDelay = `${delay}s`
+    }
+
+    function onMove(x) {
+      const delta = x - clientX
+      if (!moved && Math.abs(delta) > 3) {
+        moved = true
+        wrap.classList.add('is-dragging')
+      }
+      if (moved) {
+        track.style.transform = `translateX(${startTranslate + delta}px)`
+      }
+    }
+
+    function onEnd() {
+      wrap.classList.remove('is-dragging')
+      if (moved) {
+        resumeAnimation()
+      } else {
+        // Pure tap/click — keep paused if still hovering, else resume
+        track.style.transform = ''
+        track.style.animation = ''
+        track.style.animationPlayState = wrap.matches(':hover') ? 'paused' : ''
+      }
+      // Resume on touch end (no hover state on mobile)
+      if (!wrap.matches(':hover')) {
+        track.style.animationPlayState = ''
+      }
+    }
+
+    // Mouse handlers
+    function onMouseMove(ev) { onMove(ev.clientX) }
+    function onMouseUp()     { onEnd(); window.removeEventListener('mousemove', onMouseMove); window.removeEventListener('mouseup', onMouseUp) }
+
+    // Touch handlers
+    function onTouchMove(ev) { onMove(ev.touches[0].clientX) }
+    function onTouchEnd()    { onEnd(); window.removeEventListener('touchmove', onTouchMove); window.removeEventListener('touchend', onTouchEnd) }
+
+    window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mouseup',   onMouseUp)
+    window.addEventListener('touchmove', onTouchMove, { passive: true })
+    window.addEventListener('touchend',  onTouchEnd)
+  }, [])
+
+  const onMarqueeMouseDown = useCallback((e) => {
+    if (e.button !== 0) return
+    startDrag(e.clientX)
+  }, [startDrag])
+
+  const onMarqueeTouchStart = useCallback((e) => {
+    // Pause animation on touch (no hover event on mobile)
+    const track = marqueeTrackRef.current
+    if (track) track.style.animationPlayState = 'paused'
+    startDrag(e.touches[0].clientX)
+  }, [startDrag])
+
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 640px)')
     const handler = (e) => setIsMobile(e.matches)
@@ -485,8 +582,15 @@ export default function Home() {
 
       {/* ── MARQUEE STRIP ── */}
       {!query && (
-        <div className="hero-marquee">
-          <div className="hero-marquee-track">
+        <div
+          className="hero-marquee"
+          ref={marqueeWrapRef}
+          onMouseEnter={onMarqueeEnter}
+          onMouseLeave={onMarqueeLeave}
+          onMouseDown={onMarqueeMouseDown}
+          onTouchStart={onMarqueeTouchStart}
+        >
+          <div className="hero-marquee-track" ref={marqueeTrackRef}>
             {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((t, i) => (
               <Link key={i} to={t.path} className="hero-marquee-item">
                 <span>{t.icon}</span> {t.name}

@@ -193,14 +193,17 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   margin-bottom: 0;
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  cursor: grab;
+  user-select: none;
 }
+.hero-marquee:active { cursor: grabbing; }
 .hero-marquee-track {
   display: flex;
   gap: 0.6rem;
   width: max-content;
-  animation: marquee-scroll 75s linear infinite;
+  animation: marquee-scroll 40s linear infinite;
 }
-.hero-marquee:hover .hero-marquee-track { animation-play-state: paused; }
+.hero-marquee:hover .hero-marquee-track { /* animation pause handled by JS */ }
 .hero-marquee-item {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -222,6 +225,13 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   color: var(--text);
   background: var(--surface2);
   text-decoration: none;
+}
+/* disable clicks while dragging so mouseup doesn't fire a link navigation */
+.hero-marquee.is-dragging .hero-marquee-item {
+  pointer-events: none;
+}
+.hero-marquee.is-dragging {
+  cursor: grabbing;
 }
 @keyframes marquee-scroll {
   0%   { transform: translateX(0); }
