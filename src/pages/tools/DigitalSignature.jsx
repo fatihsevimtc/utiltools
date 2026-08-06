@@ -8,6 +8,7 @@ export default function DigitalSignature() {
   const canvasRef  = useRef()
   const drawing    = useRef(false)
   const lastPos    = useRef(null)
+  const hasMoved   = useRef(false)
   const history    = useRef([])   // stack of ImageData snapshots
 
   const [penColor,    setPenColor]    = useState('#000000')
@@ -75,7 +76,9 @@ export default function DigitalSignature() {
     e.preventDefault()
     saveSnapshot()                   // save state BEFORE this stroke
     drawing.current = true
-    lastPos.current = getPos(e, canvasRef.current)
+    const pos = getPos(e, canvasRef.current)
+    lastPos.current = pos
+    hasMoved.current = false
     setIsEmpty(false)
   }
 
@@ -96,12 +99,24 @@ export default function DigitalSignature() {
     ctx.stroke()
 
     lastPos.current = pos
+    hasMoved.current = true
   }
 
   function stopDraw(e) {
     e.preventDefault()
-    drawing.current = false
-    lastPos.current = null
+    // If the pointer never moved, draw a dot at the tap/click point
+    if (drawing.current && !hasMoved.current && lastPos.current) {
+      const canvas = canvasRef.current
+      const ctx    = canvas.getContext('2d')
+      const r      = penSize / 2
+      ctx.beginPath()
+      ctx.arc(lastPos.current.x, lastPos.current.y, r, 0, Math.PI * 2)
+      ctx.fillStyle = penColor
+      ctx.fill()
+    }
+    drawing.current  = false
+    lastPos.current  = null
+    hasMoved.current = false
   }
 
   function clear() {
