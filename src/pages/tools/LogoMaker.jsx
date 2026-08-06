@@ -187,35 +187,42 @@ export default function LogoMaker() {
   function download(size) {
     const offscreen = document.createElement('canvas')
     offscreen.width = offscreen.height = size
-    const ctx = offscreen.getContext('2d')
+    // alpha:true is the default but being explicit ensures transparency is preserved
+    const ctx = offscreen.getContext('2d', { alpha: true })
 
-    // Canvas background
+    // Always start fully transparent
+    ctx.clearRect(0, 0, size, size)
+
+    // Solid canvas background — only when NOT transparent mode
     if (!transparent) {
       ctx.fillStyle = bgCanvas
       ctx.fillRect(0, 0, size, size)
     }
 
-    // Shape fill — drawn natively at `size`, same logic as draw()
-    ctx.save()
-    drawShape(ctx, shape, size)
-    if (shape !== 'none') ctx.clip()
+    // Shape background fill
+    // When transparent + shape='none': skip fill, let canvas stay clear outside text
+    if (shape !== 'none' || !transparent) {
+      ctx.save()
+      drawShape(ctx, shape, size)
+      if (shape !== 'none') ctx.clip()
 
-    if (bgType === 'gradient') {
-      const rad = (gradAngle * Math.PI) / 180
-      const cx = size / 2, cy = size / 2, r = size / 2
-      const x1 = cx - Math.cos(rad) * r, y1 = cy - Math.sin(rad) * r
-      const x2 = cx + Math.cos(rad) * r, y2 = cy + Math.sin(rad) * r
-      const grad = ctx.createLinearGradient(x1, y1, x2, y2)
-      grad.addColorStop(0, bgFrom)
-      grad.addColorStop(1, bgTo)
-      ctx.fillStyle = grad
-    } else {
-      ctx.fillStyle = bgColor
+      if (bgType === 'gradient') {
+        const rad = (gradAngle * Math.PI) / 180
+        const cx = size / 2, cy = size / 2, r = size / 2
+        const x1 = cx - Math.cos(rad) * r, y1 = cy - Math.sin(rad) * r
+        const x2 = cx + Math.cos(rad) * r, y2 = cy + Math.sin(rad) * r
+        const grad = ctx.createLinearGradient(x1, y1, x2, y2)
+        grad.addColorStop(0, bgFrom)
+        grad.addColorStop(1, bgTo)
+        ctx.fillStyle = grad
+      } else {
+        ctx.fillStyle = bgColor
+      }
+      ctx.fillRect(0, 0, size, size)
+      ctx.restore()
     }
-    ctx.fillRect(0, 0, size, size)
-    ctx.restore()
 
-    // Text — same logic as draw() but using `size` instead of `canvasSize`
+    // Text
     if (text) {
       const weight = bold ? 'bold ' : ''
       const style  = italic ? 'italic ' : ''
@@ -232,14 +239,12 @@ export default function LogoMaker() {
         ctx.shadowOffsetY = scaledSize * 0.04
       }
 
-      // Clip text to shape
       if (shape !== 'none') {
         ctx.save()
         drawShape(ctx, shape, size)
         ctx.clip()
       }
 
-      // Auto-fit long text
       let fs = scaledSize
       ctx.font = `${style}${weight}${fs}px ${FONTS[fontIdx]}`
       while (ctx.measureText(text).width > size * 0.82 && fs > 8) {
@@ -250,10 +255,10 @@ export default function LogoMaker() {
       ctx.fillText(text, size / 2, size / 2)
 
       if (shape !== 'none') ctx.restore()
-
       ctx.shadowColor = 'transparent'
     }
 
+    // Force PNG so alpha channel is preserved
     offscreen.toBlob(blob => {
       const a = document.createElement('a')
       a.href = URL.createObjectURL(blob)
