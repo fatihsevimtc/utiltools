@@ -16,6 +16,7 @@ export default function DigitalSignature() {
   const [transparent, setTransparent] = useState(false)
   const [isEmpty,     setIsEmpty]     = useState(true)
   const [canUndo,     setCanUndo]     = useState(false)
+  const [copyStatus,  setCopyStatus]  = useState('idle') // 'idle' | 'copied' | 'unsupported'
 
   // Draw the canvas background fill
   const fillBg = useCallback(() => {
@@ -110,19 +111,24 @@ export default function DigitalSignature() {
     setCanUndo(false)
   }
 
-  function download(format) {
+  // Build a composited off-screen canvas (handles transparent bg correctly)
+  function buildOffscreenCanvas() {
     const src = canvasRef.current
     const off = document.createElement('canvas')
     off.width  = src.width
     off.height = src.height
     const ctx  = off.getContext('2d', { alpha: true })
-
     ctx.clearRect(0, 0, off.width, off.height)
     if (!transparent) {
       ctx.fillStyle = bgColor
       ctx.fillRect(0, 0, off.width, off.height)
     }
     ctx.drawImage(src, 0, 0)
+    return off
+  }
+
+  function download(format) {
+    const off = buildOffscreenCanvas()
 
     if (format === 'svg') {
       const dataUrl = off.toDataURL('image/png')
@@ -146,12 +152,38 @@ export default function DigitalSignature() {
     }, mime, 0.95)
   }
 
+  async function copyImage() {
+    if (!navigator.clipboard?.write) {
+      setCopyStatus('unsupported')
+      setTimeout(() => setCopyStatus('idle'), 3000)
+      return
+    }
+    try {
+      const off = buildOffscreenCanvas()
+      const blob = await new Promise(resolve => off.toBlob(resolve, 'image/png'))
+      await navigator.clipboard.write([
+        new ClipboardItem({ 'image/png': blob })
+      ])
+      setCopyStatus('copied')
+      setTimeout(() => setCopyStatus('idle'), 2500)
+    } catch {
+      setCopyStatus('unsupported')
+      setTimeout(() => setCopyStatus('idle'), 3000)
+    }
+  }
+
+  const copyLabel = copyStatus === 'copied'
+    ? '✓ Copied!'
+    : copyStatus === 'unsupported'
+      ? 'Not supported — use Download'
+      : '📋 Copy image'
+
   return (
     <div className="tool-page">
       <BackBar />
       <h1>Digital Signature</h1>
       <p className="tool-description">
-        Draw your signature with mouse or touch. Download as PNG, JPG, or SVG — with optional transparent background.
+        Draw your signature with mouse or touch. Copy to clipboard or download as PNG, JPG, or SVG.
       </p>
 
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
@@ -178,14 +210,13 @@ export default function DigitalSignature() {
               onChange={e => setPenSize(Number(e.target.value))} style={{ width: '100%' }} />
           </div>
 
-          {/* Transparent toggle — both rows always rendered, visibility toggled so height never changes */}
+          {/* Transparent toggle — color picker always in DOM to prevent layout shift */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', margin: 0 }}>
               <input type="checkbox" checked={transparent} onChange={e => setTransparent(e.target.checked)}
                 style={{ width: 'auto', accentColor: 'var(--accent)' }} />
               Transparent background
             </label>
-            {/* Color picker — always in DOM, hidden when transparent is on */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', visibility: transparent ? 'hidden' : 'visible' }}>
               <span style={{ fontSize: '0.82rem', color: 'var(--muted)' }}>Background:</span>
               <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)}
@@ -193,10 +224,10 @@ export default function DigitalSignature() {
             </div>
           </div>
 
-          {/* Action buttons */}
+          {/* Undo / Clear */}
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <button className="btn btn-ghost btn-sm" onClick={undo} disabled={!canUndo}
-              style={{ opacity: canUndo ? 1 : 0.4 }} title="Undo last stroke (Ctrl+Z)">
+              style={{ opacity: canUndo ? 1 : 0.4 }} title="Undo last stroke">
               ↩ Undo
             </button>
             <button className="btn btn-ghost btn-sm" onClick={clear}>
@@ -204,6 +235,21 @@ export default function DigitalSignature() {
             </button>
           </div>
 
+          {/* Copy to clipboard */}
+          <button
+            className="btn btn-sm"
+            onClick={copyImage}
+            disabled={isEmpty}
+            style={{
+              opacity: isEmpty ? 0.45 : 1,
+              background: copyStatus === 'copied' ? 'var(--accent)' : undefined,
+              color: copyStatus === 'copied' ? '#fff' : undefined,
+            }}
+          >
+            {copyLabel}
+          </button>
+
+          {/* Download */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label>Download</label>
             {['png', 'jpg', 'svg'].map(fmt => (
@@ -247,7 +293,7 @@ export default function DigitalSignature() {
             onTouchEnd={stopDraw}
           />
           <p style={{ color: 'var(--muted)', fontSize: '0.78rem', marginTop: '0.4rem' }}>
-            Draw your signature above · Undo last stroke with ↩ · Download as PNG, JPG, or SVG.
+            Draw your signature · Copy to clipboard or download as PNG, JPG, or SVG.
           </p>
         </div>
       </div>
