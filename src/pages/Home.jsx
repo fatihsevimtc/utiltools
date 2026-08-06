@@ -9,7 +9,7 @@ const NEW_TOOLS = new Set([
   '/tools/resume-word-checker', '/tools/bio-generator', '/tools/keyboard-shortcuts',
   '/tools/json-schema-validator', '/tools/ai-model-comparison', '/tools/token-counter',
   '/tools/system-prompt-builder', '/tools/prompt-formatter', '/tools/prompt-improver',
-  '/tools/linkedin-post-maker',
+  '/tools/linkedin-post-maker', '/tools/digital-signature',
 ])
 
 // High-traffic / popular tools (shown with "🔥" badge)
@@ -126,7 +126,7 @@ const FEATURED = [
   { icon: '🔀', name: 'Diff Checker',       desc: 'Paste two texts and see exactly what changed.',            path: '/tools/diff-checker' },
   { icon: '📷', name: 'QR Generator',       desc: 'Turn any URL or text into a downloadable QR code.',        path: '/tools/qr-generator' },
   { icon: '🔐', name: 'Password Generator', desc: 'Secure passwords and passphrases with a strength meter.',  path: '/tools/password-generator' },
-  { icon: '📐', name: 'Unit Converter',     desc: 'Convert length, weight, temperature, speed and area.',     path: '/tools/unit-converter' },
+  { icon: '✍️', name: 'Digital Signature',  desc: 'Draw and download your signature as PNG, JPG, or SVG.',   path: '/tools/digital-signature' },
   { icon: '🔒', name: 'Base64 / URL Encode',desc: 'Encode and decode Base64 or URL-encoded strings.',         path: '/tools/base64' },
 ]
 
@@ -223,6 +223,7 @@ const CATEGORIES = [
     label: '🔢 Math & Numbers',
     tools: [
       { icon: '%',  name: 'Percentage Calc',      desc: 'X% of Y, % change and more.',                           path: '/tools/percentage' },
+      { icon: '📐', name: 'Unit Converter',       desc: 'Convert length, weight, temperature, speed and more.',   path: '/tools/unit-converter' },
       { icon: '🔢', name: 'Number Base',          desc: 'Decimal ↔ Binary ↔ Hex ↔ Octal.',                      path: '/tools/number-base' },
       { icon: 'Ⅻ',  name: 'Roman Numerals',      desc: '2024 ↔ MMXXIV.',                                        path: '/tools/roman-numeral' },
       { icon: '🔟', name: 'Binary Calculator',    desc: 'Arithmetic and bitwise ops on binary numbers.',          path: '/tools/binary-calculator' },
@@ -297,6 +298,7 @@ const CATEGORIES = [
       { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
       { icon: '⌨️', name: 'Keyboard Shortcuts',   desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac and Vim.',  path: '/tools/keyboard-shortcuts' },
       { icon: '👁️', name: 'Color Blindness Sim',  desc: 'Preview images as people with color blindness see them.', path: '/tools/color-blindness' },
+      { icon: '✍️', name: 'Digital Signature',    desc: 'Draw and download your signature as PNG, JPG, or SVG.',   path: '/tools/digital-signature' },
     ],
   },
   {

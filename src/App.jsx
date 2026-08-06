@@ -129,6 +129,9 @@ import LogoMaker             from './pages/tools/LogoMaker'
 // Images & Files extras
 import ExifViewer            from './pages/tools/ExifViewer'
 
+// Digital Signature
+import DigitalSignature      from './pages/tools/DigitalSignature'
+
 // New tools
 import MetaTagGenerator      from './pages/tools/MetaTagGenerator'
 import OgPreview             from './pages/tools/OgPreview'
@@ -295,6 +298,9 @@ export default function App() {
 
         {/* Images & Files extras */}
         <Route path="tools/exif-viewer"              element={<ExifViewer />} />
+
+        {/* Digital Signature */}
+        <Route path="tools/digital-signature"        element={<DigitalSignature />} />
 
         {/* New tools */}
         <Route path="tools/meta-tag-generator"       element={<MetaTagGenerator />} />

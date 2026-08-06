@@ -130,6 +130,7 @@ const TOOL_NAMES = {
   '/tools/bio-generator':          'Bio Generator',
   '/tools/keyboard-shortcuts':     'Keyboard Shortcuts',
   '/tools/json-schema-validator':  'JSON Schema Validator',
+  '/tools/digital-signature':      'Digital Signature',
 }
 
 export default function Layout() {

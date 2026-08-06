@@ -316,4 +316,12 @@ export const TOOL_SEO = {
       { q: 'How long should a meta description be?', a: 'Google typically shows 150–160 characters. Keep it under 160 and make it descriptive and action-oriented.' },
     ],
   },
+  '/tools/digital-signature': {
+    about: 'A digital signature tool lets you draw your handwritten signature using a mouse or touchscreen and download it as a transparent PNG, JPG, or SVG. It is useful for signing documents, adding signatures to PDFs, and creating email sign-offs.',
+    faqs: [
+      { q: 'Is this legally binding?', a: 'A drawn image signature is not a legally binding electronic signature under laws like eIDAS or ESIGN. For legally binding signatures use a dedicated e-signature service like DocuSign or Adobe Sign.' },
+      { q: 'Can I use this on a phone or tablet?', a: 'Yes — the canvas supports touch input, so you can draw naturally with your finger or a stylus on any touchscreen device.' },
+      { q: 'Which format should I download?', a: 'PNG with transparent background works best for placing your signature on documents or in design tools. JPG is smaller but has a white background. SVG embeds the PNG data and is useful in web contexts.' },
+    ],
+  },
 }

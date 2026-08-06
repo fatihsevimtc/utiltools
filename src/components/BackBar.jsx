@@ -2,12 +2,9 @@ import { Link } from 'react-router-dom'
 import { useOutletContext } from 'react-router-dom'
 
 /**
- * A small back-link shown at the top of every tool page.
- * Automatically reads the category from the Layout outlet context,
- * so no props need to be passed from individual tool pages.
- *
- * Falls back to "Back to all tools" for pages without a category
- * (About, Privacy, Suggest) or when used outside a Layout outlet.
+ * Breadcrumb bar shown at the top of every tool page.
+ * When a category is known: All tools › Category
+ * Otherwise: All tools
  */
 export default function BackBar() {
   let context = null
@@ -20,17 +17,15 @@ export default function BackBar() {
 
   const { category, categoryLabel } = context || {}
 
-  if (category && categoryLabel) {
-    return (
-      <Link to={`/?cat=${category}`} className="back-bar">
-        ← Back to {categoryLabel}
-      </Link>
-    )
-  }
-
   return (
-    <Link to="/" className="back-bar">
-      ← Back to all tools
-    </Link>
+    <nav className="back-bar" aria-label="Breadcrumb">
+      <Link to="/">← All tools</Link>
+      {category && categoryLabel && (
+        <>
+          <span className="back-bar-sep" aria-hidden="true">›</span>
+          <Link to={`/?cat=${category}`}>{categoryLabel}</Link>
+        </>
+      )}
+    </nav>
   )
 }

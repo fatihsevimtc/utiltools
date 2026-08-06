@@ -1025,19 +1025,27 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   color: var(--danger);
 }
 
-/* ── Back bar (inline page link, appears above tool/page title) ── */
+/* ── Back bar (breadcrumb, appears above tool/page title) ── */
 .back-bar {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
   color: var(--muted);
   font-size: 0.875rem;
   margin-bottom: 1.25rem;
+}
+.back-bar a {
+  color: var(--muted);
+  text-decoration: none;
   transition: color 0.15s;
 }
-.back-bar:hover {
+.back-bar a:hover {
   color: var(--accent);
-  text-decoration: none;
+}
+.back-bar-sep {
+  color: var(--border);
+  font-size: 0.9rem;
+  user-select: none;
 }
 
 /* ── Old header back button (kept for safety, no longer used) ── */
