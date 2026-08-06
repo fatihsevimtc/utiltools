@@ -1334,6 +1334,49 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   .related-tools-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ── Tool SEO block ── */
+.tool-seo {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.tool-seo-about {
+  margin-bottom: 1.25rem;
+}
+.tool-seo-heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+.tool-seo-faq {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.4rem;
+  overflow: hidden;
+}
+.tool-seo-faq summary {
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+.tool-seo-faq summary:hover { background: var(--surface2); }
+.tool-seo-faq p {
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
 @media (max-width: 400px) {
   .tools-grid { grid-template-columns: 1fr; }
   .logo { font-size: 1.1rem; }

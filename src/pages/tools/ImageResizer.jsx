@@ -145,6 +145,7 @@ export default function ImageResizer() {
       )}
 
       <canvas ref={canvasRef} style={{ display: 'none' }} />
+          <ToolSeo />
     </div>
   )
 }

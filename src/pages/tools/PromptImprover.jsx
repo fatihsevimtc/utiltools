@@ -289,6 +289,7 @@ export default function PromptImprover() {
           <li>Nothing is sent to any server — all processing is in your browser.</li>
         </ul>
       </div>
+          <ToolSeo />
     </div>
   )
 }

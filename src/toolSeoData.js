@@ -1,0 +1,319 @@
+/**
+ * SEO content for each tool page.
+ * Each entry has: about (1-2 sentences), faqs (question + answer pairs).
+ * Rendered by <ToolSeo path="..." /> at the bottom of every tool page.
+ */
+export const TOOL_SEO = {
+
+  '/tools/word-counter': {
+    about: 'A word counter tool counts words, characters, sentences, and paragraphs in any text. It is useful for writers, students, and content creators who need to meet specific length requirements.',
+    faqs: [
+      { q: 'How are words counted?', a: 'Words are split by whitespace. Any sequence of non-whitespace characters counts as one word.' },
+      { q: 'Does it count characters with or without spaces?', a: 'Both — the tool shows character count with spaces and without spaces separately.' },
+      { q: 'Is there a text length limit?', a: 'No limit. All processing happens in your browser so there is no server restriction.' },
+    ],
+  },
+  '/tools/case-converter': {
+    about: 'A case converter transforms text between uppercase, lowercase, title case, camelCase, snake_case, kebab-case, and more. It is essential for developers normalising variable names or writers fixing capitalisation.',
+    faqs: [
+      { q: 'What is camelCase?', a: 'camelCase joins words with no spaces and capitalises the first letter of each word except the first, e.g. myVariableName.' },
+      { q: 'What is the difference between title case and sentence case?', a: 'Title case capitalises every major word. Sentence case only capitalises the first word.' },
+      { q: 'Can I convert multiple lines at once?', a: 'Yes — paste any amount of text and the entire block is converted instantly.' },
+    ],
+  },
+  '/tools/json-formatter': {
+    about: 'A JSON formatter pretty-prints raw JSON with indentation and syntax highlighting, making it easy to read and debug. It also validates the JSON and reports errors on the exact line.',
+    faqs: [
+      { q: 'What does JSON formatting do?', a: 'It adds consistent indentation and line breaks so nested objects and arrays are visually clear instead of one long string.' },
+      { q: 'Does this tool send my JSON to a server?', a: 'No — all formatting and validation runs in your browser. Your data never leaves your device.' },
+      { q: 'Can I minify JSON here too?', a: 'Yes — use the minify option to strip all whitespace and produce a compact single-line output.' },
+    ],
+  },
+  '/tools/diff-checker': {
+    about: 'A diff checker compares two texts side by side and highlights added, removed, and unchanged lines. It is widely used by developers to review code changes and by writers to track edits.',
+    faqs: [
+      { q: 'What is a diff?', a: 'A diff is the set of differences between two versions of a text, showing exactly which lines were added or removed.' },
+      { q: 'Can I compare code files?', a: 'Yes — paste any plain text including source code, JSON, or prose and the diff is shown instantly.' },
+      { q: 'Is there a size limit?', a: 'No server limit. Very large texts may be slow depending on your device.' },
+    ],
+  },
+  '/tools/qr-generator': {
+    about: 'A QR code generator converts any URL or text into a scannable QR code image you can download. QR codes are used for sharing links, contact details, Wi-Fi passwords, and more.',
+    faqs: [
+      { q: 'What can I encode in a QR code?', a: 'Any text up to about 4,000 characters — URLs, plain text, email addresses, phone numbers, or Wi-Fi credentials.' },
+      { q: 'What format is the downloaded image?', a: 'The QR code is downloaded as a PNG file you can print or embed anywhere.' },
+      { q: 'Do QR codes expire?', a: 'QR codes generated here are static and never expire. They contain the raw data, not a redirect.' },
+    ],
+  },
+  '/tools/password-generator': {
+    about: 'A password generator creates strong, random passwords using a mix of letters, numbers, and symbols. Using a unique strong password for every account is the single most effective way to prevent account takeovers.',
+    faqs: [
+      { q: 'What makes a password strong?', a: 'Length is the most important factor, followed by character variety. A 16-character random password is extremely difficult to crack.' },
+      { q: 'Are generated passwords stored anywhere?', a: 'No — passwords are generated entirely in your browser using the Web Crypto API and are never transmitted anywhere.' },
+      { q: 'What is a passphrase?', a: 'A passphrase is several random words joined together. It is easier to remember than a random string but equally secure when long enough.' },
+    ],
+  },
+  '/tools/unit-converter': {
+    about: 'A unit converter lets you convert between different measurement systems including length, weight, temperature, speed, and area. It supports both metric and imperial units.',
+    faqs: [
+      { q: 'Which unit systems are supported?', a: 'Both metric (SI) and imperial/US customary units are supported across all categories.' },
+      { q: 'How accurate are the conversions?', a: 'Conversions use standard internationally defined ratios and are accurate to many decimal places.' },
+      { q: 'Can I convert temperature?', a: 'Yes — Celsius, Fahrenheit, and Kelvin are all supported with exact conversion formulas.' },
+    ],
+  },
+  '/tools/base64': {
+    about: 'A Base64 encoder/decoder converts binary data or text to a printable ASCII string and back. Base64 is commonly used to embed images in HTML, encode email attachments, and pass data through text-only systems.',
+    faqs: [
+      { q: 'What is Base64 encoding?', a: 'Base64 represents binary data using 64 printable characters (A–Z, a–z, 0–9, +, /). It increases data size by about 33% but makes binary safe to transmit as text.' },
+      { q: 'What is the difference between Base64 and URL encoding?', a: 'Base64 encodes binary to text. URL encoding (percent-encoding) escapes special characters in URLs so they are transmitted correctly.' },
+      { q: 'Is Base64 encryption?', a: 'No — Base64 is encoding, not encryption. Anyone can decode a Base64 string instantly. Do not use it to hide sensitive data.' },
+    ],
+  },
+  '/tools/jwt-decoder': {
+    about: 'A JWT decoder splits a JSON Web Token into its header, payload, and signature parts and displays them as readable JSON. It is an essential debugging tool for developers working with authentication systems.',
+    faqs: [
+      { q: 'What is a JWT?', a: 'A JSON Web Token (JWT) is a compact, URL-safe token format used to securely transmit information between parties as a JSON object signed with a secret or key pair.' },
+      { q: 'Does decoding a JWT verify the signature?', a: 'Decoding only reads the payload. To verify the signature you need the secret key. This tool shows the contents but does not verify authenticity.' },
+      { q: 'Is it safe to paste my JWT here?', a: 'All decoding runs in your browser — nothing is sent to any server. However, avoid sharing real production tokens in untrusted tools.' },
+    ],
+  },
+  '/tools/regex-tester': {
+    about: 'A regex tester lets you write a regular expression and test it against sample text with live match highlighting. It supports JavaScript regex syntax including flags like global, case-insensitive, and multiline.',
+    faqs: [
+      { q: 'What regex flavour does this use?', a: 'This tool uses JavaScript\'s built-in RegExp engine, which follows ECMAScript regex syntax.' },
+      { q: 'What are regex flags?', a: 'Flags modify how a regex matches. Common flags: g (global — find all matches), i (case-insensitive), m (multiline — ^ and $ match line starts/ends).' },
+      { q: 'How do I match a literal dot?', a: 'Escape it with a backslash: \\. — an unescaped dot matches any character.' },
+    ],
+  },
+  '/tools/hash-generator': {
+    about: 'A hash generator computes cryptographic hash values (SHA-1, SHA-256, SHA-512, MD5) for any input text. Hashes are used to verify file integrity, store passwords securely, and create digital fingerprints.',
+    faqs: [
+      { q: 'What is a cryptographic hash?', a: 'A hash function takes any input and produces a fixed-length output (digest). The same input always produces the same hash, but you cannot reverse a hash to get the original input.' },
+      { q: 'Which algorithm should I use?', a: 'SHA-256 is the recommended general-purpose choice. MD5 and SHA-1 are considered broken for security purposes but are still used for checksums.' },
+      { q: 'Does the input text get sent anywhere?', a: 'No — hashing runs entirely in your browser using the Web Crypto API.' },
+    ],
+  },
+  '/tools/uuid-generator': {
+    about: 'A UUID generator creates random version 4 UUIDs (Universally Unique Identifiers) in bulk. UUIDs are used as unique keys in databases, file names, session tokens, and distributed systems.',
+    faqs: [
+      { q: 'What is a UUID v4?', a: 'UUID v4 is randomly generated using 122 bits of randomness. The probability of a collision is astronomically low, making it safe to use as a unique identifier without a central authority.' },
+      { q: 'Are UUIDs truly unique?', a: 'In practice, yes. The chance of two randomly generated v4 UUIDs colliding is about 1 in 5 undecillion.' },
+      { q: 'What is the difference between UUID and GUID?', a: 'GUID (Globally Unique Identifier) is Microsoft\'s name for the same concept. They are interchangeable.' },
+    ],
+  },
+  '/tools/age-calculator': {
+    about: 'An age calculator computes the exact age between two dates in years, months, days, weeks, and total days. It is useful for birthday calculations, contract durations, and any date arithmetic.',
+    faqs: [
+      { q: 'How is age calculated exactly?', a: 'The tool counts full years, then remaining full months, then remaining days — accounting for varying month lengths and leap years.' },
+      { q: 'Can I calculate the time between any two dates, not just birthdays?', a: 'Yes — set both the start and end dates to any dates you need.' },
+      { q: 'Does it account for leap years?', a: 'Yes — February 29 is handled correctly when calculating across leap years.' },
+    ],
+  },
+  '/tools/date-difference': {
+    about: 'A date difference calculator finds the number of days, weeks, months, and years between any two dates. It is useful for project planning, calculating deadlines, and date arithmetic.',
+    faqs: [
+      { q: 'What is the difference between this and the age calculator?', a: 'The age calculator is optimised for birthdays and shows exact age. Date difference is general-purpose for any two arbitrary dates.' },
+      { q: 'Are business days calculated separately?', a: 'Use the Working Days tool for business-day calculations. This tool counts calendar days.' },
+    ],
+  },
+  '/tools/bmi': {
+    about: 'A BMI calculator computes your Body Mass Index from your height and weight using the standard WHO formula. BMI is a common screening tool to categorise weight ranges.',
+    faqs: [
+      { q: 'What is a healthy BMI?', a: 'The WHO defines a healthy BMI as 18.5–24.9. Under 18.5 is underweight, 25–29.9 is overweight, and 30+ is obese.' },
+      { q: 'Does BMI account for muscle mass?', a: 'No — BMI does not distinguish between fat and muscle. Athletes often have a high BMI despite low body fat. It is a screening tool, not a diagnostic one.' },
+      { q: 'Does the tool support metric and imperial?', a: 'Yes — you can enter height in cm or feet/inches, and weight in kg or pounds.' },
+    ],
+  },
+  '/tools/compound-interest': {
+    about: 'A compound interest calculator shows how an investment grows over time when interest is reinvested. It is essential for understanding savings, retirement planning, and the long-term effect of different interest rates.',
+    faqs: [
+      { q: 'What is compound interest?', a: 'Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods — interest on interest.' },
+      { q: 'How does it differ from simple interest?', a: 'Simple interest is calculated only on the principal. Compound interest grows exponentially because each period\'s interest is added to the base.' },
+      { q: 'What compounding frequency should I use?', a: 'Most savings accounts compound monthly or daily. Annual compounding is the most conservative estimate.' },
+    ],
+  },
+  '/tools/gradient-generator': {
+    about: 'A CSS gradient generator lets you build linear and radial gradients visually with colour stops and copy the generated CSS code. Gradients are used for backgrounds, buttons, and decorative elements.',
+    faqs: [
+      { q: 'What CSS gradient types are supported?', a: 'Linear gradients (directional) and radial gradients (circular/elliptical) — the two most common types in CSS.' },
+      { q: 'Can I add more than two colour stops?', a: 'Yes — add as many colour stops as you need at any percentage position along the gradient.' },
+      { q: 'Does the output work in all browsers?', a: 'Modern CSS gradients work in all current browsers without vendor prefixes.' },
+    ],
+  },
+  '/tools/password-generator': {
+    about: 'A password generator creates strong, random passwords using cryptographically secure randomness. Use a unique strong password for every account to prevent credential stuffing attacks.',
+    faqs: [
+      { q: 'What makes a password strong?', a: 'Length is the most important factor. A 16-character random password takes centuries to brute-force even with modern hardware.' },
+      { q: 'Are passwords stored or logged?', a: 'No — passwords are generated using the Web Crypto API entirely in your browser and never sent anywhere.' },
+    ],
+  },
+  '/tools/color-converter': {
+    about: 'A color converter translates between HEX, RGB, HSL, and HSB colour formats. Designers and developers use it to convert colours between design tools and CSS code.',
+    faqs: [
+      { q: 'What is the difference between RGB and HSL?', a: 'RGB defines colour by red, green, and blue channel intensities. HSL defines it by hue (colour angle), saturation (intensity), and lightness — more intuitive for humans.' },
+      { q: 'What is a HEX colour code?', a: 'A hex code like #FF5733 represents a colour as three pairs of hexadecimal digits for red, green, and blue channels.' },
+    ],
+  },
+  '/tools/timestamp': {
+    about: 'A Unix timestamp converter translates between Unix epoch timestamps and human-readable dates. Unix timestamps count seconds since January 1, 1970 (UTC) and are used in databases, APIs, and log files.',
+    faqs: [
+      { q: 'What is a Unix timestamp?', a: 'A Unix timestamp is the number of seconds elapsed since 00:00:00 UTC on 1 January 1970, known as the Unix epoch.' },
+      { q: 'What is the year 2038 problem?', a: '32-bit signed integers storing Unix timestamps will overflow on 19 January 2038. Modern systems use 64-bit timestamps which extend far into the future.' },
+      { q: 'Are timestamps in seconds or milliseconds?', a: 'Unix timestamps are traditionally in seconds. JavaScript uses milliseconds (multiply by 1000 to convert). This tool handles both.' },
+    ],
+  },
+  '/tools/sql-formatter': {
+    about: 'A SQL formatter prettifies SQL queries with consistent indentation, capitalised keywords, and aligned clauses. It makes complex queries easier to read, review, and maintain.',
+    faqs: [
+      { q: 'Which SQL dialects are supported?', a: 'Standard SQL keywords work for MySQL, PostgreSQL, SQLite, and MS SQL. Dialect-specific functions are formatted as identifiers.' },
+      { q: 'Does formatting change the query logic?', a: 'No — formatting only changes whitespace and capitalisation. The query executes identically.' },
+    ],
+  },
+  '/tools/markdown-preview': {
+    about: 'A Markdown preview tool renders Markdown syntax as formatted HTML in real time. It supports headings, bold, italic, lists, links, code blocks, and blockquotes.',
+    faqs: [
+      { q: 'What is Markdown?', a: 'Markdown is a lightweight markup language using plain text symbols to indicate formatting — e.g. **bold**, # Heading, - list item.' },
+      { q: 'Which Markdown flavour is used?', a: 'CommonMark-compatible Markdown covering the most widely supported subset of syntax.' },
+    ],
+  },
+  '/tools/lorem-ipsum': {
+    about: 'A Lorem Ipsum generator produces placeholder text for mockups, wireframes, and layout testing. It has been the standard dummy text in typesetting since the 1500s.',
+    faqs: [
+      { q: 'What does Lorem Ipsum mean?', a: 'It is scrambled Latin from Cicero\'s "de Finibus Bonorum et Malorum" (45 BC). The scrambled text has no real meaning — it is purely for visual layout.' },
+      { q: 'Can I generate words, sentences, or paragraphs?', a: 'Yes — choose words, sentences, or paragraphs and set the exact quantity you need.' },
+    ],
+  },
+  '/tools/pomodoro': {
+    about: 'A Pomodoro timer helps you focus using the Pomodoro Technique — 25-minute work sessions followed by short breaks. It is one of the most popular productivity methods for reducing procrastination.',
+    faqs: [
+      { q: 'What is the Pomodoro Technique?', a: 'Developed by Francesco Cirillo in the 1980s, it breaks work into 25-minute focused sessions (Pomodoros) separated by 5-minute breaks. After four Pomodoros, take a longer 15-30 minute break.' },
+      { q: 'Can I customise the session length?', a: 'Yes — work session, short break, and long break durations are all adjustable.' },
+    ],
+  },
+  '/tools/image-resizer': {
+    about: 'An in-browser image resizer lets you resize JPEG, PNG, and WebP images by dimensions or percentage without uploading to any server. Your images never leave your device.',
+    faqs: [
+      { q: 'Which image formats are supported?', a: 'JPEG, PNG, WebP, GIF, and most common browser-supported image formats.' },
+      { q: 'Does resizing reduce image quality?', a: 'Reducing dimensions slightly reduces detail. The tool lets you control output quality for lossy formats like JPEG.' },
+      { q: 'Is there a file size limit?', a: 'No server limit — but very large images may be slow on lower-powered devices since all processing is client-side.' },
+    ],
+  },
+  '/tools/exif-viewer': {
+    about: 'An EXIF viewer extracts metadata embedded in JPEG images — including camera model, shutter speed, aperture, ISO, GPS coordinates, and capture date. All processing is done locally in your browser.',
+    faqs: [
+      { q: 'What is EXIF data?', a: 'EXIF (Exchangeable Image File Format) is metadata embedded in photo files by cameras and smartphones, recording technical details about how the photo was taken.' },
+      { q: 'Do photos shared on social media contain EXIF?', a: 'Most platforms (Facebook, Instagram, Twitter) strip EXIF data when you upload. However, photos shared directly via messaging apps often retain it.' },
+      { q: 'Can EXIF reveal my location?', a: 'Yes — if GPS was enabled on your phone when the photo was taken, the EXIF data includes latitude and longitude. This is a privacy consideration when sharing original photos.' },
+    ],
+  },
+  '/tools/css-minifier': {
+    about: 'A CSS minifier removes comments, whitespace, and redundant characters from CSS files to reduce their size. Smaller CSS files load faster and improve page performance scores.',
+    faqs: [
+      { q: 'Does minification change how CSS works?', a: 'No — minification only removes characters that are not needed for the browser to parse and apply the styles.' },
+      { q: 'How much smaller does CSS get after minification?', a: 'Typically 20–40% smaller. Files with many comments and verbose formatting see the largest reductions.' },
+    ],
+  },
+  '/tools/css-formatter': {
+    about: 'A CSS formatter prettifies minified or messy CSS with consistent indentation and line breaks, making stylesheets easy to read and maintain.',
+    faqs: [
+      { q: 'When would I use a CSS formatter?', a: 'When reading third-party minified CSS, onboarding to an unfamiliar codebase, or reviewing styles for debugging.' },
+    ],
+  },
+  '/tools/html-minifier': {
+    about: 'An HTML minifier strips comments, whitespace, and optional tags from HTML documents to reduce page size and improve load time.',
+    faqs: [
+      { q: 'Does HTML minification affect rendering?', a: 'No — browsers are designed to handle both verbose and minified HTML identically.' },
+      { q: 'Should I minify HTML in development?', a: 'Only for production. Keep unminified HTML in development for readability and debugging.' },
+    ],
+  },
+  '/tools/url-parser': {
+    about: 'A URL parser breaks a URL into its component parts — protocol, hostname, port, path, query parameters, and fragment — displayed as structured JSON.',
+    faqs: [
+      { q: 'What are the parts of a URL?', a: 'A URL consists of: protocol (https), hostname (example.com), port (443), path (/page), query string (?key=value), and fragment (#section).' },
+      { q: 'What is URL encoding?', a: 'Certain characters are not allowed in URLs and must be percent-encoded, e.g. a space becomes %20.' },
+    ],
+  },
+  '/tools/cron-parser': {
+    about: 'A cron parser translates cron expressions into plain English so you can verify a schedule is correct without memorising cron syntax. It also shows the next scheduled run times.',
+    faqs: [
+      { q: 'What is a cron expression?', a: 'A cron expression is a string of five or six fields defining a schedule: minute, hour, day-of-month, month, day-of-week (and optionally year).' },
+      { q: 'What does * mean in cron?', a: 'An asterisk means "every" — so * in the minute field means "every minute".' },
+      { q: 'How do I run a job every 15 minutes?', a: 'Use */15 in the minute field: */15 * * * *' },
+    ],
+  },
+  '/tools/http-status': {
+    about: 'An HTTP status code reference covers all standard codes from 100 to 599 with descriptions and common use cases. Bookmark it for quick lookups during API development and debugging.',
+    faqs: [
+      { q: 'What is the difference between 401 and 403?', a: '401 Unauthorized means the request lacks valid authentication credentials. 403 Forbidden means the server understood the request but refuses to authorise it — the user is authenticated but not permitted.' },
+      { q: 'What does 429 mean?', a: '429 Too Many Requests — the client has sent too many requests in a given time and is being rate-limited.' },
+      { q: 'What is a 2xx status code?', a: '2xx codes indicate success. 200 OK is the standard success response; 201 Created is returned after a successful POST that creates a resource.' },
+    ],
+  },
+  '/tools/flexbox-playground': {
+    about: 'A Flexbox playground lets you experiment with all CSS Flexbox properties visually and copy the resulting CSS. It is the fastest way to learn Flexbox or prototype a layout.',
+    faqs: [
+      { q: 'What is CSS Flexbox?', a: 'Flexbox (Flexible Box Layout) is a CSS layout model that makes it easy to align and distribute space among items in a container, even when their sizes are unknown.' },
+      { q: 'When should I use Flexbox vs Grid?', a: 'Flexbox is best for one-dimensional layouts (a row or a column). CSS Grid is better for two-dimensional layouts (rows and columns simultaneously).' },
+    ],
+  },
+  '/tools/fake-data-generator': {
+    about: 'A fake data generator creates realistic test data — names, emails, addresses, phone numbers, and more — for use in development, testing, and database seeding.',
+    faqs: [
+      { q: 'Why use fake data instead of real data?', a: 'Using real personal data in development or test environments is a privacy and compliance risk. Fake data is realistic enough for testing without any risk.' },
+      { q: 'Can I export the data?', a: 'Yes — copy the generated data as JSON or CSV.' },
+    ],
+  },
+  '/tools/dns-lookup': {
+    about: 'A DNS lookup tool queries DNS records (A, AAAA, MX, TXT, CNAME, NS) for any domain directly from your browser. It is useful for verifying DNS propagation, troubleshooting email delivery, and auditing domain configuration.',
+    faqs: [
+      { q: 'What is DNS?', a: 'DNS (Domain Name System) translates human-readable domain names like example.com into IP addresses that computers use to communicate.' },
+      { q: 'What is an MX record?', a: 'An MX (Mail Exchange) record specifies the mail servers responsible for receiving email for a domain.' },
+      { q: 'What is DNS propagation?', a: 'After changing DNS records, the update can take up to 48 hours to spread across all DNS servers worldwide. Use this tool to check if your changes have propagated.' },
+    ],
+  },
+  '/tools/ssl-decoder': {
+    about: 'An SSL certificate decoder parses a PEM-format X.509 certificate and displays its subject, issuer, validity dates, and Subject Alternative Names (SANs) in a readable format.',
+    faqs: [
+      { q: 'What is a PEM certificate?', a: 'PEM (Privacy Enhanced Mail) is a Base64-encoded format for certificates, bounded by -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines.' },
+      { q: 'What are Subject Alternative Names?', a: 'SANs list all the domain names and IP addresses a certificate is valid for, including wildcards like *.example.com.' },
+      { q: 'Does this tool verify the certificate against a server?', a: 'No — it only decodes the certificate you paste. To check a live server\'s certificate use your browser\'s padlock icon or a tool like SSL Labs.' },
+    ],
+  },
+  '/tools/typing-speed': {
+    about: 'A typing speed test measures your Words Per Minute (WPM) and accuracy by timing how fast you type a given text. Regular practice measurably improves typing speed for developers and writers.',
+    faqs: [
+      { q: 'What is a good typing speed?', a: 'The average typist is 40–60 WPM. Professional typists and fast developers typically reach 80–100 WPM. Top typists exceed 120 WPM.' },
+      { q: 'How is WPM calculated?', a: 'WPM = (characters typed / 5) / minutes elapsed. Dividing by 5 normalises for average word length.' },
+      { q: 'Does accuracy matter more than speed?', a: 'Yes — speed with poor accuracy is slower overall once corrections are factored in. Aim for 98%+ accuracy first, then build speed.' },
+    ],
+  },
+  '/tools/ai-model-comparison': {
+    about: 'An AI model comparison table shows the context window, pricing, strengths, and best use cases of leading large language models including GPT-4o, Claude, Gemini, and Llama side by side.',
+    faqs: [
+      { q: 'What is a context window?', a: 'A context window is the maximum amount of text (measured in tokens) that a model can process in a single request — including both the input and output.' },
+      { q: 'What is a token?', a: 'A token is roughly 4 characters or ¾ of a word in English. Models are priced per thousand or million tokens processed.' },
+      { q: 'Which model should I use?', a: 'It depends on the task. GPT-4o and Claude excel at complex reasoning. Gemini is strong on multimodal tasks. Llama models are free and self-hostable.' },
+    ],
+  },
+  '/tools/token-counter': {
+    about: 'A token counter estimates the number of tokens in any text for GPT, Claude, and Gemini models, and shows the approximate API cost. Use it to optimise prompts and avoid unexpected charges.',
+    faqs: [
+      { q: 'Why does token count matter?', a: 'LLM APIs charge per token. Knowing the token count of your prompts helps you optimise cost and stay within context window limits.' },
+      { q: 'Are the counts exact?', a: 'Counts are estimates based on each model\'s known tokenisation rules. For GPT models the estimate is very close to the actual tiktoken count.' },
+    ],
+  },
+  '/tools/prompt-improver': {
+    about: 'A prompt improver analyses an AI prompt and rewrites it applying best-practice techniques — adding context, specifying format, clarifying tone, and removing ambiguity — to get better results from any LLM.',
+    faqs: [
+      { q: 'What makes a good AI prompt?', a: 'Good prompts are specific, provide context, define the desired output format, specify the audience, and give examples where helpful.' },
+      { q: 'Does this work for ChatGPT, Claude, and Gemini?', a: 'Yes — the improved prompts follow general best practices that work across all major LLMs.' },
+    ],
+  },
+  '/tools/meta-tag-generator': {
+    about: 'A meta tag generator creates the HTML meta tags needed for SEO, Open Graph (Facebook/LinkedIn), and Twitter Card previews. Correct meta tags improve click-through rates and social sharing appearance.',
+    faqs: [
+      { q: 'What are Open Graph tags?', a: 'Open Graph tags (og:title, og:image, etc.) control how your page appears when shared on Facebook, LinkedIn, and other platforms.' },
+      { q: 'How long should a meta description be?', a: 'Google typically shows 150–160 characters. Keep it under 160 and make it descriptive and action-oriented.' },
+    ],
+  },
+}

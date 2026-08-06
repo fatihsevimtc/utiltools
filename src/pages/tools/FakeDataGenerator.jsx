@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 const FIRST_NAMES = ['Alice','Bob','Charlie','Diana','Edward','Fiona','George','Hannah','Ivan','Julia','Kevin','Laura','Michael','Nina','Oscar','Paula','Quinn','Rachel','Samuel','Tina','Uma','Victor','Wendy','Xavier','Yvonne','Zachary','Aiden','Bella','Carlos','Daisy','Ethan','Faith','Grace','Henry','Iris','Jack']
 const LAST_NAMES  = ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Wilson','Taylor','Anderson','Thomas','Jackson','White','Harris','Martin','Thompson','Robinson','Clark','Lewis','Lee','Walker','Hall','Allen','Young','King','Wright','Scott','Green','Baker','Adams','Nelson','Carter','Mitchell','Perez']
@@ -137,6 +138,7 @@ export default function FakeDataGenerator() {
         </>
       )}
       <RelatedTools category="developer" exclude="/tools/fake-data-generator" />
+          <ToolSeo />
     </div>
   )
 }

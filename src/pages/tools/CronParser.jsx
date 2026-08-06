@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 const PRESETS = [
   { label: 'Every minute',        value: '* * * * *' },
@@ -139,6 +140,7 @@ export default function CronParser() {
         Format: <code>minute  hour  day-of-month  month  day-of-week</code>
       </p>
       <RelatedTools category="developer" exclude="/tools/cron-parser" />
+          <ToolSeo />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 function computeDiff(a, b) {
   const linesA = a.split('\n')
@@ -103,6 +104,7 @@ export default function DiffChecker() {
         </div>
       )}
       <RelatedTools category="developer" exclude="/tools/diff-checker" />
+          <ToolSeo />
     </div>
   )
 }

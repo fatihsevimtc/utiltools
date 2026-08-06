@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 const TYPES = ['linear', 'radial', 'conic']
 const PRESETS = [
@@ -97,6 +98,7 @@ export default function GradientGenerator() {
       </div>
       <div className="code-block">{cssRule}</div>
       <RelatedTools category="design" exclude="/tools/gradient-generator" />
+          <ToolSeo />
     </div>
   )
 }

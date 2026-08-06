@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 export default function AgeCalculator() {
   const [dob, setDob]       = useState('')
@@ -57,6 +58,7 @@ export default function AgeCalculator() {
         </>
       )}
       <RelatedTools category="time" exclude="/tools/age-calculator" />
+          <ToolSeo />
     </div>
   )
 }

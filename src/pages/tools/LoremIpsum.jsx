@@ -67,6 +67,7 @@ export default function LoremIpsum() {
           <div className="code-block" style={{ whiteSpace: 'pre-wrap', fontFamily: 'var(--font)' }}>{output}</div>
         </>
       )}
+          <ToolSeo />
     </div>
   )
 }

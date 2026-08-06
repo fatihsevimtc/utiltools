@@ -85,6 +85,7 @@ export default function JsonFormatter() {
           </div>
         </div>
       )}
+          <ToolSeo />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 const COLORS = ['#6366f1','#10b981','#f59e0b','#ef4444','#3b82f6','#8b5cf6','#ec4899','#14b8a6']
 
@@ -100,6 +101,7 @@ export default function FlexboxPlayground() {
         <div className="code-block" style={{ whiteSpace: 'pre-wrap' }}>{css}</div>
       </div>
       <RelatedTools category="design" exclude="/tools/flexbox-playground" />
+          <ToolSeo />
     </div>
   )
 }

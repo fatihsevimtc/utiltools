@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 const MODELS = [
   {
@@ -292,6 +293,7 @@ export default function AiModelComparison() {
         Pricing as of mid-2024. Always check provider websites for current rates. Costs shown per 1M tokens.
       </p>
       <RelatedTools category="ai" exclude="/tools/ai-model-comparison" />
+          <ToolSeo />
     </div>
   )
 }

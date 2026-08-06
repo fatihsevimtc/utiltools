@@ -77,6 +77,7 @@ export default function QrGenerator() {
           <button className="btn" onClick={download}>Download PNG</button>
         )}
       </div>
+          <ToolSeo />
     </div>
   )
 }

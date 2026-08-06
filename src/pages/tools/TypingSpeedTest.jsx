@@ -129,6 +129,7 @@ export default function TypingSpeedTest() {
           <button className="btn" onClick={() => reset()}>Try again</button>
         </div>
       )}
+          <ToolSeo />
     </div>
   )
 }

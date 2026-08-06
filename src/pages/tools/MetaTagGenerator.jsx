@@ -107,6 +107,7 @@ export default function MetaTagGenerator() {
         </div>
         <div className="code-block" style={{ fontSize: '0.8rem' }}>{tags}</div>
       </div>
+          <ToolSeo />
     </div>
   )
 }

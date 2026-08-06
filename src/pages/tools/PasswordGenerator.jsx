@@ -155,6 +155,7 @@ export default function PasswordGenerator() {
           )}
         </div>
       )}
+          <ToolSeo />
     </div>
   )
 }

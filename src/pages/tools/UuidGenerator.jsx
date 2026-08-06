@@ -51,6 +51,7 @@ export default function UuidGenerator() {
           <div className="code-block">{output}</div>
         </>
       )}
+          <ToolSeo />
     </div>
   )
 }

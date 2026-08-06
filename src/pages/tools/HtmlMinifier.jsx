@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 function minifyHTML(html) {
   return html
@@ -55,6 +56,7 @@ export default function HtmlMinifier() {
         </div>
       )}
       <RelatedTools category="developer" exclude="/tools/html-minifier" />
+          <ToolSeo />
     </div>
   )
 }

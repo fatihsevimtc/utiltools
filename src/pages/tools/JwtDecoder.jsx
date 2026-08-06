@@ -63,6 +63,7 @@ export default function JwtDecoder() {
           <div className="code-block" style={{ color: 'var(--warning)', marginTop: '0.4rem', wordBreak: 'break-all' }}>{parts[2]}</div>
         </div>
       )}
+          <ToolSeo />
     </div>
   )
 }

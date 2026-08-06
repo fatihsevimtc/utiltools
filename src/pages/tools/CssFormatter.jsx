@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 function formatCSS(css) {
   // Strip comments, then re-format
@@ -73,6 +74,7 @@ export default function CssFormatter() {
         </div>
       )}
       <RelatedTools category="developer" exclude="/tools/css-formatter" />
+          <ToolSeo />
     </div>
   )
 }

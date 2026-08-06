@@ -77,6 +77,7 @@ export default function SqlFormatter() {
           <div className="code-block" style={{ whiteSpace: 'pre-wrap' }}>{output}</div>
         </div>
       )}
+          <ToolSeo />
     </div>
   )
 }

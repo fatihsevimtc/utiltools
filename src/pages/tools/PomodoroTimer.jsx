@@ -126,6 +126,7 @@ export default function PomodoroTimer() {
           ))}
         </div>
       </details>
+          <ToolSeo />
     </div>
   )
 }

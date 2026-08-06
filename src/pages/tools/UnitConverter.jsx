@@ -115,6 +115,7 @@ export default function UnitConverter() {
           <div className="stat-label">{toUnit}</div>
         </div>
       )}
+          <ToolSeo />
     </div>
   )
 }

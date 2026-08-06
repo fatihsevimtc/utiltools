@@ -70,6 +70,7 @@ export default function WordCounter() {
           Clear
         </button>
       )}
+          <ToolSeo />
     </div>
   )
 }

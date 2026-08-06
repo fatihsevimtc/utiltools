@@ -156,6 +156,7 @@ export default function TokenCounter() {
       <p style={{ marginTop: '1rem', fontSize: '0.78rem', color: 'var(--muted)' }}>
         ⚠ Token counts are estimates. Exact counts depend on each model's tokenizer. For GPT models use OpenAI's tiktoken for precise counts.
       </p>
+          <ToolSeo />
     </div>
   )
 }

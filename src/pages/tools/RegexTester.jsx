@@ -184,6 +184,7 @@ export default function RegexTester() {
           ))}
         </div>
       </details>
+          <ToolSeo />
     </div>
   )
 }

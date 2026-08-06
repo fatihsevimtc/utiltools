@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 function minifyCSS(css) {
   return css
@@ -56,6 +57,7 @@ export default function CssMinifier() {
         </div>
       )}
       <RelatedTools category="developer" exclude="/tools/css-minifier" />
+          <ToolSeo />
     </div>
   )
 }

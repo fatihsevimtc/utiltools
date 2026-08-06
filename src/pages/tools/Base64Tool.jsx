@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
+import ToolSeo from '../../components/ToolSeo'
 
 const MODES = ['Base64 Encode', 'Base64 Decode', 'URL Encode', 'URL Decode']
 
@@ -82,6 +83,7 @@ export default function Base64Tool() {
         </div>
       )}
       <RelatedTools category="developer" exclude="/tools/base64" />
+          <ToolSeo />
     </div>
   )
 }

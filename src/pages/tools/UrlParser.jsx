@@ -82,6 +82,7 @@ export default function UrlParser() {
             </div>
           )
       )}
+          <ToolSeo />
     </div>
   )
 }
