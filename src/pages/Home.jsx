@@ -401,18 +401,21 @@ export default function Home() {
   }, [])
 
   // Shared drag logic — works for both mouse and touch
-  const startDrag = useCallback((clientX) => {
+  const startDrag = useCallback((clientX, isTouch = false) => {
     const track = marqueeTrackRef.current
     const wrap  = marqueeWrapRef.current
     if (!track || !wrap) return
 
-    const matrix = new DOMMatrixReadOnly(window.getComputedStyle(track).transform)
-    const startTranslate = matrix.m41
-
-    track.style.animation = 'none'
-    track.style.transform = `translateX(${startTranslate}px)`
-
+    // Lazily captured once dragging actually starts
+    let startTranslate = null
     let moved = false
+
+    function beginDrag() {
+      const matrix = new DOMMatrixReadOnly(window.getComputedStyle(track).transform)
+      startTranslate = matrix.m41
+      track.style.animation = 'none'
+      track.style.transform = `translateX(${startTranslate}px)`
+    }
 
     function resumeAnimation() {
       const matrix2   = new DOMMatrixReadOnly(window.getComputedStyle(track).transform)
@@ -429,8 +432,9 @@ export default function Home() {
 
     function onMove(x) {
       const delta = x - clientX
-      if (!moved && Math.abs(delta) > 3) {
+      if (!moved && Math.abs(delta) > 5) {
         moved = true
+        beginDrag()
         wrap.classList.add('is-dragging')
       }
       if (moved) {
@@ -442,14 +446,9 @@ export default function Home() {
       wrap.classList.remove('is-dragging')
       if (moved) {
         resumeAnimation()
-      } else {
-        // Pure tap/click — keep paused if still hovering, else resume
-        track.style.transform = ''
-        track.style.animation = ''
-        track.style.animationPlayState = wrap.matches(':hover') ? 'paused' : ''
       }
-      // Resume on touch end (no hover state on mobile)
-      if (!wrap.matches(':hover')) {
+      // On touch, always resume animation (no hover state on mobile)
+      if (isTouch) {
         track.style.animationPlayState = ''
       }
     }
@@ -474,10 +473,7 @@ export default function Home() {
   }, [startDrag])
 
   const onMarqueeTouchStart = useCallback((e) => {
-    // Pause animation on touch (no hover event on mobile)
-    const track = marqueeTrackRef.current
-    if (track) track.style.animationPlayState = 'paused'
-    startDrag(e.touches[0].clientX)
+    startDrag(e.touches[0].clientX, true)
   }, [startDrag])
 
   useEffect(() => {
