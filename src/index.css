@@ -585,8 +585,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .related-tool-icon { font-size: 1.2rem; flex-shrink: 0; }
 
 /* ── Form elements ── */
-textarea, input[type="text"], input[type="number"], input[type="password"], input[type="email"],
-input[type="search"], input[type="date"], input[type="time"], input[type="url"], input[type="tel"], select {
+textarea, input, select {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -633,6 +632,20 @@ input[type="radio"] {
   accent-color: var(--accent);
   cursor: pointer;
   width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+/* File input */
+input[type="file"] {
+  background: none;
+  border: none;
+  padding: 0;
+  width: auto;
+  font-size: 0.875rem;
+  color: var(--muted);
+  cursor: pointer;
 }
 
 /* Color picker swatch */
@@ -1331,6 +1344,37 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 }
 .mobile-menu a:last-child { border-bottom: none; }
 .mobile-menu a:hover { background: var(--surface2); text-decoration: none; }
+
+/* ── Invoice Maker ── */
+.invoice-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+@media (max-width: 640px) { .invoice-form-grid { grid-template-columns: 1fr; } }
+.invoice-section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.invoice-items-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+.invoice-items-table th { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); }
+.invoice-items-table td { padding: 0.35rem 0.5rem; vertical-align: middle; }
+.invoice-items-table input[type=number] { text-align: right; }
+.invoice-totals { margin-left: auto; width: min(100%, 280px); }
+.invoice-totals-row { display: flex; justify-content: space-between; padding: 0.3rem 0; font-size: 0.875rem; align-items: center; }
+.invoice-totals-row.total { font-weight: 700; font-size: 1rem; border-top: 2px solid var(--border); padding-top: 0.5rem; margin-top: 0.25rem; }
+
+/* Styled file-upload button used by InvoiceMaker and other tools */
+.file-upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.45rem 0.85rem;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.file-upload-label:hover { border-color: var(--accent); background: var(--surface); }
+
+/* Printable invoice screen preview removed — popup window handles print now */
 
 /* ── Back to top button ── */
 .back-to-top {

@@ -161,6 +161,9 @@ const TOOL_NAMES = {
   '/tools/bcrypt':                 'Bcrypt Hash & Verify',
   '/tools/docx-word-count':        'Word Count (DOCX)',
   '/tools/invoice-maker':          'Invoice Maker',
+  '/tools/pdf-page-count':         'PDF Page Count',
+  '/tools/pdf-to-text':            'PDF to Text',
+  '/tools/pdf-merge':              'PDF Merge',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

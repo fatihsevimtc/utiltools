@@ -86,6 +86,7 @@ export const CATEGORIES = [
       '/tools/exif-viewer', '/tools/image-compressor',
       '/tools/image-cropper', '/tools/png-to-jpeg', '/tools/webp-converter',
       '/tools/ean-barcode', '/tools/docx-word-count',
+      '/tools/pdf-page-count', '/tools/pdf-to-text', '/tools/pdf-merge',
     ],
   },
   {

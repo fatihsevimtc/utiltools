@@ -194,6 +194,9 @@ import PromptImprover        from './pages/tools/PromptImprover'
 import LinkedInPostMaker     from './pages/tools/LinkedInPostMaker'
 
 import InvoiceMaker from './pages/tools/InvoiceMaker'
+import PdfPageCount from './pages/tools/PdfPageCount'
+import PdfToText    from './pages/tools/PdfToText'
+import PdfMerge     from './pages/tools/PdfMerge'
 
 // Static pages
 import Privacy  from './pages/Privacy'
@@ -397,6 +400,10 @@ export default function App() {
         <Route path="tools/toml-to-json"               element={<TomlToJson />} />
         <Route path="tools/bcrypt"                     element={<BcryptTool />} />
         <Route path="tools/docx-word-count"            element={<DocxWordCount />} />
+        <Route path="tools/invoice-maker"              element={<InvoiceMaker />} />
+        <Route path="tools/pdf-page-count"             element={<PdfPageCount />} />
+        <Route path="tools/pdf-to-text"                element={<PdfToText />} />
+        <Route path="tools/pdf-merge"                  element={<PdfMerge />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

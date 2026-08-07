@@ -21,6 +21,7 @@ const NEW_TOOLS = new Set([
   '/tools/matrix-calculator', '/tools/calendar', '/tools/css-variables',
   '/tools/css-to-tailwind', '/tools/toml-to-json', '/tools/bcrypt',
   '/tools/docx-word-count', '/tools/invoice-maker',
+  '/tools/pdf-page-count', '/tools/pdf-to-text', '/tools/pdf-merge',
 ])
 
 // High-traffic / popular tools (shown with "🔥" badge)
@@ -312,7 +313,11 @@ const CATEGORIES = [
       { icon: '📸', name: 'PNG to JPEG',          desc: 'Convert PNG to JPEG with adjustable quality.',               path: '/tools/png-to-jpeg' },
       { icon: '🖼️', name: 'WebP Converter',      desc: 'Convert images to WebP format with adjustable quality.',     path: '/tools/webp-converter' },
       { icon: '📊', name: 'EAN Barcode',          desc: 'Generate EAN-13 barcodes rendered on canvas.',               path: '/tools/ean-barcode' },
-      { icon: '📝', name: 'Word Count (DOCX)',    desc: 'Count words and paragraphs in .docx files without uploading.', path: '/tools/docx-word-count' },    ],
+      { icon: '📝', name: 'Word Count (DOCX)',    desc: 'Count words and paragraphs in .docx files without uploading.', path: '/tools/docx-word-count' },
+      { icon: '📊', name: 'PDF Page Count',      desc: 'Count pages and view metadata of any PDF file.',             path: '/tools/pdf-page-count' },
+      { icon: '📄', name: 'PDF to Text',          desc: 'Extract all text from a PDF — runs in your browser.',         path: '/tools/pdf-to-text' },
+      { icon: '📦', name: 'PDF Merge',            desc: 'Combine multiple PDFs into one, reorder pages freely.',       path: '/tools/pdf-merge' },
+    ],
   },
   {
     id: 'design',
@@ -361,11 +366,7 @@ const CATEGORIES = [
   },
 ]
 
-const COMING_SOON = [
-  { name: 'PDF Merge' },
-  { name: 'PDF to Text' },
-  { name: 'PDF Page Count' },
-]
+const COMING_SOON = []
 
 // Deduplicate by path — FEATURED + CATEGORIES can overlap
 const _allToolsRaw = [
