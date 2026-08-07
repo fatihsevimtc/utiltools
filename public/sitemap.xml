@@ -55,6 +55,9 @@
   <url><loc>https://utiltools.org/tools/resume-word-checker</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/bio-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/text-to-speech</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/kebab-camel</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/vowel-counter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/empty-line-remover</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 🛠️ Developer -->
   <url><loc>https://utiltools.org/tools/json-formatter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -96,6 +99,22 @@
   <url><loc>https://utiltools.org/tools/dns-lookup</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/ssl-decoder</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/unicode-char-map</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/js-formatter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/html-formatter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/sql-minifier</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/graphql-formatter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/regex-to-english</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/glob-tester</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/query-string</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/mime-lookup</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/ip-info</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/user-agent</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/toml-to-json</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/css-to-tailwind</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/rsa-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/isbn-validator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/bcrypt</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/css-variables</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- ⚡ Generators -->
   <url><loc>https://utiltools.org/tools/qr-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -126,6 +145,7 @@
   <url><loc>https://utiltools.org/tools/scientific-calculator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/factorial</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/currency-converter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/matrix-calculator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 📅 Time & Date -->
   <url><loc>https://utiltools.org/tools/age-calculator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -136,6 +156,7 @@
   <url><loc>https://utiltools.org/tools/working-days</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/week-number</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/pomodoro</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/calendar</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 🖼️ Images & Files -->
   <url><loc>https://utiltools.org/tools/digital-signature</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -147,6 +168,11 @@
   <url><loc>https://utiltools.org/tools/favicon-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/exif-viewer</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/image-compressor</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/image-cropper</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/png-to-jpeg</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/webp-converter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/ean-barcode</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/docx-word-count</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 🎨 Design & CSS -->
   <url><loc>https://utiltools.org/tools/gradient-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

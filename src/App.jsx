@@ -157,6 +157,34 @@ import BioGenerator          from './pages/tools/BioGenerator'
 import KeyboardShortcuts     from './pages/tools/KeyboardShortcuts'
 import JsonSchemaValidator   from './pages/tools/JsonSchemaValidator'
 
+// New coming-soon tools
+import JsFormatter            from './pages/tools/JsFormatter'
+import HtmlFormatter          from './pages/tools/HtmlFormatter'
+import SqlMinifier            from './pages/tools/SqlMinifier'
+import GraphqlFormatter       from './pages/tools/GraphqlFormatter'
+import RegexToEnglish         from './pages/tools/RegexToEnglish'
+import GlobTester             from './pages/tools/GlobTester'
+import QueryStringParser      from './pages/tools/QueryStringParser'
+import MimeLookup             from './pages/tools/MimeLookup'
+import IpInfo                 from './pages/tools/IpInfo'
+import UserAgentParser        from './pages/tools/UserAgentParser'
+import KebabCamel             from './pages/tools/KebabCamel'
+import VowelCounter           from './pages/tools/VowelCounter'
+import EmptyLineRemover       from './pages/tools/EmptyLineRemover'
+import RsaGenerator           from './pages/tools/RsaGenerator'
+import IsbnValidator          from './pages/tools/IsbnValidator'
+import EanBarcode             from './pages/tools/EanBarcode'
+import ImageCropper           from './pages/tools/ImageCropper'
+import PngToJpeg              from './pages/tools/PngToJpeg'
+import WebpConverter          from './pages/tools/WebpConverter'
+import MatrixCalculator       from './pages/tools/MatrixCalculator'
+import CalendarGenerator      from './pages/tools/CalendarGenerator'
+import CssVariables           from './pages/tools/CssVariables'
+import CssToTailwind          from './pages/tools/CssToTailwind'
+import TomlToJson             from './pages/tools/TomlToJson'
+import BcryptTool             from './pages/tools/BcryptTool'
+import DocxWordCount          from './pages/tools/DocxWordCount'
+
 // AI Tools
 import AiModelComparison     from './pages/tools/AiModelComparison'
 import TokenCounter          from './pages/tools/TokenCounter'
@@ -339,6 +367,34 @@ export default function App() {
         <Route path="tools/prompt-formatter"         element={<PromptFormatter />} />
         <Route path="tools/prompt-improver"          element={<PromptImprover />} />
         <Route path="tools/linkedin-post-maker"      element={<LinkedInPostMaker />} />
+
+        {/* New tools */}
+        <Route path="tools/js-formatter"               element={<JsFormatter />} />
+        <Route path="tools/html-formatter"             element={<HtmlFormatter />} />
+        <Route path="tools/sql-minifier"               element={<SqlMinifier />} />
+        <Route path="tools/graphql-formatter"          element={<GraphqlFormatter />} />
+        <Route path="tools/regex-to-english"           element={<RegexToEnglish />} />
+        <Route path="tools/glob-tester"                element={<GlobTester />} />
+        <Route path="tools/query-string"               element={<QueryStringParser />} />
+        <Route path="tools/mime-lookup"                element={<MimeLookup />} />
+        <Route path="tools/ip-info"                    element={<IpInfo />} />
+        <Route path="tools/user-agent"                 element={<UserAgentParser />} />
+        <Route path="tools/kebab-camel"                element={<KebabCamel />} />
+        <Route path="tools/vowel-counter"              element={<VowelCounter />} />
+        <Route path="tools/empty-line-remover"         element={<EmptyLineRemover />} />
+        <Route path="tools/rsa-generator"              element={<RsaGenerator />} />
+        <Route path="tools/isbn-validator"             element={<IsbnValidator />} />
+        <Route path="tools/ean-barcode"                element={<EanBarcode />} />
+        <Route path="tools/image-cropper"              element={<ImageCropper />} />
+        <Route path="tools/png-to-jpeg"                element={<PngToJpeg />} />
+        <Route path="tools/webp-converter"             element={<WebpConverter />} />
+        <Route path="tools/matrix-calculator"          element={<MatrixCalculator />} />
+        <Route path="tools/calendar"                   element={<CalendarGenerator />} />
+        <Route path="tools/css-variables"              element={<CssVariables />} />
+        <Route path="tools/css-to-tailwind"            element={<CssToTailwind />} />
+        <Route path="tools/toml-to-json"               element={<TomlToJson />} />
+        <Route path="tools/bcrypt"                     element={<BcryptTool />} />
+        <Route path="tools/docx-word-count"            element={<DocxWordCount />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

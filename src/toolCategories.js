@@ -18,6 +18,7 @@ export const CATEGORIES = [
       '/tools/text-to-hashtags', '/tools/title-case-apa', '/tools/pig-latin',
       '/tools/readability-score', '/tools/tweet-thread', '/tools/resume-word-checker',
       '/tools/bio-generator', '/tools/text-to-speech',
+      '/tools/kebab-camel', '/tools/vowel-counter', '/tools/empty-line-remover',
     ],
   },
   {
@@ -37,6 +38,11 @@ export const CATEGORIES = [
       '/tools/credit-card-validator', '/tools/data-uri-encoder', '/tools/fake-data-generator',
       '/tools/jwt-encoder', '/tools/json-schema-validator', '/tools/json-diff',
       '/tools/dns-lookup', '/tools/ssl-decoder', '/tools/unicode-char-map',
+      '/tools/js-formatter', '/tools/html-formatter', '/tools/sql-minifier',
+      '/tools/graphql-formatter', '/tools/regex-to-english', '/tools/glob-tester',
+      '/tools/query-string', '/tools/mime-lookup', '/tools/ip-info', '/tools/user-agent',
+      '/tools/toml-to-json', '/tools/css-to-tailwind', '/tools/rsa-generator',
+      '/tools/isbn-validator', '/tools/bcrypt', '/tools/css-variables',
     ],
   },
   {
@@ -58,6 +64,7 @@ export const CATEGORIES = [
       '/tools/fibonacci', '/tools/bmi', '/tools/tip-calculator',
       '/tools/loan-calculator', '/tools/compound-interest', '/tools/vat-calculator',
       '/tools/scientific-calculator', '/tools/factorial', '/tools/currency-converter',
+      '/tools/matrix-calculator',
     ],
   },
   {
@@ -66,7 +73,7 @@ export const CATEGORIES = [
     tools: [
       '/tools/age-calculator', '/tools/date-difference', '/tools/timezone',
       '/tools/countdown', '/tools/stopwatch', '/tools/working-days',
-      '/tools/week-number', '/tools/pomodoro',
+      '/tools/week-number', '/tools/pomodoro', '/tools/calendar',
     ],
   },
   {
@@ -77,6 +84,8 @@ export const CATEGORIES = [
       '/tools/image-resizer', '/tools/file-size', '/tools/image-to-base64',
       '/tools/base64-to-image', '/tools/image-color-picker', '/tools/favicon-generator',
       '/tools/exif-viewer', '/tools/image-compressor',
+      '/tools/image-cropper', '/tools/png-to-jpeg', '/tools/webp-converter',
+      '/tools/ean-barcode', '/tools/docx-word-count',
     ],
   },
   {

@@ -329,17 +329,9 @@ const CATEGORIES = [
 ]
 
 const COMING_SOON = [
-  { name: 'CSS to Tailwind' }, { name: 'JS Formatter' }, { name: 'HTML Formatter' },
-  { name: 'TOML to JSON' }, { name: 'SQL Minifier' }, { name: 'GraphQL Formatter' },
-  { name: 'Regex to English' }, { name: 'Glob Tester' }, { name: 'Query String Parser' },
-  { name: 'MIME Type Lookup' }, { name: 'IP Address Info' }, { name: 'User Agent Parser' },
-  { name: 'Kebab to camelCase' }, { name: 'Vowel Counter' }, { name: 'Empty Line Remover' },
-  { name: 'RSA Key Generator' }, { name: 'Bcrypt Hash' }, { name: 'Bcrypt Verify' },
-  { name: 'ISBN Validator' }, { name: 'EAN Barcode Generator' }, { name: 'Image Cropper' },
-  { name: 'Image Compressor' }, { name: 'PNG to JPEG' }, { name: 'WebP Converter' },
-  { name: 'PDF Merge' }, { name: 'PDF to Text' }, { name: 'PDF Page Count' },
-  { name: 'Word Count (DOCX)' }, { name: 'Matrix Calculator' }, { name: 'Currency Converter' },
-  { name: 'Calendar Generator' }, { name: 'CSS Variables Inspector' },
+  { name: 'PDF Merge' },
+  { name: 'PDF to Text' },
+  { name: 'PDF Page Count' },
 ]
 
 // Deduplicate by path — FEATURED + CATEGORIES can overlap
