@@ -495,6 +495,51 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .tool-card h3 { font-size: 0.95rem; font-weight: 600; }
 .tool-card p { color: var(--muted); font-size: 0.83rem; line-height: 1.5; }
 
+/* Coming soon groups */
+.coming-soon-groups {
+  display: grid;
+  gap: 0.95rem;
+  margin-top: 0.75rem;
+}
+
+.coming-soon-group {
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.08), rgba(var(--accent-rgb), 0.03));
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  border-radius: var(--radius);
+  padding: 0.9rem;
+}
+
+.coming-soon-group-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.coming-soon-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.coming-soon-pill-card {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  padding: 0.38rem 0.62rem;
+}
+
+.coming-soon-pill-icon {
+  line-height: 1.1;
+  transform: translateY(1px);
+}
+
 /* New / Popular badges */
 .tool-badge {
   display: inline-flex;
@@ -1348,6 +1393,12 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 /* ── Invoice Maker ── */
 .invoice-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
 @media (max-width: 640px) { .invoice-form-grid { grid-template-columns: 1fr; } }
+.invoice-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.invoice-meta-grid input,
+.invoice-meta-grid select { min-width: 0; }
+@media (max-width: 430px) {
+  .invoice-meta-grid { grid-template-columns: 1fr; }
+}
 .invoice-section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
 .invoice-items-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
 .invoice-items-table th { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); }
@@ -1512,6 +1563,8 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
   /* Tool grid */
   .tools-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  .coming-soon-pill-grid { gap: 0.4rem; }
+  .coming-soon-pill-card { font-size: 0.75rem; }
   .tool-card { padding: 0.85rem; }
   .tool-card .tool-icon { font-size: 1.5rem; }
 
@@ -1590,6 +1643,7 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
 @media (max-width: 400px) {
   .tools-grid { grid-template-columns: 1fr; }
+  .coming-soon-group { padding: 0.8rem; }
   .logo { font-size: 1.1rem; }
 }
 

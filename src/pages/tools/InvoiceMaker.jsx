@@ -85,7 +85,7 @@ export default function InvoiceMaker() {
           </label>
           {logo && <img src={logo} alt="logo preview" style={{ marginTop: '0.5rem', maxHeight: 48, maxWidth: 140, objectFit: 'contain', display: 'block', borderRadius: 4 }} />}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+        <div className="invoice-meta-grid">
           <div>
             <label>Invoice #</label>
             <input value={meta.number} onChange={e => setMeta(m => ({ ...m, number: e.target.value }))} />

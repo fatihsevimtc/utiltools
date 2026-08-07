@@ -110,7 +110,7 @@ export const CATEGORIES = [
     id: 'misc',
     label: '🎯 Misc & Fun',
     tools: [
-      '/tools/typing-speed', '/tools/ascii-art', '/tools/keyboard-shortcuts',
+      '/tools/keyboard-shortcuts',
       '/tools/color-blindness',
     ],
   },

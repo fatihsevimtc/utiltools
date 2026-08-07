@@ -355,8 +355,6 @@ const CATEGORIES = [
     id: 'misc',
     label: '🎯 Misc & Fun',
     tools: [
-      { icon: '⌨️', name: 'Typing Speed Test',    desc: 'Test your WPM and accuracy with real-time feedback.',     path: '/tools/typing-speed' },
-      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
       { icon: '⌨️', name: 'Keyboard Shortcuts',   desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac and Vim.',  path: '/tools/keyboard-shortcuts' },
       { icon: '👁️', name: 'Color Blindness Sim',  desc: 'Preview images as people with color blindness see them.', path: '/tools/color-blindness' },
     ],
@@ -374,7 +372,191 @@ const CATEGORIES = [
   },
 ]
 
-const COMING_SOON = []
+const COMING_SOON_SECTIONS = [
+  {
+    title: '📝 Text Manipulation',
+    tools: [
+      'Text Splitter / Line Splitter (by delimiter)',
+      'Character Counter (standalone, distinct from Word Counter)',
+      'Line Counter',
+      'Character Remover / Character Replacer',
+      'Prefix/Suffix Adder (Text Appender)',
+      'Tabs to Space',
+      'Comma Inserter / Comma Separator',
+      'Comma-Separated List → Column',
+      'Word Duplicator / Sentence Duplicator',
+      'Word Remover / Sentence Remover',
+      'Word Replacer / Find & Replace',
+      'Repeated Words Finder',
+      'Text Joiner (join lines with symbol)',
+      'Trim Text / Truncate Text / Slice Text',
+      'Text-to-One-Line',
+      'Special Character Remover',
+      'Emoji Remover',
+      'Grep (regex line search)',
+      'Regex Replacer (distinct from Regex Tester)',
+    ],
+  },
+  {
+    title: '📐 Text Alignment/Layout',
+    tools: [
+      'Left/Right-align Text',
+      'Left/Right-pad Text',
+      'Indent / Unindent Text',
+      'Justify Text',
+      'Wrap Text',
+      'Alternating Case Converter (aLtErNaTiNg)',
+    ],
+  },
+  {
+    title: '🎨 Stylized/Fun Text',
+    tools: [
+      'Bold / Italic / Underline / Strikethrough / Bubble / Cursive / Wide / Tiny / Fraktur Text Generators (Unicode font converters)',
+      'Zalgo Text Generator + Un-Zalgo',
+      'Fake Text Generator + Fake Text Detector/Unfaker',
+      'Add Random Words / Letters / Errors to Text',
+      'Word Randomizer',
+      'Random Sentence Generator',
+      'Censor Text (blackout/redact)',
+      'Text Symbols Picker (1300+ Unicode symbols)',
+      'Text ↔ ASCII Converter (distinct from ASCII Art)',
+    ],
+  },
+  {
+    title: '🌍 English/Language',
+    tools: [
+      'Vocabulary Builder',
+      'Dictionary / New Words Dictionary',
+      'Understand Complex/Foreign English Text Helper',
+      'Simple English Rewriter',
+      'Unusual/Uncommon Words Finder',
+      'Misspellizer (intentional misspelling generator)',
+      'Chinese to Pinyin Converter',
+    ],
+  },
+  {
+    title: '🖼️ Images',
+    tools: [
+      'Image Multisizer / Enlarger',
+      'Flip Image / Rotate Image',
+      'Pixelate Image',
+      'Image Splitter',
+      'Image Downloader (from URL)',
+      'Hue Shift Generator',
+      'BMP/GIF/ICO-specific format conversions (you have PNG/JPEG/WebP but not BMP/GIF/ICO)',
+    ],
+  },
+  {
+    title: '🎵 Audio',
+    tools: [
+      'Audio Converter',
+      'Audio Trimmer',
+      'Tone Generator',
+      'Instrument Tuner',
+      'Metronome',
+    ],
+  },
+  {
+    title: '🔢 Calculators',
+    tools: [
+      'Discount Calculator',
+      'Sales Tax Calculator',
+      'Margin Calculator',
+      'Probability Calculator',
+      'Confidence Interval Calculator',
+      'PayPal Fee Calculator',
+      'CPM Calculator',
+      'GST Calculator (distinct from VAT)',
+      'Lease Calculator',
+      'Present Value of Future Money',
+      'Retirement Planning Calculator',
+      'Investment Calculator (w/ default risk factor)',
+      'Prime Factorization (distinct from Prime Checker)',
+      'Area Calculator (geometry)',
+      'Sleep Calculator',
+    ],
+  },
+  {
+    title: '📏 Converters',
+    tools: [
+      'Shoe Size Converter',
+      'Number to Word Converter (e.g., "42" → "forty-two")',
+    ],
+  },
+  {
+    title: '🛠️ Web Dev / Encoding',
+    tools: [
+      'JavaScript Obfuscator / DeObfuscator',
+      'UTM Builder',
+      'Schema Markup Generator',
+      'CSS Animation Generator (distinct from Gradient)',
+      'PWA Manifest Generator',
+      'Filter Unused CSS',
+      'Markdown to PDF (you have Markdown→HTML)',
+      'Syntax Highlighter',
+    ],
+  },
+  {
+    title: '🗂️ JSON/Data',
+    tools: [
+      'JSON ↔ PHP Array',
+      'JSON Key Sorter (alphabetize/deep-sort)',
+      'JSON Unescape',
+      'List to Array',
+      'Table Format Converter',
+    ],
+  },
+  {
+    title: '💻 Code Tools',
+    tools: [
+      'XSS Vulnerability Scanner',
+      'Nginx Config Generator / Validator',
+      'Python Formatter/Validator',
+      'HTML Validator (distinct from Formatter)',
+      'WordPress (WP) Scanner',
+    ],
+  },
+  {
+    title: '🌐 Network Tools',
+    tools: [
+      'Port Checker',
+      'Traceroute',
+      'HTTP/2 Checker',
+      'HTTP Request Validator',
+      'Website Accessibility Checker',
+      'Postal Code Validator',
+      'Bulk URL Tester (check multiple URLs at once)',
+      'IP Version Converter (IPv4↔IPv6)',
+      'URL Metadata Extractor (title/description scraper)',
+    ],
+  },
+  {
+    title: '⚡ Generators & Misc',
+    tools: [
+      'Random Picker (from a list)',
+      'Sequence Generator',
+      'Number Sorter',
+      'Empty Row Remover',
+      'Privacy Policy Generator',
+      'Terms & Conditions Generator',
+      'Disclaimer Generator',
+      'VTT ↔ SRT Subtitle Converter',
+      'YouTube Thumbnail Downloader',
+      'World Clock',
+      'Simple Note (browser-based scratchpad)',
+      'AI Bank Statement to Excel',
+      'Special Search Engines (curated search tool directory)',
+      'Cost of Living Comparison (niche/external)',
+    ],
+  },
+]
+
+const COMING_SOON = COMING_SOON_SECTIONS.flatMap(section =>
+  section.tools.map(name => ({
+    name,
+    section: section.title,
+  }))
+)
 
 // Deduplicate by path — FEATURED + CATEGORIES can overlap
 const _allToolsRaw = [
@@ -662,6 +844,11 @@ export default function Home() {
                   onClick={() => { setActiveCat(cat.id); setQuery('') }}
                 >{cat.label}<span className="sidebar-count">{cat.tools.length}</span></button>
               )),
+
+              <button key="soon"
+                className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
+                onClick={() => { setActiveCat('soon'); setQuery('') }}
+              >🚀 Coming Soon<span className="sidebar-count">{COMING_SOON.length}</span></button>,
             ]
 
             const VISIBLE = 4
@@ -719,12 +906,18 @@ export default function Home() {
               <p style={{ color: 'var(--muted)', fontSize: '0.82rem', marginBottom: '1rem' }}>
                 These tools are in the pipeline. <Link to="/suggest">Suggest one</Link> to bump it up the list.
               </p>
-              <div className="tools-grid">
-                {COMING_SOON.map(t => (
-                  <div key={t.name} className="tool-card tool-card--soon">
-                    <div className="tool-icon">🔜</div>
-                    <h3>{t.name}</h3>
-                    <p style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>Coming soon</p>
+              <div className="coming-soon-groups">
+                {COMING_SOON_SECTIONS.map(section => (
+                  <div key={section.title} className="coming-soon-group">
+                    <p className="coming-soon-group-title">{section.title}</p>
+                    <div className="coming-soon-pill-grid">
+                      {section.tools.map(name => (
+                        <div key={name} className="coming-soon-pill-card">
+                          <span className="coming-soon-pill-icon" aria-hidden="true">🔜</span>
+                          <span>{name}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -832,6 +1025,10 @@ export default function Home() {
 
           <Link to="/suggest" className="sidebar-suggest-btn">
             💡 Suggest a tool
+          </Link>
+
+          <Link to="/contact" className="sidebar-suggest-btn">
+            ✉️ Contact us
           </Link>
 
           <a
