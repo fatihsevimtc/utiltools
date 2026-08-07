@@ -52,7 +52,7 @@ export const CATEGORIES = [
       '/tools/qr-generator', '/tools/password-generator',
       '/tools/uuid-generator', '/tools/hash-generator', '/tools/random-number',
       '/tools/avatar-generator', '/tools/logo-maker', '/tools/linkedin-post-maker',
-      '/tools/typing-speed', '/tools/ascii-art',
+      '/tools/typing-speed', '/tools/ascii-art', '/tools/invoice-maker',
     ],
   },
   {

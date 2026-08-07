@@ -11,6 +11,16 @@ const NEW_TOOLS = new Set([
   '/tools/system-prompt-builder', '/tools/prompt-formatter', '/tools/prompt-improver',
   '/tools/linkedin-post-maker', '/tools/digital-signature',
   '/tools/image-compressor', '/tools/text-to-speech', '/tools/currency-converter',
+  // 26 new tools
+  '/tools/js-formatter', '/tools/html-formatter', '/tools/sql-minifier',
+  '/tools/graphql-formatter', '/tools/regex-to-english', '/tools/glob-tester',
+  '/tools/query-string', '/tools/mime-lookup', '/tools/ip-info', '/tools/user-agent',
+  '/tools/kebab-camel', '/tools/vowel-counter', '/tools/empty-line-remover',
+  '/tools/rsa-generator', '/tools/isbn-validator', '/tools/ean-barcode',
+  '/tools/image-cropper', '/tools/png-to-jpeg', '/tools/webp-converter',
+  '/tools/matrix-calculator', '/tools/calendar', '/tools/css-variables',
+  '/tools/css-to-tailwind', '/tools/toml-to-json', '/tools/bcrypt',
+  '/tools/docx-word-count', '/tools/invoice-maker',
 ])
 
 // High-traffic / popular tools (shown with "🔥" badge)
@@ -167,6 +177,9 @@ const CATEGORIES = [
       { icon: '📝', name: 'Resume Word Checker',  desc: 'Flag weak, vague, and clichéd language in your resume.', path: '/tools/resume-word-checker' },
       { icon: '👤', name: 'Bio Generator',        desc: 'Generate a polished professional bio in seconds.',        path: '/tools/bio-generator' },
       { icon: '🔊', name: 'Text to Speech',       desc: 'Listen to any text using your browser\'s built-in speech engine.', path: '/tools/text-to-speech' },
+      { icon: '🔀', name: 'Kebab ↔ camelCase',    desc: 'Convert between kebab-case, camelCase, and snake_case.',          path: '/tools/kebab-camel' },
+      { icon: '🔤', name: 'Vowel Counter',         desc: 'Count vowels, consonants, and character types in any text.',      path: '/tools/vowel-counter' },
+      { icon: '⏸️', name: 'Empty Line Remover',   desc: 'Remove all blank lines from text instantly.',                    path: '/tools/empty-line-remover' },
     ],
   },
   {
@@ -212,6 +225,22 @@ const CATEGORIES = [
       { icon: '🌐', name: 'DNS Lookup',            desc: 'Query A, MX, TXT, CNAME and more for any domain.',        path: '/tools/dns-lookup' },
       { icon: '🔒', name: 'SSL Certificate Decoder', desc: 'Decode a PEM certificate to view expiry and fields.',   path: '/tools/ssl-decoder' },
       { icon: '🗺️', name: 'Unicode Char Map',     desc: 'Browse Unicode blocks and click to copy any character.',  path: '/tools/unicode-char-map' },
+      { icon: '🛠️', name: 'JS Formatter',          desc: 'Beautify and format JavaScript code with indentation.',    path: '/tools/js-formatter' },
+      { icon: '📄', name: 'HTML Formatter',        desc: 'Format and indent HTML markup for readability.',           path: '/tools/html-formatter' },
+      { icon: '🗄️', name: 'SQL Minifier',          desc: 'Strip SQL comments and collapse whitespace.',              path: '/tools/sql-minifier' },
+      { icon: '△',  name: 'GraphQL Formatter',     desc: 'Format and indent GraphQL queries and schema definitions.',path: '/tools/graphql-formatter' },
+      { icon: '📖', name: 'Regex to English',      desc: 'Convert regular expressions to plain-English descriptions.',path: '/tools/regex-to-english' },
+      { icon: '🔮', name: 'Glob Tester',            desc: 'Test glob patterns against file paths — *, **, ?, {a,b}.',path: '/tools/glob-tester' },
+      { icon: '🔗', name: 'Query String Parser',   desc: 'Parse URL query strings into key-value pairs.',            path: '/tools/query-string' },
+      { icon: '📁', name: 'MIME Type Lookup',       desc: 'Look up MIME types by file extension.',                    path: '/tools/mime-lookup' },
+      { icon: '🌐', name: 'IP Address Info',        desc: 'Look up your public IP, location, ISP and timezone.',      path: '/tools/ip-info' },
+      { icon: '🖥️', name: 'User Agent Parser',    desc: 'Parse browser user-agent strings to detect browser and OS.',path: '/tools/user-agent' },
+      { icon: '🔐', name: 'RSA Key Generator',      desc: 'Generate RSA-2048 key pairs via the Web Crypto API.',      path: '/tools/rsa-generator' },
+      { icon: '📚', name: 'ISBN Validator',          desc: 'Validate ISBN-10 and ISBN-13 book identifiers.',           path: '/tools/isbn-validator' },
+      { icon: '📝', name: 'TOML to JSON',            desc: 'Convert TOML configuration files to JSON.',                path: '/tools/toml-to-json' },
+      { icon: '💨', name: 'CSS → Tailwind',          desc: 'Convert common CSS declarations to Tailwind classes.',      path: '/tools/css-to-tailwind' },
+      { icon: '🎨', name: 'CSS Variables',           desc: 'Extract and inspect CSS custom property declarations.',     path: '/tools/css-variables' },
+      { icon: '🔒', name: 'Bcrypt Hash & Verify',    desc: 'Hash and verify passwords using bcrypt in the browser.',   path: '/tools/bcrypt' },
     ],
   },
   {
@@ -227,8 +256,7 @@ const CATEGORIES = [
       { icon: '🎨', name: 'Logo Maker',            desc: 'Design a simple logo with shapes, gradients, and fonts.', path: '/tools/logo-maker' },
       { icon: '💼', name: 'LinkedIn Post Maker',   desc: 'Format LinkedIn posts with Unicode bold, emojis, and CTAs.', path: '/tools/linkedin-post-maker' },
       { icon: '⌨️', name: 'Typing Speed Test',    desc: 'Test your WPM and accuracy with real-time feedback.',     path: '/tools/typing-speed' },
-      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
-    ],
+      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },      { icon: '💼', name: 'Invoice Maker',         desc: 'Create professional invoices and save as PDF.',           path: '/tools/invoice-maker' },    ],
   },
   {
     id: 'math',
@@ -250,6 +278,7 @@ const CATEGORIES = [
       { icon: '🔬', name: 'Scientific Calculator', desc: 'Browser-based calculator with trig and power functions.', path: '/tools/scientific-calculator' },
       { icon: '!',  name: 'Factorial / P / C',     desc: 'Factorials, permutations, and combinations.',            path: '/tools/factorial' },
       { icon: '💱', name: 'Currency Converter',    desc: 'Convert between 170+ currencies with live exchange rates.', path: '/tools/currency-converter' },
+      { icon: '🔢', name: 'Matrix Calculator',     desc: 'Add, subtract, multiply matrices and compute determinants.', path: '/tools/matrix-calculator' },
     ],
   },
   {
@@ -264,6 +293,7 @@ const CATEGORIES = [
       { icon: '📅', name: 'Working Days',         desc: 'Count or add working days, excluding weekends.',         path: '/tools/working-days' },
       { icon: '🗓️', name: 'Week Number',         desc: 'ISO week number for any date.',                          path: '/tools/week-number' },
       { icon: '🍅', name: 'Pomodoro Timer',       desc: 'Focus timer with the Pomodoro technique.',               path: '/tools/pomodoro' },
+      { icon: '📅', name: 'Calendar',               desc: 'Browse any month, highlight today, add notes to dates.',  path: '/tools/calendar' },
     ],
   },
   {
@@ -278,8 +308,11 @@ const CATEGORIES = [
       { icon: '🎨', name: 'Image Color Picker',   desc: 'Click anywhere on an image to pick a color.',           path: '/tools/image-color-picker' },
       { icon: '⭐', name: 'Favicon Generator',    desc: 'Create emoji favicons and download at multiple sizes.',  path: '/tools/favicon-generator' },
       { icon: '📸', name: 'EXIF Viewer',          desc: 'Extract EXIF metadata from JPEG images in your browser.', path: '/tools/exif-viewer' },
-      { icon: '🗜️', name: 'Image Compressor',   desc: 'Compress JPEG, PNG, and WebP images entirely in your browser.', path: '/tools/image-compressor' },
-    ],
+      { icon: '🗜️', name: 'Image Compressor',   desc: 'Compress JPEG, PNG, and WebP images entirely in your browser.', path: '/tools/image-compressor' },      { icon: '✂️', name: 'Image Cropper',      desc: 'Crop images by drawing a selection rectangle.',               path: '/tools/image-cropper' },
+      { icon: '📸', name: 'PNG to JPEG',          desc: 'Convert PNG to JPEG with adjustable quality.',               path: '/tools/png-to-jpeg' },
+      { icon: '🖼️', name: 'WebP Converter',      desc: 'Convert images to WebP format with adjustable quality.',     path: '/tools/webp-converter' },
+      { icon: '📊', name: 'EAN Barcode',          desc: 'Generate EAN-13 barcodes rendered on canvas.',               path: '/tools/ean-barcode' },
+      { icon: '📝', name: 'Word Count (DOCX)',    desc: 'Count words and paragraphs in .docx files without uploading.', path: '/tools/docx-word-count' },    ],
   },
   {
     id: 'design',
@@ -530,7 +563,7 @@ export default function Home() {
     : isRecent                 ? '🕒 Recently Used'
     : activeCat
       ? CATEGORIES.find(c => c.id === activeCat)?.label
-      : '⭐ Popular tools'
+      : '⭐ Featured'
 
   const totalTools = ALL_TOOLS.filter(t => t.path).length
 
@@ -598,7 +631,7 @@ export default function Home() {
               <button key="popular"
                 className={`sidebar-cat-btn ${activeCat === null ? 'active' : ''}`}
                 onClick={() => { setActiveCat(null); setQuery('') }}
-              >⭐ Popular<span className="sidebar-count">{FEATURED.length}</span></button>,
+              >⭐ Featured<span className="sidebar-count">{FEATURED.length}</span></button>,
 
               ...(favTools.length > 0 ? [
                 <button key="favs"
@@ -620,11 +653,6 @@ export default function Home() {
                   onClick={() => { setActiveCat(cat.id); setQuery('') }}
                 >{cat.label}<span className="sidebar-count">{cat.tools.length}</span></button>
               )),
-
-              <button key="soon"
-                className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
-                onClick={() => { setActiveCat('soon'); setQuery('') }}
-              >🚀 Coming Soon<span className="sidebar-count">{COMING_SOON.length}</span></button>,
             ]
 
             const VISIBLE = 4

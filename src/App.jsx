@@ -193,6 +193,8 @@ import PromptFormatter       from './pages/tools/PromptFormatter'
 import PromptImprover        from './pages/tools/PromptImprover'
 import LinkedInPostMaker     from './pages/tools/LinkedInPostMaker'
 
+import InvoiceMaker from './pages/tools/InvoiceMaker'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'

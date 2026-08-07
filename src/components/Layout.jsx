@@ -160,6 +160,7 @@ const TOOL_NAMES = {
   '/tools/toml-to-json':           'TOML to JSON',
   '/tools/bcrypt':                 'Bcrypt Hash & Verify',
   '/tools/docx-word-count':        'Word Count (DOCX)',
+  '/tools/invoice-maker':          'Invoice Maker',
 }
 
 // Build numbered tool list from CATEGORIES, deduped
