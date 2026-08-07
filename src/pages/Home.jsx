@@ -132,7 +132,6 @@ const MARQUEE_ITEMS = [
   { icon: '🗜️', name: 'Image Compressor',   path: '/tools/image-compressor' },
   { icon: '🔊', name: 'Text to Speech',      path: '/tools/text-to-speech' },
   { icon: '💱', name: 'Currency Converter',  path: '/tools/currency-converter' },
-  { icon: '🧾', name: 'Invoice Maker',       path: '/tools/invoice-maker' },
   { icon: '✂️', name: 'Image Cropper',       path: '/tools/image-cropper' },
   { icon: '🔐', name: 'RSA Generator',       path: '/tools/rsa-generator' },
   { icon: '🌐', name: 'IP Address Info',     path: '/tools/ip-info' },
@@ -147,11 +146,11 @@ const FEATURED = [
   { icon: '📝', name: 'Word Counter',       desc: 'Live word, character & reading-time counts.',             path: '/tools/word-counter' },
   { icon: '🖼️', name: 'Image Resizer',     desc: 'Resize images instantly in your browser — no upload.',    path: '/tools/image-resizer' },
   { icon: '🗂️', name: 'JSON Formatter',    desc: 'Pretty-print and validate JSON with error highlighting.',  path: '/tools/json-formatter' },
-  { icon: '🔀', name: 'Diff Checker',       desc: 'Paste two texts and see exactly what changed.',            path: '/tools/diff-checker' },
+  { icon: '🧾', name: 'Invoice Maker',      desc: 'Create professional invoices and save as PDF — nothing uploaded.', path: '/tools/invoice-maker' },
   { icon: '📷', name: 'QR Generator',       desc: 'Turn any URL or text into a downloadable QR code.',        path: '/tools/qr-generator' },
   { icon: '🔐', name: 'Password Generator', desc: 'Secure passwords and passphrases with a strength meter.',  path: '/tools/password-generator' },
+  { icon: '📐', name: 'Unit Converter',     desc: 'Convert length, weight, temperature, speed and more.',     path: '/tools/unit-converter' },
   { icon: '✍️', name: 'Digital Signature',  desc: 'Draw and download your signature as PNG, JPG, or SVG.',   path: '/tools/digital-signature' },
-  { icon: '🧾', name: 'Invoice Maker',      desc: 'Create professional invoices and save as PDF — no upload.', path: '/tools/invoice-maker' },
 ]
 
 const CATEGORIES = [
