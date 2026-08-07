@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Link, Outlet, useLocation, NavLink } from 'react-router-dom'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { Link, Outlet, useLocation, NavLink, useNavigate } from 'react-router-dom'
 import { useTheme } from '../useTheme'
 import Logo from './Logo'
-import { TOOL_CATEGORY_MAP, CATEGORY_LABEL } from '../toolCategories'
+import { CATEGORIES, TOOL_CATEGORY_MAP, CATEGORY_LABEL } from '../toolCategories'
 
 const TOOL_NAMES = {
   '/tools/word-counter':           'Word Counter',
@@ -136,13 +136,50 @@ const TOOL_NAMES = {
   '/tools/currency-converter':     'Currency Converter',
 }
 
+// Build numbered tool list from CATEGORIES, deduped
+function buildAllTools() {
+  const seen = new Set()
+  const result = []
+  let n = 1
+  for (const cat of CATEGORIES) {
+    const tools = []
+    for (const path of cat.tools) {
+      if (!seen.has(path)) {
+        seen.add(path)
+        tools.push({ path, name: TOOL_NAMES[path] || path, n: n++ })
+      }
+    }
+    if (tools.length) result.push({ cat, tools })
+  }
+  return result
+}
+const ALL_TOOLS_BY_CAT = buildAllTools()
+const TOTAL_TOOLS = ALL_TOOLS_BY_CAT.reduce((s, g) => s + g.tools.length, 0)
+
+function downloadList() {
+  const lines = [`UtilTools — All ${TOTAL_TOOLS} Tools`, `https://utiltools.org`, '']
+  for (const { cat, tools } of ALL_TOOLS_BY_CAT) {
+    lines.push(cat.label)
+    for (const t of tools) lines.push(`  ${t.n}. ${t.name}`)
+    lines.push('')
+  }
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(blob)
+  a.download = 'utiltools-all-tools.txt'
+  a.click()
+  URL.revokeObjectURL(a.href)
+}
+
 export default function Layout() {
   const location = useLocation()
   const isToolPage = location.pathname.startsWith('/tools/')
   const toolName = TOOL_NAMES[location.pathname]
   const [menuOpen, setMenuOpen] = useState(false)
+  const [allToolsOpen, setAllToolsOpen] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const { theme, toggleTheme } = useTheme()
+  const allToolsRef = useRef(null)
 
   useEffect(() => {
     if (toolName) {
@@ -169,6 +206,21 @@ export default function Layout() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
+  // Close All Tools panel on route change
+  useEffect(() => { setAllToolsOpen(false); setMenuOpen(false) }, [location.pathname])
+
+  // Close All Tools panel on outside click
+  useEffect(() => {
+    if (!allToolsOpen) return
+    function onPointer(e) {
+      if (allToolsRef.current && !allToolsRef.current.contains(e.target)) setAllToolsOpen(false)
+    }
+    function onKey(e) { if (e.key === 'Escape') setAllToolsOpen(false) }
+    document.addEventListener('pointerdown', onPointer)
+    document.addEventListener('keydown', onKey)
+    return () => { document.removeEventListener('pointerdown', onPointer); document.removeEventListener('keydown', onKey) }
+  }, [allToolsOpen])
+
   function closeMenu() { setMenuOpen(false) }
 
   const navActiveClass = ({ isActive }) => isActive ? 'nav-active' : undefined
@@ -194,6 +246,35 @@ export default function Layout() {
 
           {/* Desktop nav */}
           <nav className="nav nav-desktop" aria-label="Main navigation">
+            <div className="all-tools-wrap" ref={allToolsRef}>
+              <button
+                className={`all-tools-btn${allToolsOpen ? ' active' : ''}`}
+                onClick={() => setAllToolsOpen(o => !o)}
+                aria-expanded={allToolsOpen}
+              >
+                All Tools <span className="all-tools-count">{TOTAL_TOOLS}</span> {allToolsOpen ? '▲' : '▼'}
+              </button>
+              {allToolsOpen && (
+                <div className="all-tools-panel" role="dialog" aria-label="All tools">
+                  <div className="all-tools-panel-header">
+                    <span>{TOTAL_TOOLS} tools</span>
+                    <button className="all-tools-download" onClick={downloadList}>⬇ Download list</button>
+                  </div>
+                  <div className="all-tools-grid">
+                    {ALL_TOOLS_BY_CAT.map(({ cat, tools }) => (
+                      <div key={cat.id} className="all-tools-cat">
+                        <div className="all-tools-cat-label">{cat.label}</div>
+                        {tools.map(t => (
+                          <Link key={t.path} to={t.path} className="all-tools-item">
+                            <span className="all-tools-num">{t.n}</span>{t.name}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
             <NavLink to="/suggest" className={navActiveClass}>Suggest a tool</NavLink>
             <NavLink to="/about" className={navActiveClass}>About</NavLink>
             <a
@@ -266,7 +347,23 @@ export default function Layout() {
         {/* Mobile dropdown */}
         {menuOpen && (
           <nav className="mobile-menu" aria-label="Mobile navigation">
-            <Link to="/" onClick={closeMenu}>All tools</Link>
+            <Link to="/" onClick={closeMenu}>Home</Link>
+            <details className="mobile-all-tools">
+              <summary>All Tools ({TOTAL_TOOLS})</summary>
+              <div className="mobile-all-tools-body">
+                <button className="all-tools-download" onClick={downloadList}>⬇ Download list</button>
+                {ALL_TOOLS_BY_CAT.map(({ cat, tools }) => (
+                  <div key={cat.id}>
+                    <div className="mobile-cat-label">{cat.label}</div>
+                    {tools.map(t => (
+                      <Link key={t.path} to={t.path} className="mobile-tool-item" onClick={closeMenu}>
+                        <span className="all-tools-num">{t.n}</span>{t.name}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </details>
             <Link to="/suggest" onClick={closeMenu}>Suggest a tool</Link>
             <Link to="/about" onClick={closeMenu}>About</Link>
             <Link to="/privacy" onClick={closeMenu}>Privacy</Link>
