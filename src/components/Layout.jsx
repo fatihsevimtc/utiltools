@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { Link, Outlet, useLocation, NavLink, useNavigate } from 'react-router-dom'
 import { useTheme } from '../useTheme'
 import Logo from './Logo'
@@ -176,10 +176,18 @@ function buildAllTools() {
     for (const path of cat.tools) {
       if (!seen.has(path)) {
         seen.add(path)
-        tools.push({ path, name: TOOL_NAMES[path] || path, n: n++ })
+        tools.push({ path, name: TOOL_NAMES[path] || path })
       }
     }
-    if (tools.length) result.push({ cat, tools })
+
+    tools.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+
+    if (tools.length) {
+      result.push({
+        cat,
+        tools: tools.map(t => ({ ...t, n: n++ })),
+      })
+    }
   }
   return result
 }
@@ -207,6 +215,7 @@ export default function Layout() {
   const toolName = TOOL_NAMES[location.pathname]
   const [menuOpen, setMenuOpen] = useState(false)
   const [allToolsOpen, setAllToolsOpen] = useState(false)
+  const [allToolsQuery, setAllToolsQuery] = useState('')
   const [showBackToTop, setShowBackToTop] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const allToolsRef = useRef(null)
@@ -239,7 +248,11 @@ export default function Layout() {
   }, [])
 
   // Close All Tools panel on route change
-  useEffect(() => { setAllToolsOpen(false); setMenuOpen(false) }, [location.pathname])
+  useEffect(() => {
+    setAllToolsOpen(false)
+    setMenuOpen(false)
+    setAllToolsQuery('')
+  }, [location.pathname])
 
   // Close All Tools panel on outside click
   useEffect(() => {
@@ -247,11 +260,35 @@ export default function Layout() {
     function onPointer(e) {
       if (allToolsRef.current && !allToolsRef.current.contains(e.target)) setAllToolsOpen(false)
     }
-    function onKey(e) { if (e.key === 'Escape') setAllToolsOpen(false) }
+    function onKey(e) {
+      if (e.key !== 'Escape') return
+      if (allToolsQuery.trim()) {
+        setAllToolsQuery('')
+        return
+      }
+      setAllToolsOpen(false)
+    }
     document.addEventListener('pointerdown', onPointer)
     document.addEventListener('keydown', onKey)
     return () => { document.removeEventListener('pointerdown', onPointer); document.removeEventListener('keydown', onKey) }
-  }, [allToolsOpen])
+  }, [allToolsOpen, allToolsQuery])
+
+  const filteredToolsByCat = useMemo(() => {
+    const q = allToolsQuery.trim().toLowerCase()
+    if (!q) return ALL_TOOLS_BY_CAT
+
+    return ALL_TOOLS_BY_CAT
+      .map(group => ({
+        ...group,
+        tools: group.tools.filter(t => t.name.toLowerCase().includes(q)),
+      }))
+      .filter(group => group.tools.length > 0)
+  }, [allToolsQuery])
+
+  const visibleToolCount = useMemo(
+    () => filteredToolsByCat.reduce((sum, group) => sum + group.tools.length, 0),
+    [filteredToolsByCat]
+  )
 
   function closeMenu() { setMenuOpen(false) }
 
@@ -289,11 +326,22 @@ export default function Layout() {
               {allToolsOpen && (
                 <div className="all-tools-panel" role="dialog" aria-label="All tools">
                   <div className="all-tools-panel-header">
-                    <span>{TOTAL_TOOLS} tools</span>
+                    <span>{visibleToolCount}/{TOTAL_TOOLS} tools</span>
                     <button className="all-tools-download" onClick={downloadList}>⬇ Download list</button>
                   </div>
+                  <div className="all-tools-search-wrap">
+                    <input
+                      type="search"
+                      className="all-tools-search"
+                      value={allToolsQuery}
+                      onChange={e => setAllToolsQuery(e.target.value)}
+                      placeholder="Search tools..."
+                      aria-label="Search all tools"
+                      autoFocus
+                    />
+                  </div>
                   <div className="all-tools-grid">
-                    {ALL_TOOLS_BY_CAT.map(({ cat, tools }) => (
+                    {filteredToolsByCat.map(({ cat, tools }) => (
                       <div key={cat.id} className="all-tools-cat">
                         <div className="all-tools-cat-label">{cat.label}</div>
                         {tools.map(t => (
@@ -385,7 +433,15 @@ export default function Layout() {
               <summary>All Tools ({TOTAL_TOOLS})</summary>
               <div className="mobile-all-tools-body">
                 <button className="all-tools-download" onClick={downloadList}>⬇ Download list</button>
-                {ALL_TOOLS_BY_CAT.map(({ cat, tools }) => (
+                <input
+                  type="search"
+                  className="all-tools-search all-tools-search--mobile"
+                  value={allToolsQuery}
+                  onChange={e => setAllToolsQuery(e.target.value)}
+                  placeholder="Search tools..."
+                  aria-label="Search all tools"
+                />
+                {filteredToolsByCat.map(({ cat, tools }) => (
                   <div key={cat.id}>
                     <div className="mobile-cat-label">{cat.label}</div>
                     {tools.map(t => (
@@ -395,6 +451,9 @@ export default function Layout() {
                     ))}
                   </div>
                 ))}
+                {filteredToolsByCat.length === 0 && (
+                  <p className="all-tools-no-results">No tools found.</p>
+                )}
               </div>
             </details>
             <Link to="/suggest" onClick={closeMenu}>Suggest a tool</Link>

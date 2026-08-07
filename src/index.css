@@ -1275,6 +1275,25 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 }
 .all-tools-download:hover { opacity: 0.85; }
 
+.all-tools-search-wrap {
+  padding: 0.55rem 0.75rem 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.all-tools-search {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.82rem;
+  padding: 0.42rem 0.62rem;
+}
+
+.all-tools-search:focus {
+  border-color: var(--accent);
+}
+
 .all-tools-grid {
   overflow-y: auto;
   display: grid;
@@ -1334,6 +1353,17 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   gap: 0.1rem;
   max-height: 60vh;
   overflow-y: auto;
+}
+
+.all-tools-search--mobile {
+  margin: 0.35rem 0 0.45rem;
+  font-size: 0.88rem;
+}
+
+.all-tools-no-results {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.2rem;
 }
 .mobile-cat-label {
   font-size: 0.7rem;
