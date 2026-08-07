@@ -886,7 +886,7 @@ export default function Home() {
               <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--muted)' }}>
                 <p style={{ fontSize: '2rem' }}>🔍</p>
                 <p style={{ marginTop: '0.5rem' }}>No results for "{query}"</p>
-                <Link to="/suggest" style={{ fontSize: '0.875rem' }}>Suggest a tool →</Link>
+                <Link to="/contact" style={{ fontSize: '0.875rem' }}>Request a tool →</Link>
               </div>
             ) : (
               <>
@@ -904,7 +904,7 @@ export default function Home() {
             <>
               <p className="center-title">🚀 Coming Soon</p>
               <p style={{ color: 'var(--muted)', fontSize: '0.82rem', marginBottom: '1rem' }}>
-                These tools are in the pipeline. <Link to="/suggest">Suggest one</Link> to bump it up the list.
+                These tools are in the pipeline. <Link to="/contact">Suggest one</Link> to bump it up the list.
               </p>
               <div className="coming-soon-groups">
                 {COMING_SOON_SECTIONS.map(section => (
@@ -1022,10 +1022,6 @@ export default function Home() {
           >
             ♥ Donate
           </a>
-
-          <Link to="/suggest" className="sidebar-suggest-btn">
-            💡 Suggest a tool
-          </Link>
 
           <Link to="/contact" className="sidebar-suggest-btn">
             ✉️ Contact us

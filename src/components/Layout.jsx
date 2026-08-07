@@ -225,10 +225,8 @@ export default function Layout() {
       document.title = `${toolName} — UtilTools`
     } else if (location.pathname === '/about') {
       document.title = 'About — UtilTools'
-    } else if (location.pathname === '/suggest') {
-      document.title = 'Suggest a Tool — UtilTools'
-    } else if (location.pathname === '/contact') {
-      document.title = 'Contact Us — UtilTools'
+    } else if (location.pathname === '/suggest' || location.pathname === '/contact') {
+      document.title = 'Contact us — UtilTools'
     } else if (location.pathname === '/privacy') {
       document.title = 'Privacy — UtilTools'
     } else {
@@ -355,7 +353,6 @@ export default function Layout() {
                 </div>
               )}
             </div>
-            <NavLink to="/suggest" className={navActiveClass}>Suggest a tool</NavLink>
             <NavLink to="/contact" className={navActiveClass}>Contact us</NavLink>
             <NavLink to="/about" className={navActiveClass}>About</NavLink>
             <a
@@ -456,7 +453,6 @@ export default function Layout() {
                 )}
               </div>
             </details>
-            <Link to="/suggest" onClick={closeMenu}>Suggest a tool</Link>
             <Link to="/contact" onClick={closeMenu}>Contact us</Link>
             <Link to="/about" onClick={closeMenu}>About</Link>
             <Link to="/privacy" onClick={closeMenu}>Privacy</Link>
@@ -483,7 +479,6 @@ export default function Layout() {
             <Link to="/">All tools</Link>
             <Link to="/privacy">Privacy</Link>
             <Link to="/about">About</Link>
-            <Link to="/suggest">Suggest a tool</Link>
             <Link to="/contact">Contact us</Link>
             <a href="https://github.com/fatihsevimtc/utiltools" target="_blank" rel="noopener noreferrer">
               GitHub
