@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Static pages -->
   <url>
     <loc>https://utiltools.org/</loc>
     <lastmod>2026-08-07</lastmod>
@@ -27,7 +26,7 @@
     <priority>0.4</priority>
   </url>
 
-  <!-- Text tools -->
+  <!-- 📝 Text -->
   <url><loc>https://utiltools.org/tools/word-counter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/case-converter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/lorem-ipsum</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -57,7 +56,7 @@
   <url><loc>https://utiltools.org/tools/bio-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/text-to-speech</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Developer tools -->
+  <!-- 🛠️ Developer -->
   <url><loc>https://utiltools.org/tools/json-formatter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/diff-checker</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/base64</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -98,7 +97,7 @@
   <url><loc>https://utiltools.org/tools/ssl-decoder</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/unicode-char-map</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Generators -->
+  <!-- ⚡ Generators -->
   <url><loc>https://utiltools.org/tools/qr-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/password-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/uuid-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -110,7 +109,7 @@
   <url><loc>https://utiltools.org/tools/typing-speed</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/ascii-art</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Math & Numbers -->
+  <!-- 🔢 Math & Numbers -->
   <url><loc>https://utiltools.org/tools/percentage</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/unit-converter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/number-base</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -128,7 +127,7 @@
   <url><loc>https://utiltools.org/tools/factorial</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/currency-converter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Time & Date -->
+  <!-- 📅 Time & Date -->
   <url><loc>https://utiltools.org/tools/age-calculator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/date-difference</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/timezone</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -138,7 +137,7 @@
   <url><loc>https://utiltools.org/tools/week-number</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/pomodoro</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Images & Files -->
+  <!-- 🖼️ Images & Files -->
   <url><loc>https://utiltools.org/tools/digital-signature</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/image-resizer</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/file-size</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -149,7 +148,7 @@
   <url><loc>https://utiltools.org/tools/exif-viewer</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/image-compressor</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Design & CSS -->
+  <!-- 🎨 Design & CSS -->
   <url><loc>https://utiltools.org/tools/gradient-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/box-shadow</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/border-radius</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -159,17 +158,17 @@
   <url><loc>https://utiltools.org/tools/svg-optimizer</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/html-color-names</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- SEO & Marketing -->
+  <!-- 🔍 SEO & Marketing -->
   <url><loc>https://utiltools.org/tools/meta-tag-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/og-preview</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/robots-txt</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/sitemap-generator</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Misc & Fun -->
+  <!-- 🎯 Misc & Fun -->
   <url><loc>https://utiltools.org/tools/keyboard-shortcuts</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/color-blindness</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- AI Tools -->
+  <!-- 🤖 AI Tools -->
   <url><loc>https://utiltools.org/tools/ai-model-comparison</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/token-counter</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/system-prompt-builder</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

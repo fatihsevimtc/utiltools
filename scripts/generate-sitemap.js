@@ -14,25 +14,28 @@ const STATIC_PAGES = [
   { loc: '/suggest', changefreq: 'yearly',  priority: '0.4' },
 ]
 
-// Collect unique tool paths preserving category order
+function urlTag(loc) {
+  return `  <url><loc>${BASE_URL}${loc}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`
+}
+
+const staticBlock = STATIC_PAGES.map(p =>
+  `  <url>\n    <loc>${BASE_URL}${p.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`
+).join('\n')
+
+// Collect unique tool paths per category, preserving order
 const seen = new Set()
-const toolPaths = []
-for (const cat of CATEGORIES) {
+const categoryBlocks = CATEGORIES.map(cat => {
+  const lines = []
   for (const path of cat.tools) {
     if (!seen.has(path)) {
       seen.add(path)
-      toolPaths.push(path)
+      lines.push(urlTag(path))
     }
   }
-}
+  return lines.length ? `  <!-- ${cat.label} -->\n${lines.join('\n')}` : ''
+}).filter(Boolean)
 
-function urlTag({ loc, changefreq, priority }) {
-  return `  <url><loc>${BASE_URL}${loc}</loc><lastmod>${today}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`
-}
-
-const staticBlock = STATIC_PAGES.map(p => `  <url>\n    <loc>${BASE_URL}${p.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`).join('\n')
-
-const toolsBlock = toolPaths.map(path => urlTag({ loc: path, changefreq: 'monthly', priority: '0.8' })).join('\n')
+const toolsBlock = categoryBlocks.join('\n\n')
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -45,4 +48,4 @@ ${toolsBlock}
 
 const out = resolve(__dirname, '../public/sitemap.xml')
 writeFileSync(out, xml, 'utf8')
-console.log(`sitemap.xml generated with ${toolPaths.length} tools (${today})`)
+console.log(`sitemap.xml generated with ${seen.size} tools (${today})`)
