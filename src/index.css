@@ -1421,11 +1421,16 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 .mobile-menu a:hover { background: var(--surface2); text-decoration: none; }
 
 /* ── Invoice Maker ── */
-.invoice-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.invoice-form-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
 @media (max-width: 640px) { .invoice-form-grid { grid-template-columns: 1fr; } }
-.invoice-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.invoice-meta-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.75rem; }
+.invoice-meta-grid > div { min-width: 0; }
 .invoice-meta-grid input,
 .invoice-meta-grid select { min-width: 0; }
+.invoice-meta-grid input[type="date"] {
+  width: 100%;
+  min-width: 0;
+}
 @media (max-width: 430px) {
   .invoice-meta-grid { grid-template-columns: 1fr; }
 }
