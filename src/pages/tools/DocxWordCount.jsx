@@ -76,7 +76,10 @@ export default function DocxWordCount() {
 
       {!loading && !loadErr && (
         <>
-          <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={onFile} style={{ marginBottom: '1rem' }} />
+          <label className="file-upload-label">
+            📁 Choose .docx file…
+            <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={onFile} style={{ display: 'none' }} />
+          </label>
           {processing && <p style={{ opacity: 0.6 }}>Processing…</p>}
           {error && <p style={{ color: 'var(--danger, #ef4444)' }}>{error}</p>}
         </>

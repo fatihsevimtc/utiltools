@@ -69,7 +69,10 @@ export default function WebpConverter() {
         <p style={{ color: 'var(--danger, #ef4444)' }}>⚠ Your browser does not support WebP encoding. Try Chrome or Edge.</p>
       )}
 
-      <input type="file" accept="image/*" onChange={onFile} style={{ marginBottom: '1rem' }} disabled={!supported} />
+      <label className="file-upload-label" style={{ marginBottom: '1rem', opacity: supported ? 1 : 0.5, pointerEvents: supported ? 'auto' : 'none' }}>
+        📁 Choose image…
+        <input type="file" accept="image/*" onChange={onFile} style={{ display: 'none' }} disabled={!supported} />
+      </label>
       <canvas ref={canvasRef} style={{ display: 'none' }} />
 
       <label>Quality: {Math.round(quality * 100)}%</label>

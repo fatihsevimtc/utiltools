@@ -58,7 +58,10 @@ export default function PngToJpeg() {
       <h1>PNG to JPEG</h1>
       <p className="tool-description">Convert PNG images to JPEG with adjustable quality — all processing in your browser.</p>
 
-      <input type="file" accept="image/png,image/*" onChange={onFile} style={{ marginBottom: '1rem' }} />
+      <label className="file-upload-label" style={{ marginBottom: '1rem' }}>
+        📁 Choose PNG…
+        <input type="file" accept="image/png,image/*" onChange={onFile} style={{ display: 'none' }} />
+      </label>
       <canvas ref={canvasRef} style={{ display: 'none' }} />
 
       <label>Quality: {Math.round(quality * 100)}%</label>

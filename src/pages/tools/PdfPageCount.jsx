@@ -57,8 +57,10 @@ export default function PdfPageCount() {
 
       {ready && (
         <div>
-          <label htmlFor="pdf-file">Select PDF file</label>
-          <input id="pdf-file" type="file" accept=".pdf,application/pdf" onChange={handleFile} />
+          <label className="file-upload-label">
+            📁 Choose PDF file…
+            <input type="file" accept=".pdf,application/pdf" onChange={handleFile} style={{ display: 'none' }} />
+          </label>
         </div>
       )}
 

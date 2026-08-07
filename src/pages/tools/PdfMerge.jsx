@@ -66,8 +66,10 @@ export default function PdfMerge() {
 
       {ready && (
         <>
-          <label htmlFor="pdf-files">Add PDF files</label>
-          <input id="pdf-files" type="file" accept=".pdf,application/pdf" multiple onChange={handleFiles} />
+          <label className="file-upload-label">
+            📁 Add PDF files (multiple allowed)
+            <input type="file" accept=".pdf,application/pdf" multiple onChange={handleFiles} style={{ display: 'none' }} />
+          </label>
 
           {files.length > 0 && (
             <div style={{ marginTop: '1rem' }}>

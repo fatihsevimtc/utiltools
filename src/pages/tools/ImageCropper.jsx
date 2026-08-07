@@ -96,7 +96,10 @@ export default function ImageCropper() {
       <h1>Image Cropper</h1>
       <p className="tool-description">Crop images by drawing a selection rectangle — no upload, all in browser.</p>
 
-      <input type="file" accept="image/*" onChange={onFile} style={{ marginBottom: '1rem' }} />
+      <label className="file-upload-label" style={{ marginBottom: '1rem' }}>
+        📁 Choose image…
+        <input type="file" accept="image/*" onChange={onFile} style={{ display: 'none' }} />
+      </label>
 
       {src && (
         <>
