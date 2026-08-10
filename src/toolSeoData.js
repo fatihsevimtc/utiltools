@@ -324,4 +324,175 @@ export const TOOL_SEO = {
       { q: 'Which format should I download?', a: 'PNG with transparent background works best for placing your signature on documents or in design tools. JPG is smaller but has a white background. SVG embeds the PNG data and is useful in web contexts.' },
     ],
   },
+
+  '/tools/text-splitter': {
+    about: 'A text splitter divides any text or list into separate parts using a delimiter you choose — comma, newline, semicolon, or a custom string. It runs entirely in your browser with no data sent anywhere.',
+    faqs: [
+      { q: 'What delimiters can I use?', a: 'Comma, semicolon, new line, pipe, tab, space, or any custom string you type in.' },
+      { q: 'Can I split CSV data?', a: 'Yes — choose comma as the delimiter and each cell value becomes a separate part. Enable "trim whitespace" to clean up spaces around values.' },
+      { q: 'Is there a size limit?', a: 'No — all processing is done locally in your browser so there is no server-side restriction.' },
+    ],
+  },
+
+  '/tools/character-remover': {
+    about: 'A character remover strips or replaces any character or substring from text instantly. It supports plain text matching and case-sensitivity options, processing everything locally.',
+    faqs: [
+      { q: 'Can I remove all occurrences at once?', a: 'Yes — the tool removes or replaces every occurrence of the target string throughout the entire text.' },
+      { q: 'Is this the same as Find & Replace?', a: 'Similar, but Character Remover is optimised for deletion. For full find-and-replace with regex support, use the Find & Replace tool.' },
+    ],
+  },
+
+  '/tools/prefix-suffix': {
+    about: 'A prefix/suffix adder prepends or appends text to every line in bulk. It is useful for wrapping SQL values in quotes, adding bullet points, building arrays, or prefixing lines with a label.',
+    faqs: [
+      { q: 'Can I add both a prefix and suffix at the same time?', a: 'Yes — fill in both fields and each line gets the prefix added at the start and the suffix added at the end simultaneously.' },
+      { q: 'How do I wrap each line in quotes?', a: 'Set prefix to " and suffix to " — the tool wraps every line: "apple", "banana", "cherry".' },
+    ],
+  },
+
+  '/tools/find-replace': {
+    about: 'A find and replace tool searches for text and replaces it throughout your input — with support for regular expressions, whole-word matching, and case-sensitivity. All processing stays in your browser.',
+    faqs: [
+      { q: 'Can I use regular expressions?', a: 'Yes — enable the Regex checkbox to use JavaScript regex patterns. Capture groups like $1 work in the replacement field.' },
+      { q: 'Does it replace all occurrences?', a: 'Yes — the global flag is always on, so every match is replaced. The result shows how many replacements were made.' },
+      { q: 'What does whole-word matching do?', a: 'Whole-word matching adds word boundaries (\\b) around your search term, so searching "cat" won\'t match "catalog" or "concatenate".' },
+    ],
+  },
+
+  '/tools/repeated-words': {
+    about: 'A repeated words finder identifies overused words in any text and ranks them by frequency. It helps writers improve vocabulary variety in essays, blog posts, and reports.',
+    faqs: [
+      { q: 'What counts as a "repeated" word?', a: 'Any word appearing at least the minimum number of times you set (default: 2). Common words like "the", "and", "is" are filtered out by default.' },
+      { q: 'Should I ignore common words?', a: 'Usually yes — common function words like "the", "a", "is" repeat naturally and are not a writing concern. Toggle off to see them too.' },
+    ],
+  },
+
+  '/tools/text-joiner': {
+    about: 'A text joiner combines multiple lines into a single line using a separator of your choice. It is ideal for building comma-separated lists, SQL IN clauses, and joining data for spreadsheets.',
+    faqs: [
+      { q: 'How do I build a SQL IN clause?', a: 'Set the separator to ", ", the wrap character to \', and your output becomes \'apple\', \'banana\', \'cherry\' — ready to paste into WHERE id IN (...).' },
+      { q: 'Can I wrap each item in quotes?', a: 'Yes — enter a single quote or double quote in the "Wrap each item" field to wrap all joined items.' },
+    ],
+  },
+
+  '/tools/truncate-text': {
+    about: 'A text truncator trims text to a maximum number of characters, words, or lines and appends a custom ellipsis. Useful for generating previews, meta descriptions, and database field lengths.',
+    faqs: [
+      { q: 'Which truncation mode should I use?', a: 'Characters is best for database fields or meta tags with byte limits. Words is better for reading previews. Lines is useful for code or tabular data.' },
+      { q: 'Can I customise the ellipsis?', a: 'Yes — replace the default "…" with any string, such as "[read more]", "...", or leave it blank for a hard cut.' },
+    ],
+  },
+
+  '/tools/emoji-remover': {
+    about: 'An emoji remover strips all emoji characters from text using Unicode property escapes, making it clean for plain-text systems, formal documents, and data processing pipelines.',
+    faqs: [
+      { q: 'Which emoji does it remove?', a: 'It removes Emoji_Presentation and Extended_Pictographic Unicode characters — covering all standard emoji including skin tone and ZWJ sequences.' },
+      { q: 'Why would I need to remove emoji?', a: 'Some systems, databases, or document formats do not support emoji and will show garbled characters. Removing them first avoids encoding issues.' },
+    ],
+  },
+
+  '/tools/alternating-case': {
+    about: 'An alternating case converter transforms text to AlTeRnAtInG cAsE, sarcastic case, or inverted case using Unicode character-level manipulation. All conversion is instant and runs in your browser.',
+    faqs: [
+      { q: 'What is the difference between alternating and sarcastic case?', a: 'Alternating case flips every character starting from a fixed position. Sarcastic case (also called mock case) counts only letter positions, producing a more even alternation.' },
+      { q: 'What does invert case do?', a: 'Invert case swaps the capitalisation of every letter — uppercase becomes lowercase and vice versa. Useful for quickly fixing accidentally typed text with Caps Lock on.' },
+    ],
+  },
+
+  '/tools/text-padder': {
+    about: 'A text padder left-pads, right-pads, or centres text to a target length using any character. It is used for aligning monospace output, generating fixed-width data, and formatting tables.',
+    faqs: [
+      { q: 'What is left-padding used for?', a: 'Left-padding is commonly used to zero-pad numbers (e.g. "007"), align columns in plain-text tables, and match fixed-width field formats in legacy systems.' },
+      { q: 'Can I pad with a string instead of a single character?', a: 'Yes — enter any string as the pad character and it will be repeated and trimmed to fit the required padding length.' },
+    ],
+  },
+
+  '/tools/number-to-words': {
+    about: 'A number-to-words converter translates any integer into its English word form — cardinal (forty-two) and ordinal (forty-second). Supports numbers up to one quadrillion.',
+    faqs: [
+      { q: 'What is the difference between cardinal and ordinal?', a: 'Cardinal numbers count quantity: one, two, three. Ordinal numbers indicate position: first, second, third.' },
+      { q: 'Does it support negative numbers?', a: 'Yes — negative numbers are prefixed with "negative", e.g. -5 becomes "negative five".' },
+      { q: 'What is the maximum supported number?', a: 'Up to 999 trillion (999,999,999,999,999). Decimal numbers are not supported — whole integers only.' },
+    ],
+  },
+
+  '/tools/discount-calculator': {
+    about: 'A discount calculator computes final prices, savings amounts, and discount percentages. It works in three modes: percentage off, fixed amount off, and reverse (original + final to find the discount).',
+    faqs: [
+      { q: 'How do I find the original price from a discounted price?', a: 'Use the "Original + Final → Discount %" mode. Enter the original price and the price you paid, and the tool calculates the discount percentage and amount saved.' },
+      { q: 'What is a discount percentage?', a: 'It is the fraction of the original price that is deducted. A 20% discount on £100 saves £20, giving a final price of £80.' },
+    ],
+  },
+
+  '/tools/random-picker': {
+    about: 'A random picker selects one or more items from any list using cryptographically seeded randomness. It is useful for raffles, team selection, random task assignment, and any decision-making scenario.',
+    faqs: [
+      { q: 'Is the selection truly random?', a: 'Yes — picks use Math.random() seeded by the JavaScript runtime, which is sufficiently random for everyday decisions and small raffles.' },
+      { q: 'Can I pick multiple winners without repeats?', a: 'Yes — enable "pick multiple" and disable "allow duplicates" to select unique items without replacement.' },
+      { q: 'Is there a limit on list size?', a: 'No hard limit — the tool handles thousands of items. All processing is client-side.' },
+    ],
+  },
+
+  '/tools/number-sorter': {
+    about: 'A number sorter arranges a list of numbers in ascending or descending order and provides summary statistics. It accepts numbers separated by commas, spaces, newlines, or semicolons.',
+    faqs: [
+      { q: 'What separators does it accept?', a: 'Commas, spaces, newlines, semicolons — or any mix. The tool auto-detects and splits on all of them.' },
+      { q: 'Can I remove duplicates?', a: 'Yes — enable "remove duplicates" to keep only unique values in the sorted output.' },
+      { q: 'Does it support decimal numbers?', a: 'Yes — decimal numbers like 3.14 or -2.5 are fully supported and sorted correctly.' },
+    ],
+  },
+
+  '/tools/privacy-policy-generator': {
+    about: 'A privacy policy generator creates a plain-English privacy policy template for websites and apps based on your inputs. It covers data collection, cookies, third-party sharing, and jurisdiction-specific rights.',
+    faqs: [
+      { q: 'Is this legally binding?', a: 'This tool generates a template for informational purposes only. It is not a substitute for legal advice. Consult a qualified lawyer for a policy specific to your situation.' },
+      { q: 'Does it support GDPR?', a: 'Yes — select UK or EU jurisdiction and the generated policy includes a section on GDPR data subject rights (access, erasure, portability, etc.).' },
+      { q: 'How do I use the generated policy?', a: 'Copy the text, review it carefully, customise any sections for your specific situation, and publish it on a dedicated Privacy Policy page on your site.' },
+    ],
+  },
+
+  '/tools/world-clock': {
+    about: 'A world clock displays the current time in multiple time zones simultaneously, updating every second. You can add any IANA time zone, remove ones you don\'t need, and choose 12 or 24-hour format.',
+    faqs: [
+      { q: 'How many time zones can I add?', a: 'As many as you like — the clock renders them in a responsive grid. The default set covers the most common global business time zones.' },
+      { q: 'How do I find a specific city?', a: 'Search by city name or IANA identifier (e.g. America/Chicago, Europe/Berlin) in the add time zone field.' },
+      { q: 'Does it update automatically?', a: 'Yes — all clocks tick in real time, updating every second using your device\'s system clock.' },
+    ],
+  },
+
+  '/tools/simple-note': {
+    about: 'Simple Note is a browser-based scratchpad that auto-saves your notes to local storage. It supports up to 10 notes with titles, word and character counts, and requires no account or internet connection.',
+    faqs: [
+      { q: 'Where are my notes saved?', a: 'Notes are saved exclusively in your browser\'s localStorage. They persist between sessions but are specific to the browser and device you use.' },
+      { q: 'What happens if I clear my browser data?', a: 'Clearing cookies and site data will delete your notes. Export or copy important notes before clearing.' },
+      { q: 'Is there a word limit?', a: 'No hard limit — localStorage can hold several megabytes of text. Very long notes may slow down the auto-save slightly.' },
+    ],
+  },
+
+  '/tools/sequence-generator': {
+    about: 'A sequence generator creates numeric sequences, letter ranges (A–Z), or custom lists with configurable step, prefix, suffix, and separator. It supports zero-padding and outputs up to 10,000 items.',
+    faqs: [
+      { q: 'Can I generate odd or even numbers only?', a: 'Yes — set start to 1 (or 2) and step to 2 to generate all odd (or even) numbers in the range.' },
+      { q: 'Can I generate a descending sequence?', a: 'Yes — set start higher than end with a negative step, e.g. start 10, end 1, step -1.' },
+      { q: 'What is zero-padding?', a: 'Zero-padding prefixes numbers with leading zeros so all items are the same width, e.g. 001, 002, ... 010, useful for file naming.' },
+    ],
+  },
+
+  '/tools/flip-rotate-image': {
+    about: 'A flip and rotate image tool lets you flip images horizontally or vertically and rotate them in 90° steps — all in your browser. Supports PNG, JPEG, and WebP output with adjustable quality.',
+    faqs: [
+      { q: 'Which image formats are supported?', a: 'You can upload JPEG, PNG, WebP, GIF, and most common browser-supported formats. Output can be saved as PNG, JPEG, or WebP.' },
+      { q: 'Does flipping reduce image quality?', a: 'No — flipping and rotating are lossless canvas operations. Quality loss only occurs when saving as JPEG or WebP at less than 100%.' },
+      { q: 'Is my image uploaded to a server?', a: 'No — all processing is done client-side using the HTML5 Canvas API. Your image never leaves your device.' },
+    ],
+  },
+
+  '/tools/tone-generator': {
+    about: 'A tone generator produces pure audio tones at any frequency using the Web Audio API. It supports sine, square, triangle, and sawtooth waveforms, adjustable volume, and displays the nearest musical note.',
+    faqs: [
+      { q: 'What is the range of supported frequencies?', a: 'From 20 Hz (lowest audible bass) to 20,000 Hz (upper limit of human hearing). The slider and input both accept values in this range.' },
+      { q: 'What are the different waveforms?', a: 'Sine produces a pure, smooth tone. Square is bright and buzzy. Triangle is mellow. Sawtooth is harsh and rich — similar to a synthesiser.' },
+      { q: 'Can I use this as a hearing test?', a: 'You can test frequency sensitivity informally, but this is not a calibrated audiological tool. For medical hearing tests, consult a qualified audiologist.' },
+    ],
+  },
 }

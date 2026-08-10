@@ -22,6 +22,14 @@ const NEW_TOOLS = new Set([
   '/tools/css-to-tailwind', '/tools/toml-to-json', '/tools/bcrypt',
   '/tools/docx-word-count', '/tools/invoice-maker',
   '/tools/pdf-page-count', '/tools/pdf-to-text', '/tools/pdf-merge',
+  // 20 new tools (batch 1)
+  '/tools/text-splitter', '/tools/character-remover', '/tools/prefix-suffix',
+  '/tools/find-replace', '/tools/repeated-words', '/tools/text-joiner',
+  '/tools/truncate-text', '/tools/emoji-remover', '/tools/alternating-case',
+  '/tools/text-padder', '/tools/number-to-words', '/tools/discount-calculator',
+  '/tools/random-picker', '/tools/number-sorter', '/tools/privacy-policy-generator',
+  '/tools/world-clock', '/tools/simple-note', '/tools/sequence-generator',
+  '/tools/flip-rotate-image', '/tools/tone-generator',
 ])
 
 // High-traffic / popular tools (shown with "🔥" badge)
@@ -90,6 +98,15 @@ const SPOTLIGHT_POOL = [
   { icon: '💳', name: 'Credit Card Validator',      desc: 'Validate card numbers with the Luhn algorithm — offline and private.',     path: '/tools/credit-card-validator' },
   { icon: '⌨️', name: 'Typing Speed Test',          desc: 'Find out your real WPM with real-time accuracy feedback.',                 path: '/tools/typing-speed' },
   { icon: '⌨️', name: 'Keyboard Shortcuts',         desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac, and Vim — always handy.',  path: '/tools/keyboard-shortcuts' },
+  // New tools
+  { icon: '🎲', name: 'Random Picker',        desc: 'Pick one or more random items from any list — raffles, decisions, team selection.',  path: '/tools/random-picker' },
+  { icon: '🌍', name: 'World Clock',           desc: 'See the current time in multiple time zones at a glance — build your own clock.',    path: '/tools/world-clock' },
+  { icon: '🏷️', name: 'Discount Calculator',  desc: 'Calculate final price, savings amount and discount % for any deal in seconds.',      path: '/tools/discount-calculator' },
+  { icon: '🔎', name: 'Find & Replace',        desc: 'Find and replace text with full regex, whole-word and case-sensitivity support.',    path: '/tools/find-replace' },
+  { icon: '🔤', name: 'Number to Words',       desc: 'Convert any number to English words — cardinal, ordinal, and all cases.',            path: '/tools/number-to-words' },
+  { icon: '📜', name: 'Privacy Policy Generator', desc: 'Generate a plain-English privacy policy for your site — GDPR and more.',         path: '/tools/privacy-policy-generator' },
+  { icon: '🎵', name: 'Tone Generator',        desc: 'Generate pure audio tones at any frequency — sine, square, triangle, sawtooth.',    path: '/tools/tone-generator' },
+  { icon: '📝', name: 'Simple Note',           desc: 'A browser scratchpad that auto-saves to local storage — no account needed.',        path: '/tools/simple-note' },
 ]
 
 function getSpotlight() {
@@ -140,6 +157,17 @@ const MARQUEE_ITEMS = [
   { icon: '📚', name: 'ISBN Validator',      path: '/tools/isbn-validator' },
   { icon: '🔀', name: 'Kebab ↔ camelCase',  path: '/tools/kebab-camel' },
   { icon: '🌐', name: 'Glob Tester',         path: '/tools/glob-tester' },
+  // New tools
+  { icon: '✂️', name: 'Text Splitter',       path: '/tools/text-splitter' },
+  { icon: '🔎', name: 'Find & Replace',      path: '/tools/find-replace' },
+  { icon: '🏷️', name: 'Discount Calc',       path: '/tools/discount-calculator' },
+  { icon: '🎲', name: 'Random Picker',       path: '/tools/random-picker' },
+  { icon: '🌍', name: 'World Clock',         path: '/tools/world-clock' },
+  { icon: '🎵', name: 'Tone Generator',      path: '/tools/tone-generator' },
+  { icon: '📜', name: 'Privacy Policy',      path: '/tools/privacy-policy-generator' },
+  { icon: '🔤', name: 'Number to Words',     path: '/tools/number-to-words' },
+  { icon: '🔄', name: 'Flip & Rotate',       path: '/tools/flip-rotate-image' },
+  { icon: '📝', name: 'Simple Note',         path: '/tools/simple-note' },
 ]
 
 const FEATURED = [
@@ -189,6 +217,16 @@ const CATEGORIES = [
       { icon: '🔀', name: 'Kebab ↔ camelCase',    desc: 'Convert between kebab-case, camelCase, and snake_case.',          path: '/tools/kebab-camel' },
       { icon: '🔤', name: 'Vowel Counter',         desc: 'Count vowels, consonants, and character types in any text.',      path: '/tools/vowel-counter' },
       { icon: '⏸️', name: 'Empty Line Remover',   desc: 'Remove all blank lines from text instantly.',                    path: '/tools/empty-line-remover' },
+      { icon: '✂️', name: 'Text Splitter',         desc: 'Split text into parts by comma, newline, or any delimiter.',      path: '/tools/text-splitter' },
+      { icon: '🗑️', name: 'Character Remover',    desc: 'Remove or replace any character or substring instantly.',         path: '/tools/character-remover' },
+      { icon: '➕', name: 'Prefix / Suffix Adder', desc: 'Add text before or after every line in bulk.',                   path: '/tools/prefix-suffix' },
+      { icon: '🔎', name: 'Find & Replace',        desc: 'Find and replace text with regex and whole-word support.',        path: '/tools/find-replace' },
+      { icon: '🔁', name: 'Repeated Words Finder', desc: 'Find overused words in essays, posts, and reports.',              path: '/tools/repeated-words' },
+      { icon: '🔗', name: 'Text Joiner',           desc: 'Join multiple lines into one with a custom separator.',           path: '/tools/text-joiner' },
+      { icon: '✂️', name: 'Truncate Text',         desc: 'Trim text to a max number of chars, words, or lines.',           path: '/tools/truncate-text' },
+      { icon: '😶', name: 'Emoji Remover',          desc: 'Strip all emoji from text — fast and offline.',                  path: '/tools/emoji-remover' },
+      { icon: '🔀', name: 'Alternating Case',      desc: 'Convert text to AlTeRnAtInG, sArCaStIc, or inverted case.',      path: '/tools/alternating-case' },
+      { icon: '⬛', name: 'Text Padder',           desc: 'Left-pad, right-pad, or centre-align text to a target length.',  path: '/tools/text-padder' },
     ],
   },
   {
@@ -265,7 +303,11 @@ const CATEGORIES = [
       { icon: '🎨', name: 'Logo Maker',            desc: 'Design a simple logo with shapes, gradients, and fonts.', path: '/tools/logo-maker' },
       { icon: '💼', name: 'LinkedIn Post Maker',   desc: 'Format LinkedIn posts with Unicode bold, emojis, and CTAs.', path: '/tools/linkedin-post-maker' },
       { icon: '⌨️', name: 'Typing Speed Test',    desc: 'Test your WPM and accuracy with real-time feedback.',     path: '/tools/typing-speed' },
-      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },      { icon: '💼', name: 'Invoice Maker',         desc: 'Create professional invoices and save as PDF.',           path: '/tools/invoice-maker' },    ],
+      { icon: '🎨', name: 'ASCII Art Generator',  desc: 'Convert text to ASCII art using Unicode block characters.',path: '/tools/ascii-art' },
+      { icon: '💼', name: 'Invoice Maker',         desc: 'Create professional invoices and save as PDF.',           path: '/tools/invoice-maker' },
+      { icon: '🎲', name: 'Random Picker',          desc: 'Pick random items from any list — raffles, decisions.',   path: '/tools/random-picker' },
+      { icon: '🔢', name: 'Sequence Generator',    desc: 'Generate numeric, letter, or custom sequences instantly.', path: '/tools/sequence-generator' },
+    ],
   },
   {
     id: 'math',
@@ -288,6 +330,9 @@ const CATEGORIES = [
       { icon: '!',  name: 'Factorial / P / C',     desc: 'Factorials, permutations, and combinations.',            path: '/tools/factorial' },
       { icon: '💱', name: 'Currency Converter',    desc: 'Convert between 170+ currencies with live exchange rates.', path: '/tools/currency-converter' },
       { icon: '🔢', name: 'Matrix Calculator',     desc: 'Add, subtract, multiply matrices and compute determinants.', path: '/tools/matrix-calculator' },
+      { icon: '🏷️', name: 'Discount Calculator',  desc: 'Calculate final price, savings, and discount % for any deal.', path: '/tools/discount-calculator' },
+      { icon: '🔤', name: 'Number to Words',       desc: 'Convert numbers to English words — forty-two, first, etc.',  path: '/tools/number-to-words' },
+      { icon: '↕️', name: 'Number Sorter',         desc: 'Sort a list of numbers ascending or descending.',             path: '/tools/number-sorter' },
     ],
   },
   {
@@ -303,6 +348,7 @@ const CATEGORIES = [
       { icon: '🗓️', name: 'Week Number',         desc: 'ISO week number for any date.',                          path: '/tools/week-number' },
       { icon: '🍅', name: 'Pomodoro Timer',       desc: 'Focus timer with the Pomodoro technique.',               path: '/tools/pomodoro' },
       { icon: '📅', name: 'Calendar',               desc: 'Browse any month, highlight today, add notes to dates.',  path: '/tools/calendar' },
+      { icon: '🌍', name: 'World Clock',             desc: 'See the current time in multiple time zones at a glance.',  path: '/tools/world-clock' },
     ],
   },
   {
@@ -325,6 +371,7 @@ const CATEGORIES = [
       { icon: '📊', name: 'PDF Page Count',      desc: 'Count pages and view metadata of any PDF file.',             path: '/tools/pdf-page-count' },
       { icon: '📄', name: 'PDF to Text',          desc: 'Extract all text from a PDF — runs in your browser.',         path: '/tools/pdf-to-text' },
       { icon: '📦', name: 'PDF Merge',            desc: 'Combine multiple PDFs into one, reorder pages freely.',       path: '/tools/pdf-merge' },
+      { icon: '🔄', name: 'Flip & Rotate Image',  desc: 'Flip or rotate any image 90°/180° — runs entirely in browser.', path: '/tools/flip-rotate-image' },
     ],
   },
   {
@@ -349,6 +396,7 @@ const CATEGORIES = [
       { icon: '👁️', name: 'OG Preview',           desc: 'Preview how your page looks when shared on social media.', path: '/tools/og-preview' },
       { icon: '🤖', name: 'robots.txt Generator', desc: 'Build a robots.txt file to control bot crawling.',        path: '/tools/robots-txt' },
       { icon: '🗺️', name: 'Sitemap Generator',    desc: 'Build an XML sitemap for search engine indexing.',        path: '/tools/sitemap-generator' },
+      { icon: '📜', name: 'Privacy Policy Generator', desc: 'Generate a plain-English privacy policy for your website.', path: '/tools/privacy-policy-generator' },
     ],
   },
   {
@@ -357,6 +405,8 @@ const CATEGORIES = [
     tools: [
       { icon: '⌨️', name: 'Keyboard Shortcuts',   desc: 'Cheatsheets for VS Code, Chrome, Windows, Mac and Vim.',  path: '/tools/keyboard-shortcuts' },
       { icon: '👁️', name: 'Color Blindness Sim',  desc: 'Preview images as people with color blindness see them.', path: '/tools/color-blindness' },
+      { icon: '📝', name: 'Simple Note',           desc: 'Browser-based scratchpad that auto-saves to local storage.', path: '/tools/simple-note' },
+      { icon: '🎵', name: 'Tone Generator',        desc: 'Generate pure audio tones at any frequency — sine, square, etc.', path: '/tools/tone-generator' },
     ],
   },
   {
@@ -376,23 +426,15 @@ const COMING_SOON_SECTIONS = [
   {
     title: '📝 Text Manipulation',
     tools: [
-      'Text Splitter / Line Splitter (by delimiter)',
       'Character Counter (standalone, distinct from Word Counter)',
       'Line Counter',
-      'Character Remover / Character Replacer',
-      'Prefix/Suffix Adder (Text Appender)',
       'Tabs to Space',
       'Comma Inserter / Comma Separator',
       'Comma-Separated List → Column',
       'Word Duplicator / Sentence Duplicator',
       'Word Remover / Sentence Remover',
-      'Word Replacer / Find & Replace',
-      'Repeated Words Finder',
-      'Text Joiner (join lines with symbol)',
-      'Trim Text / Truncate Text / Slice Text',
       'Text-to-One-Line',
       'Special Character Remover',
-      'Emoji Remover',
       'Grep (regex line search)',
       'Regex Replacer (distinct from Regex Tester)',
     ],
@@ -401,11 +443,9 @@ const COMING_SOON_SECTIONS = [
     title: '📐 Text Alignment/Layout',
     tools: [
       'Left/Right-align Text',
-      'Left/Right-pad Text',
       'Indent / Unindent Text',
       'Justify Text',
       'Wrap Text',
-      'Alternating Case Converter (aLtErNaTiNg)',
     ],
   },
   {
@@ -438,12 +478,11 @@ const COMING_SOON_SECTIONS = [
     title: '🖼️ Images',
     tools: [
       'Image Multisizer / Enlarger',
-      'Flip Image / Rotate Image',
       'Pixelate Image',
       'Image Splitter',
       'Image Downloader (from URL)',
       'Hue Shift Generator',
-      'BMP/GIF/ICO-specific format conversions (you have PNG/JPEG/WebP but not BMP/GIF/ICO)',
+      'BMP/GIF/ICO-specific format conversions',
     ],
   },
   {
@@ -451,7 +490,6 @@ const COMING_SOON_SECTIONS = [
     tools: [
       'Audio Converter',
       'Audio Trimmer',
-      'Tone Generator',
       'Instrument Tuner',
       'Metronome',
     ],
@@ -459,7 +497,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🔢 Calculators',
     tools: [
-      'Discount Calculator',
       'Sales Tax Calculator',
       'Margin Calculator',
       'Probability Calculator',
@@ -480,7 +517,6 @@ const COMING_SOON_SECTIONS = [
     title: '📏 Converters',
     tools: [
       'Shoe Size Converter',
-      'Number to Word Converter (e.g., "42" → "forty-two")',
     ],
   },
   {
@@ -533,17 +569,11 @@ const COMING_SOON_SECTIONS = [
   {
     title: '⚡ Generators & Misc',
     tools: [
-      'Random Picker (from a list)',
-      'Sequence Generator',
-      'Number Sorter',
       'Empty Row Remover',
-      'Privacy Policy Generator',
       'Terms & Conditions Generator',
       'Disclaimer Generator',
       'VTT ↔ SRT Subtitle Converter',
       'YouTube Thumbnail Downloader',
-      'World Clock',
-      'Simple Note (browser-based scratchpad)',
       'AI Bank Statement to Excel',
       'Special Search Engines (curated search tool directory)',
       'Cost of Living Comparison (niche/external)',

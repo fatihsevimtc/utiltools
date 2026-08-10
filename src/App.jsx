@@ -198,6 +198,28 @@ import PdfPageCount from './pages/tools/PdfPageCount'
 import PdfToText    from './pages/tools/PdfToText'
 import PdfMerge     from './pages/tools/PdfMerge'
 
+// 20 new tools (batch 1)
+import TextSplitter          from './pages/tools/TextSplitter'
+import CharacterRemover      from './pages/tools/CharacterRemover'
+import PrefixSuffixAdder     from './pages/tools/PrefixSuffixAdder'
+import FindReplace           from './pages/tools/FindReplace'
+import RepeatedWordsFinder   from './pages/tools/RepeatedWordsFinder'
+import TextJoiner            from './pages/tools/TextJoiner'
+import TruncateText          from './pages/tools/TruncateText'
+import EmojiRemover          from './pages/tools/EmojiRemover'
+import NumberToWords         from './pages/tools/NumberToWords'
+import DiscountCalculator    from './pages/tools/DiscountCalculator'
+import RandomPicker          from './pages/tools/RandomPicker'
+import NumberSorter          from './pages/tools/NumberSorter'
+import PrivacyPolicyGenerator from './pages/tools/PrivacyPolicyGenerator'
+import WorldClock            from './pages/tools/WorldClock'
+import SimpleNote            from './pages/tools/SimpleNote'
+import AlternatingCase       from './pages/tools/AlternatingCase'
+import TextPadder            from './pages/tools/TextPadder'
+import SequenceGenerator     from './pages/tools/SequenceGenerator'
+import FlipRotateImage       from './pages/tools/FlipRotateImage'
+import ToneGenerator         from './pages/tools/ToneGenerator'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -404,6 +426,28 @@ export default function App() {
         <Route path="tools/pdf-page-count"             element={<PdfPageCount />} />
         <Route path="tools/pdf-to-text"                element={<PdfToText />} />
         <Route path="tools/pdf-merge"                  element={<PdfMerge />} />
+
+        {/* 20 new tools (batch 1) */}
+        <Route path="tools/text-splitter"              element={<TextSplitter />} />
+        <Route path="tools/character-remover"          element={<CharacterRemover />} />
+        <Route path="tools/prefix-suffix"              element={<PrefixSuffixAdder />} />
+        <Route path="tools/find-replace"               element={<FindReplace />} />
+        <Route path="tools/repeated-words"             element={<RepeatedWordsFinder />} />
+        <Route path="tools/text-joiner"                element={<TextJoiner />} />
+        <Route path="tools/truncate-text"              element={<TruncateText />} />
+        <Route path="tools/emoji-remover"              element={<EmojiRemover />} />
+        <Route path="tools/number-to-words"            element={<NumberToWords />} />
+        <Route path="tools/discount-calculator"        element={<DiscountCalculator />} />
+        <Route path="tools/random-picker"              element={<RandomPicker />} />
+        <Route path="tools/number-sorter"              element={<NumberSorter />} />
+        <Route path="tools/privacy-policy-generator"   element={<PrivacyPolicyGenerator />} />
+        <Route path="tools/world-clock"                element={<WorldClock />} />
+        <Route path="tools/simple-note"                element={<SimpleNote />} />
+        <Route path="tools/alternating-case"           element={<AlternatingCase />} />
+        <Route path="tools/text-padder"                element={<TextPadder />} />
+        <Route path="tools/sequence-generator"         element={<SequenceGenerator />} />
+        <Route path="tools/flip-rotate-image"          element={<FlipRotateImage />} />
+        <Route path="tools/tone-generator"             element={<ToneGenerator />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

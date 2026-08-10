@@ -19,6 +19,10 @@ export const CATEGORIES = [
       '/tools/readability-score', '/tools/tweet-thread', '/tools/resume-word-checker',
       '/tools/bio-generator', '/tools/text-to-speech',
       '/tools/kebab-camel', '/tools/vowel-counter', '/tools/empty-line-remover',
+      '/tools/text-splitter', '/tools/character-remover', '/tools/prefix-suffix',
+      '/tools/find-replace', '/tools/repeated-words', '/tools/text-joiner',
+      '/tools/truncate-text', '/tools/emoji-remover', '/tools/alternating-case',
+      '/tools/text-padder',
     ],
   },
   {
@@ -53,6 +57,7 @@ export const CATEGORIES = [
       '/tools/uuid-generator', '/tools/hash-generator', '/tools/random-number',
       '/tools/avatar-generator', '/tools/logo-maker', '/tools/linkedin-post-maker',
       '/tools/typing-speed', '/tools/ascii-art', '/tools/invoice-maker',
+      '/tools/sequence-generator', '/tools/random-picker',
     ],
   },
   {
@@ -64,7 +69,8 @@ export const CATEGORIES = [
       '/tools/fibonacci', '/tools/bmi', '/tools/tip-calculator',
       '/tools/loan-calculator', '/tools/compound-interest', '/tools/vat-calculator',
       '/tools/scientific-calculator', '/tools/factorial', '/tools/currency-converter',
-      '/tools/matrix-calculator',
+      '/tools/matrix-calculator', '/tools/discount-calculator',
+      '/tools/number-to-words', '/tools/number-sorter',
     ],
   },
   {
@@ -74,6 +80,7 @@ export const CATEGORIES = [
       '/tools/age-calculator', '/tools/date-difference', '/tools/timezone',
       '/tools/countdown', '/tools/stopwatch', '/tools/working-days',
       '/tools/week-number', '/tools/pomodoro', '/tools/calendar',
+      '/tools/world-clock',
     ],
   },
   {
@@ -87,6 +94,7 @@ export const CATEGORIES = [
       '/tools/image-cropper', '/tools/png-to-jpeg', '/tools/webp-converter',
       '/tools/ean-barcode', '/tools/docx-word-count',
       '/tools/pdf-page-count', '/tools/pdf-to-text', '/tools/pdf-merge',
+      '/tools/flip-rotate-image',
     ],
   },
   {
@@ -103,15 +111,15 @@ export const CATEGORIES = [
     label: '🔍 SEO & Marketing',
     tools: [
       '/tools/meta-tag-generator', '/tools/og-preview', '/tools/robots-txt',
-      '/tools/sitemap-generator',
+      '/tools/sitemap-generator', '/tools/privacy-policy-generator',
     ],
   },
   {
     id: 'misc',
     label: '🎯 Misc & Fun',
     tools: [
-      '/tools/keyboard-shortcuts',
-      '/tools/color-blindness',
+      '/tools/keyboard-shortcuts', '/tools/color-blindness',
+      '/tools/simple-note', '/tools/tone-generator',
     ],
   },
   {

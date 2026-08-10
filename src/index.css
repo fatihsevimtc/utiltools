@@ -800,7 +800,7 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
 }
-.btn:hover { background: var(--accent-hover); }
+.btn:hover { background: var(--accent-hover); color: #fff; text-decoration: none; }
 .btn:active { transform: scale(0.97); }
 .btn-ghost {
   background: transparent;

@@ -164,6 +164,27 @@ const TOOL_NAMES = {
   '/tools/pdf-page-count':         'PDF Page Count',
   '/tools/pdf-to-text':            'PDF to Text',
   '/tools/pdf-merge':              'PDF Merge',
+  // 20 new tools (batch 1)
+  '/tools/text-splitter':          'Text Splitter',
+  '/tools/character-remover':      'Character Remover / Replacer',
+  '/tools/prefix-suffix':          'Prefix / Suffix Adder',
+  '/tools/find-replace':           'Find & Replace',
+  '/tools/repeated-words':         'Repeated Words Finder',
+  '/tools/text-joiner':            'Text Joiner',
+  '/tools/truncate-text':          'Truncate Text',
+  '/tools/emoji-remover':          'Emoji Remover',
+  '/tools/number-to-words':        'Number to Words',
+  '/tools/discount-calculator':    'Discount Calculator',
+  '/tools/random-picker':          'Random Picker',
+  '/tools/number-sorter':          'Number Sorter',
+  '/tools/privacy-policy-generator': 'Privacy Policy Generator',
+  '/tools/world-clock':            'World Clock',
+  '/tools/simple-note':            'Simple Note',
+  '/tools/alternating-case':       'Alternating Case',
+  '/tools/text-padder':            'Text Padder',
+  '/tools/sequence-generator':     'Sequence Generator',
+  '/tools/flip-rotate-image':      'Flip & Rotate Image',
+  '/tools/tone-generator':         'Tone Generator',
 }
 
 // Build numbered tool list from CATEGORIES, deduped
