@@ -185,6 +185,28 @@ const TOOL_NAMES = {
   '/tools/sequence-generator':     'Sequence Generator',
   '/tools/flip-rotate-image':      'Flip & Rotate Image',
   '/tools/tone-generator':         'Tone Generator',
+  // 21 new tools (batch 2)
+  '/tools/character-counter':      'Character Counter',
+  '/tools/line-counter':           'Line Counter',
+  '/tools/tabs-to-spaces':         'Tabs ↔ Spaces Converter',
+  '/tools/comma-separator':        'Comma Separator / List Converter',
+  '/tools/text-to-one-line':       'Text to One Line',
+  '/tools/special-char-remover':   'Special Character Remover',
+  '/tools/regex-replacer':         'Regex Replacer',
+  '/tools/wrap-text':              'Wrap Text',
+  '/tools/sales-tax':              'Sales Tax Calculator',
+  '/tools/margin-calculator':      'Margin Calculator',
+  '/tools/gst-calculator':         'GST Calculator',
+  '/tools/area-calculator':        'Area Calculator',
+  '/tools/sleep-calculator':       'Sleep Calculator',
+  '/tools/shoe-size':              'Shoe Size Converter',
+  '/tools/utm-builder':            'UTM Builder',
+  '/tools/list-to-array':          'List to Array Converter',
+  '/tools/port-checker':           'Port Checker',
+  '/tools/terms-generator':        'Terms & Conditions Generator',
+  '/tools/disclaimer-generator':   'Disclaimer Generator',
+  '/tools/subtitle-converter':     'SRT ↔ VTT Subtitle Converter',
+  '/tools/prime-factorization':    'Prime Factorization',
 }
 
 // Build numbered tool list from CATEGORIES, deduped
