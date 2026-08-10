@@ -31,6 +31,17 @@ const NEW_TOOLS = new Set([
   '/tools/world-clock', '/tools/simple-note', '/tools/sequence-generator',
   '/tools/flip-rotate-image', '/tools/tone-generator',
 ])
+// 21 new tools (batch 2)
+const NEW_TOOLS_BATCH2 = new Set([
+  '/tools/character-counter', '/tools/line-counter', '/tools/tabs-to-spaces',
+  '/tools/comma-separator', '/tools/text-to-one-line', '/tools/special-char-remover',
+  '/tools/regex-replacer', '/tools/wrap-text', '/tools/sales-tax',
+  '/tools/margin-calculator', '/tools/gst-calculator', '/tools/area-calculator',
+  '/tools/sleep-calculator', '/tools/shoe-size', '/tools/utm-builder',
+  '/tools/list-to-array', '/tools/port-checker', '/tools/terms-generator',
+  '/tools/disclaimer-generator', '/tools/subtitle-converter', '/tools/prime-factorization',
+])
+NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -168,6 +179,11 @@ const MARQUEE_ITEMS = [
   { icon: '🔤', name: 'Number to Words',     path: '/tools/number-to-words' },
   { icon: '🔄', name: 'Flip & Rotate',       path: '/tools/flip-rotate-image' },
   { icon: '📝', name: 'Simple Note',         path: '/tools/simple-note' },
+  { icon: '🔢', name: 'Character Counter',   path: '/tools/character-counter' },
+  { icon: '🧾', name: 'Sales Tax',           path: '/tools/sales-tax' },
+  { icon: '📋', name: 'Terms Generator',     path: '/tools/terms-generator' },
+  { icon: '⚠️', name: 'Disclaimer',          path: '/tools/disclaimer-generator' },
+  { icon: '😴', name: 'Sleep Calculator',    path: '/tools/sleep-calculator' },
 ]
 
 const FEATURED = [
@@ -227,6 +243,13 @@ const CATEGORIES = [
       { icon: '😶', name: 'Emoji Remover',          desc: 'Strip all emoji from text — fast and offline.',                  path: '/tools/emoji-remover' },
       { icon: '🔀', name: 'Alternating Case',      desc: 'Convert text to AlTeRnAtInG, sArCaStIc, or inverted case.',      path: '/tools/alternating-case' },
       { icon: '⬛', name: 'Text Padder',           desc: 'Left-pad, right-pad, or centre-align text to a target length.',  path: '/tools/text-padder' },
+        { icon: '🔢', name: 'Character Counter',    desc: 'Count characters, letters, digits, and special characters.',      path: '/tools/character-counter' },
+        { icon: '📏', name: 'Line Counter',         desc: 'Count total lines, blank lines, and non-blank lines.',           path: '/tools/line-counter' },
+        { icon: '⇥', name: 'Tabs ↔ Spaces',         desc: 'Convert tabs to spaces or spaces to tabs with custom tab size.', path: '/tools/tabs-to-spaces' },
+        { icon: '🔗', name: 'Comma Separator',      desc: 'Convert line lists to comma-separated strings and back.',         path: '/tools/comma-separator' },
+        { icon: '➡️', name: 'Text to One Line',     desc: 'Collapse multi-line text into a single line.',                    path: '/tools/text-to-one-line' },
+        { icon: '🧼', name: 'Special Char Remover', desc: 'Remove punctuation and symbols while keeping letters/numbers.',    path: '/tools/special-char-remover' },
+        { icon: '↩️', name: 'Wrap Text',            desc: 'Hard-wrap text at a target line width.',                          path: '/tools/wrap-text' },
     ],
   },
   {
@@ -240,6 +263,7 @@ const CATEGORIES = [
       { icon: '🔑', name: 'JWT Decoder',          desc: 'Decode JWT tokens in your browser.',                    path: '/tools/jwt-decoder' },
       { icon: '🔍', name: 'Regex Tester',         desc: 'Test regex with live match highlighting.',               path: '/tools/regex-tester' },
       { icon: '🎨', name: 'Color Converter',      desc: 'HEX ↔ RGB ↔ HSL.',                                     path: '/tools/color-converter' },
+        { icon: '🔁', name: 'Regex Replacer',       desc: 'Apply regex find/replace with capture groups and flags.', path: '/tools/regex-replacer' },
       { icon: '⏱️', name: 'Timestamp Converter', desc: 'Unix timestamp ↔ human-readable date.',                 path: '/tools/timestamp' },
       { icon: '🗜️', name: 'CSS Minifier',        desc: 'Remove whitespace and comments from CSS.',               path: '/tools/css-minifier' },
       { icon: '✨', name: 'CSS Formatter',        desc: 'Prettify and indent CSS for readability.',               path: '/tools/css-formatter' },
@@ -288,6 +312,8 @@ const CATEGORIES = [
       { icon: '💨', name: 'CSS → Tailwind',          desc: 'Convert common CSS declarations to Tailwind classes.',      path: '/tools/css-to-tailwind' },
       { icon: '🎨', name: 'CSS Variables',           desc: 'Extract and inspect CSS custom property declarations.',     path: '/tools/css-variables' },
       { icon: '🔒', name: 'Bcrypt Hash & Verify',    desc: 'Hash and verify passwords using bcrypt in the browser.',   path: '/tools/bcrypt' },
+        { icon: '📋', name: 'List to Array',          desc: 'Convert line-by-line lists into code arrays or CSV.',         path: '/tools/list-to-array' },
+        { icon: '🌐', name: 'Port Checker',          desc: 'Check whether a remote host port is open (best effort).',      path: '/tools/port-checker' },
     ],
   },
   {
@@ -333,6 +359,11 @@ const CATEGORIES = [
       { icon: '🏷️', name: 'Discount Calculator',  desc: 'Calculate final price, savings, and discount % for any deal.', path: '/tools/discount-calculator' },
       { icon: '🔤', name: 'Number to Words',       desc: 'Convert numbers to English words — forty-two, first, etc.',  path: '/tools/number-to-words' },
       { icon: '↕️', name: 'Number Sorter',         desc: 'Sort a list of numbers ascending or descending.',             path: '/tools/number-sorter' },
+        { icon: '🧾', name: 'Sales Tax Calculator',  desc: 'Add sales tax to a price or extract tax from gross amount.',  path: '/tools/sales-tax' },
+        { icon: '📉', name: 'Margin Calculator',     desc: 'Calculate gross profit, margin %, and markup %.',             path: '/tools/margin-calculator' },
+        { icon: '🧾', name: 'GST Calculator',        desc: 'Add or remove GST for any amount and tax rate.',              path: '/tools/gst-calculator' },
+        { icon: '📐', name: 'Area Calculator',       desc: 'Compute area of rectangle, circle, triangle, and more.',      path: '/tools/area-calculator' },
+        { icon: '🧮', name: 'Prime Factorization',   desc: 'Break any integer into its prime factors.',                   path: '/tools/prime-factorization' },
     ],
   },
   {
@@ -349,6 +380,7 @@ const CATEGORIES = [
       { icon: '🍅', name: 'Pomodoro Timer',       desc: 'Focus timer with the Pomodoro technique.',               path: '/tools/pomodoro' },
       { icon: '📅', name: 'Calendar',               desc: 'Browse any month, highlight today, add notes to dates.',  path: '/tools/calendar' },
       { icon: '🌍', name: 'World Clock',             desc: 'See the current time in multiple time zones at a glance.',  path: '/tools/world-clock' },
+        { icon: '😴', name: 'Sleep Calculator',       desc: 'Find ideal sleep and wake times based on sleep cycles.',     path: '/tools/sleep-calculator' },
     ],
   },
   {
@@ -363,7 +395,8 @@ const CATEGORIES = [
       { icon: '🎨', name: 'Image Color Picker',   desc: 'Click anywhere on an image to pick a color.',           path: '/tools/image-color-picker' },
       { icon: '⭐', name: 'Favicon Generator',    desc: 'Create emoji favicons and download at multiple sizes.',  path: '/tools/favicon-generator' },
       { icon: '📸', name: 'EXIF Viewer',          desc: 'Extract EXIF metadata from JPEG images in your browser.', path: '/tools/exif-viewer' },
-      { icon: '🗜️', name: 'Image Compressor',   desc: 'Compress JPEG, PNG, and WebP images entirely in your browser.', path: '/tools/image-compressor' },      { icon: '✂️', name: 'Image Cropper',      desc: 'Crop images by drawing a selection rectangle.',               path: '/tools/image-cropper' },
+      { icon: '🗜️', name: 'Image Compressor',   desc: 'Compress JPEG, PNG, and WebP images entirely in your browser.', path: '/tools/image-compressor' },
+      { icon: '✂️', name: 'Image Cropper',      desc: 'Crop images by drawing a selection rectangle.',               path: '/tools/image-cropper' },
       { icon: '📸', name: 'PNG to JPEG',          desc: 'Convert PNG to JPEG with adjustable quality.',               path: '/tools/png-to-jpeg' },
       { icon: '🖼️', name: 'WebP Converter',      desc: 'Convert images to WebP format with adjustable quality.',     path: '/tools/webp-converter' },
       { icon: '📊', name: 'EAN Barcode',          desc: 'Generate EAN-13 barcodes rendered on canvas.',               path: '/tools/ean-barcode' },
@@ -397,6 +430,9 @@ const CATEGORIES = [
       { icon: '🤖', name: 'robots.txt Generator', desc: 'Build a robots.txt file to control bot crawling.',        path: '/tools/robots-txt' },
       { icon: '🗺️', name: 'Sitemap Generator',    desc: 'Build an XML sitemap for search engine indexing.',        path: '/tools/sitemap-generator' },
       { icon: '📜', name: 'Privacy Policy Generator', desc: 'Generate a plain-English privacy policy for your website.', path: '/tools/privacy-policy-generator' },
+      { icon: '📣', name: 'UTM Builder',          desc: 'Build UTM-tagged URLs for campaign tracking in analytics.', path: '/tools/utm-builder' },
+      { icon: '📋', name: 'Terms Generator',      desc: 'Generate Terms & Conditions for your website or app.',      path: '/tools/terms-generator' },
+      { icon: '⚠️', name: 'Disclaimer Generator', desc: 'Generate general, affiliate, medical, or legal disclaimers.', path: '/tools/disclaimer-generator' },
     ],
   },
   {
@@ -407,6 +443,8 @@ const CATEGORIES = [
       { icon: '👁️', name: 'Color Blindness Sim',  desc: 'Preview images as people with color blindness see them.', path: '/tools/color-blindness' },
       { icon: '📝', name: 'Simple Note',           desc: 'Browser-based scratchpad that auto-saves to local storage.', path: '/tools/simple-note' },
       { icon: '🎵', name: 'Tone Generator',        desc: 'Generate pure audio tones at any frequency — sine, square, etc.', path: '/tools/tone-generator' },
+      { icon: '👟', name: 'Shoe Size Converter',  desc: 'Convert shoe sizes between US, UK, EU, CM and JP systems.', path: '/tools/shoe-size' },
+      { icon: '🎞️', name: 'Subtitle Converter',   desc: 'Convert subtitle files between SRT and WebVTT formats.', path: '/tools/subtitle-converter' },
     ],
   },
   {
@@ -426,17 +464,10 @@ const COMING_SOON_SECTIONS = [
   {
     title: '📝 Text Manipulation',
     tools: [
-      'Character Counter (standalone, distinct from Word Counter)',
-      'Line Counter',
-      'Tabs to Space',
-      'Comma Inserter / Comma Separator',
       'Comma-Separated List → Column',
       'Word Duplicator / Sentence Duplicator',
       'Word Remover / Sentence Remover',
-      'Text-to-One-Line',
-      'Special Character Remover',
       'Grep (regex line search)',
-      'Regex Replacer (distinct from Regex Tester)',
     ],
   },
   {
@@ -445,7 +476,6 @@ const COMING_SOON_SECTIONS = [
       'Left/Right-align Text',
       'Indent / Unindent Text',
       'Justify Text',
-      'Wrap Text',
     ],
   },
   {
@@ -497,33 +527,20 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🔢 Calculators',
     tools: [
-      'Sales Tax Calculator',
-      'Margin Calculator',
       'Probability Calculator',
       'Confidence Interval Calculator',
       'PayPal Fee Calculator',
       'CPM Calculator',
-      'GST Calculator (distinct from VAT)',
       'Lease Calculator',
       'Present Value of Future Money',
       'Retirement Planning Calculator',
       'Investment Calculator (w/ default risk factor)',
-      'Prime Factorization (distinct from Prime Checker)',
-      'Area Calculator (geometry)',
-      'Sleep Calculator',
-    ],
-  },
-  {
-    title: '📏 Converters',
-    tools: [
-      'Shoe Size Converter',
     ],
   },
   {
     title: '🛠️ Web Dev / Encoding',
     tools: [
       'JavaScript Obfuscator / DeObfuscator',
-      'UTM Builder',
       'Schema Markup Generator',
       'CSS Animation Generator (distinct from Gradient)',
       'PWA Manifest Generator',
@@ -538,7 +555,6 @@ const COMING_SOON_SECTIONS = [
       'JSON ↔ PHP Array',
       'JSON Key Sorter (alphabetize/deep-sort)',
       'JSON Unescape',
-      'List to Array',
       'Table Format Converter',
     ],
   },
@@ -555,7 +571,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🌐 Network Tools',
     tools: [
-      'Port Checker',
       'Traceroute',
       'HTTP/2 Checker',
       'HTTP Request Validator',
@@ -570,9 +585,6 @@ const COMING_SOON_SECTIONS = [
     title: '⚡ Generators & Misc',
     tools: [
       'Empty Row Remover',
-      'Terms & Conditions Generator',
-      'Disclaimer Generator',
-      'VTT ↔ SRT Subtitle Converter',
       'YouTube Thumbnail Downloader',
       'AI Bank Statement to Excel',
       'Special Search Engines (curated search tool directory)',

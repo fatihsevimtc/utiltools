@@ -495,4 +495,152 @@ export const TOOL_SEO = {
       { q: 'Can I use this as a hearing test?', a: 'You can test frequency sensitivity informally, but this is not a calibrated audiological tool. For medical hearing tests, consult a qualified audiologist.' },
     ],
   },
+
+  '/tools/character-counter': {
+    about: 'A character counter provides detailed text statistics including total characters, letters, numbers, spaces, and symbols. It is useful for social posts, metadata, and copywriting constraints.',
+    faqs: [
+      { q: 'Does it count spaces?', a: 'Yes — it shows both total characters and a no-space character count.' },
+      { q: 'Can I count multi-line text?', a: 'Yes — you can paste any multi-line text and counts update instantly.' },
+    ],
+  },
+  '/tools/line-counter': {
+    about: 'A line counter counts total lines, blank lines, and non-blank lines in any text. It helps developers and writers quickly audit structured content.',
+    faqs: [
+      { q: 'Can blank lines be excluded?', a: 'Yes — toggle whether blank lines are included in the final count.' },
+      { q: 'What counts as a line?', a: 'Each newline-separated segment counts as one line.' },
+    ],
+  },
+  '/tools/tabs-to-spaces': {
+    about: 'A tabs-to-spaces converter transforms tab characters into spaces (or the reverse) using your chosen tab width. It helps keep code formatting consistent across editors.',
+    faqs: [
+      { q: 'What tab sizes are supported?', a: 'Common tab sizes like 2, 4, and 8 are supported.' },
+      { q: 'Can it convert spaces back to tabs?', a: 'Yes — switch to spaces-to-tabs mode to reverse the conversion.' },
+    ],
+  },
+  '/tools/comma-separator': {
+    about: 'A comma separator converts line-based lists to comma-separated text and can split comma-separated lists back into lines. It is useful for CSV prep and quick data cleanup.',
+    faqs: [
+      { q: 'Can I use separators other than commas?', a: 'Yes — semicolon, pipe, and custom separator styles are supported.' },
+      { q: 'Does it remove empty entries?', a: 'Yes — blank entries are trimmed out automatically.' },
+    ],
+  },
+  '/tools/text-to-one-line': {
+    about: 'Text to one line removes line breaks and joins content into a single continuous line. It is useful for form fields, configs, and log payloads.',
+    faqs: [
+      { q: 'Can extra spaces be cleaned too?', a: 'Yes — enable collapse mode to reduce repeated spaces.' },
+      { q: 'Does it preserve word order?', a: 'Yes — only line breaks are replaced; text order remains unchanged.' },
+    ],
+  },
+  '/tools/special-char-remover': {
+    about: 'A special character remover strips punctuation and symbols from text while keeping letters and numbers. It is useful for sanitising datasets and preparing strict input formats.',
+    faqs: [
+      { q: 'Can spaces and line breaks be preserved?', a: 'Yes — you can choose whether to keep spaces and newlines.' },
+      { q: 'What counts as special characters?', a: 'Characters outside letters, digits, and optional whitespace are treated as special.' },
+    ],
+  },
+  '/tools/regex-replacer': {
+    about: 'A regex replacer applies regular-expression search and replacement with support for flags and capture groups. It is ideal for advanced bulk text transformations.',
+    faqs: [
+      { q: 'Can I use capture groups in replacement?', a: 'Yes — use placeholders like $1, $2, etc.' },
+      { q: 'Which flags are supported?', a: 'Standard JavaScript flags such as g, i, m, and s are supported.' },
+    ],
+  },
+  '/tools/wrap-text': {
+    about: 'A wrap text tool hard-wraps long lines at a chosen column width. It is useful for code comments, plain-text emails, and fixed-width output.',
+    faqs: [
+      { q: 'Can I set a custom wrap width?', a: 'Yes — choose any width within the supported range.' },
+      { q: 'Does it preserve existing line breaks?', a: 'Yes — each line is wrapped independently.' },
+    ],
+  },
+  '/tools/sales-tax': {
+    about: 'A sales tax calculator adds tax to net prices or extracts tax from tax-inclusive totals. It quickly shows base amount, tax amount, and final amount.',
+    faqs: [
+      { q: 'Can it reverse-calculate from gross price?', a: 'Yes — use extract mode to compute net and tax from a tax-inclusive amount.' },
+      { q: 'Is any specific country required?', a: 'No — enter any rate percentage used in your location.' },
+    ],
+  },
+  '/tools/margin-calculator': {
+    about: 'A margin calculator computes gross profit, margin percentage, and markup percentage from cost and selling price. It helps with pricing and profitability analysis.',
+    faqs: [
+      { q: 'What is margin vs markup?', a: 'Margin is profit divided by revenue; markup is profit divided by cost.' },
+      { q: 'Can I use decimal values?', a: 'Yes — decimals are supported for both cost and selling price.' },
+    ],
+  },
+  '/tools/gst-calculator': {
+    about: 'A GST calculator adds or removes Goods and Services Tax from any price using a custom tax rate. It is useful for invoices, receipts, and e-commerce pricing.',
+    faqs: [
+      { q: 'Can I calculate GST from a gross amount?', a: 'Yes — extraction mode calculates net amount and GST component.' },
+      { q: 'Can I use custom GST rates?', a: 'Yes — enter any GST rate percentage relevant to your region.' },
+    ],
+  },
+  '/tools/area-calculator': {
+    about: 'An area calculator finds the area of common geometric shapes including rectangle, circle, triangle, trapezoid, ellipse, and sector. It is useful for design, construction, and schoolwork.',
+    faqs: [
+      { q: 'Which shapes are supported?', a: 'Rectangle, circle, triangle, trapezoid, ellipse, and sector are supported.' },
+      { q: 'What units are used?', a: 'Output is in square units matching whatever input unit you provide.' },
+    ],
+  },
+  '/tools/prime-factorization': {
+    about: 'A prime factorization tool decomposes an integer into its prime factors and exponents. It is useful for math education, number theory, and simplifying fractions.',
+    faqs: [
+      { q: 'What input range is supported?', a: 'Whole numbers from 2 up to one trillion are supported.' },
+      { q: 'Does it show exponents?', a: 'Yes — repeated factors are grouped with exponent notation.' },
+    ],
+  },
+  '/tools/sleep-calculator': {
+    about: 'A sleep calculator suggests bedtimes or wake-up times based on 90-minute sleep cycles. It helps reduce grogginess by avoiding waking mid-cycle.',
+    faqs: [
+      { q: 'Why 90-minute cycles?', a: 'Typical adult sleep cycles average around 90 minutes, though individuals vary.' },
+      { q: 'Does it account for falling asleep time?', a: 'Yes — it includes a default fall-asleep buffer in calculations.' },
+    ],
+  },
+  '/tools/shoe-size': {
+    about: 'A shoe size converter maps sizes between US, UK, EU, CM, and JP systems. It helps shoppers compare international size labels quickly.',
+    faqs: [
+      { q: 'Are sizes exact across all brands?', a: 'Not always — brand fit can vary, so use this as a standard reference.' },
+      { q: 'Can it convert women and men US sizes?', a: 'Yes — both US men and US women reference columns are included.' },
+    ],
+  },
+  '/tools/utm-builder': {
+    about: 'A UTM builder creates campaign-tracking URLs by appending utm_source, utm_medium, utm_campaign, and other parameters. It is essential for analytics attribution.',
+    faqs: [
+      { q: 'Which UTM parameters are available?', a: 'Source, medium, campaign, term, and content are supported.' },
+      { q: 'Can this be used with existing query parameters?', a: 'Yes — UTM parameters are appended correctly to URLs with or without existing query strings.' },
+    ],
+  },
+  '/tools/list-to-array': {
+    about: 'A list-to-array converter turns line-based items into array syntax for JavaScript, Python, PHP, Ruby, or CSV output. It saves time when preparing structured data.',
+    faqs: [
+      { q: 'Can I choose quote styles?', a: 'Yes — choose double quotes, single quotes, or no quotes.' },
+      { q: 'Will blank lines be included?', a: 'No — blank lines are automatically skipped.' },
+    ],
+  },
+  '/tools/port-checker': {
+    about: 'A port checker tests whether a host port appears reachable from the browser. It provides quick best-effort diagnostics for common network troubleshooting.',
+    faqs: [
+      { q: 'Are browser port checks always accurate?', a: 'Not always — CORS and browser network restrictions can affect results.' },
+      { q: 'What port range is supported?', a: 'Any TCP port from 1 to 65535 can be tested.' },
+    ],
+  },
+  '/tools/terms-generator': {
+    about: 'A terms and conditions generator creates a basic website terms template using your company and contact details. It helps launch legal pages faster.',
+    faqs: [
+      { q: 'Is this legal advice?', a: 'No — this is a template and should be reviewed by a legal professional.' },
+      { q: 'Can I edit the generated terms?', a: 'Yes — copy and customise the output to your business needs.' },
+    ],
+  },
+  '/tools/disclaimer-generator': {
+    about: 'A disclaimer generator creates template disclaimers for general, affiliate, medical, and legal/financial use cases. It helps website owners publish core risk disclosures quickly.',
+    faqs: [
+      { q: 'Which disclaimer types are available?', a: 'General, affiliate, medical, and legal/financial templates are included.' },
+      { q: 'Should I publish as-is?', a: 'Use it as a starting point and adapt it to your jurisdiction and services.' },
+    ],
+  },
+  '/tools/subtitle-converter': {
+    about: 'A subtitle converter transforms subtitle files between SRT and WebVTT formats. It is useful for video publishing workflows and web media compatibility.',
+    faqs: [
+      { q: 'Can I download the converted file?', a: 'Yes — you can download the output directly after conversion.' },
+      { q: 'Are timestamps converted automatically?', a: 'Yes — timestamp delimiters are converted between comma and dot formats where needed.' },
+    ],
+  },
 }

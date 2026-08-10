@@ -23,6 +23,9 @@ export const CATEGORIES = [
       '/tools/find-replace', '/tools/repeated-words', '/tools/text-joiner',
       '/tools/truncate-text', '/tools/emoji-remover', '/tools/alternating-case',
       '/tools/text-padder',
+        '/tools/character-counter', '/tools/line-counter', '/tools/text-to-one-line',
+      '/tools/special-char-remover', '/tools/wrap-text', '/tools/comma-separator',
+      '/tools/tabs-to-spaces',
     ],
   },
   {
@@ -30,7 +33,7 @@ export const CATEGORIES = [
     label: '🛠️ Developer',
     tools: [
       '/tools/json-formatter', '/tools/diff-checker', '/tools/base64',
-      '/tools/html-entities', '/tools/jwt-decoder', '/tools/regex-tester',
+        '/tools/html-entities', '/tools/jwt-decoder', '/tools/regex-tester', '/tools/regex-replacer',
       '/tools/color-converter', '/tools/timestamp', '/tools/css-minifier',
       '/tools/css-formatter', '/tools/js-minifier', '/tools/html-minifier',
       '/tools/html-to-markdown', '/tools/markdown-to-html', '/tools/xml-formatter',
@@ -47,6 +50,7 @@ export const CATEGORIES = [
       '/tools/query-string', '/tools/mime-lookup', '/tools/ip-info', '/tools/user-agent',
       '/tools/toml-to-json', '/tools/css-to-tailwind', '/tools/rsa-generator',
       '/tools/isbn-validator', '/tools/bcrypt', '/tools/css-variables',
+        '/tools/list-to-array', '/tools/port-checker',
     ],
   },
   {
@@ -71,6 +75,8 @@ export const CATEGORIES = [
       '/tools/scientific-calculator', '/tools/factorial', '/tools/currency-converter',
       '/tools/matrix-calculator', '/tools/discount-calculator',
       '/tools/number-to-words', '/tools/number-sorter',
+        '/tools/sales-tax', '/tools/margin-calculator', '/tools/gst-calculator',
+        '/tools/area-calculator', '/tools/prime-factorization',
     ],
   },
   {
@@ -80,7 +86,7 @@ export const CATEGORIES = [
       '/tools/age-calculator', '/tools/date-difference', '/tools/timezone',
       '/tools/countdown', '/tools/stopwatch', '/tools/working-days',
       '/tools/week-number', '/tools/pomodoro', '/tools/calendar',
-      '/tools/world-clock',
+        '/tools/world-clock', '/tools/sleep-calculator',
     ],
   },
   {
@@ -111,7 +117,8 @@ export const CATEGORIES = [
     label: '🔍 SEO & Marketing',
     tools: [
       '/tools/meta-tag-generator', '/tools/og-preview', '/tools/robots-txt',
-      '/tools/sitemap-generator', '/tools/privacy-policy-generator',
+        '/tools/sitemap-generator', '/tools/privacy-policy-generator',
+        '/tools/utm-builder', '/tools/terms-generator', '/tools/disclaimer-generator',
     ],
   },
   {
@@ -119,7 +126,8 @@ export const CATEGORIES = [
     label: '🎯 Misc & Fun',
     tools: [
       '/tools/keyboard-shortcuts', '/tools/color-blindness',
-      '/tools/simple-note', '/tools/tone-generator',
+        '/tools/simple-note', '/tools/tone-generator',
+        '/tools/shoe-size', '/tools/subtitle-converter',
     ],
   },
   {

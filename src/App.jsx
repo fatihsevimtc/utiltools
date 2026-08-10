@@ -221,6 +221,30 @@ import FlipRotateImage       from './pages/tools/FlipRotateImage'
 import ToneGenerator         from './pages/tools/ToneGenerator'
 
 // Static pages
+// 21 new tools (batch 2)
+import CharacterCounter    from './pages/tools/CharacterCounter'
+import LineCounter         from './pages/tools/LineCounter'
+import TabsToSpaces        from './pages/tools/TabsToSpaces'
+import CommaSeparator      from './pages/tools/CommaSeparator'
+import TextToOneLine       from './pages/tools/TextToOneLine'
+import SpecialCharRemover  from './pages/tools/SpecialCharRemover'
+import RegexReplacer       from './pages/tools/RegexReplacer'
+import WrapText            from './pages/tools/WrapText'
+import SalesTaxCalculator  from './pages/tools/SalesTaxCalculator'
+import MarginCalculator    from './pages/tools/MarginCalculator'
+import GstCalculator       from './pages/tools/GstCalculator'
+import AreaCalculator      from './pages/tools/AreaCalculator'
+import SleepCalculator     from './pages/tools/SleepCalculator'
+import ShoeSizeConverter   from './pages/tools/ShoeSizeConverter'
+import UtmBuilder          from './pages/tools/UtmBuilder'
+import ListToArray         from './pages/tools/ListToArray'
+import PortChecker         from './pages/tools/PortChecker'
+import TermsGenerator      from './pages/tools/TermsGenerator'
+import DisclaimerGenerator from './pages/tools/DisclaimerGenerator'
+import SubtitleConverter   from './pages/tools/SubtitleConverter'
+import PrimeFactorization  from './pages/tools/PrimeFactorization'
+
+// Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
 import Suggest  from './pages/Suggest'
@@ -448,6 +472,29 @@ export default function App() {
         <Route path="tools/sequence-generator"         element={<SequenceGenerator />} />
         <Route path="tools/flip-rotate-image"          element={<FlipRotateImage />} />
         <Route path="tools/tone-generator"             element={<ToneGenerator />} />
+
+  {/* 21 new tools (batch 2) */}
+        <Route path="tools/character-counter"          element={<CharacterCounter />} />
+        <Route path="tools/line-counter"               element={<LineCounter />} />
+        <Route path="tools/tabs-to-spaces"             element={<TabsToSpaces />} />
+        <Route path="tools/comma-separator"            element={<CommaSeparator />} />
+        <Route path="tools/text-to-one-line"           element={<TextToOneLine />} />
+        <Route path="tools/special-char-remover"       element={<SpecialCharRemover />} />
+        <Route path="tools/regex-replacer"             element={<RegexReplacer />} />
+        <Route path="tools/wrap-text"                  element={<WrapText />} />
+        <Route path="tools/sales-tax"                  element={<SalesTaxCalculator />} />
+        <Route path="tools/margin-calculator"          element={<MarginCalculator />} />
+        <Route path="tools/gst-calculator"             element={<GstCalculator />} />
+        <Route path="tools/area-calculator"            element={<AreaCalculator />} />
+        <Route path="tools/sleep-calculator"           element={<SleepCalculator />} />
+        <Route path="tools/shoe-size"                  element={<ShoeSizeConverter />} />
+        <Route path="tools/utm-builder"                element={<UtmBuilder />} />
+        <Route path="tools/list-to-array"              element={<ListToArray />} />
+        <Route path="tools/port-checker"               element={<PortChecker />} />
+        <Route path="tools/terms-generator"            element={<TermsGenerator />} />
+        <Route path="tools/disclaimer-generator"       element={<DisclaimerGenerator />} />
+        <Route path="tools/subtitle-converter"         element={<SubtitleConverter />} />
+        <Route path="tools/prime-factorization"        element={<PrimeFactorization />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />
