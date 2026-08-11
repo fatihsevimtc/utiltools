@@ -254,6 +254,7 @@ import PayPalFeeCalculator   from './pages/tools/PayPalFeeCalculator'
 import CpmCalculator         from './pages/tools/CpmCalculator'
 import JsonKeySorter         from './pages/tools/JsonKeySorter'
 import JsonUnescape          from './pages/tools/JsonUnescape'
+import IndentText            from './pages/tools/IndentText'
 
 // Static pages
 import Privacy  from './pages/Privacy'
@@ -517,6 +518,7 @@ export default function App() {
         <Route path="tools/cpm-calculator"          element={<CpmCalculator />} />
         <Route path="tools/json-key-sorter"         element={<JsonKeySorter />} />
         <Route path="tools/json-unescape"           element={<JsonUnescape />} />
+        <Route path="tools/indent-text"              element={<IndentText />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

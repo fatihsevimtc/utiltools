@@ -258,6 +258,7 @@ const CATEGORIES = [
       { icon: '🔡', name: 'Unicode Text Styles',  desc: 'Convert text to bold, italic, monospace, wide, bubble and more.', path: '/tools/unicode-text-converter' },
       { icon: '👁️', name: 'Zalgo Text',           desc: 'Generate glitchy Zalgo text or clean it back to normal.',         path: '/tools/zalgo-text' },
       { icon: '█', name: 'Censor Text',           desc: 'Redact text with blocks, asterisks, or [REDACTED] markers.',      path: '/tools/censor-text' },
+      { icon: '⇥', name: 'Indent / Unindent',     desc: 'Add or remove indentation from every line with spaces or tabs.',  path: '/tools/indent-text' },
     ],
   },
   {
@@ -488,7 +489,6 @@ const COMING_SOON_SECTIONS = [
     title: '📐 Text Alignment/Layout',
     tools: [
       'Left/Right-align Text',
-      'Indent / Unindent Text',
       'Justify Text',
     ],
   },

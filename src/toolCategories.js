@@ -27,6 +27,7 @@ export const CATEGORIES = [
       '/tools/special-char-remover', '/tools/wrap-text', '/tools/comma-separator',
       '/tools/tabs-to-spaces',
       '/tools/unicode-text-converter', '/tools/zalgo-text', '/tools/censor-text',
+      '/tools/indent-text',
     ],
   },
   {

@@ -217,6 +217,7 @@ const TOOL_NAMES = {
   '/tools/cpm-calculator':         'CPM Calculator',
   '/tools/json-key-sorter':        'JSON Key Sorter',
   '/tools/json-unescape':          'JSON Unescape / Escape',
+  '/tools/indent-text':            'Indent / Unindent Text',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

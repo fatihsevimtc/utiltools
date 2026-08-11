@@ -686,6 +686,14 @@ export const TOOL_SEO = {
       { q: 'Does it handle Unicode escapes like \\u0041?', a: 'Yes — JSON.parse handles all standard JSON escape sequences including \\uXXXX Unicode escapes.' },
     ],
   },
+
+  '/tools/indent-text': {
+    about: 'An indent/unindent tool adds or removes leading whitespace from every line of text. It supports configurable space widths and tab characters, making it useful for reformatting code blocks and plain-text documents.',
+    faqs: [
+      { q: 'Can I indent by tabs instead of spaces?', a: 'Yes — enable the Use Tab toggle to insert a tab character at the start of each line instead of spaces.' },
+      { q: 'Does unindent remove only the exact indent width?', a: 'Yes — unindent strips up to the selected number of leading spaces (or one tab) per line. Lines with less indentation are left as-is.' },
+    ],
+  },
   '/tools/terms-generator': {
     about: 'A terms and conditions generator creates a basic website terms template using your company and contact details. It helps launch legal pages faster.',
     faqs: [
