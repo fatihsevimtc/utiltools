@@ -534,6 +534,9 @@ export default function Layout() {
             <Link to="/privacy">Privacy</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact us</Link>
+            <a href="https://developer.utiltools.org" target="_blank" rel="noopener noreferrer">
+              NPM Packages
+            </a>
             <a href="https://github.com/fatihsevimtc/utiltools" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
