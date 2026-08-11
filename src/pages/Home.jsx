@@ -255,7 +255,7 @@ const CATEGORIES = [
         { icon: '➡️', name: 'Text to One Line',     desc: 'Collapse multi-line text into a single line.',                    path: '/tools/text-to-one-line' },
         { icon: '🧼', name: 'Special Char Remover', desc: 'Remove punctuation and symbols while keeping letters/numbers.',    path: '/tools/special-char-remover' },
         { icon: '↩️', name: 'Wrap Text',            desc: 'Hard-wrap text at a target line width.',                          path: '/tools/wrap-text' },
-      { icon: '🔡', name: 'Unicode Text Styles',  desc: 'Convert text to bold, italic, monospace, wide, bubble and more.', path: '/tools/unicode-text-converter' },
+      { icon: '🔡', name: 'Unicode Text Converter', desc: 'Convert text to bold, italic, monospace, wide, bubble, fraktur and more Unicode font styles.', path: '/tools/unicode-text-converter' },
       { icon: '👁️', name: 'Zalgo Text',           desc: 'Generate glitchy Zalgo text or clean it back to normal.',         path: '/tools/zalgo-text' },
       { icon: '█', name: 'Censor Text',           desc: 'Redact text with blocks, asterisks, or [REDACTED] markers.',      path: '/tools/censor-text' },
       { icon: '⇥', name: 'Indent / Unindent',     desc: 'Add or remove indentation from every line with spaces or tabs.',  path: '/tools/indent-text' },
