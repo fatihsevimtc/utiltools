@@ -26,6 +26,7 @@ export const CATEGORIES = [
         '/tools/character-counter', '/tools/line-counter', '/tools/text-to-one-line',
       '/tools/special-char-remover', '/tools/wrap-text', '/tools/comma-separator',
       '/tools/tabs-to-spaces',
+      '/tools/unicode-text-converter', '/tools/zalgo-text', '/tools/censor-text',
     ],
   },
   {
@@ -51,6 +52,7 @@ export const CATEGORIES = [
       '/tools/toml-to-json', '/tools/css-to-tailwind', '/tools/rsa-generator',
       '/tools/isbn-validator', '/tools/bcrypt', '/tools/css-variables',
         '/tools/list-to-array', '/tools/port-checker',
+      '/tools/json-key-sorter', '/tools/json-unescape',
     ],
   },
   {
@@ -76,8 +78,7 @@ export const CATEGORIES = [
       '/tools/matrix-calculator', '/tools/discount-calculator',
       '/tools/number-to-words', '/tools/number-sorter',
         '/tools/sales-tax', '/tools/margin-calculator', '/tools/gst-calculator',
-        '/tools/area-calculator', '/tools/prime-factorization',
-    ],
+        '/tools/area-calculator', '/tools/prime-factorization',      '/tools/probability', '/tools/paypal-fee', '/tools/cpm-calculator',    ],
   },
   {
     id: 'time',
@@ -127,7 +128,7 @@ export const CATEGORIES = [
     tools: [
       '/tools/keyboard-shortcuts', '/tools/color-blindness',
         '/tools/simple-note', '/tools/tone-generator',
-        '/tools/shoe-size', '/tools/subtitle-converter',
+        '/tools/shoe-size', '/tools/subtitle-converter', '/tools/metronome',
     ],
   },
   {

@@ -244,6 +244,17 @@ import DisclaimerGenerator from './pages/tools/DisclaimerGenerator'
 import SubtitleConverter   from './pages/tools/SubtitleConverter'
 import PrimeFactorization  from './pages/tools/PrimeFactorization'
 
+// 10 new tools (batch 3)
+import UnicodeTextConverter  from './pages/tools/UnicodeTextConverter'
+import ZalgoText             from './pages/tools/ZalgoText'
+import CensorText            from './pages/tools/CensorText'
+import Metronome             from './pages/tools/Metronome'
+import ProbabilityCalculator from './pages/tools/ProbabilityCalculator'
+import PayPalFeeCalculator   from './pages/tools/PayPalFeeCalculator'
+import CpmCalculator         from './pages/tools/CpmCalculator'
+import JsonKeySorter         from './pages/tools/JsonKeySorter'
+import JsonUnescape          from './pages/tools/JsonUnescape'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -495,6 +506,17 @@ export default function App() {
         <Route path="tools/disclaimer-generator"       element={<DisclaimerGenerator />} />
         <Route path="tools/subtitle-converter"         element={<SubtitleConverter />} />
         <Route path="tools/prime-factorization"        element={<PrimeFactorization />} />
+
+        {/* 10 new tools (batch 3) */}
+        <Route path="tools/unicode-text-converter"  element={<UnicodeTextConverter />} />
+        <Route path="tools/zalgo-text"              element={<ZalgoText />} />
+        <Route path="tools/censor-text"             element={<CensorText />} />
+        <Route path="tools/metronome"               element={<Metronome />} />
+        <Route path="tools/probability"             element={<ProbabilityCalculator />} />
+        <Route path="tools/paypal-fee"              element={<PayPalFeeCalculator />} />
+        <Route path="tools/cpm-calculator"          element={<CpmCalculator />} />
+        <Route path="tools/json-key-sorter"         element={<JsonKeySorter />} />
+        <Route path="tools/json-unescape"           element={<JsonUnescape />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

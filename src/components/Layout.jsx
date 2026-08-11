@@ -207,6 +207,16 @@ const TOOL_NAMES = {
   '/tools/disclaimer-generator':   'Disclaimer Generator',
   '/tools/subtitle-converter':     'SRT ↔ VTT Subtitle Converter',
   '/tools/prime-factorization':    'Prime Factorization',
+  // 10 new tools (batch 3)
+  '/tools/unicode-text-converter': 'Unicode Text Converter',
+  '/tools/zalgo-text':             'Zalgo Text Generator',
+  '/tools/censor-text':            'Censor Text',
+  '/tools/metronome':              'Metronome',
+  '/tools/probability':            'Probability Calculator',
+  '/tools/paypal-fee':             'PayPal Fee Calculator',
+  '/tools/cpm-calculator':         'CPM Calculator',
+  '/tools/json-key-sorter':        'JSON Key Sorter',
+  '/tools/json-unescape':          'JSON Unescape / Escape',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

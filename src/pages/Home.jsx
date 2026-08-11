@@ -42,6 +42,11 @@ const NEW_TOOLS_BATCH2 = new Set([
   '/tools/disclaimer-generator', '/tools/subtitle-converter', '/tools/prime-factorization',
 ])
 NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
+// 10 new tools (batch 3)
+;['/tools/unicode-text-converter','/tools/zalgo-text','/tools/censor-text',
+  '/tools/metronome','/tools/probability','/tools/paypal-fee',
+  '/tools/cpm-calculator','/tools/json-key-sorter','/tools/json-unescape',
+].forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -250,6 +255,9 @@ const CATEGORIES = [
         { icon: '➡️', name: 'Text to One Line',     desc: 'Collapse multi-line text into a single line.',                    path: '/tools/text-to-one-line' },
         { icon: '🧼', name: 'Special Char Remover', desc: 'Remove punctuation and symbols while keeping letters/numbers.',    path: '/tools/special-char-remover' },
         { icon: '↩️', name: 'Wrap Text',            desc: 'Hard-wrap text at a target line width.',                          path: '/tools/wrap-text' },
+      { icon: '🔡', name: 'Unicode Text Styles',  desc: 'Convert text to bold, italic, monospace, wide, bubble and more.', path: '/tools/unicode-text-converter' },
+      { icon: '👁️', name: 'Zalgo Text',           desc: 'Generate glitchy Zalgo text or clean it back to normal.',         path: '/tools/zalgo-text' },
+      { icon: '█', name: 'Censor Text',           desc: 'Redact text with blocks, asterisks, or [REDACTED] markers.',      path: '/tools/censor-text' },
     ],
   },
   {
@@ -314,6 +322,8 @@ const CATEGORIES = [
       { icon: '🔒', name: 'Bcrypt Hash & Verify',    desc: 'Hash and verify passwords using bcrypt in the browser.',   path: '/tools/bcrypt' },
         { icon: '📋', name: 'List to Array',          desc: 'Convert line-by-line lists into code arrays or CSV.',         path: '/tools/list-to-array' },
         { icon: '🌐', name: 'Port Checker',          desc: 'Check whether a remote host port is open (best effort).',      path: '/tools/port-checker' },
+      { icon: '🔑', name: 'JSON Key Sorter',       desc: 'Alphabetically sort all keys in a JSON object, recursively.',  path: '/tools/json-key-sorter' },
+      { icon: '🔓', name: 'JSON Unescape',         desc: 'Unescape JSON strings or escape plain text into JSON-safe format.', path: '/tools/json-unescape' },
     ],
   },
   {
@@ -364,6 +374,9 @@ const CATEGORIES = [
         { icon: '🧾', name: 'GST Calculator',        desc: 'Add or remove GST for any amount and tax rate.',              path: '/tools/gst-calculator' },
         { icon: '📐', name: 'Area Calculator',       desc: 'Compute area of rectangle, circle, triangle, and more.',      path: '/tools/area-calculator' },
         { icon: '🧮', name: 'Prime Factorization',   desc: 'Break any integer into its prime factors.',                   path: '/tools/prime-factorization' },
+      { icon: '🎲', name: 'Probability Calculator', desc: 'Calculate single and two-event probability, union, intersection.', path: '/tools/probability' },
+      { icon: '💸', name: 'PayPal Fee Calculator', desc: 'Calculate PayPal fees or find the amount to charge.',         path: '/tools/paypal-fee' },
+      { icon: '📊', name: 'CPM Calculator',       desc: 'Calculate CPM, total ad cost, or number of impressions.',     path: '/tools/cpm-calculator' },
     ],
   },
   {
@@ -445,6 +458,7 @@ const CATEGORIES = [
       { icon: '🎵', name: 'Tone Generator',        desc: 'Generate pure audio tones at any frequency — sine, square, etc.', path: '/tools/tone-generator' },
       { icon: '👟', name: 'Shoe Size Converter',  desc: 'Convert shoe sizes between US, UK, EU, CM and JP systems.', path: '/tools/shoe-size' },
       { icon: '🎞️', name: 'Subtitle Converter',   desc: 'Convert subtitle files between SRT and WebVTT formats.', path: '/tools/subtitle-converter' },
+      { icon: '🥁', name: 'Metronome',            desc: 'Browser metronome with adjustable BPM and audio click.', path: '/tools/metronome' },
     ],
   },
   {
@@ -481,13 +495,10 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🎨 Stylized/Fun Text',
     tools: [
-      'Bold / Italic / Underline / Strikethrough / Bubble / Cursive / Wide / Tiny / Fraktur Text Generators (Unicode font converters)',
-      'Zalgo Text Generator + Un-Zalgo',
       'Fake Text Generator + Fake Text Detector/Unfaker',
       'Add Random Words / Letters / Errors to Text',
       'Word Randomizer',
       'Random Sentence Generator',
-      'Censor Text (blackout/redact)',
       'Text Symbols Picker (1300+ Unicode symbols)',
       'Text ↔ ASCII Converter (distinct from ASCII Art)',
     ],
@@ -521,16 +532,12 @@ const COMING_SOON_SECTIONS = [
       'Audio Converter',
       'Audio Trimmer',
       'Instrument Tuner',
-      'Metronome',
     ],
   },
   {
     title: '🔢 Calculators',
     tools: [
-      'Probability Calculator',
       'Confidence Interval Calculator',
-      'PayPal Fee Calculator',
-      'CPM Calculator',
       'Lease Calculator',
       'Present Value of Future Money',
       'Retirement Planning Calculator',
@@ -553,8 +560,6 @@ const COMING_SOON_SECTIONS = [
     title: '🗂️ JSON/Data',
     tools: [
       'JSON ↔ PHP Array',
-      'JSON Key Sorter (alphabetize/deep-sort)',
-      'JSON Unescape',
       'Table Format Converter',
     ],
   },

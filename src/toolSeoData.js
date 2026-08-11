@@ -622,6 +622,70 @@ export const TOOL_SEO = {
       { q: 'What port range is supported?', a: 'Any TCP port from 1 to 65535 can be tested.' },
     ],
   },
+
+  '/tools/unicode-text-converter': {
+    about: 'A Unicode text converter transforms plain text into stylistic Unicode font variants such as bold, italic, monospace, wide, bubble, fraktur, double-struck and small caps. The output works in any platform that supports Unicode.',
+    faqs: [
+      { q: 'Why does this work in social media bios?', a: 'Social media platforms render Unicode characters directly, so these mathematical and letterlike Unicode symbols appear as styled text without any formatting markup.' },
+      { q: 'Can I copy and paste the output anywhere?', a: 'Yes — the characters are standard Unicode code points and work in any text field, including Twitter, Instagram bios, Discord, and WhatsApp.' },
+    ],
+  },
+  '/tools/zalgo-text': {
+    about: 'A Zalgo text generator stacks Unicode combining diacritical marks on each character to produce glitchy, corrupted-looking text. It also includes an un-Zalgo cleaner to strip all combining characters and restore plain text.',
+    faqs: [
+      { q: 'What is Zalgo text?', a: 'Zalgo text uses Unicode combining characters — diacritics that stack above and below a base character — to create a chaotic, glitchy appearance popularised in internet horror culture.' },
+      { q: 'Can the Zalgo effect be reversed?', a: 'Yes — switch to Un-Zalgo mode and paste the corrupted text. All combining characters are stripped, returning normal readable text.' },
+    ],
+  },
+  '/tools/censor-text': {
+    about: 'A censor text tool replaces characters with redaction markers such as block characters, asterisks, hash symbols, or [REDACTED] labels. It is useful for preparing screenshots, demos, and sanitised documents.',
+    faqs: [
+      { q: 'Does it preserve spaces and line breaks?', a: 'Yes — spaces and newlines are kept so the structure of the text remains visible after censoring.' },
+      { q: 'Can I use it to redact full words?', a: 'Use the [REDACTED] style to replace entire whitespace-separated words with the label instead of censoring character by character.' },
+    ],
+  },
+  '/tools/metronome': {
+    about: 'A browser-based metronome produces precise rhythmic clicks using the Web Audio API at any tempo from 20 to 300 BPM. It requires no plugins and works entirely offline.',
+    faqs: [
+      { q: 'How accurate is the timing?', a: 'The Web Audio API scheduler is highly precise, far more so than JavaScript timers alone, making it suitable for practice at any tempo.' },
+      { q: 'Can I change the BPM while it is running?', a: 'Yes — drag the slider or click a preset while running and the new tempo takes effect on the next beat.' },
+    ],
+  },
+  '/tools/probability': {
+    about: 'A probability calculator computes event probabilities for single events and pairs of independent events, including complement, union, intersection, and conditional probability.',
+    faqs: [
+      { q: 'What does P(A or B) mean?', a: 'It is the probability that at least one of A or B occurs. For independent events: P(A or B) = P(A) + P(B) − P(A and B).' },
+      { q: 'Are A and B assumed to be independent?', a: 'Yes — the two-event mode assumes independence, meaning the outcome of A does not affect B.' },
+    ],
+  },
+  '/tools/paypal-fee': {
+    about: 'A PayPal fee calculator computes the transaction fee for any amount using configurable rate and fixed fee settings. It also solves for the gross amount needed so the recipient gets an exact net payout.',
+    faqs: [
+      { q: 'Which PayPal rates are included?', a: 'Presets for US Standard, Friends & Family, International, and Micropayments are provided. You can also enter any custom rate.' },
+      { q: 'What does "they must receive exactly" mode do?', a: 'It calculates how much you need to charge so that after PayPal deducts its fee, the recipient gets the exact amount you specify.' },
+    ],
+  },
+  '/tools/cpm-calculator': {
+    about: 'A CPM calculator computes Cost Per Mille (cost per 1,000 ad impressions), total campaign cost, or number of impressions from any two of the three values.',
+    faqs: [
+      { q: 'What does CPM stand for?', a: 'CPM stands for Cost Per Mille — "mille" is Latin for thousand. A CPM of $5 means you pay $5 for every 1,000 ad impressions.' },
+      { q: 'How is CPM calculated?', a: 'CPM = (Total Cost ÷ Impressions) × 1000. You can also rearrange to find cost or impressions.' },
+    ],
+  },
+  '/tools/json-key-sorter': {
+    about: 'A JSON key sorter recursively alphabetises all keys in a JSON object. It is useful for normalising API responses, diffing configs, and making JSON easier to scan.',
+    faqs: [
+      { q: 'Does it sort keys in nested objects?', a: 'Yes — keys are sorted recursively at every level of nesting, including inside arrays of objects.' },
+      { q: 'Are arrays affected?', a: 'Array element order is preserved. Only object keys are sorted.' },
+    ],
+  },
+  '/tools/json-unescape': {
+    about: 'A JSON unescape tool converts escaped JSON string sequences (such as \\n, \\t, \\") into their real characters, and also works in reverse to escape plain text for JSON.',
+    faqs: [
+      { q: 'When would I need to unescape JSON?', a: 'Commonly when copying string values from JSON payloads, log files, or API responses that contain escaped newlines and quotes.' },
+      { q: 'Does it handle Unicode escapes like \\u0041?', a: 'Yes — JSON.parse handles all standard JSON escape sequences including \\uXXXX Unicode escapes.' },
+    ],
+  },
   '/tools/terms-generator': {
     about: 'A terms and conditions generator creates a basic website terms template using your company and contact details. It helps launch legal pages faster.',
     faqs: [
