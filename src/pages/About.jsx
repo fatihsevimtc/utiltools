@@ -31,6 +31,25 @@ export default function About() {
         ))}
       </div>
 
+      {/* Developer Portal */}
+      <div style={{ padding: '1.25rem 1.4rem', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12, marginBottom: '1.5rem' }}>
+        <h2 style={{ fontSize: '1.1rem', marginBottom: '0.6rem' }}>👨‍💻 For Developers</h2>
+        <p style={{ color: 'var(--muted)', marginBottom: '0.85rem', lineHeight: 1.7, fontSize: '0.9rem' }}>
+          Want to integrate these utilities into your own projects? We're building a collection of
+          npm packages with the same functionality you see here. Visit our developer portal to explore
+          packages, API documentation, and getting started guides.
+        </p>
+        <a
+          href="https://developer.utiltools.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+        >
+          📦 Visit Developer Portal
+        </a>
+      </div>
+
       {/* Open source */}
       <div style={{ padding: '1.25rem 1.4rem', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12, marginBottom: '1.5rem' }}>
         <h2 style={{ fontSize: '1.1rem', marginBottom: '0.6rem' }}>🌐 Open Source</h2>

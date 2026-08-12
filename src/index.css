@@ -1172,6 +1172,28 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   color: var(--text) !important;
 }
 
+/* ── Developer Portal Banner ── */
+.dev-portal-banner {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .dev-portal-banner--hide-mobile {
+    display: none;
+  }
+}
+
 /* ── Footer ── */
 .footer-inner {
   max-width: 1100px;

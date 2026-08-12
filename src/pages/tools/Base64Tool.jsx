@@ -2,6 +2,7 @@ import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import RelatedTools from '../../components/RelatedTools'
 import ToolSeo from '../../components/ToolSeo'
+import DeveloperPortalBanner from '../../components/DeveloperPortalBanner'
 
 const MODES = ['Base64 Encode', 'Base64 Decode', 'URL Encode', 'URL Decode']
 
@@ -53,6 +54,8 @@ export default function Base64Tool() {
       <p className="tool-description">
         Encode or decode Base64 and URL strings instantly in your browser.
       </p>
+
+      <DeveloperPortalBanner packageName="Base64 encoding" />
 
       <div className="chip-group">
         {MODES.map(m => (

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BackBar from '../../components/BackBar'
 import ToolSeo from '../../components/ToolSeo'
+import DeveloperPortalBanner from '../../components/DeveloperPortalBanner'
 
 function b64Decode(str) {
   try {
@@ -40,6 +41,8 @@ export default function JwtDecoder() {
       <BackBar />
       <h1>JWT Decoder</h1>
       <p className="tool-description">Paste a JWT token to decode and inspect its header and payload. Nothing is sent to any server.</p>
+
+      <DeveloperPortalBanner packageName="JWT utilities" />
 
       <label htmlFor="jwt-input">JWT Token</label>
       <textarea id="jwt-input" value={token} onChange={e => setToken(e.target.value)}

@@ -410,6 +410,19 @@ export default function Layout() {
             <NavLink to="/contact" className={navActiveClass}>Contact us</NavLink>
             <NavLink to="/about" className={navActiveClass}>About</NavLink>
             <a
+              href="https://developer.utiltools.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-btn"
+              title="NPM packages and API documentation for developers"
+              aria-label="Developer portal"
+            >
+              <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 0c.3 0 .6.1.8.3l6.5 4c.4.3.7.7.7 1.2v4.9c0 .5-.3 1-.7 1.2l-6.5 4c-.5.3-1.1.3-1.6 0l-6.5-4c-.4-.3-.7-.7-.7-1.2V5.5c0-.5.3-1 .7-1.2l6.5-4C7.4.1 7.7 0 8 0zm0 1.5L2.5 5 8 8.5 13.5 5 8 1.5zM1.5 6v4.5L7 13.9V9.4L1.5 6zm13 0L9 9.4v4.5l5.5-3.4V6z"/>
+              </svg>
+              Developer
+            </a>
+            <a
               href="https://github.com/fatihsevimtc/utiltools"
               target="_blank"
               rel="noopener noreferrer"
@@ -510,6 +523,14 @@ export default function Layout() {
             <Link to="/contact" onClick={closeMenu}>Contact us</Link>
             <Link to="/about" onClick={closeMenu}>About</Link>
             <Link to="/privacy" onClick={closeMenu}>Privacy</Link>
+            <a
+              href="https://developer.utiltools.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+            >
+              Developer Portal
+            </a>
             <a
               href="https://github.com/fatihsevimtc/utiltools"
               target="_blank"

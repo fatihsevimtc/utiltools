@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://utiltools.org/sitemap.xml
+Sitemap: https://developer.utiltools.org/sitemap.xml
