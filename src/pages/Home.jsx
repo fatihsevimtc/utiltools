@@ -53,6 +53,10 @@ NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
   '/tools/table-converter','/tools/pwa-manifest','/tools/syntax-highlighter',
   '/tools/indent-text',
 ].forEach(p => NEW_TOOLS.add(p))
+// 6 new tools (batch 5)
+;['/tools/csv-to-column','/tools/word-duplicator','/tools/empty-row-remover',
+  '/tools/lease-calculator','/tools/grep','/tools/present-value',
+].forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -205,6 +209,13 @@ const MARQUEE_ITEMS = [
   { icon: '📋', name: 'Table Converter',     path: '/tools/table-converter' },
   { icon: '📱', name: 'PWA Manifest',        path: '/tools/pwa-manifest' },
   { icon: '🎨', name: 'Syntax Highlighter',  path: '/tools/syntax-highlighter' },
+  // New batch 5 tools
+  { icon: '📋', name: 'CSV ↔ Column',        path: '/tools/csv-to-column' },
+  { icon: '🔁', name: 'Word Duplicator',     path: '/tools/word-duplicator' },
+  { icon: '🗑️', name: 'Empty Row Remover',  path: '/tools/empty-row-remover' },
+  { icon: '🚗', name: 'Lease Calc',          path: '/tools/lease-calculator' },
+  { icon: '🔍', name: 'Grep',               path: '/tools/grep' },
+  { icon: '💵', name: 'Present Value',       path: '/tools/present-value' },
 ]
 
 const FEATURED = [
@@ -278,6 +289,10 @@ const CATEGORIES = [
       { icon: '↔️', name: 'Text Alignment',       desc: 'Left-align, right-align, centre, or justify text to a fixed column width.', path: '/tools/text-align' },
       { icon: '🎲', name: 'Random Sentence Generator', desc: 'Generate random, quirky sentences for creative writing prompts or placeholder text.', path: '/tools/random-sentence' },
       { icon: '🔀', name: 'Word Randomizer',       desc: 'Shuffle words, lines, or characters — or pick random words from any text.', path: '/tools/word-randomizer' },
+      { icon: '📋', name: 'CSV List ↔ Column',     desc: 'Convert a delimited list to one-item-per-line column and back.',             path: '/tools/csv-to-column' },
+      { icon: '🔁', name: 'Word Duplicator',        desc: 'Repeat every word or line a set number of times with a custom separator.',   path: '/tools/word-duplicator' },
+      { icon: '🗑️', name: 'Empty Row Remover',     desc: 'Remove blank lines from text or collapse consecutive blanks into one.',      path: '/tools/empty-row-remover' },
+      { icon: '🔍', name: 'Grep',                   desc: 'Filter lines of text using a regex pattern — like the classic grep command.', path: '/tools/grep' },
     ],
   },
   {
@@ -403,6 +418,8 @@ const CATEGORIES = [
       { icon: '💸', name: 'PayPal Fee Calculator', desc: 'Calculate PayPal fees or find the amount to charge.',         path: '/tools/paypal-fee' },
       { icon: '📊', name: 'CPM Calculator',       desc: 'Calculate CPM, total ad cost, or number of impressions.',     path: '/tools/cpm-calculator' },
       { icon: '📐', name: 'Confidence Interval',  desc: 'Calculate confidence intervals for a population mean or proportion.', path: '/tools/confidence-interval' },
+      { icon: '🚗', name: 'Lease Calculator',      desc: 'Calculate your monthly car lease payment using the money-factor formula.', path: '/tools/lease-calculator' },
+      { icon: '💵', name: 'Present Value',          desc: 'Find the present value of a future lump sum or annuity, discounted to today.', path: '/tools/present-value' },
     ],
   },
   {
@@ -504,10 +521,7 @@ const COMING_SOON_SECTIONS = [
   {
     title: '📝 Text Manipulation',
     tools: [
-      'Comma-Separated List → Column',
-      'Word Duplicator / Sentence Duplicator',
       'Word Remover / Sentence Remover',
-      'Grep (regex line search)',
     ],
   },
   {
@@ -553,8 +567,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🔢 Calculators',
     tools: [
-      'Lease Calculator',
-      'Present Value of Future Money',
       'Retirement Planning Calculator',
       'Investment Calculator (w/ default risk factor)',
     ],
@@ -594,7 +606,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '⚡ Generators & Misc',
     tools: [
-      'Empty Row Remover',
       'YouTube Thumbnail Downloader',
       'AI Bank Statement to Excel',
       'Special Search Engines (curated search tool directory)',

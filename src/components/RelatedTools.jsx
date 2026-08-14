@@ -43,6 +43,10 @@ const TOOL_CATALOG = [
   { icon: '🎲', name: 'Random Sentence Generator', path: '/tools/random-sentence', category: 'text' },
   { icon: '🔀', name: 'Word Randomizer',     path: '/tools/word-randomizer',      category: 'text' },
   { icon: '↔️', name: 'Text Alignment',      path: '/tools/text-align',           category: 'text' },
+  { icon: '📋', name: 'CSV List ↔ Column',   path: '/tools/csv-to-column',        category: 'text' },
+  { icon: '🔁', name: 'Word Duplicator',     path: '/tools/word-duplicator',      category: 'text' },
+  { icon: '🗑️', name: 'Empty Row Remover',  path: '/tools/empty-row-remover',    category: 'text' },
+  { icon: '🔍', name: 'Grep',               path: '/tools/grep',                 category: 'developer' },
   // Developer
   { icon: '🗂️', name: 'JSON Formatter',     path: '/tools/json-formatter',      category: 'developer' },
   { icon: '🔀', name: 'Diff Checker',        path: '/tools/diff-checker',        category: 'developer' },

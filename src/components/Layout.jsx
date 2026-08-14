@@ -228,6 +228,13 @@ const TOOL_NAMES = {
   '/tools/table-converter':        'Table Format Converter',
   '/tools/pwa-manifest':           'PWA Manifest Generator',
   '/tools/syntax-highlighter':     'Syntax Highlighter',
+  // 6 new tools (batch 5)
+  '/tools/csv-to-column':          'CSV List ↔ Column',
+  '/tools/word-duplicator':        'Word / Sentence Duplicator',
+  '/tools/empty-row-remover':      'Empty Row Remover',
+  '/tools/lease-calculator':       'Lease Calculator',
+  '/tools/grep':                   'Grep — Regex Line Search',
+  '/tools/present-value':          'Present Value Calculator',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

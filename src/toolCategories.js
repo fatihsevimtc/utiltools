@@ -29,6 +29,8 @@ export const CATEGORIES = [
       '/tools/unicode-text-converter', '/tools/zalgo-text', '/tools/censor-text',
       '/tools/indent-text',
       '/tools/text-align', '/tools/random-sentence', '/tools/word-randomizer',
+      '/tools/csv-to-column', '/tools/word-duplicator', '/tools/empty-row-remover',
+      '/tools/grep',
     ],
   },
   {
@@ -84,6 +86,7 @@ export const CATEGORIES = [
         '/tools/sales-tax', '/tools/margin-calculator', '/tools/gst-calculator',
         '/tools/area-calculator', '/tools/prime-factorization',      '/tools/probability', '/tools/paypal-fee', '/tools/cpm-calculator',
       '/tools/confidence-interval',
+      '/tools/lease-calculator', '/tools/present-value',
     ],
   },
   {

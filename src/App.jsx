@@ -267,6 +267,14 @@ import TableConverter        from './pages/tools/TableConverter'
 import PwaManifestGenerator  from './pages/tools/PwaManifestGenerator'
 import SyntaxHighlighter     from './pages/tools/SyntaxHighlighter'
 
+// 6 new tools (batch 5)
+import CsvToColumn       from './pages/tools/CsvToColumn'
+import WordDuplicator    from './pages/tools/WordDuplicator'
+import EmptyRowRemover   from './pages/tools/EmptyRowRemover'
+import LeaseCalculator   from './pages/tools/LeaseCalculator'
+import GrepTool          from './pages/tools/GrepTool'
+import PresentValue      from './pages/tools/PresentValue'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -541,6 +549,14 @@ export default function App() {
         <Route path="tools/table-converter"         element={<TableConverter />} />
         <Route path="tools/pwa-manifest"            element={<PwaManifestGenerator />} />
         <Route path="tools/syntax-highlighter"      element={<SyntaxHighlighter />} />
+
+        {/* 6 new tools (batch 5) */}
+        <Route path="tools/csv-to-column"           element={<CsvToColumn />} />
+        <Route path="tools/word-duplicator"         element={<WordDuplicator />} />
+        <Route path="tools/empty-row-remover"       element={<EmptyRowRemover />} />
+        <Route path="tools/lease-calculator"        element={<LeaseCalculator />} />
+        <Route path="tools/grep"                    element={<GrepTool />} />
+        <Route path="tools/present-value"           element={<PresentValue />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />
