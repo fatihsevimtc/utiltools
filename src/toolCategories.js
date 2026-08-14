@@ -31,6 +31,7 @@ export const CATEGORIES = [
       '/tools/text-align', '/tools/random-sentence', '/tools/word-randomizer',
       '/tools/csv-to-column', '/tools/word-duplicator', '/tools/empty-row-remover',
       '/tools/grep',
+      '/tools/word-remover',
     ],
   },
   {
@@ -59,6 +60,7 @@ export const CATEGORIES = [
       '/tools/json-key-sorter', '/tools/json-unescape',
       '/tools/json-to-php', '/tools/table-converter', '/tools/schema-markup',
       '/tools/pwa-manifest', '/tools/syntax-highlighter',
+      '/tools/python-formatter',
     ],
   },
   {
@@ -87,6 +89,7 @@ export const CATEGORIES = [
         '/tools/area-calculator', '/tools/prime-factorization',      '/tools/probability', '/tools/paypal-fee', '/tools/cpm-calculator',
       '/tools/confidence-interval',
       '/tools/lease-calculator', '/tools/present-value',
+      '/tools/retirement-calculator',
     ],
   },
   {
@@ -111,6 +114,7 @@ export const CATEGORIES = [
       '/tools/ean-barcode', '/tools/docx-word-count',
       '/tools/pdf-page-count', '/tools/pdf-to-text', '/tools/pdf-merge',
       '/tools/flip-rotate-image',
+      '/tools/pixelate-image',
     ],
   },
   {
@@ -120,6 +124,7 @@ export const CATEGORIES = [
       '/tools/gradient-generator', '/tools/box-shadow', '/tools/border-radius',
       '/tools/palette-generator', '/tools/flexbox-playground', '/tools/grid-generator',
       '/tools/svg-optimizer', '/tools/html-color-names',
+      '/tools/css-animation',
     ],
   },
   {
@@ -138,6 +143,7 @@ export const CATEGORIES = [
       '/tools/keyboard-shortcuts', '/tools/color-blindness',
         '/tools/simple-note', '/tools/tone-generator',
         '/tools/shoe-size', '/tools/subtitle-converter', '/tools/metronome',
+        '/tools/text-symbols',
     ],
   },
   {

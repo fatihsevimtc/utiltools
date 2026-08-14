@@ -47,6 +47,7 @@ const TOOL_CATALOG = [
   { icon: '🔁', name: 'Word Duplicator',     path: '/tools/word-duplicator',      category: 'text' },
   { icon: '🗑️', name: 'Empty Row Remover',  path: '/tools/empty-row-remover',    category: 'text' },
   { icon: '🔍', name: 'Grep',               path: '/tools/grep',                 category: 'developer' },
+  { icon: '🗑️', name: 'Word / Sentence Remover', path: '/tools/word-remover',   category: 'text' },
   // Developer
   { icon: '🗂️', name: 'JSON Formatter',     path: '/tools/json-formatter',      category: 'developer' },
   { icon: '🔀', name: 'Diff Checker',        path: '/tools/diff-checker',        category: 'developer' },
@@ -69,6 +70,7 @@ const TOOL_CATALOG = [
   { icon: '🏷️', name: 'Schema Markup',       path: '/tools/schema-markup',         category: 'developer' },
   { icon: '📱', name: 'PWA Manifest',        path: '/tools/pwa-manifest',          category: 'developer' },
   { icon: '🎨', name: 'Syntax Highlighter',  path: '/tools/syntax-highlighter',    category: 'developer' },
+  { icon: '🐍', name: 'Python Formatter',   path: '/tools/python-formatter',      category: 'developer' },
   // Design
   { icon: '%',  name: 'Percentage Calc',     path: '/tools/percentage',          category: 'math' },
   { icon: '🔢', name: 'Number Base',         path: '/tools/number-base',         category: 'math' },
@@ -81,6 +83,9 @@ const TOOL_CATALOG = [
   { icon: '🔤', name: 'Number to Words',     path: '/tools/number-to-words',      category: 'math' },
   { icon: '↕️', name: 'Number Sorter',       path: '/tools/number-sorter',        category: 'math' },
   { icon: '📐', name: 'Confidence Interval', path: '/tools/confidence-interval',  category: 'math' },
+  { icon: '🚗', name: 'Lease Calculator',    path: '/tools/lease-calculator',      category: 'math' },
+  { icon: '💵', name: 'Present Value',       path: '/tools/present-value',         category: 'math' },
+  { icon: '💰', name: 'Retirement Calculator', path: '/tools/retirement-calculator', category: 'math' },
   // Time
   { icon: '🎂', name: 'Age Calculator',      path: '/tools/age-calculator',      category: 'time' },
   { icon: '📆', name: 'Date Difference',     path: '/tools/date-difference',     category: 'time' },
@@ -95,6 +100,7 @@ const TOOL_CATALOG = [
   { icon: '🎨', name: 'Image Color Picker',  path: '/tools/image-color-picker',  category: 'files' },
   { icon: '📸', name: 'EXIF Viewer',         path: '/tools/exif-viewer',         category: 'files' },
   { icon: '🔄', name: 'Flip & Rotate Image', path: '/tools/flip-rotate-image',   category: 'files' },
+  { icon: '🟦', name: 'Pixelate Image',     path: '/tools/pixelate-image',       category: 'files' },
   // Generators
   { icon: '🆔', name: 'UUID Generator',      path: '/tools/uuid-generator',      category: 'generators' },
   { icon: '#️⃣', name: 'Hash Generator',     path: '/tools/hash-generator',      category: 'generators' },
@@ -112,6 +118,7 @@ const TOOL_CATALOG = [
   { icon: '📝', name: 'Simple Note',         path: '/tools/simple-note',         category: 'misc' },
   { icon: '🎵', name: 'Tone Generator',      path: '/tools/tone-generator',      category: 'misc' },
   { icon: '⌨️', name: 'Keyboard Shortcuts',  path: '/tools/keyboard-shortcuts',  category: 'misc' },
+  { icon: '🔣', name: 'Text Symbols Picker', path: '/tools/text-symbols',        category: 'misc' },
   // Design
   { icon: '🌈', name: 'Gradient Generator',  path: '/tools/gradient-generator',  category: 'design' },
   { icon: '🌑', name: 'Box Shadow',          path: '/tools/box-shadow',          category: 'design' },
@@ -119,6 +126,7 @@ const TOOL_CATALOG = [
   { icon: '📐', name: 'Flexbox Playground',  path: '/tools/flexbox-playground',  category: 'design' },
   { icon: '▦',  name: 'Grid Generator',      path: '/tools/grid-generator',      category: 'design' },
   { icon: '🎨', name: 'Color Converter',     path: '/tools/color-converter',     category: 'design' },
+  { icon: '🎞️', name: 'CSS Animation',       path: '/tools/css-animation',       category: 'design' },
   // AI
   { icon: '🤖', name: 'AI Model Comparison', path: '/tools/ai-model-comparison', category: 'ai' },
   { icon: '🪙', name: 'Token Counter',       path: '/tools/token-counter',       category: 'ai' },

@@ -57,6 +57,10 @@ NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
 ;['/tools/csv-to-column','/tools/word-duplicator','/tools/empty-row-remover',
   '/tools/lease-calculator','/tools/grep','/tools/present-value',
 ].forEach(p => NEW_TOOLS.add(p))
+// 6 new tools (batch 6)
+;['/tools/text-symbols','/tools/word-remover','/tools/pixelate-image',
+  '/tools/retirement-calculator','/tools/css-animation','/tools/python-formatter',
+].forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -216,6 +220,13 @@ const MARQUEE_ITEMS = [
   { icon: '🚗', name: 'Lease Calc',          path: '/tools/lease-calculator' },
   { icon: '🔍', name: 'Grep',               path: '/tools/grep' },
   { icon: '💵', name: 'Present Value',       path: '/tools/present-value' },
+  // New batch 6 tools
+  { icon: '🔣', name: 'Text Symbols',        path: '/tools/text-symbols' },
+  { icon: '🗑️', name: 'Word Remover',        path: '/tools/word-remover' },
+  { icon: '🟦', name: 'Pixelate Image',      path: '/tools/pixelate-image' },
+  { icon: '💰', name: 'Retirement Calc',     path: '/tools/retirement-calculator' },
+  { icon: '🎞️', name: 'CSS Animation',       path: '/tools/css-animation' },
+  { icon: '🐍', name: 'Python Formatter',    path: '/tools/python-formatter' },
 ]
 
 const FEATURED = [
@@ -293,6 +304,7 @@ const CATEGORIES = [
       { icon: '🔁', name: 'Word Duplicator',        desc: 'Repeat every word or line a set number of times with a custom separator.',   path: '/tools/word-duplicator' },
       { icon: '🗑️', name: 'Empty Row Remover',     desc: 'Remove blank lines from text or collapse consecutive blanks into one.',      path: '/tools/empty-row-remover' },
       { icon: '🔍', name: 'Grep',                   desc: 'Filter lines of text using a regex pattern — like the classic grep command.', path: '/tools/grep' },
+      { icon: '🗑️', name: 'Word / Sentence Remover', desc: 'Remove specific words, sentences, or lines from any text in seconds.',     path: '/tools/word-remover' },
     ],
   },
   {
@@ -364,6 +376,7 @@ const CATEGORIES = [
       { icon: '🏷️', name: 'Schema Markup Generator', desc: 'Generate JSON-LD structured data for 14 Schema.org types.',        path: '/tools/schema-markup' },
       { icon: '📱', name: 'PWA Manifest Generator', desc: 'Generate a manifest.json for your Progressive Web App.',            path: '/tools/pwa-manifest' },
       { icon: '🎨', name: 'Syntax Highlighter',    desc: 'Highlight code syntax for 12 languages with 5 colour themes.',       path: '/tools/syntax-highlighter' },
+      { icon: '🐍', name: 'Python Formatter',      desc: 'Format Python code with PEP 8 rules and validate for common issues.', path: '/tools/python-formatter' },
     ],
   },
   {
@@ -420,6 +433,7 @@ const CATEGORIES = [
       { icon: '📐', name: 'Confidence Interval',  desc: 'Calculate confidence intervals for a population mean or proportion.', path: '/tools/confidence-interval' },
       { icon: '🚗', name: 'Lease Calculator',      desc: 'Calculate your monthly car lease payment using the money-factor formula.', path: '/tools/lease-calculator' },
       { icon: '💵', name: 'Present Value',          desc: 'Find the present value of a future lump sum or annuity, discounted to today.', path: '/tools/present-value' },
+      { icon: '💰', name: 'Retirement Planning Calculator', desc: 'Estimate your nest egg at retirement and see how much to save monthly to hit your goal.', path: '/tools/retirement-calculator' },
     ],
   },
   {
@@ -461,6 +475,7 @@ const CATEGORIES = [
       { icon: '📄', name: 'PDF to Text',          desc: 'Extract all text from a PDF — runs in your browser.',         path: '/tools/pdf-to-text' },
       { icon: '📦', name: 'PDF Merge',            desc: 'Combine multiple PDFs into one, reorder pages freely.',       path: '/tools/pdf-merge' },
       { icon: '🔄', name: 'Flip & Rotate Image',  desc: 'Flip or rotate any image 90°/180° — runs entirely in browser.', path: '/tools/flip-rotate-image' },
+      { icon: '🟦', name: 'Pixelate Image',        desc: 'Apply a pixelation / mosaic effect to any image — choose block size and download.', path: '/tools/pixelate-image' },
     ],
   },
   {
@@ -475,6 +490,7 @@ const CATEGORIES = [
       { icon: '▦',  name: 'Grid Generator',       desc: 'Build CSS Grid layouts visually and copy the CSS.',       path: '/tools/grid-generator' },
       { icon: '🗜️', name: 'SVG Optimizer',       desc: 'Remove comments and metadata to shrink SVG files.',       path: '/tools/svg-optimizer' },
       { icon: '🎨', name: 'HTML Color Names',      desc: 'Browse all 140 named HTML/CSS colors with HEX values.',  path: '/tools/html-color-names' },
+      { icon: '🎞️', name: 'CSS Animation Generator', desc: 'Build CSS @keyframe animations visually with live preview and copy the CSS.', path: '/tools/css-animation' },
     ],
   },
   {
@@ -502,6 +518,7 @@ const CATEGORIES = [
       { icon: '👟', name: 'Shoe Size Converter',  desc: 'Convert shoe sizes between US, UK, EU, CM and JP systems.', path: '/tools/shoe-size' },
       { icon: '🎞️', name: 'Subtitle Converter',   desc: 'Convert subtitle files between SRT and WebVTT formats.', path: '/tools/subtitle-converter' },
       { icon: '🥁', name: 'Metronome',            desc: 'Browser metronome with adjustable BPM and audio click.', path: '/tools/metronome' },
+      { icon: '🔣', name: 'Text Symbols Picker',  desc: 'Browse 1 300+ Unicode symbols by category — click to copy any symbol instantly.', path: '/tools/text-symbols' },
     ],
   },
   {
@@ -521,7 +538,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '📝 Text Manipulation',
     tools: [
-      'Word Remover / Sentence Remover',
     ],
   },
   {
@@ -529,7 +545,6 @@ const COMING_SOON_SECTIONS = [
     tools: [
       'Fake Text Generator + Fake Text Detector/Unfaker',
       'Add Random Words / Letters / Errors to Text',
-      'Text Symbols Picker (1300+ Unicode symbols)',
       'Text ↔ ASCII Converter (distinct from ASCII Art)',
     ],
   },
@@ -549,7 +564,6 @@ const COMING_SOON_SECTIONS = [
     title: '🖼️ Images',
     tools: [
       'Image Multisizer / Enlarger',
-      'Pixelate Image',
       'Image Splitter',
       'Image Downloader (from URL)',
       'Hue Shift Generator',
@@ -567,7 +581,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🔢 Calculators',
     tools: [
-      'Retirement Planning Calculator',
       'Investment Calculator (w/ default risk factor)',
     ],
   },
@@ -575,7 +588,6 @@ const COMING_SOON_SECTIONS = [
     title: '🛠️ Web Dev / Encoding',
     tools: [
       'JavaScript Obfuscator / DeObfuscator',
-      'CSS Animation Generator (distinct from Gradient)',
       'Filter Unused CSS',
       'Markdown to PDF (you have Markdown→HTML)',
     ],
@@ -585,7 +597,6 @@ const COMING_SOON_SECTIONS = [
     tools: [
       'XSS Vulnerability Scanner',
       'Nginx Config Generator / Validator',
-      'Python Formatter/Validator',
       'HTML Validator (distinct from Formatter)',
       'WordPress (WP) Scanner',
     ],

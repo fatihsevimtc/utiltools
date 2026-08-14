@@ -275,6 +275,14 @@ import LeaseCalculator   from './pages/tools/LeaseCalculator'
 import GrepTool          from './pages/tools/GrepTool'
 import PresentValue      from './pages/tools/PresentValue'
 
+// 6 new tools (batch 6)
+import TextSymbolsPicker      from './pages/tools/TextSymbolsPicker'
+import WordRemover            from './pages/tools/WordRemover'
+import PixelateImage          from './pages/tools/PixelateImage'
+import RetirementCalculator   from './pages/tools/RetirementCalculator'
+import CssAnimationGenerator  from './pages/tools/CssAnimationGenerator'
+import PythonFormatter        from './pages/tools/PythonFormatter'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -557,6 +565,14 @@ export default function App() {
         <Route path="tools/lease-calculator"        element={<LeaseCalculator />} />
         <Route path="tools/grep"                    element={<GrepTool />} />
         <Route path="tools/present-value"           element={<PresentValue />} />
+
+        {/* 6 new tools (batch 6) */}
+        <Route path="tools/text-symbols"            element={<TextSymbolsPicker />} />
+        <Route path="tools/word-remover"            element={<WordRemover />} />
+        <Route path="tools/pixelate-image"          element={<PixelateImage />} />
+        <Route path="tools/retirement-calculator"   element={<RetirementCalculator />} />
+        <Route path="tools/css-animation"           element={<CssAnimationGenerator />} />
+        <Route path="tools/python-formatter"        element={<PythonFormatter />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

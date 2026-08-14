@@ -235,6 +235,13 @@ const TOOL_NAMES = {
   '/tools/lease-calculator':       'Lease Calculator',
   '/tools/grep':                   'Grep — Regex Line Search',
   '/tools/present-value':          'Present Value Calculator',
+  // 6 new tools (batch 6)
+  '/tools/text-symbols':           'Text Symbols Picker',
+  '/tools/word-remover':           'Word / Sentence Remover',
+  '/tools/pixelate-image':         'Pixelate Image',
+  '/tools/retirement-calculator':  'Retirement Planning Calculator',
+  '/tools/css-animation':          'CSS Animation Generator',
+  '/tools/python-formatter':       'Python Formatter / Validator',
 }
 
 // Build numbered tool list from CATEGORIES, deduped
