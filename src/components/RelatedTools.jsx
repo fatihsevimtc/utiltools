@@ -48,6 +48,8 @@ const TOOL_CATALOG = [
   { icon: '🗑️', name: 'Empty Row Remover',  path: '/tools/empty-row-remover',    category: 'text' },
   { icon: '🔍', name: 'Grep',               path: '/tools/grep',                 category: 'developer' },
   { icon: '🗑️', name: 'Word / Sentence Remover', path: '/tools/word-remover',   category: 'text' },
+  { icon: '📄', name: 'Fake Text Generator', path: '/tools/fake-text-generator', category: 'text' },
+  { icon: '🔤', name: 'Text ↔ ASCII Converter', path: '/tools/text-ascii-converter', category: 'text' },
   // Developer
   { icon: '🗂️', name: 'JSON Formatter',     path: '/tools/json-formatter',      category: 'developer' },
   { icon: '🔀', name: 'Diff Checker',        path: '/tools/diff-checker',        category: 'developer' },
@@ -71,6 +73,7 @@ const TOOL_CATALOG = [
   { icon: '📱', name: 'PWA Manifest',        path: '/tools/pwa-manifest',          category: 'developer' },
   { icon: '🎨', name: 'Syntax Highlighter',  path: '/tools/syntax-highlighter',    category: 'developer' },
   { icon: '🐍', name: 'Python Formatter',   path: '/tools/python-formatter',      category: 'developer' },
+  { icon: '🔒', name: 'JavaScript Obfuscator', path: '/tools/js-obfuscator',    category: 'developer' },
   // Design
   { icon: '%',  name: 'Percentage Calc',     path: '/tools/percentage',          category: 'math' },
   { icon: '🔢', name: 'Number Base',         path: '/tools/number-base',         category: 'math' },
@@ -86,6 +89,7 @@ const TOOL_CATALOG = [
   { icon: '🚗', name: 'Lease Calculator',    path: '/tools/lease-calculator',      category: 'math' },
   { icon: '💵', name: 'Present Value',       path: '/tools/present-value',         category: 'math' },
   { icon: '💰', name: 'Retirement Calculator', path: '/tools/retirement-calculator', category: 'math' },
+  { icon: '📈', name: 'Investment Calculator', path: '/tools/investment-calculator', category: 'math' },
   // Time
   { icon: '🎂', name: 'Age Calculator',      path: '/tools/age-calculator',      category: 'time' },
   { icon: '📆', name: 'Date Difference',     path: '/tools/date-difference',     category: 'time' },
@@ -101,6 +105,7 @@ const TOOL_CATALOG = [
   { icon: '📸', name: 'EXIF Viewer',         path: '/tools/exif-viewer',         category: 'files' },
   { icon: '🔄', name: 'Flip & Rotate Image', path: '/tools/flip-rotate-image',   category: 'files' },
   { icon: '🟦', name: 'Pixelate Image',     path: '/tools/pixelate-image',       category: 'files' },
+  { icon: '🔍', name: 'Image Enlarger',     path: '/tools/image-enlarger',       category: 'files' },
   // Generators
   { icon: '🆔', name: 'UUID Generator',      path: '/tools/uuid-generator',      category: 'generators' },
   { icon: '#️⃣', name: 'Hash Generator',     path: '/tools/hash-generator',      category: 'generators' },
@@ -119,6 +124,7 @@ const TOOL_CATALOG = [
   { icon: '🎵', name: 'Tone Generator',      path: '/tools/tone-generator',      category: 'misc' },
   { icon: '⌨️', name: 'Keyboard Shortcuts',  path: '/tools/keyboard-shortcuts',  category: 'misc' },
   { icon: '🔣', name: 'Text Symbols Picker', path: '/tools/text-symbols',        category: 'misc' },
+  { icon: '🎵', name: 'Instrument Tuner',    path: '/tools/instrument-tuner',    category: 'misc' },
   // Design
   { icon: '🌈', name: 'Gradient Generator',  path: '/tools/gradient-generator',  category: 'design' },
   { icon: '🌑', name: 'Box Shadow',          path: '/tools/box-shadow',          category: 'design' },

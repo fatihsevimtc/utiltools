@@ -283,6 +283,14 @@ import RetirementCalculator   from './pages/tools/RetirementCalculator'
 import CssAnimationGenerator  from './pages/tools/CssAnimationGenerator'
 import PythonFormatter        from './pages/tools/PythonFormatter'
 
+// 6 new tools (batch 7)
+import FakeTextGenerator  from './pages/tools/FakeTextGenerator'
+import TextAsciiConverter from './pages/tools/TextAsciiConverter'
+import ImageEnlarger      from './pages/tools/ImageEnlarger'
+import InstrumentTuner    from './pages/tools/InstrumentTuner'
+import InvestmentCalculator from './pages/tools/InvestmentCalculator'
+import JsObfuscator       from './pages/tools/JsObfuscator'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -573,6 +581,14 @@ export default function App() {
         <Route path="tools/retirement-calculator"   element={<RetirementCalculator />} />
         <Route path="tools/css-animation"           element={<CssAnimationGenerator />} />
         <Route path="tools/python-formatter"        element={<PythonFormatter />} />
+
+        {/* 6 new tools (batch 7) */}
+        <Route path="tools/fake-text-generator"     element={<FakeTextGenerator />} />
+        <Route path="tools/text-ascii-converter"    element={<TextAsciiConverter />} />
+        <Route path="tools/image-enlarger"          element={<ImageEnlarger />} />
+        <Route path="tools/instrument-tuner"        element={<InstrumentTuner />} />
+        <Route path="tools/investment-calculator"   element={<InvestmentCalculator />} />
+        <Route path="tools/js-obfuscator"           element={<JsObfuscator />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

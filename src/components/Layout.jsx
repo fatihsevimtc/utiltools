@@ -242,6 +242,13 @@ const TOOL_NAMES = {
   '/tools/retirement-calculator':  'Retirement Planning Calculator',
   '/tools/css-animation':          'CSS Animation Generator',
   '/tools/python-formatter':       'Python Formatter / Validator',
+  // 6 new tools (batch 7)
+  '/tools/fake-text-generator':    'Fake Text Generator',
+  '/tools/text-ascii-converter':   'Text ↔ ASCII Converter',
+  '/tools/image-enlarger':         'Image Enlarger',
+  '/tools/instrument-tuner':       'Instrument Tuner',
+  '/tools/investment-calculator':  'Investment Calculator',
+  '/tools/js-obfuscator':          'JavaScript Obfuscator',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

@@ -87,6 +87,8 @@
   <url><loc>https://utiltools.org/tools/empty-row-remover</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/grep</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/word-remover</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/fake-text-generator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/text-ascii-converter</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 🛠️ Developer -->
   <url><loc>https://utiltools.org/tools/json-formatter</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -155,6 +157,7 @@
   <url><loc>https://utiltools.org/tools/pwa-manifest</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/syntax-highlighter</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/python-formatter</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/js-obfuscator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- ⚡ Generators -->
   <url><loc>https://utiltools.org/tools/qr-generator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -204,6 +207,7 @@
   <url><loc>https://utiltools.org/tools/lease-calculator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/present-value</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/retirement-calculator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/investment-calculator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 📅 Time & Date -->
   <url><loc>https://utiltools.org/tools/age-calculator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -238,6 +242,7 @@
   <url><loc>https://utiltools.org/tools/pdf-merge</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/flip-rotate-image</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/pixelate-image</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/image-enlarger</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 🎨 Design & CSS -->
   <url><loc>https://utiltools.org/tools/gradient-generator</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -269,6 +274,7 @@
   <url><loc>https://utiltools.org/tools/subtitle-converter</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/metronome</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://utiltools.org/tools/text-symbols</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utiltools.org/tools/instrument-tuner</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- 🤖 AI Tools -->
   <url><loc>https://utiltools.org/tools/ai-model-comparison</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

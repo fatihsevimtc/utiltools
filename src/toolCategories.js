@@ -32,6 +32,7 @@ export const CATEGORIES = [
       '/tools/csv-to-column', '/tools/word-duplicator', '/tools/empty-row-remover',
       '/tools/grep',
       '/tools/word-remover',
+      '/tools/fake-text-generator', '/tools/text-ascii-converter',
     ],
   },
   {
@@ -61,6 +62,7 @@ export const CATEGORIES = [
       '/tools/json-to-php', '/tools/table-converter', '/tools/schema-markup',
       '/tools/pwa-manifest', '/tools/syntax-highlighter',
       '/tools/python-formatter',
+      '/tools/js-obfuscator',
     ],
   },
   {
@@ -90,6 +92,7 @@ export const CATEGORIES = [
       '/tools/confidence-interval',
       '/tools/lease-calculator', '/tools/present-value',
       '/tools/retirement-calculator',
+      '/tools/investment-calculator',
     ],
   },
   {
@@ -115,6 +118,7 @@ export const CATEGORIES = [
       '/tools/pdf-page-count', '/tools/pdf-to-text', '/tools/pdf-merge',
       '/tools/flip-rotate-image',
       '/tools/pixelate-image',
+      '/tools/image-enlarger',
     ],
   },
   {
@@ -144,6 +148,7 @@ export const CATEGORIES = [
         '/tools/simple-note', '/tools/tone-generator',
         '/tools/shoe-size', '/tools/subtitle-converter', '/tools/metronome',
         '/tools/text-symbols',
+        '/tools/instrument-tuner',
     ],
   },
   {
