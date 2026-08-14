@@ -260,6 +260,32 @@ const TOOL_NAMES = {
   // 2 new audio tools (batch 9)
   '/tools/audio-pitch-changer':    'Audio Pitch Changer',
   '/tools/audio-volume-normalizer': 'Audio Volume Normalizer',
+  // 25 new tools (batch 10)
+  '/tools/random-text-inserter':   'Random Text Inserter',
+  '/tools/complex-english-helper': 'Complex English Helper',
+  '/tools/simple-english-rewriter': 'Simple English Rewriter',
+  '/tools/unusual-words-finder':   'Unusual Words Finder',
+  '/tools/misspellizer':           'Misspellizer',
+  '/tools/chinese-pinyin':         'Chinese Pinyin Converter',
+  '/tools/image-downloader':       'Image Downloader',
+  '/tools/hue-shift':              'Hue Shift Tool',
+  '/tools/image-format-converter': 'Image Format Converter',
+  '/tools/filter-unused-css':      'Filter Unused CSS',
+  '/tools/markdown-to-pdf':        'Markdown to PDF',
+  '/tools/xss-scanner':            'XSS Scanner',
+  '/tools/nginx-config':           'Nginx Config Generator',
+  '/tools/html-validator':         'HTML Validator',
+  '/tools/wordpress-scanner':      'WordPress Scanner',
+  '/tools/http2-checker':          'HTTP/2 Checker',
+  '/tools/http-request-validator': 'HTTP Request Validator',
+  '/tools/accessibility-checker':  'Accessibility Checker',
+  '/tools/postal-code-validator':  'Postal Code Validator',
+  '/tools/bulk-url-tester':        'Bulk URL Tester',
+  '/tools/ip-version-converter':   'IP Version Converter',
+  '/tools/url-metadata-extractor': 'URL Metadata Extractor',
+  '/tools/bank-statement-excel':   'Bank Statement Excel Generator',
+  '/tools/search-engines':         'Search Engines Directory',
+  '/tools/cost-of-living':         'Cost of Living Calculator',
 }
 
 // Build numbered tool list from CATEGORIES, deduped
