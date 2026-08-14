@@ -65,6 +65,14 @@ NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
 ;['/tools/fake-text-generator','/tools/text-ascii-converter','/tools/image-enlarger',
   '/tools/instrument-tuner','/tools/investment-calculator','/tools/js-obfuscator',
 ].forEach(p => NEW_TOOLS.add(p))
+// 7 new tools (batch 8)
+;['/tools/image-splitter','/tools/audio-converter','/tools/audio-trimmer',
+  '/tools/traceroute','/tools/youtube-thumbnail','/tools/vocabulary-builder',
+  '/tools/dictionary',
+].forEach(p => NEW_TOOLS.add(p))
+// 2 new audio tools (batch 9)
+;['/tools/audio-pitch-changer','/tools/audio-volume-normalizer',
+].forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -238,6 +246,17 @@ const MARQUEE_ITEMS = [
   { icon: '🎵', name: 'Instrument Tuner',    path: '/tools/instrument-tuner' },
   { icon: '📈', name: 'Investment Calc',     path: '/tools/investment-calculator' },
   { icon: '🔒', name: 'JS Obfuscator',       path: '/tools/js-obfuscator' },
+  // New batch 8 tools
+  { icon: '✂️', name: 'Image Splitter',      path: '/tools/image-splitter' },
+  { icon: '🔄', name: 'Audio Converter',     path: '/tools/audio-converter' },
+  { icon: '✂️', name: 'Audio Trimmer',       path: '/tools/audio-trimmer' },
+  { icon: '🌐', name: 'Traceroute',          path: '/tools/traceroute' },
+  { icon: '🖼️', name: 'YT Thumbnail',       path: '/tools/youtube-thumbnail' },
+  { icon: '📚', name: 'Vocabulary Builder',  path: '/tools/vocabulary-builder' },
+  { icon: '📖', name: 'Dictionary',          path: '/tools/dictionary' },
+  // New batch 9 tools
+  { icon: '🎵', name: 'Audio Pitch Changer', path: '/tools/audio-pitch-changer' },
+  { icon: '🔊', name: 'Audio Normalizer',    path: '/tools/audio-volume-normalizer' },
 ]
 
 const FEATURED = [
@@ -318,6 +337,8 @@ const CATEGORIES = [
       { icon: '🗑️', name: 'Word / Sentence Remover', desc: 'Remove specific words, sentences, or lines from any text in seconds.',     path: '/tools/word-remover' },
       { icon: '📄', name: 'Fake Text Generator',      desc: 'Generate Lorem Ipsum-style placeholder text with adjustable paragraphs and sentences.', path: '/tools/fake-text-generator' },
       { icon: '🔤', name: 'Text ↔ ASCII Converter',   desc: 'Convert text to ASCII codes and ASCII codes back to text instantly.',        path: '/tools/text-ascii-converter' },
+      { icon: '📚', name: 'Vocabulary Builder',     desc: 'Expand your vocabulary with curated word lists — learn new words with definitions and examples.', path: '/tools/vocabulary-builder' },
+      { icon: '📖', name: 'Dictionary',             desc: 'Look up word definitions, pronunciations, synonyms, and usage examples.', path: '/tools/dictionary' },
     ],
   },
   {
@@ -375,6 +396,7 @@ const CATEGORIES = [
       { icon: '🌐', name: 'IP Address Info',        desc: 'Look up your public IP, location, ISP and timezone.',      path: '/tools/ip-info' },
       { icon: '🖥️', name: 'User Agent Parser',    desc: 'Parse browser user-agent strings to detect browser and OS.',path: '/tools/user-agent' },
       { icon: '🔐', name: 'RSA Key Generator',      desc: 'Generate RSA-2048 key pairs via the Web Crypto API.',      path: '/tools/rsa-generator' },
+      { icon: '🌐', name: 'Traceroute',             desc: 'Trace the network path to a destination — see the route packets take across the internet.', path: '/tools/traceroute' },
       { icon: '📚', name: 'ISBN Validator',          desc: 'Validate ISBN-10 and ISBN-13 book identifiers.',           path: '/tools/isbn-validator' },
       { icon: '📝', name: 'TOML to JSON',            desc: 'Convert TOML configuration files to JSON.',                path: '/tools/toml-to-json' },
       { icon: '💨', name: 'CSS → Tailwind',          desc: 'Convert common CSS declarations to Tailwind classes.',      path: '/tools/css-to-tailwind' },
@@ -492,6 +514,8 @@ const CATEGORIES = [
       { icon: '🔄', name: 'Flip & Rotate Image',  desc: 'Flip or rotate any image 90°/180° — runs entirely in browser.', path: '/tools/flip-rotate-image' },
       { icon: '🟦', name: 'Pixelate Image',        desc: 'Apply a pixelation / mosaic effect to any image — choose block size and download.', path: '/tools/pixelate-image' },
       { icon: '🔍', name: 'Image Enlarger',        desc: 'Upscale and enlarge images using nearest-neighbor, bilinear, or bicubic interpolation.', path: '/tools/image-enlarger' },
+      { icon: '✂️', name: 'Image Splitter',        desc: 'Split any image into a grid of pieces — perfect for Instagram grids, puzzles, or tiled artwork.', path: '/tools/image-splitter' },
+      { icon: '🖼️', name: 'YouTube Thumbnail',    desc: 'Download YouTube video thumbnails in all available qualities from any URL or video ID.', path: '/tools/youtube-thumbnail' },
     ],
   },
   {
@@ -536,6 +560,10 @@ const CATEGORIES = [
       { icon: '🥁', name: 'Metronome',            desc: 'Browser metronome with adjustable BPM and audio click.', path: '/tools/metronome' },
       { icon: '🔣', name: 'Text Symbols Picker',  desc: 'Browse 1 300+ Unicode symbols by category — click to copy any symbol instantly.', path: '/tools/text-symbols' },
       { icon: '🎵', name: 'Instrument Tuner',     desc: 'Tune guitars, violins, and other instruments using your device microphone.', path: '/tools/instrument-tuner' },
+      { icon: '🔄', name: 'Audio Converter',      desc: 'Convert audio files between formats — all processing happens in your browser.', path: '/tools/audio-converter' },
+      { icon: '✂️', name: 'Audio Trimmer',        desc: 'Trim audio files by selecting start and end times — no upload required.', path: '/tools/audio-trimmer' },
+      { icon: '🎵', name: 'Audio Pitch Changer',  desc: 'Change the pitch of audio files up or down by semitones.', path: '/tools/audio-pitch-changer' },
+      { icon: '🔊', name: 'Audio Volume Normalizer', desc: 'Normalize or adjust the volume of audio files to a target level.', path: '/tools/audio-volume-normalizer' },
     ],
   },
   {
@@ -561,8 +589,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🌍 English/Language',
     tools: [
-      'Vocabulary Builder',
-      'Dictionary / New Words Dictionary',
       'Understand Complex/Foreign English Text Helper',
       'Simple English Rewriter',
       'Unusual/Uncommon Words Finder',
@@ -573,17 +599,9 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🖼️ Images',
     tools: [
-      'Image Splitter',
       'Image Downloader (from URL)',
       'Hue Shift Generator',
       'BMP/GIF/ICO-specific format conversions',
-    ],
-  },
-  {
-    title: '🎵 Audio',
-    tools: [
-      'Audio Converter',
-      'Audio Trimmer',
     ],
   },
   {
@@ -605,7 +623,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🌐 Network Tools',
     tools: [
-      'Traceroute',
       'HTTP/2 Checker',
       'HTTP Request Validator',
       'Website Accessibility Checker',
@@ -618,7 +635,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '⚡ Generators & Misc',
     tools: [
-      'YouTube Thumbnail Downloader',
       'AI Bank Statement to Excel',
       'Special Search Engines (curated search tool directory)',
       'Cost of Living Comparison (niche/external)',

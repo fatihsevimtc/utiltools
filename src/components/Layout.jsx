@@ -249,6 +249,17 @@ const TOOL_NAMES = {
   '/tools/instrument-tuner':       'Instrument Tuner',
   '/tools/investment-calculator':  'Investment Calculator',
   '/tools/js-obfuscator':          'JavaScript Obfuscator',
+  // 7 new tools (batch 8)
+  '/tools/image-splitter':         'Image Splitter',
+  '/tools/audio-converter':        'Audio Converter',
+  '/tools/audio-trimmer':          'Audio Trimmer',
+  '/tools/traceroute':             'Traceroute',
+  '/tools/youtube-thumbnail':      'YouTube Thumbnail Downloader',
+  '/tools/vocabulary-builder':     'Vocabulary Builder',
+  '/tools/dictionary':             'Dictionary',
+  // 2 new audio tools (batch 9)
+  '/tools/audio-pitch-changer':    'Audio Pitch Changer',
+  '/tools/audio-volume-normalizer': 'Audio Volume Normalizer',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

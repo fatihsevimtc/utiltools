@@ -291,6 +291,19 @@ import InstrumentTuner    from './pages/tools/InstrumentTuner'
 import InvestmentCalculator from './pages/tools/InvestmentCalculator'
 import JsObfuscator       from './pages/tools/JsObfuscator'
 
+// 7 new tools (batch 8)
+import ImageSplitter      from './pages/tools/ImageSplitter'
+import AudioConverter     from './pages/tools/AudioConverter'
+import AudioTrimmer       from './pages/tools/AudioTrimmer'
+import Traceroute         from './pages/tools/Traceroute'
+import YoutubeThumbnail   from './pages/tools/YoutubeThumbnail'
+import VocabularyBuilder  from './pages/tools/VocabularyBuilder'
+import Dictionary         from './pages/tools/Dictionary'
+
+// 2 new audio tools (batch 9)
+import AudioPitchChanger      from './pages/tools/AudioPitchChanger'
+import AudioVolumeNormalizer  from './pages/tools/AudioVolumeNormalizer'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -589,6 +602,19 @@ export default function App() {
         <Route path="tools/instrument-tuner"        element={<InstrumentTuner />} />
         <Route path="tools/investment-calculator"   element={<InvestmentCalculator />} />
         <Route path="tools/js-obfuscator"           element={<JsObfuscator />} />
+
+        {/* 7 new tools (batch 8) */}
+        <Route path="tools/image-splitter"          element={<ImageSplitter />} />
+        <Route path="tools/audio-converter"         element={<AudioConverter />} />
+        <Route path="tools/audio-trimmer"           element={<AudioTrimmer />} />
+        <Route path="tools/traceroute"              element={<Traceroute />} />
+        <Route path="tools/youtube-thumbnail"       element={<YoutubeThumbnail />} />
+        <Route path="tools/vocabulary-builder"      element={<VocabularyBuilder />} />
+        <Route path="tools/dictionary"              element={<Dictionary />} />
+
+        {/* 2 new audio tools (batch 9) */}
+        <Route path="tools/audio-pitch-changer"     element={<AudioPitchChanger />} />
+        <Route path="tools/audio-volume-normalizer" element={<AudioVolumeNormalizer />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

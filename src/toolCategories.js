@@ -33,6 +33,7 @@ export const CATEGORIES = [
       '/tools/grep',
       '/tools/word-remover',
       '/tools/fake-text-generator', '/tools/text-ascii-converter',
+      '/tools/vocabulary-builder', '/tools/dictionary',
     ],
   },
   {
@@ -63,6 +64,7 @@ export const CATEGORIES = [
       '/tools/pwa-manifest', '/tools/syntax-highlighter',
       '/tools/python-formatter',
       '/tools/js-obfuscator',
+      '/tools/traceroute',
     ],
   },
   {
@@ -119,6 +121,8 @@ export const CATEGORIES = [
       '/tools/flip-rotate-image',
       '/tools/pixelate-image',
       '/tools/image-enlarger',
+      '/tools/image-splitter',
+      '/tools/youtube-thumbnail',
     ],
   },
   {
@@ -149,6 +153,10 @@ export const CATEGORIES = [
         '/tools/shoe-size', '/tools/subtitle-converter', '/tools/metronome',
         '/tools/text-symbols',
         '/tools/instrument-tuner',
+        '/tools/audio-converter',
+        '/tools/audio-trimmer',
+        '/tools/audio-pitch-changer',
+        '/tools/audio-volume-normalizer',
     ],
   },
   {
