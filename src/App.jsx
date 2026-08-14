@@ -157,7 +157,7 @@ import BioGenerator          from './pages/tools/BioGenerator'
 import KeyboardShortcuts     from './pages/tools/KeyboardShortcuts'
 import JsonSchemaValidator   from './pages/tools/JsonSchemaValidator'
 
-// New coming-soon tools
+// Additional tools
 import JsFormatter            from './pages/tools/JsFormatter'
 import HtmlFormatter          from './pages/tools/HtmlFormatter'
 import SqlMinifier            from './pages/tools/SqlMinifier'
@@ -303,6 +303,33 @@ import Dictionary         from './pages/tools/Dictionary'
 // 2 new audio tools (batch 9)
 import AudioPitchChanger      from './pages/tools/AudioPitchChanger'
 import AudioVolumeNormalizer  from './pages/tools/AudioVolumeNormalizer'
+
+// 25 new tools (batch 10)
+import RandomTextInserter     from './pages/tools/RandomTextInserter'
+import ComplexEnglishHelper   from './pages/tools/ComplexEnglishHelper'
+import SimpleEnglishRewriter  from './pages/tools/SimpleEnglishRewriter'
+import UnusualWordsFinder     from './pages/tools/UnusualWordsFinder'
+import Misspellizer           from './pages/tools/Misspellizer'
+import ChinesePinyin          from './pages/tools/ChinesePinyin'
+import ImageDownloader        from './pages/tools/ImageDownloader'
+import HueShift               from './pages/tools/HueShift'
+import ImageFormatConverter   from './pages/tools/ImageFormatConverter'
+import FilterUnusedCss        from './pages/tools/FilterUnusedCss'
+import MarkdownToPdf          from './pages/tools/MarkdownToPdf'
+import XssScanner             from './pages/tools/XssScanner'
+import NginxConfigGenerator   from './pages/tools/NginxConfigGenerator'
+import HtmlValidator          from './pages/tools/HtmlValidator'
+import WordPressScanner       from './pages/tools/WordPressScanner'
+import Http2Checker           from './pages/tools/Http2Checker'
+import HttpRequestValidator   from './pages/tools/HttpRequestValidator'
+import AccessibilityChecker   from './pages/tools/AccessibilityChecker'
+import PostalCodeValidator    from './pages/tools/PostalCodeValidator'
+import BulkUrlTester          from './pages/tools/BulkUrlTester'
+import IpVersionConverter     from './pages/tools/IpVersionConverter'
+import UrlMetadataExtractor   from './pages/tools/UrlMetadataExtractor'
+import BankStatementToExcel   from './pages/tools/BankStatementToExcel'
+import SearchEngines          from './pages/tools/SearchEngines'
+import CostOfLiving           from './pages/tools/CostOfLiving'
 
 // Static pages
 import Privacy  from './pages/Privacy'
@@ -615,6 +642,33 @@ export default function App() {
         {/* 2 new audio tools (batch 9) */}
         <Route path="tools/audio-pitch-changer"     element={<AudioPitchChanger />} />
         <Route path="tools/audio-volume-normalizer" element={<AudioVolumeNormalizer />} />
+
+        {/* 25 new tools (batch 10) */}
+        <Route path="tools/random-text-inserter"    element={<RandomTextInserter />} />
+        <Route path="tools/complex-english-helper"  element={<ComplexEnglishHelper />} />
+        <Route path="tools/simple-english-rewriter" element={<SimpleEnglishRewriter />} />
+        <Route path="tools/unusual-words-finder"    element={<UnusualWordsFinder />} />
+        <Route path="tools/misspellizer"            element={<Misspellizer />} />
+        <Route path="tools/chinese-pinyin"          element={<ChinesePinyin />} />
+        <Route path="tools/image-downloader"        element={<ImageDownloader />} />
+        <Route path="tools/hue-shift"               element={<HueShift />} />
+        <Route path="tools/image-format-converter"  element={<ImageFormatConverter />} />
+        <Route path="tools/filter-unused-css"       element={<FilterUnusedCss />} />
+        <Route path="tools/markdown-to-pdf"         element={<MarkdownToPdf />} />
+        <Route path="tools/xss-scanner"             element={<XssScanner />} />
+        <Route path="tools/nginx-config"            element={<NginxConfigGenerator />} />
+        <Route path="tools/html-validator"          element={<HtmlValidator />} />
+        <Route path="tools/wordpress-scanner"       element={<WordPressScanner />} />
+        <Route path="tools/http2-checker"           element={<Http2Checker />} />
+        <Route path="tools/http-request-validator"  element={<HttpRequestValidator />} />
+        <Route path="tools/accessibility-checker"   element={<AccessibilityChecker />} />
+        <Route path="tools/postal-code-validator"   element={<PostalCodeValidator />} />
+        <Route path="tools/bulk-url-tester"         element={<BulkUrlTester />} />
+        <Route path="tools/ip-version-converter"    element={<IpVersionConverter />} />
+        <Route path="tools/url-metadata-extractor"  element={<UrlMetadataExtractor />} />
+        <Route path="tools/bank-statement-excel"    element={<BankStatementToExcel />} />
+        <Route path="tools/search-engines"          element={<SearchEngines />} />
+        <Route path="tools/cost-of-living"          element={<CostOfLiving />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

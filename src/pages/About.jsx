@@ -19,7 +19,7 @@ export default function About() {
       {/* Stats strip */}
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
         {[
-          ['235+', 'Tools available'],
+          ['271', 'Tools available'],
           ['10', 'Categories'],
           ['0', 'Server requests'],
           ['Free', 'Always'],

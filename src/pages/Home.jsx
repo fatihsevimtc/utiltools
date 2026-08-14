@@ -73,6 +73,17 @@ NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
 // 2 new audio tools (batch 9)
 ;['/tools/audio-pitch-changer','/tools/audio-volume-normalizer',
 ].forEach(p => NEW_TOOLS.add(p))
+// 25 new tools (batch 10)
+;['/tools/random-text-inserter','/tools/complex-english-helper','/tools/simple-english-rewriter',
+  '/tools/unusual-words-finder','/tools/misspellizer','/tools/chinese-pinyin',
+  '/tools/image-downloader','/tools/hue-shift','/tools/image-format-converter',
+  '/tools/filter-unused-css','/tools/markdown-to-pdf','/tools/xss-scanner',
+  '/tools/nginx-config','/tools/html-validator','/tools/wordpress-scanner',
+  '/tools/http2-checker','/tools/http-request-validator','/tools/accessibility-checker',
+  '/tools/postal-code-validator','/tools/bulk-url-tester','/tools/ip-version-converter',
+  '/tools/url-metadata-extractor','/tools/bank-statement-excel','/tools/search-engines',
+  '/tools/cost-of-living',
+].forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -339,6 +350,12 @@ const CATEGORIES = [
       { icon: '🔤', name: 'Text ↔ ASCII Converter',   desc: 'Convert text to ASCII codes and ASCII codes back to text instantly.',        path: '/tools/text-ascii-converter' },
       { icon: '📚', name: 'Vocabulary Builder',     desc: 'Expand your vocabulary with curated word lists — learn new words with definitions and examples.', path: '/tools/vocabulary-builder' },
       { icon: '📖', name: 'Dictionary',             desc: 'Look up word definitions, pronunciations, synonyms, and usage examples.', path: '/tools/dictionary' },
+      { icon: '🎲', name: 'Random Text Inserter',   desc: 'Add random words, letters, or errors to text — useful for testing and creative writing.', path: '/tools/random-text-inserter' },
+      { icon: '🌐', name: 'Complex English Helper', desc: 'Simplify complex or foreign English text into plain, understandable language.', path: '/tools/complex-english-helper' },
+      { icon: '✏️', name: 'Simple English Rewriter', desc: 'Rewrite any text in simple, clear English — great for accessibility and non-native readers.', path: '/tools/simple-english-rewriter' },
+      { icon: '🔍', name: 'Unusual Words Finder',   desc: 'Find rare, uncommon, or advanced vocabulary in any text with definitions.', path: '/tools/unusual-words-finder' },
+      { icon: '✍️', name: 'Misspellizer',           desc: 'Intentionally misspell text for testing, creative projects, or input validation.', path: '/tools/misspellizer' },
+      { icon: '🀄', name: 'Chinese to Pinyin',      desc: 'Convert Chinese characters to Pinyin romanization with tone marks.', path: '/tools/chinese-pinyin' },
     ],
   },
   {
@@ -413,6 +430,12 @@ const CATEGORIES = [
       { icon: '🎨', name: 'Syntax Highlighter',    desc: 'Highlight code syntax for 12 languages with 5 colour themes.',       path: '/tools/syntax-highlighter' },
       { icon: '🐍', name: 'Python Formatter',      desc: 'Format Python code with PEP 8 rules and validate for common issues.', path: '/tools/python-formatter' },
       { icon: '🔒', name: 'JavaScript Obfuscator',  desc: 'Obfuscate JavaScript code to make it harder to read and reverse-engineer.', path: '/tools/js-obfuscator' },
+      { icon: '🧹', name: 'Filter Unused CSS',      desc: 'Remove unused CSS rules by comparing your stylesheet against your HTML.', path: '/tools/filter-unused-css' },
+      { icon: '📄', name: 'Markdown to PDF',        desc: 'Convert Markdown documents to downloadable PDF files entirely in your browser.', path: '/tools/markdown-to-pdf' },
+      { icon: '🛡️', name: 'XSS Vulnerability Scanner', desc: 'Scan HTML/JavaScript code for common Cross-Site Scripting (XSS) patterns.', path: '/tools/xss-scanner' },
+      { icon: '⚙️', name: 'Nginx Config Generator', desc: 'Generate Nginx server block configurations with SSL, proxy, and static file options.', path: '/tools/nginx-config' },
+      { icon: '✅', name: 'HTML Validator',          desc: 'Validate HTML markup for errors, warnings, and best-practice issues.', path: '/tools/html-validator' },
+      { icon: '🔎', name: 'WordPress Scanner',       desc: 'Scan a WordPress site URL for common security misconfigurations and exposed info.', path: '/tools/wordpress-scanner' },
     ],
   },
   {
@@ -516,6 +539,9 @@ const CATEGORIES = [
       { icon: '🔍', name: 'Image Enlarger',        desc: 'Upscale and enlarge images using nearest-neighbor, bilinear, or bicubic interpolation.', path: '/tools/image-enlarger' },
       { icon: '✂️', name: 'Image Splitter',        desc: 'Split any image into a grid of pieces — perfect for Instagram grids, puzzles, or tiled artwork.', path: '/tools/image-splitter' },
       { icon: '🖼️', name: 'YouTube Thumbnail',    desc: 'Download YouTube video thumbnails in all available qualities from any URL or video ID.', path: '/tools/youtube-thumbnail' },
+      { icon: '⬇️', name: 'Image Downloader',      desc: 'Download images from any URL directly to your device — no extensions needed.', path: '/tools/image-downloader' },
+      { icon: '🎨', name: 'Hue Shift Generator',   desc: 'Shift the hue of any image by a custom angle and download the result.', path: '/tools/hue-shift' },
+      { icon: '🔄', name: 'BMP / GIF / ICO Converter', desc: 'Convert images to BMP, GIF, or ICO format — useful for icons, sprites, and legacy formats.', path: '/tools/image-format-converter' },
     ],
   },
   {
@@ -564,6 +590,8 @@ const CATEGORIES = [
       { icon: '✂️', name: 'Audio Trimmer',        desc: 'Trim audio files by selecting start and end times — no upload required.', path: '/tools/audio-trimmer' },
       { icon: '🎵', name: 'Audio Pitch Changer',  desc: 'Change the pitch of audio files up or down by semitones.', path: '/tools/audio-pitch-changer' },
       { icon: '🔊', name: 'Audio Volume Normalizer', desc: 'Normalize or adjust the volume of audio files to a target level.', path: '/tools/audio-volume-normalizer' },
+      { icon: '🔍', name: 'Special Search Engines', desc: 'Curated directory of specialized search engines for research, code, images, and more.', path: '/tools/search-engines' },
+      { icon: '🌍', name: 'Cost of Living Comparison', desc: 'Compare cost of living between cities worldwide — housing, food, transport and more.', path: '/tools/cost-of-living' },
     ],
   },
   {
@@ -575,79 +603,23 @@ const CATEGORIES = [
       { icon: '🧱', name: 'System Prompt Builder', desc: 'Build effective system prompts with persona and tone.',  path: '/tools/system-prompt-builder' },
       { icon: '✏️', name: 'Prompt Formatter',     desc: 'Build multi-turn prompts and export as JSON, XML, or Python.', path: '/tools/prompt-formatter' },
       { icon: '✨', name: 'Prompt Improver',       desc: 'Apply best-practice rules to strengthen any prompt.',    path: '/tools/prompt-improver' },
+      { icon: '📊', name: 'AI Bank Statement to Excel', desc: 'Parse bank statement text and export structured data as a downloadable CSV/Excel file.', path: '/tools/bank-statement-excel' },
+    ],
+  },
+  {
+    id: 'network',
+    label: '🌐 Network Tools',
+    tools: [
+      { icon: '🌐', name: 'HTTP/2 Checker',         desc: 'Check whether a website supports HTTP/2 protocol.', path: '/tools/http2-checker' },
+      { icon: '📡', name: 'HTTP Request Validator',  desc: 'Validate and inspect HTTP request syntax, headers, and structure.', path: '/tools/http-request-validator' },
+      { icon: '♿', name: 'Website Accessibility Checker', desc: 'Check HTML for common WCAG 2.1 accessibility issues like missing alt text and labels.', path: '/tools/accessibility-checker' },
+      { icon: '📮', name: 'Postal Code Validator',   desc: 'Validate postal codes and ZIP codes for countries worldwide.', path: '/tools/postal-code-validator' },
+      { icon: '🔗', name: 'Bulk URL Tester',         desc: 'Check multiple URLs at once — test status codes and reachability in bulk.', path: '/tools/bulk-url-tester' },
+      { icon: '🔀', name: 'IP Version Converter',    desc: 'Convert between IPv4 and IPv6 address formats instantly.', path: '/tools/ip-version-converter' },
+      { icon: '🔍', name: 'URL Metadata Extractor',  desc: 'Scrape the title, description, and Open Graph tags from any webpage URL.', path: '/tools/url-metadata-extractor' },
     ],
   },
 ]
-
-const COMING_SOON_SECTIONS = [
-  {
-    title: '🎨 Stylized/Fun Text',
-    tools: [
-      'Add Random Words / Letters / Errors to Text',
-    ],
-  },
-  {
-    title: '🌍 English/Language',
-    tools: [
-      'Understand Complex/Foreign English Text Helper',
-      'Simple English Rewriter',
-      'Unusual/Uncommon Words Finder',
-      'Misspellizer (intentional misspelling generator)',
-      'Chinese to Pinyin Converter',
-    ],
-  },
-  {
-    title: '🖼️ Images',
-    tools: [
-      'Image Downloader (from URL)',
-      'Hue Shift Generator',
-      'BMP/GIF/ICO-specific format conversions',
-    ],
-  },
-  {
-    title: '🛠️ Web Dev / Encoding',
-    tools: [
-      'Filter Unused CSS',
-      'Markdown to PDF (you have Markdown→HTML)',
-    ],
-  },
-  {
-    title: '💻 Code Tools',
-    tools: [
-      'XSS Vulnerability Scanner',
-      'Nginx Config Generator / Validator',
-      'HTML Validator (distinct from Formatter)',
-      'WordPress (WP) Scanner',
-    ],
-  },
-  {
-    title: '🌐 Network Tools',
-    tools: [
-      'HTTP/2 Checker',
-      'HTTP Request Validator',
-      'Website Accessibility Checker',
-      'Postal Code Validator',
-      'Bulk URL Tester (check multiple URLs at once)',
-      'IP Version Converter (IPv4↔IPv6)',
-      'URL Metadata Extractor (title/description scraper)',
-    ],
-  },
-  {
-    title: '⚡ Generators & Misc',
-    tools: [
-      'AI Bank Statement to Excel',
-      'Special Search Engines (curated search tool directory)',
-      'Cost of Living Comparison (niche/external)',
-    ],
-  },
-]
-
-const COMING_SOON = COMING_SOON_SECTIONS.flatMap(section =>
-  section.tools.map(name => ({
-    name,
-    section: section.title,
-  }))
-)
 
 // Deduplicate by path — FEATURED + CATEGORIES can overlap
 const _allToolsRaw = [
@@ -832,16 +804,14 @@ export default function Home() {
     )
   }, [query])
 
-  const isSoon   = activeCat === 'soon'
   const isFavs   = activeCat === 'favs'
   const isRecent = activeCat === 'recent'
 
-  const centerTools = (isSoon || isFavs || isRecent || activeCat === null)
+  const centerTools = (isFavs || isRecent || activeCat === null)
     ? FEATURED
     : CATEGORIES.find(c => c.id === activeCat)?.tools ?? []
 
-  const centerTitle = isSoon   ? '🚀 Coming Soon'
-    : isFavs                   ? '❤️ Favourites'
+  const centerTitle = isFavs   ? '❤️ Favourites'
     : isRecent                 ? '🕒 Recently Used'
     : activeCat
       ? CATEGORIES.find(c => c.id === activeCat)?.label
@@ -935,11 +905,6 @@ export default function Home() {
                   onClick={() => { setActiveCat(cat.id); setQuery('') }}
                 >{cat.label}<span className="sidebar-count">{cat.tools.length}</span></button>
               )),
-
-              <button key="soon"
-                className={`sidebar-cat-btn ${isSoon ? 'active' : ''}`}
-                onClick={() => { setActiveCat('soon'); setQuery('') }}
-              >🚀 Coming Soon<span className="sidebar-count">{COMING_SOON.length}</span></button>,
             ]
 
             const VISIBLE = 4
@@ -991,28 +956,6 @@ export default function Home() {
                 </div>
               </>
             )
-          ) : isSoon ? (
-            <>
-              <p className="center-title">🚀 Coming Soon</p>
-              <p style={{ color: 'var(--muted)', fontSize: '0.82rem', marginBottom: '1rem' }}>
-                These tools are in the pipeline. <Link to="/contact">Suggest one</Link> to bump it up the list.
-              </p>
-              <div className="coming-soon-groups">
-                {COMING_SOON_SECTIONS.map(section => (
-                  <div key={section.title} className="coming-soon-group">
-                    <p className="coming-soon-group-title">{section.title}</p>
-                    <div className="coming-soon-pill-grid">
-                      {section.tools.map(name => (
-                        <div key={name} className="coming-soon-pill-card">
-                          <span className="coming-soon-pill-icon" aria-hidden="true">🔜</span>
-                          <span>{name}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </>
           ) : isFavs ? (
             favTools.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--muted)' }}>

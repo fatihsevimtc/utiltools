@@ -495,51 +495,6 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .tool-card h3 { font-size: 0.95rem; font-weight: 600; }
 .tool-card p { color: var(--muted); font-size: 0.83rem; line-height: 1.5; }
 
-/* Coming soon groups */
-.coming-soon-groups {
-  display: grid;
-  gap: 0.95rem;
-  margin-top: 0.75rem;
-}
-
-.coming-soon-group {
-  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.08), rgba(var(--accent-rgb), 0.03));
-  border: 1px solid rgba(var(--accent-rgb), 0.2);
-  border-radius: var(--radius);
-  padding: 0.9rem;
-}
-
-.coming-soon-group-title {
-  margin: 0 0 0.6rem;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.coming-soon-pill-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.coming-soon-pill-card {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 0.35rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.35;
-  padding: 0.38rem 0.62rem;
-}
-
-.coming-soon-pill-icon {
-  line-height: 1.1;
-  transform: translateY(1px);
-}
-
 /* New / Popular badges */
 .tool-badge {
   display: inline-flex;
@@ -1519,49 +1474,6 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
   box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.5);
 }
 
-/* ── Coming soon teaser strip ── */
-.coming-soon-strip {
-  margin-top: 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.85rem 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.coming-soon-strip-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.coming-soon-pills {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  overflow: hidden;
-  max-height: 2rem;
-}
-.coming-soon-pill {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 0.75rem;
-  padding: 0.2rem 0.65rem;
-  white-space: nowrap;
-}
-.coming-soon-strip-link {
-  font-size: 0.8rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
 /* ── Responsive ── */
 @media (max-width: 640px) {
   /* Layout */
@@ -1620,8 +1532,6 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
   /* Tool grid */
   .tools-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
-  .coming-soon-pill-grid { gap: 0.4rem; }
-  .coming-soon-pill-card { font-size: 0.75rem; }
   .tool-card { padding: 0.85rem; }
   .tool-card .tool-icon { font-size: 1.5rem; }
 
@@ -1647,9 +1557,6 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
   /* Back to top */
   .back-to-top { bottom: 1rem; right: 1rem; width: 36px; height: 36px; font-size: 1rem; }
-
-  /* Coming soon strip */
-  .coming-soon-strip { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 
   /* Related tools */
   .related-tools-grid { grid-template-columns: 1fr 1fr; }
@@ -1700,7 +1607,6 @@ label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 
 
 @media (max-width: 400px) {
   .tools-grid { grid-template-columns: 1fr; }
-  .coming-soon-group { padding: 0.8rem; }
   .logo { font-size: 1.1rem; }
 }
 

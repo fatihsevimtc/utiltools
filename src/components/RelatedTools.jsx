@@ -138,6 +138,36 @@ const TOOL_CATALOG = [
   { icon: '🪙', name: 'Token Counter',       path: '/tools/token-counter',       category: 'ai' },
   { icon: '✨', name: 'Prompt Improver',     path: '/tools/prompt-improver',     category: 'ai' },
   { icon: '🧱', name: 'System Prompt Builder', path: '/tools/system-prompt-builder', category: 'ai' },
+  // New batch 10 — text/language
+  { icon: '🎲', name: 'Random Text Inserter',   path: '/tools/random-text-inserter',     category: 'text' },
+  { icon: '🌐', name: 'Complex English Helper', path: '/tools/complex-english-helper',   category: 'text' },
+  { icon: '✏️', name: 'Simple English Rewriter', path: '/tools/simple-english-rewriter', category: 'text' },
+  { icon: '🔍', name: 'Unusual Words Finder',   path: '/tools/unusual-words-finder',     category: 'text' },
+  { icon: '✍️', name: 'Misspellizer',           path: '/tools/misspellizer',             category: 'text' },
+  { icon: '🀄', name: 'Chinese to Pinyin',      path: '/tools/chinese-pinyin',           category: 'text' },
+  // New batch 10 — images
+  { icon: '⬇️', name: 'Image Downloader',      path: '/tools/image-downloader',         category: 'files' },
+  { icon: '🎨', name: 'Hue Shift Generator',   path: '/tools/hue-shift',                category: 'files' },
+  { icon: '🔄', name: 'BMP/GIF/ICO Converter', path: '/tools/image-format-converter',   category: 'files' },
+  // New batch 10 — developer
+  { icon: '🧹', name: 'Filter Unused CSS',      path: '/tools/filter-unused-css',        category: 'developer' },
+  { icon: '📄', name: 'Markdown to PDF',        path: '/tools/markdown-to-pdf',          category: 'developer' },
+  { icon: '🛡️', name: 'XSS Scanner',           path: '/tools/xss-scanner',              category: 'developer' },
+  { icon: '⚙️', name: 'Nginx Config Generator', path: '/tools/nginx-config',            category: 'developer' },
+  { icon: '✅', name: 'HTML Validator',          path: '/tools/html-validator',           category: 'developer' },
+  { icon: '🔎', name: 'WordPress Scanner',       path: '/tools/wordpress-scanner',        category: 'developer' },
+  // New batch 10 — network
+  { icon: '🌐', name: 'HTTP/2 Checker',         path: '/tools/http2-checker',            category: 'network' },
+  { icon: '📡', name: 'HTTP Request Validator',  path: '/tools/http-request-validator',   category: 'network' },
+  { icon: '♿', name: 'Accessibility Checker',  path: '/tools/accessibility-checker',    category: 'network' },
+  { icon: '📮', name: 'Postal Code Validator',   path: '/tools/postal-code-validator',    category: 'network' },
+  { icon: '🔗', name: 'Bulk URL Tester',         path: '/tools/bulk-url-tester',          category: 'network' },
+  { icon: '🔀', name: 'IP Version Converter',    path: '/tools/ip-version-converter',     category: 'network' },
+  { icon: '🔍', name: 'URL Metadata Extractor',  path: '/tools/url-metadata-extractor',   category: 'network' },
+  // New batch 10 — misc/ai
+  { icon: '📊', name: 'Bank Statement to Excel', path: '/tools/bank-statement-excel',     category: 'ai' },
+  { icon: '🔍', name: 'Special Search Engines',  path: '/tools/search-engines',           category: 'misc' },
+  { icon: '🌍', name: 'Cost of Living',          path: '/tools/cost-of-living',           category: 'misc' },
 ]
 
 export default function RelatedTools({ tools, category, exclude, max = 4 }) {

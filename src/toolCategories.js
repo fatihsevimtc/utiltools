@@ -34,6 +34,10 @@ export const CATEGORIES = [
       '/tools/word-remover',
       '/tools/fake-text-generator', '/tools/text-ascii-converter',
       '/tools/vocabulary-builder', '/tools/dictionary',
+      // batch 10 — text/language
+      '/tools/random-text-inserter', '/tools/complex-english-helper',
+      '/tools/simple-english-rewriter', '/tools/unusual-words-finder',
+      '/tools/misspellizer', '/tools/chinese-pinyin',
     ],
   },
   {
@@ -65,6 +69,10 @@ export const CATEGORIES = [
       '/tools/python-formatter',
       '/tools/js-obfuscator',
       '/tools/traceroute',
+      // batch 10 — developer/web dev
+      '/tools/filter-unused-css', '/tools/markdown-to-pdf',
+      '/tools/xss-scanner', '/tools/nginx-config',
+      '/tools/html-validator', '/tools/wordpress-scanner',
     ],
   },
   {
@@ -123,6 +131,8 @@ export const CATEGORIES = [
       '/tools/image-enlarger',
       '/tools/image-splitter',
       '/tools/youtube-thumbnail',
+      // batch 10 — images
+      '/tools/image-downloader', '/tools/hue-shift', '/tools/image-format-converter',
     ],
   },
   {
@@ -157,6 +167,8 @@ export const CATEGORIES = [
         '/tools/audio-trimmer',
         '/tools/audio-pitch-changer',
         '/tools/audio-volume-normalizer',
+        // batch 10 — misc
+        '/tools/search-engines', '/tools/cost-of-living',
     ],
   },
   {
@@ -165,6 +177,18 @@ export const CATEGORIES = [
     tools: [
       '/tools/ai-model-comparison', '/tools/token-counter', '/tools/system-prompt-builder',
       '/tools/prompt-formatter', '/tools/prompt-improver',
+      // batch 10 — ai
+      '/tools/bank-statement-excel',
+    ],
+  },
+  {
+    id: 'network',
+    label: '🌐 Network Tools',
+    tools: [
+      '/tools/http2-checker', '/tools/http-request-validator',
+      '/tools/accessibility-checker', '/tools/postal-code-validator',
+      '/tools/bulk-url-tester', '/tools/ip-version-converter',
+      '/tools/url-metadata-extractor',
     ],
   },
 ]
