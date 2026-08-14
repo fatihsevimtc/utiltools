@@ -90,19 +90,37 @@ export default function ImageEnlarger() {
       {imageSrc && (
         <>
           <label htmlFor="ie-scale">Scale factor (1× – 8×)</label>
-          <input
-            id="ie-scale"
-            type="number"
-            min={1}
-            max={8}
-            step={0.5}
-            value={scaleFactor}
-            onChange={e => {
-              const v = parseFloat(e.target.value)
-              if (!isNaN(v)) setScaleFactor(v)
-            }}
-            style={{ marginBottom: '0.25rem' }}
-          />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+            <button
+              className="btn"
+              onClick={() => setScaleFactor(prev => Math.max(1, prev - 0.5))}
+              style={{ padding: '0.5rem 0.75rem', minWidth: 'auto' }}
+              title="Decrease scale"
+            >
+              −
+            </button>
+            <input
+              id="ie-scale"
+              type="number"
+              min={1}
+              max={8}
+              step={0.5}
+              value={scaleFactor}
+              onChange={e => {
+                const v = parseFloat(e.target.value)
+                if (!isNaN(v)) setScaleFactor(v)
+              }}
+              style={{ flex: 1, textAlign: 'center' }}
+            />
+            <button
+              className="btn"
+              onClick={() => setScaleFactor(prev => Math.min(8, prev + 0.5))}
+              style={{ padding: '0.5rem 0.75rem', minWidth: 'auto' }}
+              title="Increase scale"
+            >
+              +
+            </button>
+          </div>
           {(scaleFactor < 1 || scaleFactor > 8) && (
             <p style={{ fontSize: '0.82rem', color: '#f87171', marginBottom: '0.75rem' }}>
               ⚠ Scale factor must be between 1 and 8.
