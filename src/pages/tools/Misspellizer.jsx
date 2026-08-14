@@ -84,7 +84,7 @@ export default function Misspellizer() {
         rows={8}
       />
 
-      <button onClick={() => navigator.clipboard.writeText(output)}>
+      <button className="btn" onClick={() => navigator.clipboard.writeText(output)}>
         Copy Misspelled Text
       </button>
 

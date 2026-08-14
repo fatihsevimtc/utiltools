@@ -91,7 +91,7 @@ ${proxy ? `        proxy_pass ${proxy};
         style={{ fontFamily: 'monospace', fontSize: '0.875rem' }}
       />
 
-      <button onClick={() => navigator.clipboard.writeText(config)}>
+      <button className="btn" onClick={() => navigator.clipboard.writeText(config)}>
         Copy Config
       </button>
 

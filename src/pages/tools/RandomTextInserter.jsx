@@ -86,7 +86,7 @@ export default function RandomTextInserter() {
         rows={8}
       />
 
-      <button onClick={() => navigator.clipboard.writeText(output)}>
+      <button className="btn" onClick={() => navigator.clipboard.writeText(output)}>
         Copy Output
       </button>
 

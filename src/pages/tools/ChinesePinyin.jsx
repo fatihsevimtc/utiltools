@@ -65,7 +65,7 @@ export default function ChinesePinyin() {
         style={{ fontSize: '1.125rem' }}
       />
 
-      <button onClick={() => navigator.clipboard.writeText(output)}>
+      <button className="btn" onClick={() => navigator.clipboard.writeText(output)}>
         Copy Pinyin
       </button>
 

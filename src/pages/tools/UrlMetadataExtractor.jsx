@@ -70,7 +70,7 @@ export default function UrlMetadataExtractor() {
         placeholder="https://example.com"
       />
 
-      <button onClick={extractMetadata} disabled={loading || !url}>
+      <button className="btn" onClick={extractMetadata} disabled={loading || !url}>
         {loading ? 'Extracting...' : 'Extract Metadata'}
       </button>
 

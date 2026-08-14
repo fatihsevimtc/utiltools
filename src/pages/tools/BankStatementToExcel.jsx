@@ -107,7 +107,7 @@ export default function BankStatementToExcel() {
             </table>
           </div>
 
-          <button onClick={exportToCsv} style={{ marginTop: '1rem' }}>
+          <button className="btn" onClick={exportToCsv} style={{ marginTop: '1rem' }}>
             Download as CSV
           </button>
         </div>

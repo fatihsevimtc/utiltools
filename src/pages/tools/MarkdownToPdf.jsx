@@ -67,7 +67,7 @@ export default function MarkdownToPdf() {
         style={{ fontFamily: 'monospace' }}
       />
 
-      <button onClick={generatePdf} disabled={!markdown}>
+      <button className="btn" onClick={generatePdf} disabled={!markdown}>
         🖨️ Generate PDF (Print Dialog)
       </button>
 

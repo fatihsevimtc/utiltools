@@ -99,7 +99,7 @@ export default function HueShift() {
             }}
           />
 
-          <button onClick={download} style={{ marginTop: '1rem' }}>
+          <button className="btn" onClick={download} style={{ marginTop: '1rem' }}>
             Download Shifted Image
           </button>
         </>

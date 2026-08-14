@@ -59,7 +59,7 @@ export default function Http2Checker() {
         placeholder="https://example.com"
       />
 
-      <button onClick={checkHttp2} disabled={checking || !url}>
+      <button className="btn" onClick={checkHttp2} disabled={checking || !url}>
         {checking ? 'Checking...' : 'Check HTTP/2'}
       </button>
 

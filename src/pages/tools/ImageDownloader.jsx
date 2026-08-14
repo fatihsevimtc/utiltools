@@ -60,7 +60,7 @@ export default function ImageDownloader() {
         placeholder="https://example.com/image.jpg"
       />
 
-      <button onClick={handleDownload} disabled={loading || !url}>
+      <button className="btn" onClick={handleDownload} disabled={loading || !url}>
         {loading ? 'Downloading...' : 'Download Image'}
       </button>
 

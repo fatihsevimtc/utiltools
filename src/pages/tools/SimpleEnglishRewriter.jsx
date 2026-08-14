@@ -84,7 +84,7 @@ export default function SimpleEnglishRewriter() {
       />
 
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-        <button onClick={() => navigator.clipboard.writeText(output)}>
+        <button className="btn" onClick={() => navigator.clipboard.writeText(output)}>
           Copy Simplified Text
         </button>
         {changesMade && (

@@ -112,7 +112,7 @@ export default function FilterUnusedCss() {
               rows={10}
               style={{ fontFamily: 'monospace', fontSize: '0.875rem' }}
             />
-            <button onClick={() => navigator.clipboard.writeText(used)} style={{ marginTop: '0.5rem' }}>
+            <button className="btn" onClick={() => navigator.clipboard.writeText(used)} style={{ marginTop: '0.5rem' }}>
               Copy Used CSS
             </button>
           </div>

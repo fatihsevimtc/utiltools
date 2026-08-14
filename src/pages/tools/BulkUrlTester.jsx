@@ -71,7 +71,7 @@ export default function BulkUrlTester() {
         rows={10}
       />
 
-      <button onClick={testUrls} disabled={testing || !urls}>
+      <button className="btn" onClick={testUrls} disabled={testing || !urls}>
         {testing ? `Testing ${results.length}...` : 'Test All URLs'}
       </button>
 

@@ -124,7 +124,7 @@ export default function ImageFormatConverter() {
             />
           </div>
 
-          <button onClick={download} style={{ marginTop: '1rem' }}>
+          <button className="btn" onClick={download} style={{ marginTop: '1rem' }}>
             Download as {format.toUpperCase()}
           </button>
         </>

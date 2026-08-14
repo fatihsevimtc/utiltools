@@ -80,7 +80,7 @@ export default function WordPressScanner() {
         placeholder="https://example.com"
       />
 
-      <button onClick={scanWordPress} disabled={scanning || !url}>
+      <button className="btn" onClick={scanWordPress} disabled={scanning || !url}>
         {scanning ? 'Scanning...' : 'Scan Website'}
       </button>
 
