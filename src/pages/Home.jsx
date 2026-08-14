@@ -47,6 +47,12 @@ NEW_TOOLS_BATCH2.forEach(p => NEW_TOOLS.add(p))
   '/tools/metronome','/tools/probability','/tools/paypal-fee',
   '/tools/cpm-calculator','/tools/json-key-sorter','/tools/json-unescape',
 ].forEach(p => NEW_TOOLS.add(p))
+// 10 new tools (batch 4)
+;['/tools/random-sentence','/tools/word-randomizer','/tools/text-align',
+  '/tools/confidence-interval','/tools/schema-markup','/tools/json-to-php',
+  '/tools/table-converter','/tools/pwa-manifest','/tools/syntax-highlighter',
+  '/tools/indent-text',
+].forEach(p => NEW_TOOLS.add(p))
 
 // High-traffic / popular tools (shown with "🔥" badge)
 const HOT_TOOLS = new Set([
@@ -189,6 +195,16 @@ const MARQUEE_ITEMS = [
   { icon: '📋', name: 'Terms Generator',     path: '/tools/terms-generator' },
   { icon: '⚠️', name: 'Disclaimer',          path: '/tools/disclaimer-generator' },
   { icon: '😴', name: 'Sleep Calculator',    path: '/tools/sleep-calculator' },
+  // New batch 4 tools
+  { icon: '🎲', name: 'Random Sentence',     path: '/tools/random-sentence' },
+  { icon: '🔀', name: 'Word Randomizer',     path: '/tools/word-randomizer' },
+  { icon: '↔️', name: 'Text Align',          path: '/tools/text-align' },
+  { icon: '📐', name: 'Confidence Interval', path: '/tools/confidence-interval' },
+  { icon: '🏷️', name: 'Schema Markup',       path: '/tools/schema-markup' },
+  { icon: '🐘', name: 'JSON ↔ PHP',          path: '/tools/json-to-php' },
+  { icon: '📋', name: 'Table Converter',     path: '/tools/table-converter' },
+  { icon: '📱', name: 'PWA Manifest',        path: '/tools/pwa-manifest' },
+  { icon: '🎨', name: 'Syntax Highlighter',  path: '/tools/syntax-highlighter' },
 ]
 
 const FEATURED = [
@@ -259,6 +275,9 @@ const CATEGORIES = [
       { icon: '👁️', name: 'Zalgo Text',           desc: 'Generate glitchy Zalgo text or clean it back to normal.',         path: '/tools/zalgo-text' },
       { icon: '█', name: 'Censor Text',           desc: 'Redact text with blocks, asterisks, or [REDACTED] markers.',      path: '/tools/censor-text' },
       { icon: '⇥', name: 'Indent / Unindent',     desc: 'Add or remove indentation from every line with spaces or tabs.',  path: '/tools/indent-text' },
+      { icon: '↔️', name: 'Text Alignment',       desc: 'Left-align, right-align, centre, or justify text to a fixed column width.', path: '/tools/text-align' },
+      { icon: '🎲', name: 'Random Sentence Generator', desc: 'Generate random, quirky sentences for creative writing prompts or placeholder text.', path: '/tools/random-sentence' },
+      { icon: '🔀', name: 'Word Randomizer',       desc: 'Shuffle words, lines, or characters — or pick random words from any text.', path: '/tools/word-randomizer' },
     ],
   },
   {
@@ -325,6 +344,11 @@ const CATEGORIES = [
         { icon: '🌐', name: 'Port Checker',          desc: 'Check whether a remote host port is open (best effort).',      path: '/tools/port-checker' },
       { icon: '🔑', name: 'JSON Key Sorter',       desc: 'Alphabetically sort all keys in a JSON object, recursively.',  path: '/tools/json-key-sorter' },
       { icon: '🔓', name: 'JSON Unescape',         desc: 'Unescape JSON strings or escape plain text into JSON-safe format.', path: '/tools/json-unescape' },
+      { icon: '🐘', name: 'JSON ↔ PHP Array',      desc: 'Convert JSON objects to PHP associative arrays and back.',           path: '/tools/json-to-php' },
+      { icon: '📋', name: 'Table Format Converter', desc: 'Convert tables between CSV, TSV, Markdown, HTML, JSON, and ASCII art.', path: '/tools/table-converter' },
+      { icon: '🏷️', name: 'Schema Markup Generator', desc: 'Generate JSON-LD structured data for 14 Schema.org types.',        path: '/tools/schema-markup' },
+      { icon: '📱', name: 'PWA Manifest Generator', desc: 'Generate a manifest.json for your Progressive Web App.',            path: '/tools/pwa-manifest' },
+      { icon: '🎨', name: 'Syntax Highlighter',    desc: 'Highlight code syntax for 12 languages with 5 colour themes.',       path: '/tools/syntax-highlighter' },
     ],
   },
   {
@@ -378,6 +402,7 @@ const CATEGORIES = [
       { icon: '🎲', name: 'Probability Calculator', desc: 'Calculate single and two-event probability, union, intersection.', path: '/tools/probability' },
       { icon: '💸', name: 'PayPal Fee Calculator', desc: 'Calculate PayPal fees or find the amount to charge.',         path: '/tools/paypal-fee' },
       { icon: '📊', name: 'CPM Calculator',       desc: 'Calculate CPM, total ad cost, or number of impressions.',     path: '/tools/cpm-calculator' },
+      { icon: '📐', name: 'Confidence Interval',  desc: 'Calculate confidence intervals for a population mean or proportion.', path: '/tools/confidence-interval' },
     ],
   },
   {
@@ -486,19 +511,10 @@ const COMING_SOON_SECTIONS = [
     ],
   },
   {
-    title: '📐 Text Alignment/Layout',
-    tools: [
-      'Left/Right-align Text',
-      'Justify Text',
-    ],
-  },
-  {
     title: '🎨 Stylized/Fun Text',
     tools: [
       'Fake Text Generator + Fake Text Detector/Unfaker',
       'Add Random Words / Letters / Errors to Text',
-      'Word Randomizer',
-      'Random Sentence Generator',
       'Text Symbols Picker (1300+ Unicode symbols)',
       'Text ↔ ASCII Converter (distinct from ASCII Art)',
     ],
@@ -537,7 +553,6 @@ const COMING_SOON_SECTIONS = [
   {
     title: '🔢 Calculators',
     tools: [
-      'Confidence Interval Calculator',
       'Lease Calculator',
       'Present Value of Future Money',
       'Retirement Planning Calculator',
@@ -548,19 +563,9 @@ const COMING_SOON_SECTIONS = [
     title: '🛠️ Web Dev / Encoding',
     tools: [
       'JavaScript Obfuscator / DeObfuscator',
-      'Schema Markup Generator',
       'CSS Animation Generator (distinct from Gradient)',
-      'PWA Manifest Generator',
       'Filter Unused CSS',
       'Markdown to PDF (you have Markdown→HTML)',
-      'Syntax Highlighter',
-    ],
-  },
-  {
-    title: '🗂️ JSON/Data',
-    tools: [
-      'JSON ↔ PHP Array',
-      'Table Format Converter',
     ],
   },
   {

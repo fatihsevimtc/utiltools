@@ -218,6 +218,16 @@ const TOOL_NAMES = {
   '/tools/json-key-sorter':        'JSON Key Sorter',
   '/tools/json-unescape':          'JSON Unescape / Escape',
   '/tools/indent-text':            'Indent / Unindent Text',
+  // 10 new tools (batch 4)
+  '/tools/random-sentence':        'Random Sentence Generator',
+  '/tools/word-randomizer':        'Word Randomizer',
+  '/tools/text-align':             'Text Alignment Tool',
+  '/tools/confidence-interval':    'Confidence Interval Calculator',
+  '/tools/schema-markup':          'Schema Markup Generator',
+  '/tools/json-to-php':            'JSON ↔ PHP Array Converter',
+  '/tools/table-converter':        'Table Format Converter',
+  '/tools/pwa-manifest':           'PWA Manifest Generator',
+  '/tools/syntax-highlighter':     'Syntax Highlighter',
 }
 
 // Build numbered tool list from CATEGORIES, deduped

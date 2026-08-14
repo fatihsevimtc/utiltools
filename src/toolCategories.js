@@ -28,6 +28,7 @@ export const CATEGORIES = [
       '/tools/tabs-to-spaces',
       '/tools/unicode-text-converter', '/tools/zalgo-text', '/tools/censor-text',
       '/tools/indent-text',
+      '/tools/text-align', '/tools/random-sentence', '/tools/word-randomizer',
     ],
   },
   {
@@ -54,6 +55,8 @@ export const CATEGORIES = [
       '/tools/isbn-validator', '/tools/bcrypt', '/tools/css-variables',
         '/tools/list-to-array', '/tools/port-checker',
       '/tools/json-key-sorter', '/tools/json-unescape',
+      '/tools/json-to-php', '/tools/table-converter', '/tools/schema-markup',
+      '/tools/pwa-manifest', '/tools/syntax-highlighter',
     ],
   },
   {
@@ -79,7 +82,9 @@ export const CATEGORIES = [
       '/tools/matrix-calculator', '/tools/discount-calculator',
       '/tools/number-to-words', '/tools/number-sorter',
         '/tools/sales-tax', '/tools/margin-calculator', '/tools/gst-calculator',
-        '/tools/area-calculator', '/tools/prime-factorization',      '/tools/probability', '/tools/paypal-fee', '/tools/cpm-calculator',    ],
+        '/tools/area-calculator', '/tools/prime-factorization',      '/tools/probability', '/tools/paypal-fee', '/tools/cpm-calculator',
+      '/tools/confidence-interval',
+    ],
   },
   {
     id: 'time',

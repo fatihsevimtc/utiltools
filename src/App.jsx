@@ -256,6 +256,17 @@ import JsonKeySorter         from './pages/tools/JsonKeySorter'
 import JsonUnescape          from './pages/tools/JsonUnescape'
 import IndentText            from './pages/tools/IndentText'
 
+// 10 new tools (batch 4)
+import RandomSentenceGenerator from './pages/tools/RandomSentenceGenerator'
+import WordRandomizer        from './pages/tools/WordRandomizer'
+import TextAlign             from './pages/tools/TextAlign'
+import ConfidenceInterval    from './pages/tools/ConfidenceInterval'
+import SchemaMarkupGenerator from './pages/tools/SchemaMarkupGenerator'
+import JsonToPhp             from './pages/tools/JsonToPhp'
+import TableConverter        from './pages/tools/TableConverter'
+import PwaManifestGenerator  from './pages/tools/PwaManifestGenerator'
+import SyntaxHighlighter     from './pages/tools/SyntaxHighlighter'
+
 // Static pages
 import Privacy  from './pages/Privacy'
 import About    from './pages/About'
@@ -519,6 +530,17 @@ export default function App() {
         <Route path="tools/json-key-sorter"         element={<JsonKeySorter />} />
         <Route path="tools/json-unescape"           element={<JsonUnescape />} />
         <Route path="tools/indent-text"              element={<IndentText />} />
+
+        {/* 10 new tools (batch 4) */}
+        <Route path="tools/random-sentence"         element={<RandomSentenceGenerator />} />
+        <Route path="tools/word-randomizer"         element={<WordRandomizer />} />
+        <Route path="tools/text-align"              element={<TextAlign />} />
+        <Route path="tools/confidence-interval"     element={<ConfidenceInterval />} />
+        <Route path="tools/schema-markup"           element={<SchemaMarkupGenerator />} />
+        <Route path="tools/json-to-php"             element={<JsonToPhp />} />
+        <Route path="tools/table-converter"         element={<TableConverter />} />
+        <Route path="tools/pwa-manifest"            element={<PwaManifestGenerator />} />
+        <Route path="tools/syntax-highlighter"      element={<SyntaxHighlighter />} />
 
         {/* Static */}
         <Route path="privacy" element={<Privacy />} />

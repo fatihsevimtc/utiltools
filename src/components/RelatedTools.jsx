@@ -40,6 +40,9 @@ const TOOL_CATALOG = [
   { icon: '😶', name: 'Emoji Remover',        path: '/tools/emoji-remover',        category: 'text' },
   { icon: '🔀', name: 'Alternating Case',    path: '/tools/alternating-case',     category: 'text' },
   { icon: '⬛', name: 'Text Padder',         path: '/tools/text-padder',          category: 'text' },
+  { icon: '🎲', name: 'Random Sentence Generator', path: '/tools/random-sentence', category: 'text' },
+  { icon: '🔀', name: 'Word Randomizer',     path: '/tools/word-randomizer',      category: 'text' },
+  { icon: '↔️', name: 'Text Alignment',      path: '/tools/text-align',           category: 'text' },
   // Developer
   { icon: '🗂️', name: 'JSON Formatter',     path: '/tools/json-formatter',      category: 'developer' },
   { icon: '🔀', name: 'Diff Checker',        path: '/tools/diff-checker',        category: 'developer' },
@@ -57,6 +60,11 @@ const TOOL_CATALOG = [
   { icon: '🔒', name: 'SSL Decoder',         path: '/tools/ssl-decoder',         category: 'developer' },
   { icon: '🗺️', name: 'Unicode Char Map',   path: '/tools/unicode-char-map',    category: 'developer' },
   { icon: '🔍', name: 'JSON Schema Validator', path: '/tools/json-schema-validator', category: 'developer' },
+  { icon: '🐘', name: 'JSON ↔ PHP Array',    path: '/tools/json-to-php',           category: 'developer' },
+  { icon: '📋', name: 'Table Converter',     path: '/tools/table-converter',       category: 'developer' },
+  { icon: '🏷️', name: 'Schema Markup',       path: '/tools/schema-markup',         category: 'developer' },
+  { icon: '📱', name: 'PWA Manifest',        path: '/tools/pwa-manifest',          category: 'developer' },
+  { icon: '🎨', name: 'Syntax Highlighter',  path: '/tools/syntax-highlighter',    category: 'developer' },
   // Design
   { icon: '%',  name: 'Percentage Calc',     path: '/tools/percentage',          category: 'math' },
   { icon: '🔢', name: 'Number Base',         path: '/tools/number-base',         category: 'math' },
@@ -68,6 +76,7 @@ const TOOL_CATALOG = [
   { icon: '🏷️', name: 'Discount Calculator', path: '/tools/discount-calculator',  category: 'math' },
   { icon: '🔤', name: 'Number to Words',     path: '/tools/number-to-words',      category: 'math' },
   { icon: '↕️', name: 'Number Sorter',       path: '/tools/number-sorter',        category: 'math' },
+  { icon: '📐', name: 'Confidence Interval', path: '/tools/confidence-interval',  category: 'math' },
   // Time
   { icon: '🎂', name: 'Age Calculator',      path: '/tools/age-calculator',      category: 'time' },
   { icon: '📆', name: 'Date Difference',     path: '/tools/date-difference',     category: 'time' },
